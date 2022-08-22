@@ -1,0 +1,332 @@
+
+    .liked-wrapper {
+        margin-top: 20px;
+        width: 100%;
+        height: auto;
+        background-color: var(--box-color);
+        overflow: hidden;
+    }
+    .liked-wrapper .liked-header{
+        width: 100%;
+        min-height: 300px;
+        background-color: var(--box-color);
+    }
+    .liked-header .liked-header-container{
+        display: flex;
+        flex-direction: row;
+    }
+    .liked-header-container .liked-icon span{
+        font-size: 100px;
+        font-weight: 500;
+        color: var(--text-color);
+        padding: 50px;
+        background-color:  #71b7e6;
+        margin: 50px 30px 50px 30px;
+    }
+    .liked-header-container .liked-text{
+        padding-top: 80px;
+        color: var(--text-color);
+        min-width: 500px;
+    }
+    .liked-text span{
+        font-size: 18px;
+        font-weight: 500;
+    }
+    .liked-text h1 {
+        font-size: 80px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .liked-wrapper .liked-dash {
+        width: 100%;
+    }
+    .liked-dash .dash-top {
+        display: flex;
+        flex-direction: row;
+    }
+    .dash-top .dash-top-1 span{
+        margin: 20px 30px;
+        color: var(--text-color);
+        background-color: var(--black-color);
+        cursor: pointer;
+        font-size: 30px;
+        font-weight: 500;
+        height: 60px;
+        width: 60px;
+        line-height: 60px;
+        border-radius: 50%;
+        justify-content: center;
+        text-align: center;
+    }
+    .dash-top .dash-top-2 span{
+        margin: 20px 0;
+        color: var(--white-dark-color);
+        cursor: pointer;
+        font-size: 30px;
+        font-weight: 500;
+        line-height: 60px;
+        justify-content: center;
+        text-align: center;
+    }
+    .dash-top-1 span:hover{
+        background-color: var(--nav-color);
+    }
+    .dash-top-2 span:hover {
+        color: var(--text-color);
+    }
+    .liked-dash .liked-dash-content {
+       width: 100%;
+    }
+    .liked-dash-content .content-container{
+        max-width: 100%;
+        margin: 0;
+        padding: 20px 30px;
+    }
+    .content-container .container-row{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .container-row .row-header {
+        display: flex;
+        flex-direction: row;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 10px;
+    }
+    .row-header .title {
+        width: calc(50% - 15px);
+        margin-left: 15px;
+    }
+    .row-header .album {
+        width: 30%;
+    }
+    .row-header .icon{
+        width: calc(20% - 45px);
+        margin-right: 45px;
+    }
+    .row-header .title, .album, .icon{
+        color: var(--text-color);
+        font-size: 18px;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+    .row-header .title span{
+        margin-right: 10px;
+    }
+    .row-header .icon span{
+        float: right;
+    }
+    .container-row .row-content {
+        padding: 15px 0;
+    }
+    .row-content table{
+        width: 100%;
+        border-collapse: collapse; 
+    }
+    .row-content table td{
+        height: 70px;
+        padding: 5px 0;
+    }
+    .row-content table td:nth-child(1){
+        width: 50%;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+    .row-content table td:nth-child(2){
+        width: 30%;
+    }
+    .row-content table td:nth-child(3){
+        width: 20%; 
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px; 
+    }
+    .row-content td ul{
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center; 
+        text-transform: capitalize;
+        margin-left: 15px;  
+    }
+    .row-content td ul li{
+        margin-right: 15px;
+        color: var(--white-dark-color);
+    }
+    .row-content td ul li .td-1-1 {
+        width: 20px;
+    }
+    .row-content td ul li .number{
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--white-dark-color);
+        display: block;
+        padding: 5px;
+    }
+    .row-content td ul li .play-up{
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--white-dark-color);
+        display: none;
+        position: relative;
+    }
+    .row-content td ul li .td-1-3 span{
+        display: flex;
+        flex-direction: row;
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--white-dark-color);
+        width: 500px;
+    }
+    .row-content td ul li.text-overflow {
+        white-space: nowrap;  
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .row-content td ul li .td-1-3 p{
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--white-dark-color);
+        cursor: pointer;
+    }
+    .row-content td .td-2{
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--white-dark-color);
+        text-transform: capitalize;
+        cursor: pointer;
+    }
+    .row-content td .td-3{
+        float: right;
+        display: flex;
+        flex-direction: row;
+        margin-right: 15px;
+    }
+    .row-content td .td-3 span{
+        font-size: 18px;
+        font-weight: 500;
+        padding: 0 30px;
+        color: #71b7e6;
+        cursor: pointer;
+        
+    }
+    .row-content td .td-3 p{
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--white-dark-color);
+    }
+    .row-content td .td-3 .more-option{
+        font-size: 20px;
+        font-weight: 500;
+        color: var(--white-dark-color);
+        cursor: pointer;
+        padding-right: 0;
+        padding-left: 15px;
+        opacity: 0;   
+    }
+    .row-content td ul li .img img{
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        margin-top: 6px;
+    }
+    .row-content table tr:hover{
+        background-color: var(--box-hover-color); 
+        border-radius: 5px;
+    }
+    .row-content table tr:hover .td-1-3 span{
+        color: var(--text-color);
+    }
+    .row-content table tr:hover .td-1-3 p{
+        color: var(--text-color);
+    }
+    .row-content li .td-1-3 p:hover{
+        text-decoration: underline;
+        color: var(--text-color);
+    }
+    .row-content table tr:hover .td-2{
+        color: var(--text-color);
+    }
+    .row-content table .td-2 span:hover{
+        text-decoration: underline;
+    }
+    .row-content tr:hover .number{
+        display: none;
+    }
+    .row-content tr:hover .play-up{
+        display: block;
+        color: var(--text-color);
+    }
+    .row-content tr:hover .td-3 .more-option{
+        opacity: 1;
+        color: var(--text-color);
+    }
+    @media screen and (max-width: 1200px) {
+        .liked-text h1 {
+            font-size: 40px;
+        }
+        .row-header .title {
+            width: 80%;
+        }
+        .row-header .album {
+            display: none;
+        }
+        .row-header .icon{
+            width: 20%;
+        }
+       
+        .row-content table td:nth-child(1){
+            width: 80%;
+        }
+        .row-content table td:nth-child(2){
+            display: none;
+        }
+        .row-content table td:nth-child(3){
+            width: 20%;  
+        }
+        .row-content td ul li .td-1-3 span {
+            width: 300px;
+        }
+    }
+    @media screen and (max-width: 900px) {
+        .liked-text h1 {
+            font-size: 40px;
+        }
+        .row-header .title {
+            width: 80%;
+        }
+        .row-header .album {
+            display: none;
+        }
+        .row-header .icon{
+            width: 20%;
+        }
+       
+        .row-content table td:nth-child(1){
+            width: 80%;
+        }
+        .row-content table td:nth-child(2){
+            display: none;
+        }
+        .row-content table td:nth-child(3){
+            width: 20%;  
+        }
+        .row-content td ul li .td-1-3 span {
+            width: 300px;
+        }
+    }
+    @media screen and (max-width: 600px) {
+        .row-content table td:nth-child(1){
+            width: 100%;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px; 
+        }
+        .row-content table td:nth-child(3){
+            display: none;
+        }
+        .row-header .icon{
+            display: none;
+        }
+        .row-content td ul li .td-1-3 span {
+            width: 200px;
+        }
+    }
