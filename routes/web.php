@@ -41,12 +41,3 @@ Route::controller(FrontendController::class)->group(function(){
 
 
 
-
-
-
-
-
-
-
-
-
