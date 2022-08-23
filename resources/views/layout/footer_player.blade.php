@@ -2,19 +2,18 @@
     <div class="player-row">
         <div class="player-col">
             <div class="player-col-1">
-                <div class="col-1-img">
+
+                <div class="img-area">
                     <a href="">
                         <img src="/frontend/images/alan_walker.jpg" alt="">
                     </a>
                 </div>
-                <div class="col-1-text">
+                <div class="song-details">
                     <a href="">
-                        <div class="track-title">
-                            <span>Faded</span>
-                        </div>
+                        <span class="title">Faded</span>
                     </a>
                     <a href="">
-                        <p class="track-artist">Alan Walker</p>
+                        <p class="artist">Alan Walker</p>
                     </a>   
                 </div>
                 <div class="col-1-icon">
@@ -25,25 +24,27 @@
 
             <div class="player-col-2">
                 <div class="col-2-player-icon">
-                    <span class="material-icons-round">shuffle</span>
-                    <span class="material-icons-round">skip_previous</span>
-                    <span class="material-icons-round" id="play-button" onclick="playPause(this)">play_arrow</span>                 
-                    <span class="material-icons-round">skip_next</span>
-                    <span class="material-icons-round">repeat</span>
+                    <span  class="material-icons-round">shuffle</span>
+                    <span id="prev" class="material-icons-round">skip_previous</span>
+                    <div class="play-pause">
+                        <span class="material-icons-round play">play_arrow</span>
+                    </div>               
+                    <span id="next" class="material-icons-round">skip_next</span>
+                    <span id="repeat-list" title="Playlist looped" class="material-icons-round">repeat</span>
                 </div>
-                <div class="col-2-player-bar">
-                    <div class="col-2-player-bar-container">
+                <div class="col-2-player-container">
                         <div class="current-time" id="current-time">
                             <span>0:00</span>
                         </div>
-                        <div class="duration-bar" id="duration">
-                            <input type="range" id="seek" min="0" value="0" max="100" class="play-slider">
+                        <div class="progress-area">
+                            <div class="progress-bar">
+                              <audio id="main-audio" src=""></audio>
+                            </div>
                         </div>
-                        <div class="duration-time" id="duration-time">
+                        <div class="max-duration" id="max-duration">
                             <span>0:00</span>
                         </div>
-                    </div>
-                </div>    
+                </div>  
             </div>
 
             <div class="player-col-3">

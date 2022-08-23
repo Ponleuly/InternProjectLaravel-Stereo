@@ -693,59 +693,54 @@ nav.close ~ .dashboard .top{
 }
 
 /* ================== Col-1 content=================*/
-.player-col .player-col-1 .col-1-img a img{
+.player-col .player-col-1 .img-area a img{
     width: 60px;
     height: 60px;
     object-fit: cover; 
 }
-.player-col .player-col-1 .col-1-text{
+.player-col .player-col-1 .song-details{
     width: 270px;
     height: 60px;
-    padding: 0px 10px;
-    /*
-    overflow-y: auto;
-    overflow-x: hidden;
-    background-color: #4D4C4C;*/
+    padding: 6px 10px;
+    
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: var(--text-white-color);
 }
-.player-row .player-col .player-col-1 .col-1-text .track-title{
+.player-col-1 .song-details .title{
     font-size: 18px;
     font-weight: 500;
     color: var(--text-white-color);   
-    height: 30px;
-    padding: 2px 0;
-    /* background-color: #0b3cc1; */
 }
 
-.player-col .player-col-1 .col-1-text .track-artist{
+.player-col-1 .song-details .artist{
     font-size: 14px;
     font-weight: 500;
     color: var(--white-dark-color); 
-    height: 30px; 
-    padding: 4px 0;
-    /*background-color: #bbbbbb;*/
 }
-.player-col .player-col-1 .col-1-text a{
+.player-col-1 .song-details a{
     text-decoration: none;
 }
-.player-row .player-col .player-col-1 .col-1-icon{
+.player-col-1 .col-1-icon{
     height: 60px;
     width: 100px;
     padding: 18px 19px;
 }
-.player-col .player-col-1 .col-1-icon span{
+.col-1-icon span{
     font-size: 24px;
     font-weight: 500;
     color: var(--white-dark-color);
     cursor: pointer;  
 }
-.player-col .player-col-1 .col-1-text a:hover span{
+.song-details a:hover .title{
     text-decoration: underline;
 }
-.player-col .player-col-1 .col-1-text a:hover p{
+.song-details a:hover .artist{
     text-decoration: underline;
     color: var(--text-white-color);
 }
-.player-col .player-col-1 .col-1-icon span:hover{
+.col-1-icon span:hover{
     color: var(--text-white-color);
 }
 /*=========================================*/
@@ -768,28 +763,65 @@ nav.close ~ .dashboard .top{
 .player-col .player-col-2 .col-2-player-icon span:hover{
     color: var(--text-white-color);
 }
-.player-col .player-col-2 .col-2-player-icon span:nth-child(3){
+.player-col .player-col-2 .col-2-player-icon .play-pause span{
     background-color: var(--panel-color);
     padding: 10px;
     border-radius: 50%;
     justify-content: center;
     text-align: center;
 }
-.player-col .player-col-2 .col-2-player-icon span:nth-child(3):hover{
+.player-col .player-col-2 .col-2-player-icon .play-pause:hover span{
     background-color: var(--play-button-hover);
 }
-.player-col .player-col-2 .col-2-player-bar .col-2-player-bar-container{
+.player-col .player-col-2 .col-2-player-container{
     display: flex;
     margin-top: 5px;
+    width: 80%;
+    margin: 5px 10px;
 }
-.col-2-player-bar-container .current-time , .duration-time{
+.col-2-player-container .current-time , .max-duration{
     font-size: 14px;
     font-weight: 500;
     align-items: center;
-    padding: 5px 10px;
     color: var(--white-dark-color);
+    margin: 5px 0;
 }
 /*======== input range styel ==============*/
+.col-2-player-container .progress-area{
+    height: 4px;
+    width: 100%;
+    border-radius: 50px;
+    background-color: var(--black-light-color);
+    cursor: pointer;
+    margin: 14px 10px;
+}
+.col-2-player-container .progress-area .progress-bar{
+    height: inherit;
+    width: 0%;
+    position: relative;
+    border-radius: inherit;
+    background-color: var(--text-color);
+  }
+.progress-bar::before{
+    content: "";
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    top: 50%;
+    right: -5px;
+    z-index: 2;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-50%);
+    background: inherit;
+    transition: opacity 0.2s ease;
+  }
+  .progress-area:hover .progress-bar::before{
+    opacity: 1;
+    pointer-events: auto;
+  }
+/*
 .col-2-player-bar-container .duration-bar {
     width: 500px;
 }
@@ -806,7 +838,7 @@ nav.close ~ .dashboard .top{
     -webkit-transition: .2s;
     transition: opacity .2s;
 }
-/*===== FireFox ======*/
+/*===== FireFox ======
 .duration-bar .play-slider::-moz-range-thumb{
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -827,8 +859,8 @@ nav.close ~ .dashboard .top{
 }
 .duration-bar:hover .play-slider::-moz-range-progress {
     background-color: var(--panel-color);
-}
-/*===== Chrome ====*/
+}*/
+/*===== Chrome ====
 .duration-bar .play-slider::-webkit-slider-thumb{
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -848,7 +880,7 @@ nav.close ~ .dashboard .top{
     padding: 2px 0;
     height: 2px;
     border-radius: 5px;
-}
+}*/
 
 /*====================================*/
 /*=============================================================*/
