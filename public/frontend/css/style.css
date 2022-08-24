@@ -545,8 +545,8 @@ nav.close ~ .dashboard .top{
     -ms-transform: translate(-50%, -50%);
     text-align: center;
 }
-.box-content .box-single .img-popup-container .play-button-pop-up  i{
-    font-size: 16px;
+.box-content .box-single .img-popup-container .play-button-pop-up  span{
+    font-size: 25px;
     font-weight: 500;
     color: var(--text-color);
     background-color: var(--black-color);
@@ -556,12 +556,13 @@ nav.close ~ .dashboard .top{
     justify-content: center;
     line-height: 50px;
     text-align: center;
-    opacity: 0.9;
+    cursor: pointer;
 }
-.box-content .box-single .img-popup-container .play-button-pop-up  i:hover{
+.box-content .box-single .img-popup-container .play-button-pop-up  span:hover{
     color: var(--text-color);
     background-color: var(--nav-color);
     opacity: 1;
+    cursor: pointer;
 }
 .box-content:hover .img-popup-container .play-button-pop-up{
     opacity: 1;
@@ -573,7 +574,20 @@ nav.close ~ .dashboard .top{
     border-radius: 50%;
     transition: transform .2s; /* for img hover zoom time*/
 }
-
+.box-content .box-single .img-popup-container .play-button-pop-up.active-icon{
+    opacity: 1;
+}
+.box-content .box-single .img-popup-container .play-button-pop-up.active-icon  span{
+    background-color: var(--box-hover-color);
+    cursor: pointer;
+}
+.box-content .box-single .img-popup-container .play-button-pop-up.active-icon  span:hover{
+    background-color: var(--black-color);
+    cursor: pointer;
+}
+.dash-content .box .box-container .box-content.active-song{
+    background-color: var(--box-hover-color); 
+}
 /* == hold box hover ==*/
 .dash-content .box .box-container .box-content:hover {
     background-color: var(--box-hover-color); 

@@ -40,7 +40,7 @@
                             </a>
                             <a href="">
                                 <div class="play-button-pop-up">
-                                    <i class="fa fa-play" aria-hidden="true"></i>
+                                    <span class="material-icons-round active-btn">play_arrow</span>
                                 </div>
                             </a>
                         </div>
@@ -78,7 +78,7 @@
                     <div class="box-single">
                         <div class="img-popup-container">
                             <a href="#">
-                                <img src="/frontend/images/laylor_swift.jpg" alt="">
+                                <img src="/frontend/images/taylor_swift.jpg" alt="">
                             </a>
                             <a href="">
                                 <div class="play-button-pop-up">

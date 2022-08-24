@@ -127,7 +127,7 @@
                                             </li>
                                             <li>
                                                 <div class="img">
-                                                    <img src="/frontend/images/laylor_swift.jpg" alt="ed_sheeran">
+                                                    <img src="/frontend/images/taylor_swift.jpg" alt="taylor Swift">
                                                 </div>
                                             </li> 
                                             <li class="text-overflow">
