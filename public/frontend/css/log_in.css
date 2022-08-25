@@ -13,13 +13,25 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    /*background: linear-gradient(135deg, #71b7e6, #9b59b6);*/
+    
+    background-image: url("/frontend/images/login.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .form-container{
-    background-color: #71b7e6;
+   /* background-color: #71b7e6;*/
     width: 1000px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     height: 800px;
+
+    background-color: rgb(209 203 203 / 23%);
+    -webkit-backdrop-filter: blur(10px); 
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    border-radius: 5px;
 }
 .form-container .container-row{
     display: flex;
@@ -30,10 +42,12 @@ body {
 }
 .container-row .row-col-1 {
     width: 50%;
+    border-right: 1px solid #ccc;
 } 
 .container-row .row-col-2 {    
     width: 50%;
-    background-color: #fff;
+    /*background-color: #fff;
+    background-color: rgb(209 203 203 / 23%);*/  
 }
 .row-col-1 .col-1-container{
     display: flex;
@@ -119,7 +133,7 @@ body {
     display: flex;
     flex-direction: row;
     margin-top: 60px;
-    border-top: 1px solid white;
+    border-top: 1px solid #ccc;
     width: 80%;
     align-items: center;
     justify-content: center;
@@ -131,8 +145,9 @@ body {
 }
 .header-footer i{
     margin: 50px 10px;
-    color: #71b7e6;
-    background-color: white;
+    color: white;
+    /*background-color: rgb(209 203 203 / 23%);*/
+    background-color: #71b7e6;
     font-size: 18px;
     font-weight: 500;
     height: 45px;
@@ -153,10 +168,11 @@ body {
     border-radius: 5px;
 }
 .sign-up-container .title{
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 500;
     position: relative;
     margin-top: 10px;
+    color: white;
 }
 .sign-up-container .title::before{
     content: "";
@@ -164,15 +180,17 @@ body {
     left: 0;
     bottom: 0;
     height: 3px;
-    width: 50px;
+    width: 90px;
     border-radius: 5px;
-    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    /*background: linear-gradient(135deg, #71b7e6, #9b59b6);*/
+    background-color: #71b7e6;
   }
 .sign-up-container .sign-up-content form .user-details{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 20px 0 12px 0;
+    color: white;
 }
 form .user-details .input-box{
     margin-bottom: 15px;
@@ -182,6 +200,7 @@ form .input-box span.details{
     display: block;
     font-weight: 500;
     margin-bottom: 5px;
+    color: white;
 }
 .user-details .input-box input{
     height: 45px;
@@ -193,11 +212,30 @@ form .input-box span.details{
     border: 1px solid #ccc;
     border-bottom-width: 2px;
     transition: all 0.3s ease;
+    /**/
+    color: white;
+    background-color: transparent;
+}
+.user-details .input-box input:focus{ 
+    background-color: transparent; 
+}
+.user-details .input-box input::placeholder { 
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #d9d5d5 !important; opacity: 1; /* Firefox */ 
+}
+.user-details .input-box input:-ms-input-placeholder {
+     /* Internet Explorer 10-11 */
+    color: #d9d5d5 !important; 
+}
+.user-details .input-box input::-ms-input-placeholder{ 
+    /* Microsoft Edge */
+    color: #d9d5d5 !important;
 }
 .input-box #show-hide-pass{
     position: relative;
     font-size: 18px;
-    color: #919191;
+    /*color: #919191;*/
+    color: white;
     cursor: pointer;
     padding: 13px;
     margin-left: -45px;
@@ -206,7 +244,8 @@ form .input-box span.details{
 .input-box #show-hide-cpass{
     position: relative;
     font-size: 18px;
-    color: #919191;
+    /*color: #919191;*/
+    color: white;
     cursor: pointer;
     padding: 13px;
     margin-left: -45px;
@@ -215,17 +254,20 @@ form .input-box span.details{
 }
 .user-details .input-box input:focus,
 .user-details .input-box input:valid{
-    border-color: #9b59b6;
+    /*border-color: #9b59b6;*/
+    border-color: #71b7e6;
 }
 form .gender-details .gender-title{
     font-size: 20px;
     font-weight: 500;
+    color: white;
 }
 form .category{
     display: flex;
     width: 80%;
     margin: 14px 0 ;
     justify-content: space-between;
+    color: white;
 }
 form .category label{
     display: flex;
@@ -237,15 +279,20 @@ form .category label .dot{
     width: 18px;
     border-radius: 50%;
     margin-right: 10px;
-    background: #d9d9d9;
+    /*
+    background: #d9d9d9;*/
     border: 5px solid transparent;
     transition: all 0.3s ease;
+
+    background-color: white;
 }
 #dot-1:checked ~ .category label .one,
 #dot-2:checked ~ .category label .two,
 #dot-3:checked ~ .category label .three{
-    background: #9b59b6;
-    border-color: #d9d9d9;
+    /*background: #9b59b6;
+    border-color: #d9d9d9;*/
+    background-color: #71b7e6;
+    border-color: white;
 }
 form input[type="radio"]{
     display: none;
@@ -265,7 +312,8 @@ form .button input{
     letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.3s ease;
-    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    /*background: linear-gradient(135deg, #71b7e6, #9b59b6);*/
+    background-color: #71b7e6;
 }
 form .button input:hover{
     /* transform: scale(0.99); */
@@ -273,7 +321,15 @@ form .button input:hover{
 }
 form .log-in{
     text-align: center;
+    color: white;
 }
+form .log-in a{
+    color: #71b7e6;
+}
+form .input-box a{
+    color: #71b7e6;
+}
+
 @media(max-width: 900px){
     .form-container{
         max-width: 100%;

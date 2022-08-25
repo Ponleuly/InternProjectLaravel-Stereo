@@ -66,7 +66,7 @@
                         <div class="log-in">
                             <label>
                                 <span>Don't have an account?</span>
-                                <a href="{{route('sign_up')}}">Sign up.</a>
+                                <a href="{{route('sign_up')}}" class="link-login">Sign up.</a>
                             </label>
                         </div>
                       </form>
