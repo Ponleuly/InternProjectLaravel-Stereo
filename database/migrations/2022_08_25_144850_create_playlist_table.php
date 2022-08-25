@@ -13,11 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('dbtest', function (Blueprint $table) {
-            $table->id();
-            $table->string('username');
-            $table->string('email');
-            $table->timestamps();
+        Schema::create('table_playlist', function (Blueprint $table) {
+            $table->increments('id_playlist', 10);
+            $table->string('playlist', 100);
+            $table->string('pf_playlist', 100)->nullable();
+
+            $table->unsignedInteger('id_user');
+            $table->foreign('id_user')->references('id_user')->on('table_user');
         });
     }
 
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dbtest');
+        Schema::dropIfExists('table_playlist');
     }
 };
