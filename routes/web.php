@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\AdminController;
+use PhpParser\Builder\Function_;
+use PhpParser\Node\Expr\FuncCall;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,7 +41,7 @@ Route::controller(FrontendController::class)->group(function(){
 
 });
 
-
-
+/*============= frontend route ==================*/
+Route::get('/admin_stereo', [AdminController::class, 'index'])->name('admin_stereo');
 
 
