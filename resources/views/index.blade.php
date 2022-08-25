@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="{{url('frontend/css/style.css')}}">
+    <link rel="stylesheet" href="{{url('frontend/css/index.css')}}">
+    <link rel="stylesheet" href="{{url('frontend/css/footer_player.css')}}">
     <link rel="stylesheet" href="{{url('frontend/css/category.css')}}">
     <link rel="stylesheet" href="{{url('frontend/css/liked.css')}}">
     <link rel="stylesheet" href="{{url('frontend/css/createplaylist.css')}}">
