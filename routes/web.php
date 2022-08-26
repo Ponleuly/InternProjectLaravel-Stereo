@@ -55,6 +55,8 @@ Route::controller(AdminController::class)->group(function(){
     Route::get('/admin_stereo/playlist', 'playlist')->name('playlist');
     Route::get('/admin_stereo/track', 'track')->name('track');
     Route::get('/admin_stereo/user', 'track')->name('user');
+
+    Route::post('/admin_stereo/category', 'category')->name('category');
 });
 
 

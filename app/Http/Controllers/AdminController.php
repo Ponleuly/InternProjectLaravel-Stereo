@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\AddCategory;
+
 
 class AdminController extends Controller
 {
@@ -10,10 +13,22 @@ class AdminController extends Controller
         return view('admin.index');
     }
     public function dashboard(){
+        
         return view('admin.pages.dashboard');
     }
-    public function category(){
-        return view('admin.pages.category');
+    public function category(Request $req){
+        if($req->isMethod('post')){
+            $name_category = $req->input('name_category');
+            $img = $req->input('img');
+            $addCategory = new AddCategory;
+            $addCategory->name_category=$name_category;
+            $addCategory->img=$img;
+            $addCategory->save(); 
+        }
+        $query = DB::table('table_category');
+        $query = $query->orderBy("id_category", "asc");
+        $data = $query->paginate(15);
+        return view('admin.pages.category', $data);
     }
     public function country(){
         return view('admin.pages.country');
