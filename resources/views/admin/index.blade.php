@@ -13,9 +13,9 @@
   
 </head>
 <body>
-  @include('admin.sidebar')
+  @include('admin.layout.sidebar')
   <section class="home-section">
-    @include('admin.nav')
+    @include('admin.layout.nav')
     @yield('content')
   </section>
   <!--

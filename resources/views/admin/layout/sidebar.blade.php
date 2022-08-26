@@ -7,43 +7,43 @@
     </div>
     <ul class="nav-links">
       <li>
-        <a href="{{route('dashboard')}}" class="active">
+        <a href="{{route('dashboard')}}" class="{{ Request::is('admin_stereo')? 'active':''}}">
             <span class="material-icons-round link-icon">dashboard</span>
             <span class="links_name">Dashboard</span>
         </a>
       </li>
       <li>
-        <a href="{{route('track')}}">
+        <a href="{{route('track')}}" class="{{ Request::is('admin_stereo/track')? 'active':''}}">
             <span class="material-icons-round link-icon">audiotrack</span>
             <span class="links_name">Tracks</span>
         </a>
       </li>
       <li>
-        <a href="{{route('album')}}">
+        <a href="{{route('album')}}" class="{{ Request::is('admin_stereo/album')? 'active':''}}">
             <span class="material-icons-round link-icon">album</span>
             <span class="links_name">Albums</span>
         </a>
       </li>
       <li>
-        <a href="{{route('category')}}">
+        <a href="{{route('category')}}" class="{{ Request::is('admin_stereo/category')? 'active':''}}">
             <span class="material-icons-round link-icon">category</span>
           <span class="links_name">Category</span>
         </a>
       </li>
       <li>
-        <a href="{{route('playlist')}}">
+        <a href="{{route('playlist')}}" class="{{ Request::is('admin_stereo/playlist')? 'active':''}}">
             <span class="material-icons-round link-icon">queue_music</span>
             <span class="links_name">Playlists</span>
         </a>
       </li>
       <li>
-        <a href="{{route('country')}}">
+        <a href="{{route('country')}}" class="{{ Request::is('admin_stereo/country')? 'active':''}}">
             <span class="material-icons-round link-icon">flag</span>
             <span class="links_name">Country</span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="{{route('user')}}" class="{{ Request::is('admin_stereo/user')? 'active':''}}">
             <span class="material-icons-round link-icon">person</span>
           <span class="links_name">Users</span>
         </a>
