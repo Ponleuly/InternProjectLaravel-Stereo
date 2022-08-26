@@ -20,17 +20,17 @@
 </head>
 <body>
     <!--========= Nav ==========-->
-    @include('layout.nav')
+    @include('frontend.layout.nav')
     
     <!--======== Section =======-->
     <section class="dashboard">
         <!--==== Top Bar =====-->
-        @include('layout.dashboard_top')
+        @include('frontend.layout.dashboard_top')
         <!--===== Dashboard content ====-->
         @yield('dash_content')
     </section> 
     <!--===== Footer player ====-->
-    @include('layout.footer_player')
+    @include('frontend.layout.footer_player')
 
 
     <!--======== Nav active script =======

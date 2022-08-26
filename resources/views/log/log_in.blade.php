@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Log in</title>
-        <link rel="stylesheet" href="{{url('frontend/css/log_in.css')}}">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-       
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <link rel="icon" type="image/png" href="/frontend/images/favicon(3).ico">
+    <link rel="stylesheet" href="{{url('frontend/css/log_in.css')}}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
+</head>
 <body>
     <div class="form-container">
         <div class="container-row">
@@ -29,7 +30,7 @@
                             <audio controls autoplay muted>
                                 <source src="frontend/audio/Windy Hill.mp3" type="audio/mp3">
                             </audio>
-                            -->
+                        -->
                         </div> 
                     </div>
                     <div class="header-footer">
@@ -48,31 +49,31 @@
                 <div class="sign-up-container">
                     <div class="title">Log in</div>
                     <div class="sign-up-content">
-                      <form action="{{route('home')}}">
-                        <div class="user-details">
-                          <div class="input-box">
-                            <span class="details">Email or username</span>
-                            <input type="text" placeholder="Enter your email" required>
-                          </div>
-                          <div class="input-box">
-                            <span class="details">Password</span>
-                            <input type="password" placeholder="Enter your password" required id="password">
-                            <span class="material-icons-round" id="show-hide-pass" onclick="show_pass()">visibility_off</span>
-                        </div>
-                          <div class="input-box">
-                            <a href=""> Forget your password ?</a>
-                          </div>
-                        </div>
-                        <div class="button">
-                          <input type="submit" value="Log in">
-                        </div>
-                        <div class="log-in">
-                            <label>
-                                <span>Don't have an account?</span>
-                                <a href="{{route('sign_up')}}" class="link-login">Sign up.</a>
-                            </label>
-                        </div>
-                      </form>
+                        <form action="{{route('home')}}">
+                            <div class="user-details">
+                                <div class="input-box">
+                                    <span class="details">Email or username</span>
+                                    <input type="text" placeholder="Enter your email" required>
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Password</span>
+                                    <input type="password" placeholder="Enter your password" required id="password">
+                                    <span class="material-icons-round" id="show-hide-pass" onclick="show_pass()">visibility_off</span>
+                                </div>
+                                <div class="input-box">
+                                    <a href=""> Forget your password ?</a>
+                                </div>
+                            </div>
+                            <div class="button">
+                                <input type="submit" value="Log in">
+                            </div>
+                            <div class="log-in">
+                                <label>
+                                    <span>Don't have an account?</span>
+                                    <a href="{{route('sign_up')}}" class="link-login">Sign up.</a>
+                                </label>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

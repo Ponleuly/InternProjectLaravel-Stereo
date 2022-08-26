@@ -1,4 +1,4 @@
-@extends('adminIndex')
+@extends('admin.adminIndex')
 @section('content')
 <div class="home-content">
   <div class="overview-boxes">

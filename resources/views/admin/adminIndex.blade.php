@@ -15,9 +15,10 @@
 <body>
   @include('admin.adminSidebar')
   <section class="home-section">
-      @include('admin.adminNav')
-      @yield('content')
+    @include('admin.adminNav')
+    @yield('content')
   </section>
+  <!--
   <script>
       let sidebar = document.querySelector(".sidebar");
       let sidebarBtn = document.querySelector(".sidebarBtn");
@@ -29,6 +30,7 @@
       sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
       }
   </script>
+  -->
   <script src="{{url('admin/js/script.js')}}"></script>
 </body>
 </html>

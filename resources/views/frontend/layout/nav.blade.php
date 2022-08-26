@@ -45,7 +45,7 @@
                 <span>Your Playlists</span>
             </div>
             <!--===== Your Playlist ======--> 
-            @include('pages.subpages.yourplaylist')
+            @include('frontend.pages.subpages.yourplaylist')
         </ul>
         <ul class="logout-mode">
             <li class="mode">

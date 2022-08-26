@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Sign up</title>
+        <link rel="icon" type="image/png" href="/frontend/images/favicon(3).ico">
         <link rel="stylesheet" href="{{url('frontend/css/log_in.css')}}">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     </head>

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LogController;
 use PhpParser\Builder\Function_;
 use PhpParser\Node\Expr\FuncCall;
 
@@ -22,12 +23,14 @@ Route::get('/', function () {
 });
 */
 //Route::get('/index', function(){return view('pages.home');})->name('index');
-
+/*============== Log_in  sign_up ===============*/
+Route::controller(LogController::class)->group(function(){
+    Route::get('/', 'log_in')->name('log_in');
+    Route::get('/sign_up', 'sign_up')->name('sign_up');
+});
 /*============= frontend route ==================*/
 // *Using Route group to control route pages
 Route::controller(FrontendController::class)->group(function(){
-    Route::get('/', 'log_in')->name('log_in');
-    Route::get('/sign_up', 'sign_up')->name('sign_up');
     Route::get('/home', 'home')->name('home');
     Route::get('/mylibrary/playlists', 'mylibrary_platlists')->name('mylibrary/playlists');
     Route::get('/mylibrary/artists', 'mylibrary_artists')->name('mylibrary/artists');
