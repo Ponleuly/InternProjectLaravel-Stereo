@@ -7,37 +7,37 @@
     </div>
     <ul class="nav-links">
       <li>
-        <a href="#" class="active">
+        <a href="{{route('dashboard')}}" class="active">
             <span class="material-icons-round link-icon">dashboard</span>
             <span class="links_name">Dashboard</span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="{{route('track')}}">
             <span class="material-icons-round link-icon">audiotrack</span>
             <span class="links_name">Tracks</span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="{{route('album')}}">
             <span class="material-icons-round link-icon">album</span>
             <span class="links_name">Albums</span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="{{route('category')}}">
             <span class="material-icons-round link-icon">category</span>
           <span class="links_name">Category</span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="{{route('playlist')}}">
             <span class="material-icons-round link-icon">queue_music</span>
             <span class="links_name">Playlists</span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="{{route('country')}}">
             <span class="material-icons-round link-icon">flag</span>
             <span class="links_name">Country</span>
         </a>
