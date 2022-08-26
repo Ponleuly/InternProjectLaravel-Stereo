@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('table_track', function (Blueprint $table) {
             $table->increments('id_track', 10);
-            $table->string('track', 100);
+            $table->string('name_track', 100);
             $table->string('pf_track', 100);
+            $table->text('audio_track');
 
             $table->unsignedInteger('id_category');
             $table->foreign('id_category')->references('id_category')->on('table_category');

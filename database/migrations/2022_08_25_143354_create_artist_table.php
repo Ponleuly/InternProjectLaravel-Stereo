@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('table_artist', function (Blueprint $table) {
             $table->increments('id_artist', 10);
-            $table->string('artist', 100);
+            $table->string('name_artist', 100);
             $table->string('pf_artist', 100);
             $table->unsignedInteger('id_category');
             $table->foreign('id_category')->references('id_category')->on('table_category');

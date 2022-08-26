@@ -6,6 +6,7 @@
         <title>Log in</title>
         <link rel="stylesheet" href="{{url('frontend/css/log_in.css')}}">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+       
     </head>
 <body>
     <div class="form-container">
@@ -24,9 +25,11 @@
                             <img src="frontend/images/music.png" alt="">
                         </div>
                         <div class="audio">
+                            <!--
                             <audio controls autoplay muted>
                                 <source src="frontend/audio/Windy Hill.mp3" type="audio/mp3">
                             </audio>
+                            -->
                         </div> 
                     </div>
                     <div class="header-footer">

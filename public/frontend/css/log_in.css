@@ -56,37 +56,39 @@ body {
     align-items: center;
 }
 .col-1-container .header-logo{
-    margin-top: 40px;
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 .header-logo .logo-text{
-    font-size: 60px;
+    font-size: 70px;
     font-weight: 500;
     color: white;
     margin-left: 20px;
     font-family: 'Fredoka One', cursive;
 }
 .header-logo .logo-icon{
-    font-size: 35px;
+    font-size: 40px;
     font-weight: 500;
-    height: 50px;
-    width: 50px;
-    line-height: 50px;
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
     text-align: center;
     align-items: center;
     border-radius: 50%;
     color: #71b7e6;
     background-color: white;
 }
-.description {
+.description p{
     font-size: 16px;
     font-weight: 500;
+    /*color: #71b7e6;*/
     color: white;
     margin-top: 20px;
     text-transform: capitalize;
+    
 }
 .col-1-container .header-logo img{
     height: 50px;
@@ -94,19 +96,20 @@ body {
     border-radius: 50%;
 }
 .col-1-container .header-content {
-    margin-top: 80px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 .header-content .image img{
-    width: 200px;
-    height: 200px;
+    width: 270px;
+    height: 270px;
     object-fit: cover;
     border-radius: 50%;
     animation: imgMove 5s infinite linear;
 } 
+
 @keyframes imgMove{
     0%{
         transform: rotate(0deg);
@@ -119,7 +122,7 @@ body {
     transform: rotate(360deg);
 }
 .header-content .audio audio{
-    margin-top: 50px;
+    margin-top: 40px;
     border-radius: 15px;
     height: 30px;
 }
@@ -132,7 +135,7 @@ body {
 .header-footer {
     display: flex;
     flex-direction: row;
-    margin-top: 60px;
+    margin-top: 50px;
     border-top: 1px solid #ccc;
     width: 80%;
     align-items: center;

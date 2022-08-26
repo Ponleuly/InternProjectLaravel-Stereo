@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('table_playlist', function (Blueprint $table) {
             $table->increments('id_playlist', 10);
-            $table->string('playlist', 100);
+            $table->string('name_playlist', 100);
             $table->string('pf_playlist', 100)->nullable();
 
             $table->unsignedInteger('id_user');

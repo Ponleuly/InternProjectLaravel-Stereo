@@ -24,9 +24,11 @@
                             <img src="frontend/images/music.png" alt="">
                         </div>
                         <div class="audio">
+                          <!--
                             <audio controls autoplay muted>
                                 <source src="frontend/audio/Windy Hill.mp3" type="audio/mp3">
                             </audio>
+                          -->
                         </div> 
                     </div>
                     <div class="header-footer">

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('table_album', function (Blueprint $table) {
             $table->increments('id_album', 10);
-            $table->string('album', 100);
+            $table->string('name_album', 100);
             $table->string('pf_album', 100);
 
             $table->unsignedInteger('id_category');
