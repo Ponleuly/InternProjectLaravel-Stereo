@@ -19,13 +19,20 @@
         </a>
       </li>
       <li>
+        <a href="{{route('artist')}}" class="{{ Request::is('admin_stereo/artist')? 'active':''}}">
+            <span class="material-icons-round link-icon">people</span>
+            <span class="links_name">Artists</span>
+        </a>
+      </li>
+      <li>
         <a href="{{route('album')}}" class="{{ Request::is('admin_stereo/album')? 'active':''}}">
             <span class="material-icons-round link-icon">album</span>
             <span class="links_name">Albums</span>
         </a>
       </li>
       <li>
-        <a href="{{route('category')}}" class="{{ Request::is('admin_stereo/category')? 'active':''}}">
+        <a href="{{route('category')}}" 
+            class="{{ Request::is('admin_stereo/category')||Request::is('admin_stereo/add_category')? 'active':''}}">
             <span class="material-icons-round link-icon">category</span>
           <span class="links_name">Category</span>
         </a>

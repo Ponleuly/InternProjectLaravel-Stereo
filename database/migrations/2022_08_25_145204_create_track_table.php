@@ -33,6 +33,8 @@ return new class extends Migration
 
             $table->unsignedInteger('id_playlist')->nullable();
             $table->foreign('id_playlist')->references('id_playlist')->on('table_playlist');
+
+            $table->timestamps();
         });
     }
 

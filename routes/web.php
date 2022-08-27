@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\CategoryController;
 use PhpParser\Builder\Function_;
 use PhpParser\Node\Expr\FuncCall;
 
@@ -44,11 +45,11 @@ Route::controller(FrontendController::class)->group(function(){
 
 });
 
-/*============= frontend route ==================*/
+/*============= Admin route ==================*/
 Route::controller(AdminController::class)->group(function(){
     //Route::get('/admin_stereo', [AdminController::class, 'index'])->name('admin_stereo');
     Route::get('/admin_stereo', 'dashboard')->name('dashboard');
-    Route::get('/admin_stereo/category', 'category')->name('category');
+    //Route::get('/admin_stereo/category', 'category')->name('category');
     Route::get('/admin_stereo/country', 'country')->name('country');
     Route::get('/admin_stereo/artist', 'artist')->name('artist');
     Route::get('/admin_stereo/album', 'album')->name('album');
@@ -56,7 +57,12 @@ Route::controller(AdminController::class)->group(function(){
     Route::get('/admin_stereo/track', 'track')->name('track');
     Route::get('/admin_stereo/user', 'track')->name('user');
 
-    Route::post('/admin_stereo/category', 'category')->name('category');
+    //Route::post('/admin_stereo/category', 'category')->name('category');
+    //Route::get('/admin_stereo/add_category', 'add_category')->name('add_category');
 });
+Route::get('/admin_stereo/category', [CategoryController::class, 'index'])->name('category');
+Route::get('/admin_stereo/add_category', [CategoryController::class, 'store'])->name('add_category');
+
+Route::post('/admin_stereo/add_category', [CategoryController::class, 'store']);
 
 

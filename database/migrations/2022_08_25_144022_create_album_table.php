@@ -26,6 +26,8 @@ return new class extends Migration
 
             $table->unsignedInteger('id_artist');
             $table->foreign('id_artist')->references('id_artist')->on('table_artist');
+
+            $table->timestamps();
         });
     }
 

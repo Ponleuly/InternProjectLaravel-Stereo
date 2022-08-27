@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreign('id_category')->references('id_category')->on('table_category');
             $table->unsignedInteger('id_country');
             $table->foreign('id_country')->references('id_country')->on('table_country');
+            $table->timestamps();
         });
     }
 

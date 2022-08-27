@@ -1,23 +1,13 @@
 @extends('admin.index')
 @section('content')
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto:ital,wght@0,300;0,500;1,400&display=swap" rel="stylesheet">
 <style>
-.home-section .category-content{
-  position: relative;
-  padding-top: 104px;
+.box-category-container{
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
 }
-.category-content .category-box{
-  margin:0 20px;
-  width: calc(100% - 40px);
-  min-width: 1000px;
-  height: calc(100% - 124px);
-  min-height: 500px;
-  background: #fff;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-  margin-bottom: 20px;
-} 
-.category-box .box-top{
+.box-category-container .box-top{
   display: flex;
   flex-direction: row;
   margin: 20px;
@@ -34,6 +24,7 @@
   padding: 0 10px;
   font-size: 18px;
   font-weight: 500;
+  font-family: 'Roboto', sans-serif;
 }
 .search-box button{
   color: white;
@@ -46,6 +37,7 @@
   border: none;
   border-left: none;
   cursor: pointer;
+  font-family: 'Roboto', sans-serif;
 }
 .search-box input:focus, button{
   border: none;
@@ -57,7 +49,7 @@
   margin-left: 30px;
   text-align: center;
   padding: 13px 0;
-  border-radius: 2px;
+  border-radius: 5px;
   border: 1px solid #0d3073;
 }
 .add-category-link a{
@@ -65,6 +57,7 @@
   font-weight: 500;
   color: white;
   text-decoration: none;
+  font-family: 'Roboto', sans-serif;
 }
 .add-category-link:hover{
   background: white;
@@ -72,72 +65,46 @@
 .add-category-link:hover a{
   color: #0d3073;
 }
-.category-box .box-table{
+.box-category-container .category-table{
   width: calc(100% - 40px);
   margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
 }
-.category-box .box-table table{
+.box-category-container .category-table table{
   border-collapse: collapse;
-  width: 100%
-
+  width: 100%;
 }
-.box-table table tr:nth-child(even) {
+.category-table tr:nth-child(even) {
   background-color: #dddddd;
 }
-.box-table table td{
-  border: 1px solid #dddddd;
-  text-align: left;
+.category-table td:nth-child(1) {
+  width: 5%;
+  text-align: center;
+}
+.category-table td:nth-child(2) {
+  width: 30%;
+}
+.category-table td:nth-child(3) {
+  width: 20%;
+}
+.category-table th, td{
+  border: 1px solid #ddd;
   padding: 8px;
-}
-.category-box .add-category{
-  width: calc(100% - 40px);
-  background: #dddddd;
-  margin: 50px auto;
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-}
-.add-category span{
   font-size: 18px;
   font-weight: 500;
-  margin:15px 0 0 15px;
+  font-family: 'Roboto', sans-serif;
 }
-.add-category form{
-  margin: 15px 15px;
-}
-.add-category form input{
-  width: 200px;
-  height: 40px;
-  margin: 15px 0;
-  font-size: 16px;
-  font-weight: 500px;
-  padding: 0 15px;
-}
-.add-category form input:focus{
-  border: none;
-}
-.add-category form button{
-  width: 50px;
-  height: 40px;
-  color: white;
-  background: #0d3073;
+.category-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
   text-align: center;
-  border-radius: 2px;
-  border: 1px solid #0d3073;
-  cursor: pointer;
+  background-color: #0d3073;
+  color: white;
 }
-.add-category form button:hover{
-  background: white;
-  color: #0d3073;
-}
-.box-table img{
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-}
+.category-table tr:hover {background-color: #ddd;}
+
 </style>
-<div class="category-content">
-  <div class="category-box">
+  <div class="box-category-container">
     <div class="box-top">
       <div class="search-box">
         <form action="">
@@ -146,37 +113,28 @@
         </form>
       </div>
       <div class="add-category-link">
-          <a href="#">
+          <a href="{{url('/admin_stereo/add_category')}}">
             <span>+Add Category</span>
           </a>
       </div>
     </div>
-    <div class="box-table">
+    <div class="category-table">
       <table>
           <tr>
-            <td>Title</td>
-            <td>Tracks</td>
-            <td><span class="material-icons-outlined">edit</span></td>
+            <th>#</th>
+            <th>Title</th>
+            <th>Tracks</th>
+            <th><span class="material-icons-outlined">edit</span></td>
           </tr>
+    
           @foreach($data as $row)
           <tr>
+            <td>1</td>
             <td>{{$row->name_category}}</td>
-            <td><img src="/frontend/images/{{$row->img}}" alt=""></td>
+            <td>0</td>
             <td>Delete/Edit</td>
-          </tr>
           @endforeach()
       </table>
     </div>
-
-    <div class="add-category">
-      <span>Category name</span>
-      <form action="category" method="POST">
-        @csrf <!-- to make form active -->
-        <input type="text" placeholder="Enter here..." name="name_category" id="" required>
-        <input type="file" name="img">
-        <button type="submit">Add</button>
-      </form>
-    </div>
   </div>
-</div>
 @endsection()
