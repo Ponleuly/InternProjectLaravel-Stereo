@@ -28,7 +28,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        
+        return view('admin.pages.subPages.add_category');
     }
 
     /**
@@ -39,13 +39,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->isMethod('post')){
+
             $name_category = $request->input('name_category');
             $addCategory = new Category;
             $addCategory->name_category=$name_category;
             $addCategory->save(); 
-        }
-        return view('admin.pages.subPages.add_category');
+        
+        return redirect('/admin_stereo/category');// After inputed -> go back to category page
     }
 
     /**
@@ -56,11 +56,6 @@ class CategoryController extends Controller
      */
     public function show()
     {
-        $query = DB::table('table_category');
-        $query = $query->orderBy("id_category", "desc");
-        $data = $query->paginate(100);
-        
-        return view('admin.pages.category', $data);
     }
 
     /**

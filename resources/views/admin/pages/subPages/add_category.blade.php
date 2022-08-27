@@ -77,13 +77,13 @@
       <span>Add Category</span>
     </div>
     <div class="form-fill">
-      <form action="add_category" method="POST" enctype="multipart/form-data">
+      <form action="{{url('/admin_stereo/add_category')}}" method="POST" enctype="multipart/form-data">
         @csrf <!-- to make form active -->
         <div class="input-box">
           <span class="detail">Name</span>
           <input type="text" placeholder="Enter here..." name="name_category" id="" required>
         </div>
-        <button type="submit" href="{{url('/admin_stereo/category')}}">Add</button>
+        <button type="submit">Add</button>
       </form>
     </div>
   </div>

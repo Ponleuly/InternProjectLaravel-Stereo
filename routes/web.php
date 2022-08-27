@@ -61,7 +61,7 @@ Route::controller(AdminController::class)->group(function(){
     //Route::get('/admin_stereo/add_category', 'add_category')->name('add_category');
 });
 Route::get('/admin_stereo/category', [CategoryController::class, 'index'])->name('category');
-Route::get('/admin_stereo/add_category', [CategoryController::class, 'store'])->name('add_category');
+Route::get('/admin_stereo/add_category', [CategoryController::class, 'create'])->name('add_category');
 
 Route::post('/admin_stereo/add_category', [CategoryController::class, 'store']);
 
