@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Collection;
 
 class CategoryController extends Controller
 {
@@ -13,12 +15,9 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {    
-        $query = DB::table('table_category');
-        $query = $query->orderBy("id_category", "desc");
-        $data = $query->paginate(25);
-        return view('admin.pages.category', $data);
+    public function category()
+    {   
+        return view('admin.pages.category', $this->show());
     }
 
     /**
@@ -26,7 +25,7 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function add_category()
     {
         return view('admin.pages.subPages.add_category');
     }
@@ -39,12 +38,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-
-            $name_category = $request->input('name_category');
-            $addCategory = new Category;
-            $addCategory->name_category=$name_category;
-            $addCategory->save(); 
-        
+        $input = $request->all();
+        //$input = new Category($input);
+        //$input->save(); 
+        Category::create($input);
         return redirect('/admin_stereo/category');// After inputed -> go back to category page
     }
 
@@ -56,6 +53,11 @@ class CategoryController extends Controller
      */
     public function show()
     {
+        //$category = Category::all();
+        //$category = $category->orderBy("id_category", "desc")->get();
+        $category = Category::orderByDesc('id_category')->get();
+        $count = 1;
+        return compact('category', 'count');
     }
 
     /**
@@ -64,9 +66,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit_category($name_category)
     {
-        //
+        $category = Category::all();
+        $category = Category::find($name_category);
+        return view('admin.pages.subPages.edit_category', compact('category'));
     }
 
     /**
@@ -76,9 +80,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update_category(Request $request, $name_category)
     {
-        //
+        
     }
 
     /**

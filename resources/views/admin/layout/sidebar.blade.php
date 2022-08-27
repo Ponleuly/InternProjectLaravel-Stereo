@@ -32,7 +32,9 @@
       </li>
       <li>
         <a href="{{route('category')}}" 
-            class="{{ Request::is('admin_stereo/category')||Request::is('admin_stereo/add_category')? 'active':''}}">
+            class="{{ Request::is('admin_stereo/category')||
+                      Request::is('admin_stereo/add_category')||
+                      Request::is('admin_stereo/edit_category')? 'active':''}}">
             <span class="material-icons-round link-icon">category</span>
           <span class="links_name">Category</span>
         </a>

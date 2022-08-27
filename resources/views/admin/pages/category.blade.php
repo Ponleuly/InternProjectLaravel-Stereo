@@ -73,9 +73,7 @@
 .box-category-container .category-table table{
   border-collapse: collapse;
   width: 100%;
-}
-.category-table tr:nth-child(even) {
-  background-color: #dddddd;
+  
 }
 .category-table td:nth-child(1) {
   width: 5%;
@@ -86,23 +84,58 @@
 }
 .category-table td:nth-child(3) {
   width: 20%;
+  text-align: center;
+}
+.category-table td:nth-child(4) {
+  text-align: center;
 }
 .category-table th, td{
-  border: 1px solid #ddd;
-  padding: 8px;
-  font-size: 18px;
-  font-weight: 500;
-  font-family: 'Roboto', sans-serif;
+  border-bottom: 1px solid #ddd;
+  padding: 13px;
 }
+.category-table td{
+  font-size: 18px;
+}
+
 .category-table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
   background-color: #0d3073;
   color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
 }
 .category-table tr:hover {background-color: #ddd;}
-
+.category-table a{
+  text-decoration: none;
+}
+.category-table .edit{
+  color: white;
+  background:  DodgerBlue;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: 1px solid DodgerBlue;
+}
+.category-table .delete{
+  color: white;
+  background: ;
+  padding: 5px 15px;
+  border-radius: 5px;
+  background:  red;
+  font-size: 16px;
+  border: 1px solid red;
+}
+.category-table .edit:hover{
+  color: DodgerBlue;
+  background: white;
+}
+.category-table .delete:hover{
+  color: red;
+  background: white;
+}
 </style>
   <div class="box-category-container">
     <div class="box-top">
@@ -122,17 +155,20 @@
       <table>
           <tr>
             <th>#</th>
-            <th>Title</th>
+            <th>Categories</th>
             <th>Tracks</th>
             <th><span class="material-icons-outlined">edit</span></td>
           </tr>
     
-          @foreach($data as $row)
+          @foreach($category as $row)
           <tr>
-            <td>1</td>
+            <td>{{$count++}}</td>
             <td>{{$row->name_category}}</td>
             <td>0</td>
-            <td>Delete/Edit</td>
+            <td>
+              <a href="{{url('/admin_stereo/edit_category')}}"><span class="edit">Edit</span></a>
+              <a href=""><span class="delete">Delete</span></a>
+            </td>
           @endforeach()
       </table>
     </div>

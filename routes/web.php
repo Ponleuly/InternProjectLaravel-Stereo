@@ -1,12 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\FrontendController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LogController;
-use App\Http\Controllers\CategoryController;
 use PhpParser\Builder\Function_;
 use PhpParser\Node\Expr\FuncCall;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -60,9 +61,16 @@ Route::controller(AdminController::class)->group(function(){
     //Route::post('/admin_stereo/category', 'category')->name('category');
     //Route::get('/admin_stereo/add_category', 'add_category')->name('add_category');
 });
-Route::get('/admin_stereo/category', [CategoryController::class, 'index'])->name('category');
-Route::get('/admin_stereo/add_category', [CategoryController::class, 'create'])->name('add_category');
+/*============= Category route ==================*/
+Route::controller(CategoryController::class)->group(function(){
+    Route::get('/admin_stereo/category', 'category')->name('category');
 
-Route::post('/admin_stereo/add_category', [CategoryController::class, 'store']);
+    Route::get('/admin_stereo/add_category', 'add_category')->name('add_category');
+    Route::post('/admin_stereo/add_category', 'store');
+
+    Route::get('/admin_stereo/edit_category', 'edit_category')->name('edit_category');
+    Route::put('/admin_stereo/edit_category', 'update_category')->name('update_category');;
+});
+
 
 
