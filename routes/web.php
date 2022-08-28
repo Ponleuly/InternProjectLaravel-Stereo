@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\CountryController;
+use App\Http\Controllers\admin\ArtistController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\LogController;
 use PhpParser\Builder\Function_;
@@ -82,4 +83,15 @@ Route::controller(CountryController::class)->group(function () {
 
     Route::get('/admin_stereo/edit_country/{name_country}', 'edit_country')->name('edit_country');
     Route::put('/admin_stereo/edit_country/{name_country}', 'update_country');
+});
+
+/*============= Artist route ==================*/
+Route::controller(ArtistController::class)->group(function () {
+    Route::get('/admin_stereo/artist', 'artist')->name('artist');
+
+    Route::get('/admin_stereo/add_artist', 'add_artist')->name('add_country');
+    Route::post('/admin_stereo/add_artist', 'store')->name('add_artist');
+
+    Route::get('/admin_stereo/edit_artist/{name_artist}', 'edit_artist')->name('edit_artist');
+    Route::put('/admin_stereo/edit_artist/{name_artist}', 'update_artist');
 });

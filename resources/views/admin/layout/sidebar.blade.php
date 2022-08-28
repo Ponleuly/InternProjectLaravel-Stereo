@@ -19,7 +19,9 @@
         </a>
       </li>
       <li>
-        <a href="{{route('artist')}}" class="{{ Request::is('admin_stereo/artist')? 'active':''}}">
+        <a href="{{route('artist')}}" 
+            class="{{ Request::is('admin_stereo/artist')||
+                      Request::is('admin_stereo/add_artist')? 'active':''}}">
             <span class="material-icons-round link-icon">people</span>
             <span class="links_name">Artists</span>
         </a>

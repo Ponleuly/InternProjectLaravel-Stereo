@@ -74,6 +74,7 @@
     border: 1px solid #f44336;
     float: left;
     cursor: pointer;
+    margin-top: 10px;
 }
 .back-button:hover{
     background: white;
@@ -99,6 +100,7 @@
   border-radius: 5px;
   border: 1px solid #0d3073;
   cursor: pointer;
+  margin-top: 10px;
 }
 .form-fill button:hover{
   background: white;

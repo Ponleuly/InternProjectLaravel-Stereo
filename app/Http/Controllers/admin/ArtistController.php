@@ -4,6 +4,9 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Artist;
+use App\Models\Category;
+use App\Models\Country;
 
 class ArtistController extends Controller
 {
@@ -12,9 +15,9 @@ class ArtistController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function artist()
     {
-        //
+        return view('admin.pages.artist', $this->show());
     }
 
     /**
@@ -22,9 +25,11 @@ class ArtistController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function add_artist()
     {
-        //
+        $categories = Category::orderBy('id_category')->get();
+        $countries = Country::orderBy('id_country')->get();
+        return view('admin.pages.subPages.add_artist', compact('categories', 'countries'));
     }
 
     /**
@@ -35,18 +40,21 @@ class ArtistController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Artist::create($input);
+        return redirect('/admin_stereo/artist')->with('alert', 'Artist name is added to list !');
     }
-
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $artists = Artist::orderByDesc('id_artist')->get();
+        $count = 1;
+        return compact('artists', 'count');
     }
 
     /**
