@@ -49,6 +49,7 @@
   margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
+  text-transform: capitalize;
 }
 .form-fill input:focus{
   border: none;
@@ -71,7 +72,32 @@
   background: white;
   color: #0d3073;
 }
-
+.form-fill .back-button{
+    margin-left: 25px;
+    width: 120px;
+    height: 50px;
+    padding: 10px 15px;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    background: #f44336;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #f44336;
+    float: left;
+    cursor: pointer;
+}
+.back-button:hover{
+    background: white;
+}
+.back-button:hover a{
+    color: #f44336;
+}
+.back-button a{
+    text-decoration: none;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
 </style>
   <div class="box-add-category-container">
     <div class="title-header">
@@ -83,6 +109,9 @@
         <div class="input-box">
           <span class="detail">Name</span>
           <input type="text" placeholder="Enter here..." name="name_category" required>
+        </div>
+        <div class="back-button">
+          <a href="{{url('/admin_stereo/category')}}"><span>Back</span></a>
         </div>
         <button type="submit">Add</button>
       </form>

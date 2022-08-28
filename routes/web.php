@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\CountryController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\LogController;
 use PhpParser\Builder\Function_;
@@ -26,13 +27,14 @@ Route::get('/', function () {
 */
 //Route::get('/index', function(){return view('pages.home');})->name('index');
 /*============== Log_in  sign_up ===============*/
-Route::controller(LogController::class)->group(function(){
+
+Route::controller(LogController::class)->group(function () {
     Route::get('/', 'log_in')->name('log_in');
     Route::get('/sign_up', 'sign_up')->name('sign_up');
 });
 /*============= frontend route ==================*/
 // *Using Route group to control route pages
-Route::controller(FrontendController::class)->group(function(){
+Route::controller(FrontendController::class)->group(function () {
     Route::get('/home', 'home')->name('home');
     Route::get('/mylibrary/playlists', 'mylibrary_platlists')->name('mylibrary/playlists');
     Route::get('/mylibrary/artists', 'mylibrary_artists')->name('mylibrary/artists');
@@ -43,15 +45,14 @@ Route::controller(FrontendController::class)->group(function(){
 
     Route::get('/artists/artists_view', 'artists_view')->name('artists_view');
     Route::get('/albums/albums_view', 'albums_view')->name('albums_view');
-
 });
 
 /*============= Admin route ==================*/
-Route::controller(AdminController::class)->group(function(){
+Route::controller(AdminController::class)->group(function () {
     //Route::get('/admin_stereo', [AdminController::class, 'index'])->name('admin_stereo');
     Route::get('/admin_stereo', 'dashboard')->name('dashboard');
     //Route::get('/admin_stereo/category', 'category')->name('category');
-    Route::get('/admin_stereo/country', 'country')->name('country');
+    //Route::get('/admin_stereo/country', 'country')->name('country');
     Route::get('/admin_stereo/artist', 'artist')->name('artist');
     Route::get('/admin_stereo/album', 'album')->name('album');
     Route::get('/admin_stereo/playlist', 'playlist')->name('playlist');
@@ -62,15 +63,23 @@ Route::controller(AdminController::class)->group(function(){
     //Route::get('/admin_stereo/add_category', 'add_category')->name('add_category');
 });
 /*============= Category route ==================*/
-Route::controller(CategoryController::class)->group(function(){
+Route::controller(CategoryController::class)->group(function () {
     Route::get('/admin_stereo/category', 'category')->name('category');
 
     Route::get('/admin_stereo/add_category', 'add_category')->name('add_category');
-    Route::post('/admin_stereo/add_category', 'store');
+    Route::post('/admin_stereo/add_category', 'store')->name('add_category');
 
-    Route::get('/admin_stereo/edit_category', 'edit_category')->name('edit_category');
-    Route::put('/admin_stereo/edit_category', 'update_category')->name('update_category');;
+    Route::get('/admin_stereo/edit_category/{name_category}', 'edit_category')->name('edit_category');
+    Route::put('/admin_stereo/edit_category/{name_category}', 'update_category');
 });
 
+/*============= Country route ==================*/
+Route::controller(CountryController::class)->group(function () {
+    Route::get('/admin_stereo/country', 'country')->name('country');
 
+    Route::get('/admin_stereo/add_country', 'add_country')->name('add_country');
+    Route::post('/admin_stereo/add_country', 'store')->name('add_country');
 
+    Route::get('/admin_stereo/edit_country/{name_country}', 'edit_country')->name('edit_country');
+    Route::put('/admin_stereo/edit_country/{name_country}', 'update_country');
+});

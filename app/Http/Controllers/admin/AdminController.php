@@ -7,33 +7,32 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('admin.index');
     }
-    public function dashboard(){
-        
+    public function dashboard()
+    {
         return view('admin.pages.dashboard');
     }
-    public function add_category(){
-        return view('admin.pages.subPages.add_category');
-    }
-    public function country(){
-        return view('admin.pages.country');
-    }
-    public function artist(){
+    public function artist()
+    {
         return view('admin.pages.artist');
     }
-    public function album(){
+    public function album()
+    {
         return view('admin.pages.album');
     }
-    public function playlist(){
+    public function playlist()
+    {
         return view('admin.pages.playlist');
     }
-    public function track(){
+    public function track()
+    {
         return view('admin.pages.track');
     }
-    public function user(){
+    public function user()
+    {
         return view('admin.pages.user');
     }
-    
 }

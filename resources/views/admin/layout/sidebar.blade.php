@@ -34,7 +34,7 @@
         <a href="{{route('category')}}" 
             class="{{ Request::is('admin_stereo/category')||
                       Request::is('admin_stereo/add_category')||
-                      Request::is('admin_stereo/edit_category')? 'active':''}}">
+                      Request::is('admin_stereo/edit_category/')? 'active':''}}">
             <span class="material-icons-round link-icon">category</span>
           <span class="links_name">Category</span>
         </a>
@@ -46,7 +46,9 @@
         </a>
       </li>
       <li>
-        <a href="{{route('country')}}" class="{{ Request::is('admin_stereo/country')? 'active':''}}">
+        <a href="{{route('country')}}" 
+            class="{{ Request::is('admin_stereo/country')||
+                      Request::is('admin_stereo/add_country')? 'active':''}}">
             <span class="material-icons-round link-icon">flag</span>
             <span class="links_name">Country</span>
         </a>

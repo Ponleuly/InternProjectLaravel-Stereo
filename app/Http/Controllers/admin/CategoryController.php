@@ -16,7 +16,7 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function category()
-    {   
+    {
         return view('admin.pages.category', $this->show());
     }
 
@@ -42,7 +42,7 @@ class CategoryController extends Controller
         //$input = new Category($input);
         //$input->save(); 
         Category::create($input);
-        return redirect('/admin_stereo/category');// After inputed -> go back to category page
+        return redirect('/admin_stereo/category'); // After inputed -> go back to category page
     }
 
     /**
@@ -55,9 +55,9 @@ class CategoryController extends Controller
     {
         //$category = Category::all();
         //$category = $category->orderBy("id_category", "desc")->get();
-        $category = Category::orderByDesc('id_category')->get();
+        $categories = Category::orderByDesc('id_category')->get();
         $count = 1;
-        return compact('category', 'count');
+        return compact('categories', 'count');
     }
 
     /**
@@ -68,9 +68,8 @@ class CategoryController extends Controller
      */
     public function edit_category($name_category)
     {
-        $category = Category::all();
-        $category = Category::find($name_category);
-        return view('admin.pages.subPages.edit_category', compact('category'));
+        $category = Category::where('name_category', $name_category)->first();
+        return view('admin.pages.subPages.edit_category',  compact('category'));
     }
 
     /**
@@ -80,9 +79,15 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update_category(Request $request, $name_category)
+    public function update_category(Request $request, $name)
     {
-        
+        //$new = $request->$name;
+
+        //$new = $request->all();
+        //$category = Category::where('name_category', $new)->first();
+        //$category->name_category = $new('name_category');
+        //$category->update();
+        Category::first()->update($request->all());
     }
 
     /**
@@ -91,7 +96,7 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete_category($name_category)
     {
         //
     }

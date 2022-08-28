@@ -16,6 +16,7 @@
   display: flex;
   flex-direction: row;
   width: 500px;
+  text-transform: capitalize;
 }
 .search-box input{
   width: 100%;
@@ -25,6 +26,7 @@
   font-size: 18px;
   font-weight: 500;
   font-family: 'Roboto', sans-serif;
+  text-transform: capitalize;
 }
 .search-box button{
   color: white;
@@ -73,7 +75,7 @@
 .box-category-container .category-table table{
   border-collapse: collapse;
   width: 100%;
-  
+  text-transform: capitalize;
 }
 .category-table td:nth-child(1) {
   width: 5%;
@@ -81,6 +83,7 @@
 }
 .category-table td:nth-child(2) {
   width: 30%;
+  text-align: start;
 }
 .category-table td:nth-child(3) {
   width: 20%;
@@ -88,6 +91,7 @@
 }
 .category-table td:nth-child(4) {
   text-align: center;
+  width: 45%;
 }
 .category-table th, td{
   border-bottom: 1px solid #ddd;
@@ -96,7 +100,9 @@
 .category-table td{
   font-size: 18px;
 }
-
+.category-table th:nth-child(2){
+  text-align: start;
+}
 .category-table th {
   padding-top: 12px;
   padding-bottom: 12px;
@@ -157,16 +163,19 @@
             <th>#</th>
             <th>Categories</th>
             <th>Tracks</th>
-            <th><span class="material-icons-outlined">edit</span></td>
+            <th> 
+              <span class="material-icons-round link-icon">edit</span>
+              <span class="material-icons-round link-icon">delete</span>
+            </th>
           </tr>
     
-          @foreach($category as $row)
+          @foreach($categories as $row)
           <tr>
             <td>{{$count++}}</td>
             <td>{{$row->name_category}}</td>
             <td>0</td>
             <td>
-              <a href="{{url('/admin_stereo/edit_category')}}"><span class="edit">Edit</span></a>
+              <a href="{{url('/admin_stereo/edit_category/'.$row->name_category)}}"><span class="edit">Edit</span></a>
               <a href=""><span class="delete">Delete</span></a>
             </td>
           @endforeach()

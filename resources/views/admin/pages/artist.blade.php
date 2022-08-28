@@ -1,57 +1,164 @@
 @extends('admin.index')
 @section('content')
-<!---
 <style>
-.home-section .category-content{
-  position: relative;
-  padding-top: 104px;
-}
-.category-content .category-box{
-  margin:0 20px;
-  width: calc(100% - 40px);
-  min-width: 1000px;
-  height: calc(100% - 124px);
-  min-height: 500px;
-  background: #fff;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-  margin-bottom: 20px;
-}
+  .box-category-container{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+  }
+  .box-category-container .box-top{
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+  }
+  .box-top .search-box form{
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+  }
+  .search-box input{
+    width: 100%;
+    height: 50px;
+    border: 2px solid #ccc;
+    padding: 0 10px;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+  }
+  .search-box button{
+    color: white;
+    background: #71b7e6;
+    font-size: 16px;
+    width: 100px;
+    margin-left: -100px;
+    height: 50px;
+    padding: 0 20px;
+    border: none;
+    border-left: none;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+  }
+  .search-box input:focus, button{
+    border: none;
+  }
+  .box-top .add-category-link{
+    width: 150px;
+    height: 50px;
+    background: #0d3073;
+    margin-left: 30px;
+    text-align: center;
+    padding: 13px 0;
+    border-radius: 5px;
+    border: 1px solid #0d3073;
+  }
+  .add-category-link a{
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+  }
+  .add-category-link:hover{
+    background: white;
+  }
+  .add-category-link:hover a{
+    color: #0d3073;
+  }
+  .box-category-container .category-table{
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+  }
+  .box-category-container .category-table table{
+    border-collapse: collapse;
+    width: 100%;
+    
+  }
+  .category-table td:nth-child(1) {
+    width: 5%;
+    text-align: center;
+  }
+  .category-table td:nth-child(2) {
+    width: 30%;
+  }
+  .category-table td:nth-child(3) {
+    width: 20%;
+    text-align: center;
+  }
+  .category-table td:nth-child(4) {
+    text-align: center;
+  }
+  .category-table th, td{
+    border-bottom: 1px solid #ddd;
+    padding: 13px;
+  }
+  .category-table td{
+    font-size: 18px;
+  }
+
+  .category-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #0d3073;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .category-table tr:hover {background-color: #ddd;}
+  .category-table a{
+    text-decoration: none;
+  }
+  .category-table .edit{
+    color: white;
+    background:  DodgerBlue;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 1px solid DodgerBlue;
+  }
+  .category-table .delete{
+    color: white;
+    background: ;
+    padding: 5px 15px;
+    border-radius: 5px;
+    background:  red;
+    font-size: 16px;
+    border: 1px solid red;
+  }
+  .category-table .edit:hover{
+    color: DodgerBlue;
+    background: white;
+  }
+  .category-table .delete:hover{
+    color: red;
+    background: white;
+  }
 </style>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-<div class="category-content">
-    <div class="category-box">
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
+<div class="box-category-container">
+  <div class="box-top">
+    <div class="search-box">
+      <form action="">
+        <input type="text"  placeholder="search here..." name="search" id="">
+        <button type="submit">Search</button>
+      </form>
     </div>
+    <div class="add-category-link">
+        <a href="{{url('/admin_stereo/add_category')}}">
+          <span>+Add Category</span>
+        </a>
+    </div>
+  </div>
+  <div class="category-table">
+    <table>
+        <tr>
+          <th>#</th>
+          <th>Categories</th>
+          <th>Tracks</th>
+          <th><span class="material-icons-outlined">edit</span></td>
+        </tr>
+    </table>
+  </div>
 </div>
--->
 @endsection()
