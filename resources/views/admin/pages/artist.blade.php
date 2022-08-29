@@ -1,5 +1,6 @@
 @extends('admin.index')
 @section('content')
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans:ital,wght@1,300&family=Roboto:ital,wght@0,300;0,500;1,400&display=swap" rel="stylesheet">
 <style>
   .box-artist-container{
     display: flex;
@@ -91,29 +92,41 @@
       text-align: center;
     }
     .artist-table td:nth-child(2) {
-      width: 30%;
-    }
-    .artist-table td:nth-child(3) {
       width: 10%;
       text-align: center;
     }
+    .artist-table td:nth-child(3) {
+      width: 30%;
+      text-align: start;
+    }
     .artist-table td:nth-child(4) {
-        width: 10%;
+        width: 5%;
         text-align: center;
     }
     .artist-table td:nth-child(5) {
+        width: 30%;
         text-align: center;
     }
-    .artist-table th, td{
+    .artist-table td:nth-child(6) {
+        text-align: center;
+    }
+    .artist-table th:nth-child(2){
+        text-align: center;
+    }
+    .artist-table th:nth-child(3){
+        text-align: start;
+    }
+    .artist-table th{
       border-bottom: 1px solid #ddd;
       padding: 13px;
     }
     .artist-table td{
+      border-bottom: 1px solid #ddd;
       font-size: 18px;
+      padding-top: 5px;
+      padding-bottom: 2px;
     }
-    .artist-table th:nth-child(2){
-        text-align: start;
-    }
+    
     .artist-table th {
       padding-top: 12px;
       padding-bottom: 12px;
@@ -153,6 +166,13 @@
       color: red;
       background: white;
     }
+    .artist-table .artist-img{
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      margin-top: 4px;
+     
+    }
 </style>
 <div class="box-artist-container">
   <div class="box-top">
@@ -167,6 +187,11 @@
           <span>+Add Artist</span>
         </a>
     </div>
+    @if(Session::has('alert'))
+            <div class="message">
+                {{Session::get('alert')}}
+            </div>
+    @endif
   </div>
   <div class="artist-table">
     <table>
@@ -175,11 +200,26 @@
           <th>Image</th>
           <th>Artists</th>
           <th>Tracks</th>
+          <th>Date Created</th>
           <th>
             <span class="material-icons-round link-icon">edit</span>
             <span class="material-icons-round link-icon">delete</span>
           </td> 
         </tr>
+        @foreach($artists as $row)
+          <tr>
+            <td>{{$count++}}</td>
+            <td>
+              <img src="/storage/uploads/artists/{{$row->pf_artist}}" class="artist-img">
+            </td>
+            <td>{{$row->name_artist}}</td>
+            <td>0</td>
+            <td>{{$row->created_at->diffForHumans()}}</td>
+            <td>
+              <a href="{{url('/admin_stereo/edit_category/'.$row->name_category)}}"><span class="edit">Edit</span></a>
+              <a href=""><span class="delete">Delete</span></a>
+            </td>
+        @endforeach()
     </table>
   </div>
 </div>

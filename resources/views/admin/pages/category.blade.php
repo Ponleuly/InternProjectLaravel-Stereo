@@ -91,7 +91,11 @@
 }
 .category-table td:nth-child(4) {
   text-align: center;
-  width: 45%;
+  width: 15%;
+}
+.category-table td:nth-child(5) {
+  text-align: center;
+  width: 30%;
 }
 .category-table th, td{
   border-bottom: 1px solid #ddd;
@@ -163,6 +167,7 @@
             <th>#</th>
             <th>Categories</th>
             <th>Tracks</th>
+            <th>Date Created</th>
             <th> 
               <span class="material-icons-round link-icon">edit</span>
               <span class="material-icons-round link-icon">delete</span>
@@ -174,6 +179,7 @@
             <td>{{$count++}}</td>
             <td>{{$row->name_category}}</td>
             <td>0</td>
+            <td>{{$row->created_at->diffForHumans()}}</td>
             <td>
               <a href="{{url('/admin_stereo/edit_category/'.$row->name_category)}}"><span class="edit">Edit</span></a>
               <a href=""><span class="delete">Delete</span></a>

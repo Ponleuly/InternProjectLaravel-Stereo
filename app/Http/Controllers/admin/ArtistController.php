@@ -41,8 +41,18 @@ class ArtistController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
+        if ($request->hasFile('pf_artist')) {
+            $destination_path = 'public/uploads/artists';
+            $image = $request->file('pf_artist');
+
+            $image_name = $image->getClientOriginalName();
+            $image->storeAs($destination_path, $image_name);
+
+            $input['pf_artist'] = $image_name;
+        }
+
         Artist::create($input);
-        return redirect('/admin_stereo/artist')->with('alert', 'Artist name is added to list !');
+        return redirect('/admin_stereo/artist')->with('alert', 'Artist is added to list !');
     }
     /**
      * Display the specified resource.

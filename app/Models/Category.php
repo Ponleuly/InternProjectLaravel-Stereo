@@ -11,4 +11,8 @@ class Category extends Model
     protected $table = 'table_category';
     protected $primarykey = 'id_category';
     protected $fillable = ['name_category'];
+    public function artist()
+    {
+        return $this->hasMany(Artist::class);
+    }
 }

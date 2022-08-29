@@ -73,7 +73,6 @@
     border-radius: 5px;
     border: 1px solid #f44336;
     float: left;
-    cursor: pointer;
     margin-top: 15px;
 }
 .back-button:hover{
@@ -125,14 +124,16 @@
 .form-fill .img-upload{
   width: 100%;
   height: 50px;
-  padding: 5px 10px;
+  /*
+  padding: 5px 10px;*/
   margin-bottom: 15px;
-  border: 1px solid #ddffdd;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  background: #ddffdd;
+  background: white;
   display: flex;
-  justify-content: center;
+
 }
+/*
 .img-upload span{
     font-size: 35px;
     color: green;
@@ -148,13 +149,19 @@
     cursor: pointer;
     padding: 5px 0;
 }
-.img-upload .img-btn input[type=file]{
-  opacity: 0;
-  color: black;
-  position: absolute;
+*/
+.img-upload input[type=file]::file-selector-button{
+  height: 100%;
+  width: 200px;
+  font-size: 18px;
+  border: none;
+  background: #ddffdd;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  cursor: pointer;
 }
-.img-upload input[type=file]:hover{
-  
+.img-upload:hover{
+  border: 2px solid green;
 }
 </style>
   <div class="box-add-artist-container">
@@ -169,7 +176,7 @@
             <input type="text" placeholder="Enter here..." value="" name="name_artist" required>
             <span class="detail">Category</span>
             <div class="select-box">
-                <select name="option">
+                <select name="id_category">
                     <option disabled selected>Choose Categories</option>
                     @foreach($categories as $row)
                         <option value="{{$row->id_category}}">{{$row->name_category}}</option>
@@ -178,7 +185,7 @@
             </div>
             <span class="detail">Country</span>
             <div class="select-box">
-                <select name="option">
+                <select name="id_country">
                     <option disabled selected>Choose Countries</option>
                     @foreach($countries as $row)
                         <option value="{{$row->id_country}}">{{$row->name_country}}</option>
@@ -187,10 +194,8 @@
             </div>
             <span class="detail">Artist Image</span>
             <div class="img-upload">
-                <span class="material-icons-round">file_upload</span>
-                <span class="img-btn">Upload Image</span>
+                <input type="file" name="pf_artist" accept="image/png, image/jpeg, image/jpg">
             </div>
-            <input type="file" placeholder="Enter here..." value="" name="pf_artist" required>
         </div>
         <div class="back-button">
             <a href="{{url('/admin_stereo/artist')}}"><span>Back</span></a>

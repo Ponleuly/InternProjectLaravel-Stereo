@@ -110,6 +110,10 @@
     }
     .country-table td:nth-child(6) {
         text-align: center;
+        width: 15%;
+    }
+    .country-table td:nth-child(7) {
+        text-align: center;
     }
     .country-table th, td{
       border-bottom: 1px solid #ddd;
@@ -188,6 +192,7 @@
             <th>Tracks</th>
             <th>Artists</th>
             <th>Albums</th>
+            <th>Date Created</th>
             <th>
                 <span class="material-icons-round link-icon">edit</span>
                 <span class="material-icons-round link-icon">delete</span>
@@ -200,6 +205,7 @@
                 <td>1</td>
                 <td>1</td>
                 <td>1</td>
+                <td>{{$row->created_at->diffForHumans()}}</td>
                 <td>
                     <a href=""><span class="edit">Edit</span></a>
                     <a href=""><span class="delete">Delete</span></a>
