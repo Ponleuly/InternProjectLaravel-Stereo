@@ -4,8 +4,8 @@
       <span class="dashboard">Dashboard</span>
     </div>
     <div class="profile-details">
-      <img src="/admin/images/profile.jpg" alt="">
-      <span class="admin_name">Prem Shahi</span>
+      <img src="/frontend/images/profile.jpg" alt="">
+      <span class="admin_name">Ponleu</span>
       <i class='bx bx-chevron-down' ></i>
     </div>
 </nav>

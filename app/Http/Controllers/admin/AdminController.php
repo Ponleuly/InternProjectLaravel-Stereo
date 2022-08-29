@@ -15,10 +15,7 @@ class AdminController extends Controller
     {
         return view('admin.pages.dashboard');
     }
-    public function album()
-    {
-        return view('admin.pages.album');
-    }
+
     public function playlist()
     {
         return view('admin.pages.playlist');

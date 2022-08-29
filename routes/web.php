@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\CountryController;
 use App\Http\Controllers\admin\ArtistController;
+use App\Http\Controllers\admin\AlbumController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\LogController;
 use PhpParser\Builder\Function_;
@@ -94,4 +95,15 @@ Route::controller(ArtistController::class)->group(function () {
 
     Route::get('/admin_stereo/edit_artist/{name_artist}', 'edit_artist')->name('edit_artist');
     Route::put('/admin_stereo/edit_artist/{name_artist}', 'update_artist');
+});
+
+/*============= Album route ==================*/
+Route::controller(AlbumController::class)->group(function () {
+    Route::get('/admin_stereo/album', 'album')->name('album');
+
+    Route::get('/admin_stereo/add_album', 'add_album')->name('add_album');
+    Route::post('/admin_stereo/add_album', 'store')->name('add_album');
+
+    Route::get('/admin_stereo/edit_album/{name_album}', 'edit_album')->name('edit_album');
+    Route::put('/admin_stereo/edit_album/{name_album}', 'update_album');
 });

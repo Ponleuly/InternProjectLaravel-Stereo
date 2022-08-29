@@ -27,7 +27,9 @@
         </a>
       </li>
       <li>
-        <a href="{{route('album')}}" class="{{ Request::is('admin_stereo/album')? 'active':''}}">
+        <a href="{{route('album')}}" 
+            class="{{ Request::is('admin_stereo/album')||
+                      Request::is('admin_stereo/add_album')? 'active':''}}">
             <span class="material-icons-round link-icon">album</span>
             <span class="links_name">Albums</span>
         </a>
