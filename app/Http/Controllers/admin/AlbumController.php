@@ -29,10 +29,9 @@ class AlbumController extends Controller
      */
     public function add_album()
     {
-        $categories = Category::orderBy('id_category')->get();
-        $countries = Country::orderBy('id_country')->get();
-        $artists = Artist::orderBy('id_artist')->get();
-        return view('admin.pages.subPages.add_album', compact('categories', 'countries', 'artists'));
+        $categories = Category::orderBy('id')->get();
+        $artists = Artist::orderBy('id')->get();
+        return view('admin.pages.subPages.add_album', compact('categories', 'artists'));
     }
 
     /**
@@ -44,6 +43,7 @@ class AlbumController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
+
         if ($request->hasFile('pf_album')) {
             $destination_path = 'public/uploads/albums';
             $image = $request->file('pf_album');
@@ -66,7 +66,8 @@ class AlbumController extends Controller
      */
     public function show()
     {
-        $albums = Album::orderByDesc('id_album')->with('artist')->get(); //with(artist) is a relationship in Album Model
+        $albums = Album::orderByDesc('id')->with('artist_album')->get();
+        //with(artist_album) is a relationship between table_artist and table_album created in Model
         $count = 1;
         return compact('count', 'albums');
     }

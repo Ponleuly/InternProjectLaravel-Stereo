@@ -174,24 +174,27 @@
         <div class="input-box">
             <span class="detail">Name</span>
             <input type="text" placeholder="Enter here..." value="" name="name_artist" required>
+          
             <span class="detail">Category</span>
             <div class="select-box">
                 <select name="id_category">
                     <option disabled selected>Choose Categories</option>
                     @foreach($categories as $row)
-                        <option value="{{$row->id_category}}">{{$row->name_category}}</option>
+                        <option value="{{$row->id}}">{{$row->name_category}}</option>
                     @endforeach
                 </select>
             </div>
+
             <span class="detail">Country</span>
             <div class="select-box">
                 <select name="id_country">
                     <option disabled selected>Choose Countries</option>
                     @foreach($countries as $row)
-                        <option value="{{$row->id_country}}">{{$row->name_country}}</option>
+                        <option value="{{$row->id}}">{{$row->name_country}}</option>
                     @endforeach
                 </select>
             </div>
+
             <span class="detail">Artist Image</span>
             <div class="img-upload">
                 <input type="file" name="pf_artist" accept="image/png, image/jpeg, image/jpg">

@@ -18,8 +18,8 @@ class Artist extends Model
     {
         return $this->belongsTo(Category::class);
     }
-    public function album()
+    public function artist_album()
     {
-        return $this->hasMany(Album::class);
+        return $this->hasMany(Album::class, 'id_artist');
     }
 }

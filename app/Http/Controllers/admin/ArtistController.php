@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Artist;
 use App\Models\Category;
 use App\Models\Country;
+use App\Models\Album;
+
 
 class ArtistController extends Controller
 {
@@ -27,8 +29,8 @@ class ArtistController extends Controller
      */
     public function add_artist()
     {
-        $categories = Category::orderBy('id_category')->get();
-        $countries = Country::orderBy('id_country')->get();
+        $categories = Category::orderBy('id')->get();
+        $countries = Country::orderBy('id')->get();
         return view('admin.pages.subPages.add_artist', compact('categories', 'countries'));
     }
 
@@ -62,9 +64,9 @@ class ArtistController extends Controller
      */
     public function show()
     {
-        $artists = Artist::orderByDesc('id_artist')->get();
+        $artists = Artist::orderByDesc('id')->get();
         $count = 1;
-        return compact('artists', 'count');
+        return compact('count', 'artists');
     }
 
     /**

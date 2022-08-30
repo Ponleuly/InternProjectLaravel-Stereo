@@ -220,7 +220,8 @@
               <img src="/storage/uploads/albums/{{$row->pf_album}}" class="album-img">
             </td>
             <td>{{$row->name_album}}</td>
-            <td>artist{{$row->artist->name_artist}}</td>
+            <td>{{$row->artist_album->name_artist}}</td>
+            <!--artist_album is a relationship between table_artist and table_album-->
             <td>1</td>
             <td>{{$row->created_at->diffForHumans()}}</td>
             <td>

@@ -55,7 +55,7 @@ class CategoryController extends Controller
     {
         //$category = Category::all();
         //$category = $category->orderBy("id_category", "desc")->get();
-        $categories = Category::orderByDesc('id_category')->get();
+        $categories = Category::orderByDesc('id')->get();
         $count = 1;
         return compact('categories', 'count');
     }

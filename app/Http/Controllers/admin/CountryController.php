@@ -48,7 +48,7 @@ class CountryController extends Controller
      */
     public function show()
     {
-        $countries = Country::orderByDesc('id_country')->get();
+        $countries = Country::orderByDesc('id')->get();
         $count = 1;
         return compact('countries', 'count');
     }

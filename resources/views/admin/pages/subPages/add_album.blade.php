@@ -160,34 +160,24 @@
 
             <span class="detail">Artist</span>
             <div class="select-box">
-                <select name="id_artist">
+                <select name="id_artist"><!--is a string colum will insert in table_album-->
                     <option disabled selected>Choose Artists</option>
                     @foreach($artists as $row)
-                        <option value="{{$row->id_artist}}">{{$row->name_artist}}</option>
+                        <option value="{{$row->id}}">{{$row->name_artist}}</option>
+                        <!--is a string value will insert in colum name_artist-->
                     @endforeach
                 </select>
             </div>
-
+          
             <span class="detail">Category</span>
             <div class="select-box">
                 <select name="id_category">
                     <option disabled selected>Choose Categories</option>
                     @foreach($categories as $row)
-                        <option value="{{$row->id_category}}">{{$row->name_category}}</option>
+                        <option value="{{$row->id}}">{{$row->name_category}}</option>
                     @endforeach
                 </select>
             </div>
-
-            <span class="detail">Country</span>
-            <div class="select-box">
-                <select name="id_country">
-                    <option disabled selected>Choose Countries</option>
-                    @foreach($countries as $row)
-                        <option value="{{$row->id_country}}">{{$row->name_country}}</option>
-                    @endforeach
-                </select>
-            </div>
-            
             <span class="detail">Album Image</span>
             <div class="img-upload">
                 <input type="file" name="pf_album" accept="image/png, image/jpeg, image/jpg">

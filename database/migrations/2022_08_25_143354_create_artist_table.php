@@ -14,13 +14,17 @@ return new class extends Migration
     public function up()
     {
         Schema::create('table_artist', function (Blueprint $table) {
-            $table->increments('id_artist', 10);
+            $table->increments('id');
             $table->string('name_artist', 100);
             $table->string('pf_artist', 100);
             $table->unsignedInteger('id_category');
-            $table->foreign('id_category')->references('id_category')->on('table_category');
+            $table->foreign('id_category')
+                ->references('id')
+                ->on('table_category')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->unsignedInteger('id_country');
-            $table->foreign('id_country')->references('id_country')->on('table_country');
+            $table->foreign('id_country')->references('id')->on('table_country');
             $table->timestamps();
         });
     }

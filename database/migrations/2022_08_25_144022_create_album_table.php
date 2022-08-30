@@ -14,18 +14,21 @@ return new class extends Migration
     public function up()
     {
         Schema::create('table_album', function (Blueprint $table) {
-            $table->increments('id_album', 10);
+            $table->increments('id');
             $table->string('name_album', 100);
             $table->string('pf_album', 100);
 
-            $table->unsignedInteger('id_category');
-            $table->foreign('id_category')->references('id_category')->on('table_category');
-
-            $table->unsignedInteger('id_country');
-            $table->foreign('id_country')->references('id_country')->on('table_country');
-
             $table->unsignedInteger('id_artist');
-            $table->foreign('id_artist')->references('id_artist')->on('table_artist');
+            $table->foreign('id_artist')
+                ->references('id')
+                ->on('table_artist')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->unsignedInteger('id_category');
+            $table->foreign('id_category')
+                ->references('id')
+                ->on('table_category');
 
             $table->timestamps();
         });

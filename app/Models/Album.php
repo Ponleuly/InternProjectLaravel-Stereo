@@ -12,19 +12,16 @@ class Album extends Model
 {
     use HasFactory;
     protected $table = 'table_album';
-    protected $primarykey = 'id_album';
-    protected $fillable = ['name_album', 'pf_album', 'id_category', 'id_country', 'id_artist'];
+    //protected $primarykey = 'id_album';
+    protected $fillable = ['name_album', 'pf_album', 'id_artist', 'id_category'];
 
-    public function artist()
+    public function artist_album()
     {
-        return $this->belongsTo(Artist::class);
+        return $this->belongsTo(Artist::class, 'id_artist');
     }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
-    }
-    public function country()
-    {
-        return $this->belongsTo(Country::class);
     }
 }
