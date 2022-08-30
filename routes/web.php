@@ -6,12 +6,13 @@ use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\CountryController;
 use App\Http\Controllers\admin\ArtistController;
 use App\Http\Controllers\admin\AlbumController;
+use App\Http\Controllers\admin\TrackController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\LogController;
 use PhpParser\Builder\Function_;
 use PhpParser\Node\Expr\FuncCall;
-use App\Models\Test;
-use App\Models\Test1;
+
+
 
 
 /*
@@ -108,4 +109,15 @@ Route::controller(AlbumController::class)->group(function () {
 
     Route::get('/admin_stereo/edit_album/{name_album}', 'edit_album')->name('edit_album');
     Route::put('/admin_stereo/edit_album/{name_album}', 'update_album');
+});
+
+/*============= Track route ==================*/
+Route::controller(TrackController::class)->group(function () {
+    Route::get('/admin_stereo/track', 'track')->name('track');
+
+    Route::get('/admin_stereo/add_track', 'add_track')->name('add_track');
+    Route::post('/admin_stereo/add_track', 'store')->name('add_track');
+
+    Route::get('/admin_stereo/edit_track/{name_track}', 'edit_track')->name('edit_track');
+    Route::put('/admin_stereo/edit_track/{name_track}', 'update_track');
 });

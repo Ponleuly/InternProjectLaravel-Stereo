@@ -20,10 +20,6 @@ class AdminController extends Controller
     {
         return view('admin.pages.playlist');
     }
-    public function track()
-    {
-        return view('admin.pages.track');
-    }
     public function user()
     {
         return view('admin.pages.user');

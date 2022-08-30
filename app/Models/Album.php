@@ -20,8 +20,14 @@ class Album extends Model
         return $this->belongsTo(Artist::class, 'id_artist');
     }
 
+    public function album_track()
+    {
+        return $this->haveMany(Track::class, 'id_album');
+    }
+    /*
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
+    */
 }

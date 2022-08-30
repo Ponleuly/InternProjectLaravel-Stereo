@@ -4,22 +4,22 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Track;
 use App\Models\Album;
 use App\Models\Artist;
 use App\Models\Category;
 use App\Models\Country;
 
-class AlbumController extends Controller
+class TrackController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function album()
+    public function track()
     {
-        return view('admin.pages.album', $this->show());
+        return view('admin.pages.track', $this->show());
     }
 
     /**
@@ -27,11 +27,17 @@ class AlbumController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function add_album()
+    public function add_track()
     {
         $categories = Category::orderBy('id')->get();
         $artists = Artist::orderBy('id')->get();
-        return view('admin.pages.subPages.add_album', compact('categories', 'artists'));
+        $albums = Album::orderBy('id')->get();
+        $countries = Country::orderBy('id')->get();
+
+        return view(
+            'admin.pages.subPages.add_track',
+            compact('categories', 'artists', 'albums', 'countries')
+        );
     }
 
     /**
@@ -44,18 +50,27 @@ class AlbumController extends Controller
     {
         $input = $request->all();
 
-        if ($request->hasFile('pf_album')) {
-            $destination_path = 'public/uploads/albums';
-            $image = $request->file('pf_album');
+        if ($request->hasFile('pf_track')) {
+            $destination_path = 'public/uploads/tracks';
+            $image = $request->file('pf_track');
 
             $image_name = $image->getClientOriginalName();
             $image->storeAs($destination_path, $image_name);
 
-            $input['pf_album'] = $image_name;
+            $input['pf_track'] = $image_name;
+        }
+        if ($request->hasFile('audio_track')) {
+            $destination_path = 'public/uploads/audios';
+            $audio = $request->file('audio_track');
+
+            $audio_name = $audio->getClientOriginalName();
+            $audio->storeAs($destination_path, $audio_name);
+
+            $input['audio_track'] = $audio_name;
         }
 
-        Album::create($input);
-        return redirect('/admin_stereo/album')->with('alert', 'Album is added to list !');
+        Track::create($input);
+        return redirect('/admin_stereo/track')->with('alert', 'Track is added to list !');
     }
 
     /**
@@ -66,12 +81,13 @@ class AlbumController extends Controller
      */
     public function show()
     {
-        //with(artist_album) is a relationship between table_artist and table_album created in Model
-        //$albums = Album::orderByDesc('id')->with('artist_album')->get();
-        //in short  
-        $albums = Album::orderByDesc('id')->get();
+        // Use with('artist_track', 'album_track') to get relation between tables in Models
+        //$tracks = track::orderByDesc('id')->with('artist_track', 'album_track')->get();
+        // Can use like albow or below
+        $tracks = track::orderByDesc('id')->get();
         $count = 1;
-        return compact('count', 'albums');
+
+        return compact('count', 'tracks');
     }
 
     /**
