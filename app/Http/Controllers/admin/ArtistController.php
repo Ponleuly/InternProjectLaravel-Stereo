@@ -8,6 +8,8 @@ use App\Models\Artist;
 use App\Models\Category;
 use App\Models\Country;
 use App\Models\Album;
+use App\Models\Track;
+
 
 
 class ArtistController extends Controller
@@ -66,6 +68,7 @@ class ArtistController extends Controller
     {
         $artists = Artist::orderByDesc('id')->get();
         $count = 1;
+
         return compact('count', 'artists');
     }
 

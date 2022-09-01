@@ -1,3 +1,6 @@
+<?php
+  use App\Models\Track;
+?>
 @extends('admin.index')
 @section('content')
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto:ital,wght@0,300;0,500;1,400&display=swap" rel="stylesheet">
@@ -178,7 +181,10 @@
           <tr>
             <td>{{$count++}}</td>
             <td>{{$row->name_category}}</td>
-            <td>0</td>
+            @php
+                $track_count = Track::where('id_category', $row->id)->count(); 
+            @endphp
+            <td>{{$track_count}}</td>
             <td>{{$row->created_at->diffForHumans()}}</td>
             <td>
               <a href="{{url('/admin_stereo/edit_category/'.$row->name_category)}}"><span class="edit">Edit</span></a>

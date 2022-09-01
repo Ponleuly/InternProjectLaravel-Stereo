@@ -79,15 +79,16 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update_category(Request $request, $name)
+    public function update_category(Request $request, $id)
     {
-        //$new = $request->$name;
 
-        //$new = $request->all();
-        //$category = Category::where('name_category', $new)->first();
+        $id = $request->all();
+        $update = Category::where('id', $id);
         //$category->name_category = $new('name_category');
         //$category->update();
-        Category::first()->update($request->all());
+        //Category::first()->update($request->all());
+
+        return redirect('/admin_stereo/category');
     }
 
     /**

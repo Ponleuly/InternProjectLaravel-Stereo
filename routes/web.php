@@ -74,8 +74,8 @@ Route::controller(CategoryController::class)->group(function () {
     Route::get('/admin_stereo/add_category', 'add_category')->name('add_category');
     Route::post('/admin_stereo/add_category', 'store')->name('add_category');
 
-    Route::get('/admin_stereo/edit_category/{name_category}', 'edit_category')->name('edit_category');
-    Route::put('/admin_stereo/edit_category/{name_category}', 'update_category');
+    Route::get('/admin_stereo/edit_category/{id}', 'edit_category')->name('edit_category');
+    Route::put('/admin_stereo/edit_category/{id}', 'update_category');
 });
 
 /*============= Country route ==================*/

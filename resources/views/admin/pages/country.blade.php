@@ -1,3 +1,7 @@
+<?php
+  use App\Models\Track;
+  use App\Models\Artist;
+?>
 @extends('admin.index')
 @section('content')
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans:ital,wght@1,300&family=Roboto:ital,wght@0,300;0,500;1,400&display=swap" rel="stylesheet">
@@ -105,14 +109,10 @@
         text-align: center;
     }
     .country-table td:nth-child(5) {
-        width: 10%;
+        width: 15%;
         text-align: center;
     }
     .country-table td:nth-child(6) {
-        text-align: center;
-        width: 15%;
-    }
-    .country-table td:nth-child(7) {
         text-align: center;
     }
     .country-table th, td{
@@ -191,7 +191,6 @@
             <th>Countries</th>
             <th>Tracks</th>
             <th>Artists</th>
-            <th>Albums</th>
             <th>Date Created</th>
             <th>
                 <span class="material-icons-round link-icon">edit</span>
@@ -202,9 +201,12 @@
             <tr>
                 <td>{{$count++}}</td>
                 <td>{{$row->name_country}}</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
+                @php
+                  $track_count = Track::where('id_country', $row->id)->count();
+                  $artist_count = Artist::where('id_country', $row->id)->count(); 
+                @endphp
+                <td>{{$track_count}}</td>
+                <td>{{$artist_count}}</td>
                 <td>{{$row->created_at->diffForHumans()}}</td>
                 <td>
                     <a href=""><span class="edit">Edit</span></a>
