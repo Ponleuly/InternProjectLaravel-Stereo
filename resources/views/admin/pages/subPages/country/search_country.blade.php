@@ -190,7 +190,7 @@
       </div>
       <div class="search-box">
         <form action="{{url('/admin_stereo/search_country')}}">
-          <input type="text"  placeholder="Search here..." name="search" >
+          <input type="text"  placeholder="Search here..." name="search" value="{{$search_text}}">
           <button type="submit">Search</button>
         </form>
       </div>
@@ -208,7 +208,7 @@
                 <span class="material-icons-round link-icon">delete</span>
             </td>  
         </tr>
-        @foreach ($countries as $row)
+        @foreach ($search_country as $row)
             <tr>
                 <td>{{$count++}}</td>
                 <td>{{$row->name_country}}</td>

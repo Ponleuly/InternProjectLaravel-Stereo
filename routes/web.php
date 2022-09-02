@@ -74,10 +74,13 @@ Route::controller(CategoryController::class)->group(function () {
     Route::get('/admin_stereo/add_category', 'add_category')->name('add_category');
     Route::post('/admin_stereo/add_category', 'store')->name('add_category');
 
-    Route::get('/admin_stereo/edit_category/{id}', 'edit_category')->name('edit_category');
-    Route::put('/admin_stereo/edit_category/{id}', 'update_category');
-});
+    Route::get('/admin_stereo/edit_category/{name_category}', 'edit_category')->name('edit_category');
+    Route::put('/admin_stereo/edit_category/{name_category}', 'update_category');
 
+    Route::get('/admin_stereo/delete_category/{name_category}', 'delete_category');
+
+    Route::get('/admin_stereo/search_category', 'search_category');
+});
 /*============= Country route ==================*/
 Route::controller(CountryController::class)->group(function () {
     Route::get('/admin_stereo/country', 'country')->name('country');
@@ -87,6 +90,10 @@ Route::controller(CountryController::class)->group(function () {
 
     Route::get('/admin_stereo/edit_country/{name_country}', 'edit_country')->name('edit_country');
     Route::put('/admin_stereo/edit_country/{name_country}', 'update_country');
+
+    Route::get('/admin_stereo/delete_country/{name_country}', 'delete_country');
+
+    Route::get('/admin_stereo/search_country', 'search_country');
 });
 
 /*============= Artist route ==================*/

@@ -31,7 +31,7 @@ class AlbumController extends Controller
     {
         $categories = Category::orderBy('id')->get();
         $artists = Artist::orderBy('id')->get();
-        return view('admin.pages.subPages.add_album', compact('categories', 'artists'));
+        return view('admin.pages.subPages.album.add_album', compact('categories', 'artists'));
     }
 
     /**

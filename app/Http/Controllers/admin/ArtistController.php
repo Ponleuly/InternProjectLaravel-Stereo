@@ -33,7 +33,7 @@ class ArtistController extends Controller
     {
         $categories = Category::orderBy('id')->get();
         $countries = Country::orderBy('id')->get();
-        return view('admin.pages.subPages.add_artist', compact('categories', 'countries'));
+        return view('admin.pages.subPages.artist.add_artist', compact('categories', 'countries'));
     }
 
     /**

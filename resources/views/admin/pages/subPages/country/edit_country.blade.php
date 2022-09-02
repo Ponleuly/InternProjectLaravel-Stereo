@@ -1,7 +1,7 @@
 @extends('admin.index')
 @section('content')
 <style>
-.box-add-category-container{
+.box-add-country-container{
   display: flex;
   flex-direction: column;
   background: #fff;
@@ -11,7 +11,7 @@
   border: 1px solid #ccc;
   border-top: 5px solid #0d3073;
 }
-.box-add-category-container .title-header{ 
+.box-add-country-container .title-header{ 
   font-size: 25px;
   font-weight: 500;
   font-family: 'Roboto', sans-serif;
@@ -22,7 +22,7 @@
   width: 100%;
   background: #f5f5f5;
 }
-.box-add-category-container .form-fill{
+.box-add-country-container .form-fill{
   display: flex;
   flex-direction: column;
   padding: 15px;
@@ -64,26 +64,56 @@
   background: #0d3073;
   text-align: center;
   border-radius: 5px;
-  border: 1px solid #0d3073;
+  border: 2px solid #0d3073;
   cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 .form-fill button:hover{
   background: white;
   color: #0d3073;
 }
-
+.form-fill .back-button{
+    margin-left: 25px;
+    width: 120px;
+    height: 50px;
+    padding: 10px 15px;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    background: #f44336;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid #f44336;
+    float: left;
+    margin-top: 10px;
+}
+.back-button:hover{
+    background: white;
+}
+.back-button:hover a{
+    color: #f44336;
+}
+.back-button a{
+    text-decoration: none;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
 </style>
-  <div class="box-add-category-container">
+  <div class="box-add-country-container">
     <div class="title-header">
-      <span>Edit Category</span>
+      <span>Edit Country</span>
     </div>
     <div class="form-fill">
-      <form action="{{url('/admin_stereo/edit_category/'.$category->id)}}" method="POST" enctype="multipart/form-data">
+      <form action="{{url('/admin_stereo/edit_country/'.$country->name_country)}}" method="POST" enctype="multipart/form-data">
         @csrf <!-- to make form active -->
         @method('PUT')
         <div class="input-box">
           <span class="detail">Name</span>
-          <input type="text" placeholder="Enter here..." value="{{$category->name_category}}" name="name_category" required>
+          <input type="text" placeholder="Enter here..." value="{{$country->name_country}}" name="name_country" required>
+        </div>
+        <div class="back-button">
+          <a href="{{url('/admin_stereo/country')}}"><span>Back</span></a>
         </div>
         <button type="submit">Submit</button>
       </form>

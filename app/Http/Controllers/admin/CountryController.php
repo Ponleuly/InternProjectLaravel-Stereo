@@ -24,7 +24,7 @@ class CountryController extends Controller
      */
     public function add_country()
     {
-        return view('admin.pages.subPages.add_country');
+        return view('admin.pages.subPages.country.add_country');
     }
 
     /**
@@ -37,7 +37,12 @@ class CountryController extends Controller
     {
         $input = $request->all();
         Country::create($input);
-        return redirect('/admin_stereo/country')->with('alert', 'Country name is added to list !');
+        return redirect('/admin_stereo/country')
+            ->with(
+                'alert',
+                'Country ' . '"' . $request->name_country . '"' .
+                    ' is added to lists !'
+            );
     }
 
     /**
@@ -59,9 +64,11 @@ class CountryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit_country($name_country)
     {
-        //
+        $country = Country::where('name_country', $name_country)->first();
+
+        return view('admin.pages.subPages.country.edit_country',  compact('country'));
     }
 
     /**
@@ -71,9 +78,18 @@ class CountryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update_country(Request $request, $name_country)
     {
-        //
+        $update_country = country::where('name_country', $name_country)->first();
+        $update_country->name_country = $request->input('name_country');
+        $update_country->update();
+
+        return redirect('/admin_stereo/country')
+            ->with(
+                'alert',
+                'Country ' . '"' . $name_country . '"' .
+                    ' is updated to be ' . '"' . $update_country->name_country . '"' . ' !'
+            );
     }
 
     /**
@@ -82,8 +98,23 @@ class CountryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete_country($name_country)
     {
-        //
+        $delete_country = Country::where('name_country', $name_country)->first();
+        $delete_country->delete();
+
+        return redirect('/admin_stereo/country')
+            ->with(
+                'alert',
+                'Country ' . '"' . $name_country . '"' .
+                    ' is deleted successfully !'
+            );
+    }
+    public function search_country()
+    {
+        $search_text = $_GET['search'];
+        $search_country = Country::where('name_country', 'LIKE', '%' . $search_text . '%')->get();
+        $count = 1;
+        return view('admin.pages.subPages.country.search_country',  compact('count', 'search_country', 'search_text'));
     }
 }

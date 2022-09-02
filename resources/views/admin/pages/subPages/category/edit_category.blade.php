@@ -1,7 +1,7 @@
 @extends('admin.index')
 @section('content')
 <style>
-.box-add-country-container{
+.box-add-category-container{
   display: flex;
   flex-direction: column;
   background: #fff;
@@ -11,7 +11,7 @@
   border: 1px solid #ccc;
   border-top: 5px solid #0d3073;
 }
-.box-add-country-container .title-header{ 
+.box-add-category-container .title-header{ 
   font-size: 25px;
   font-weight: 500;
   font-family: 'Roboto', sans-serif;
@@ -22,11 +22,10 @@
   width: 100%;
   background: #f5f5f5;
 }
-.box-add-country-container .form-fill{
+.box-add-category-container .form-fill{
   display: flex;
   flex-direction: column;
   padding: 15px;
-  margin-bottom: 15px;
 }
 .form-fill .input-box{
   display: flex;
@@ -55,10 +54,25 @@
 .form-fill input:focus{
   border: none;
 }
-.form-fill a{
-    text-decoration: none;
-    margin: 10px 25px;
-    width: 500px;
+.form-fill button{
+  float: right;
+  margin-right: 25px;
+  width: 120px;
+  height: 50px;
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  background: #0d3073;
+  text-align: center;
+  border-radius: 5px;
+  border: 2px solid #0d3073;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.form-fill button:hover{
+  background: white;
+  color: #0d3073;
 }
 .form-fill .back-button{
     margin-left: 25px;
@@ -71,9 +85,8 @@
     background: #f44336;
     text-align: center;
     border-radius: 5px;
-    border: 1px solid #f44336;
+    border: 2px solid #f44336;
     float: left;
-    cursor: pointer;
     margin-top: 10px;
 }
 .back-button:hover{
@@ -87,42 +100,23 @@
     color: white;
     font-family: 'Roboto', sans-serif;
 }
-.form-fill button{
-  float: right;
-  margin-right: 25px;
-  width: 120px;
-  height: 50px;
-  font-size: 18px;
-  font-weight: 500;
-  color: white;
-  background: #0d3073;
-  text-align: center;
-  border-radius: 5px;
-  border: 1px solid #0d3073;
-  cursor: pointer;
-  margin-top: 10px;
-}
-.form-fill button:hover{
-  background: white;
-  color: #0d3073;
-}
-
 </style>
-  <div class="box-add-country-container">
+  <div class="box-add-category-container">
     <div class="title-header">
-      <span>Add country</span>
+      <span>Edit Category</span>
     </div>
     <div class="form-fill">
-      <form action="{{url('/admin_stereo/add_country')}}" method="POST" enctype="multipart/form-data">
+      <form action="{{url('/admin_stereo/edit_category/'.$category->name_category)}}" method="POST" enctype="multipart/form-data">
         @csrf <!-- to make form active -->
+        @method('PUT')
         <div class="input-box">
           <span class="detail">Name</span>
-          <input type="text" placeholder="Enter here..." value="" name="name_country" required>
+          <input type="text" placeholder="Enter here..." value="{{$category->name_category}}" name="name_category" required>
         </div>
         <div class="back-button">
-            <a href="{{url('/admin_stereo/country')}}"><span>Back</span></a>
+          <a href="{{url('/admin_stereo/category')}}"><span>Back</span></a>
         </div>
-        <button type="submit">Add</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   </div>

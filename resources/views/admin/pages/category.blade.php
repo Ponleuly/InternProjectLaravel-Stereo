@@ -4,45 +4,69 @@
 @extends('admin.index')
 @section('content')
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto:ital,wght@0,300;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans:ital,wght@1,300&family=Roboto:ital,wght@0,300;0,500;1,400&display=swap" rel="stylesheet">
 <style>
 .box-category-container{
   display: flex;
   flex-direction: column;
   font-family: 'Roboto', sans-serif;
 }
+.box-category-container .message{
+      width: calc(100% - 40px);
+      height: 50px;
+      margin: 20px 20px 0 20px;
+      float: right;
+      color: #000;
+      background: #ddffdd;
+      padding: 5px 15px;
+      border-radius: 5px;
+      font-size: 25px;
+      font-family: 'Open Sans', sans-serif;
+}
 .box-category-container .box-top{
   display: flex;
   flex-direction: row;
   margin: 20px;
+  justify-content: space-between;
 }
 .box-top .search-box form{
   display: flex;
   flex-direction: row;
-  width: 500px;
+  width: 600px;
   text-transform: capitalize;
 }
 .search-box input{
   width: 100%;
   height: 50px;
-  border: 2px solid #ccc;
+  border: 2px solid #0d3073;
   padding: 0 10px;
   font-size: 18px;
   font-weight: 500;
   font-family: 'Roboto', sans-serif;
   text-transform: capitalize;
+  border-radius: 5px;
+}
+.search-box input::placeholder{
+  text-transform: none;
 }
 .search-box button{
   color: white;
-  background: #71b7e6;
+  background: #0d3073;
   font-size: 16px;
   width: 100px;
-  margin-left: -100px;
   height: 50px;
-  padding: 0 20px;
+  padding: 0 25px;
   border: none;
   border-left: none;
   cursor: pointer;
+  margin-left: 15px;
   font-family: 'Roboto', sans-serif;
+  border-radius: 5px;
+  border: 2px solid #0d3073;
+}
+.search-box button:hover{
+  background: #fff;
+  color: #0d3073;
 }
 .search-box input:focus, button{
   border: none;
@@ -50,13 +74,14 @@
 .box-top .add-category-link{
   width: 150px;
   height: 50px;
-  background: #0d3073;
-  margin-left: 30px;
+  background: #DC143C;
   text-align: center;
   padding: 13px 0;
   border-radius: 5px;
-  border: 1px solid #0d3073;
+  border: 2px solid #DC143C;
+
 }
+
 .add-category-link a{
   font-size: 16px;
   font-weight: 500;
@@ -68,7 +93,7 @@
   background: white;
 }
 .add-category-link:hover a{
-  color: #0d3073;
+  color: #DC143C;
 }
 .box-category-container .category-table{
   width: calc(100% - 40px);
@@ -149,19 +174,25 @@
   color: red;
   background: white;
 }
+
 </style>
   <div class="box-category-container">
+    @if(Session::has('alert'))
+      <div class="message">
+        {{Session::get('alert')}}
+      </div>
+    @endif
     <div class="box-top">
+      <div class="add-category-link">
+        <a href="{{url('/admin_stereo/add_category')}}">
+          <span>+Add Category</span>
+        </a>
+      </div>
       <div class="search-box">
-        <form action="">
-          <input type="text"  placeholder="search here..." name="search" id="">
+        <form action="{{url('/admin_stereo/search_category')}}">
+          <input type="text"  placeholder="Enter category name here..." name="search" id="">
           <button type="submit">Search</button>
         </form>
-      </div>
-      <div class="add-category-link">
-          <a href="{{url('/admin_stereo/add_category')}}">
-            <span>+Add Category</span>
-          </a>
       </div>
     </div>
     <div class="category-table">
@@ -187,8 +218,12 @@
             <td>{{$track_count}}</td>
             <td>{{$row->created_at->diffForHumans()}}</td>
             <td>
-              <a href="{{url('/admin_stereo/edit_category/'.$row->name_category)}}"><span class="edit">Edit</span></a>
-              <a href=""><span class="delete">Delete</span></a>
+              <a href="{{url('/admin_stereo/edit_category/'.$row->name_category)}}">
+                <span class="edit">Edit</span>
+              </a>
+              <a href="{{url('/admin_stereo/delete_category/'.$row->name_category)}}">
+                <span class="delete">Delete</span>
+              </a>
             </td>
           @endforeach()
       </table>

@@ -35,7 +35,7 @@ class TrackController extends Controller
         $countries = Country::orderBy('id')->get();
 
         return view(
-            'admin.pages.subPages.add_track',
+            'admin.pages.subPages.track.add_track',
             compact('categories', 'artists', 'albums', 'countries')
         );
     }

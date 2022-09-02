@@ -27,7 +27,7 @@ class CategoryController extends Controller
      */
     public function add_category()
     {
-        return view('admin.pages.subPages.add_category');
+        return view('admin.pages.subPages.category.add_category');
     }
 
     /**
@@ -42,7 +42,14 @@ class CategoryController extends Controller
         //$input = new Category($input);
         //$input->save(); 
         Category::create($input);
-        return redirect('/admin_stereo/category'); // After inputed -> go back to category page
+
+        // After inputed -> go back to category page
+        return redirect('/admin_stereo/category')
+            ->with(
+                'alert',
+                'Category ' . '"' . $request->name_category . '"' .
+                    ' is added to lists !'
+            );
     }
 
     /**
@@ -69,9 +76,9 @@ class CategoryController extends Controller
     public function edit_category($name_category)
     {
         $category = Category::where('name_category', $name_category)->first();
-        return view('admin.pages.subPages.edit_category',  compact('category'));
-    }
 
+        return view('admin.pages.subPages.category.edit_category',  compact('category'));
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -79,16 +86,20 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update_category(Request $request, $id)
+    public function update_category(Request $request, $name_category)
     {
 
-        $id = $request->all();
-        $update = Category::where('id', $id);
-        //$category->name_category = $new('name_category');
-        //$category->update();
-        //Category::first()->update($request->all());
+        //$namCategory = $request->all();
+        $update_category = Category::where('name_category', $name_category)->first();
+        $update_category->name_category = $request->input('name_category');
+        $update_category->update();
 
-        return redirect('/admin_stereo/category');
+        return redirect('/admin_stereo/category')
+            ->with(
+                'alert',
+                'Category ' . '"' . $name_category . '"' .
+                    ' is updated to be ' . '"' . $update_category->name_category . '"' . ' !'
+            );
     }
 
     /**
@@ -99,6 +110,21 @@ class CategoryController extends Controller
      */
     public function delete_category($name_category)
     {
-        //
+        $delete_category = Category::where('name_category', $name_category)->first();
+        $delete_category->delete();
+
+        return redirect('/admin_stereo/category')
+            ->with(
+                'alert',
+                'Category ' . '"' . $name_category . '"' .
+                    ' is deleted successfully !'
+            );
+    }
+    public function search_category()
+    {
+        $search_text = $_GET['search'];
+        $search_category = Category::where('name_category', 'LIKE', '%' . $search_text . '%')->get();
+        $count = 1;
+        return view('admin.pages.subPages.category.search_category',  compact('count', 'search_category', 'search_text'));
     }
 }
