@@ -78,9 +78,12 @@ class ArtistController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit_artist($name_artist)
     {
-        //
+        $artist = Artist::where('name_artist', $name_artist)->first();
+        $categories = Category::orderBy('id')->get();
+        $countries = Country::orderBy('id')->get();
+        return view('admin.pages.subPages.artist.edit_artist',  compact('artist', 'countries', 'categories'));
     }
 
     /**
@@ -90,9 +93,26 @@ class ArtistController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update_artist(Request $request, $name_artist)
     {
-        //
+
+        $update_artist = Artist::where('name_artist', $name_artist)->first();
+        $update_artist->name_artist = $request->input('name_artist');
+        $find = $update_artist['id_category'];
+        if ($find == NULL) {
+            //$update_artist->id_category = $request->input($find);
+            $update_artist->id_category = $request->input('id_category');
+        } else {
+            $update_artist->id_category = $request->input('id_category');
+        }
+        $update_artist->update();
+
+        return redirect('/admin_stereo/artist')
+            ->with(
+                'alert',
+                'artist ' . '"' . $name_artist . '"' .
+                    ' is updated to be ' . '"' . $update_artist->name_artist . '"' . ' !'
+            );
     }
 
     /**

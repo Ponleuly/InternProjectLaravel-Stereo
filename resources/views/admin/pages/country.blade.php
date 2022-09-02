@@ -175,7 +175,7 @@
       color: red;
       background: white;
     }
-  </style>
+</style>  
   <div class="box-country-container">
     @if(Session::has('alert'))
             <div class="message">
@@ -189,7 +189,7 @@
         </a>
       </div>
       <div class="search-box">
-        <form action="{{url('/admin_stereo/search_country')}}">
+        <form action="{{url('/admin_stereo/search_cou/')}}">
           <input type="text"  placeholder="Search here..." name="search" >
           <button type="submit">Search</button>
         </form>
