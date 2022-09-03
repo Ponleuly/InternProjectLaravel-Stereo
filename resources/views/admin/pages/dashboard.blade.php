@@ -150,7 +150,7 @@
             <span class="material-icons-round">album</span>
           </div>
           <div class="item-text">
-            <h1>6</h1>
+            <h1>0</h1>
             <span>Albums</span>
           </div>
         </div>
@@ -201,7 +201,7 @@
             <span class="material-icons-round">queue_music</span>
           </div>
           <div class="item-text">
-            <h1>7</h1>
+            <h1>0</h1>
             <span>Playlists</span>
           </div>
         </div>
@@ -218,7 +218,7 @@
             <span class="material-icons-round">account_circle</span>
           </div>
           <div class="item-text">
-            <h1>6</h1>
+            <h1>0</h1>
             <span>Users</span>
           </div>
         </div>

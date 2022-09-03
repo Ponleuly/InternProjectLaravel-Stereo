@@ -9,8 +9,7 @@ use App\Models\Category;
 use App\Models\Country;
 use App\Models\Album;
 use App\Models\Track;
-
-
+use Illuminate\Support\Facades\File;
 
 class ArtistController extends Controller
 {
@@ -81,9 +80,26 @@ class ArtistController extends Controller
     public function edit_artist($name_artist)
     {
         $artist = Artist::where('name_artist', $name_artist)->first();
-        $categories = Category::orderBy('id')->get();
-        $countries = Country::orderBy('id')->get();
-        return view('admin.pages.subPages.artist.edit_artist',  compact('artist', 'countries', 'categories'));
+        $img_artist = $artist->pf_artist;
+        $idCategory = $artist->id_category; // Get id_category that selected when add artist
+        $idCountry = $artist->id_country;   // Get id_country that selected when add artist
+        $selected_cate = Category::where('id', $idCategory)->first(); // find id_category in Category
+        $selected_coun = Country::where('id', $idCountry)->first(); // find id_country in Country
+
+        $categories = Category::orderBY('id')->get();
+        $countries = Country::orderBY('id')->get();
+
+        return view(
+            'admin.pages.subPages.artist.edit_artist',
+            compact(
+                'artist',
+                'img_artist',
+                'selected_cate',
+                'selected_coun',
+                'categories',
+                'countries'
+            )
+        );
     }
 
     /**
@@ -97,21 +113,32 @@ class ArtistController extends Controller
     {
 
         $update_artist = Artist::where('name_artist', $name_artist)->first();
+        $img_artist = $update_artist->pf_artist;
+
         $update_artist->name_artist = $request->input('name_artist');
-        $find = $update_artist['id_category'];
-        if ($find == NULL) {
-            //$update_artist->id_category = $request->input($find);
-            $update_artist->id_category = $request->input('id_category');
-        } else {
-            $update_artist->id_category = $request->input('id_category');
+        $update_artist->id_category = $request->input('id_category');
+        $update_artist->id_country = $request->input('id_country');
+
+        if ($request->hasFile('pf_artist')) {
+            $img_path = 'public/uploads/artists/' . $img_artist;
+            if (File::exists($img_path)) {
+                File::delete($img_path);
+            }
+
+            $destination_path = 'public/uploads/artists/';
+            $image = $request->file('pf_artist');
+            $image_name = $image->getClientOriginalName();
+            $image->storeAs($destination_path, $image_name);
+
+            $update_artist['pf_artist'] = $image_name;
         }
+
         $update_artist->update();
 
         return redirect('/admin_stereo/artist')
             ->with(
                 'alert',
-                'artist ' . '"' . $name_artist . '"' .
-                    ' is updated to be ' . '"' . $update_artist->name_artist . '"' . ' !'
+                'Artist ' . '"' . $name_artist . '"' . ' is updated successfully!'
             );
     }
 
@@ -121,8 +148,16 @@ class ArtistController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete_artist($name_artist)
     {
-        //
+        $delete_artist = artist::where('name_artist', $name_artist)->first();
+        $delete_artist->delete();
+
+        return redirect('/admin_stereo/artist')
+            ->with(
+                'alert',
+                'Artist ' . '"' . $name_artist . '"' .
+                    ' is deleted successfully !'
+            );
     }
 }

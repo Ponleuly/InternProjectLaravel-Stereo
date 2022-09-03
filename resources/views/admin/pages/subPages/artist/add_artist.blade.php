@@ -1,22 +1,28 @@
 @extends('admin.index')
 @section('content')
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=IBM+Plex+Sans:wght@300&family=Open+Sans:ital,wght@1,300&family=Roboto:ital,wght@0,300;0,500;1,400&family=Source+Sans+Pro:wght@300;400;700&family=Source+Serif+Pro&display=swap" rel="stylesheet">
 <style>
+    .font{
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
     .box-add-artist-container{
         display: flex;
         flex-direction: column;
         background: #fff;
         width: 60%;
         margin: 20px auto;
-        font-family: 'Roboto', sans-serif;
         /*
         border: 1px solid #ccc;
         border-top: 5px solid #0d3073;
         */
     }
     .box-add-artist-container .title-header{ 
-        font-size: 25px;
+        font-size: 25px; 
         font-weight: 500;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Source Sans Pro', sans-serif;
         color: #fff;
         text-align: center;
         padding: 15px;
@@ -48,25 +54,29 @@
         display: flex;
         justify-content: flex-end;
         align-items: center; 
-        font-size: 18px;
-        font-weight: 600;
         width: 120px;
         margin-right: 30px;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        
     }
     .box-fill input[type=text]{
         width: calc(100% - 150px);
         height: 40px;
         padding: 0 15px;
-        font-size: 18px;
-        font-weight: 500;
         margin-bottom: 20px;
         border: 1px solid #ccc;
         border-radius: 5px;
         text-transform: capitalize;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 18px;
+        font-weight: 500;
     }
     .box-fill input[type=text]::placeholder{
+        font-family: 'Source Sans Pro', sans-serif;
         font-size: 16px;
-        font-weight: 400;
+        font-weight: 500;
         text-transform: none;
     }
     .box-fill input:focus{
@@ -79,14 +89,16 @@
         width: 100%;
         height: 40px;
         padding: 0 10px;
-        font-size: 16px;
-        font-weight: 500;
         margin-bottom: 20px;
         border-radius: 5px;
         border: 1px solid #ccc;
         color: black;
         background: white;
         text-transform: capitalize;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+
     }
     .select-box select option{
         color: black;
@@ -103,12 +115,15 @@
     .img-upload input[type=file]::file-selector-button{
         height: 100%;
         width: 200px;
-        font-size: 16px;
         border: none;
         background: #ddffdd;
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
         cursor: pointer;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        text-transform: none;
     }
     .img-upload:hover{
         border: 2px solid green;

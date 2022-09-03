@@ -1,6 +1,6 @@
 <?php
-  use App\Models\Track;
-  use App\Models\Artist;
+    use App\Models\Track;
+    use App\Models\Artist;
 ?>
 @extends('admin.index')
 @section('content')
@@ -71,17 +71,17 @@
         border: none;
     }
     .box-top .add-country-link{
-        width: 150px;
+        width: 170px;
         height: 50px;
         background: mediumseagreen;
         text-align: center;
-        padding: 13px 0;
+        padding: 10px 0;
         border-radius: 5px;
         border: 2px solid mediumseagreen;
     }
     .add-country-link a{
-        font-size: 16px;
-        font-weight: 500;
+        font-size: 18px;
+        font-weight: 600;
         color: white;
         text-decoration: none;
         font-family: 'Roboto', sans-serif;

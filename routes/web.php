@@ -105,6 +105,8 @@ Route::controller(ArtistController::class)->group(function () {
 
     Route::get('/admin_stereo/edit_artist/{name_artist}', 'edit_artist')->name('edit_artist');
     Route::put('/admin_stereo/edit_artist/{name_artist}', 'update_artist');
+
+    Route::get('/admin_stereo/delete_artist/{name_artist}', 'delete_artist');
 });
 
 /*============= Album route ==================*/

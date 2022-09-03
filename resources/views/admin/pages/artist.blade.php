@@ -38,7 +38,7 @@
 		width: 100%;
 		height: 50px;
 		border: 2px solid #0d3073;
-		padding: 0 10px;
+		padding: 0 15px;
 		font-size: 18px;
 		font-weight: 500;
 		font-family: 'Roboto', sans-serif;
@@ -72,13 +72,13 @@
 		height: 50px;
 		background: DodgerBlue;
 		text-align: center;
-		padding: 13px 0;
+		padding: 10px 0;
 		border-radius: 5px;
 		border: 2px solid DodgerBlue;
 	}
 	.add-artist-link a{
-		font-size: 16px;
-		font-weight: 500;
+		font-size: 18px;
+		font-weight: 600;
 		color: white;
 		text-decoration: none;
 		font-family: 'Roboto', sans-serif;
@@ -234,7 +234,9 @@
 					<a href="{{url('/admin_stereo/edit_artist/'.$row->name_artist)}}">
 						<span class="edit">Edit</span>
 					</a>
-					<a href=""><span class="delete">Delete</span></a>
+					<a href="{{url('/admin_stereo/delete_artist/'.$row->name_artist)}}">
+						<span class="delete">Delete</span>
+					</a>
 				</td>
 			@endforeach()
 		</table>
