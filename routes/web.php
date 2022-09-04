@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\CountryController;
 use App\Http\Controllers\admin\ArtistController;
 use App\Http\Controllers\admin\AlbumController;
+use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\TrackController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\LogController;
@@ -55,18 +56,20 @@ Route::controller(FrontendController::class)->group(function () {
 /*============= Admin route ==================*/
 Route::controller(AdminController::class)->group(function () {
     //Route::get('/admin_stereo', [AdminController::class, 'index'])->name('admin_stereo');
-    Route::get('/admin_stereo', 'dashboard')->name('dashboard');
+    //Route::get('/admin_stereo', 'dashboard')->name('dashboard');
     //Route::get('/admin_stereo/category', 'category')->name('category');
     //Route::get('/admin_stereo/country', 'country')->name('country');
     //Route::get('/admin_stereo/artist', 'artist')->name('artist');
     //Route::get('/admin_stereo/album', 'album')->name('album');
     Route::get('/admin_stereo/playlist', 'playlist')->name('playlist');
-    //Route::get('/admin_stereo/track', 'track')->name('track');
-    Route::get('/admin_stereo/user', 'track')->name('user');
+    Route::get('/admin_stereo/user', 'user')->name('user');
+    Route::get('/admin_stereo', 'log_in')->name('log_in');
 
     //Route::post('/admin_stereo/category', 'category')->name('category');
     //Route::get('/admin_stereo/add_category', 'add_category')->name('add_category');
 });
+/*============= Dashboard route ==================*/
+Route::get('/admin_stereo/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');;
 /*============= Category route ==================*/
 Route::controller(CategoryController::class)->group(function () {
     Route::get('/admin_stereo/category', 'category')->name('category');

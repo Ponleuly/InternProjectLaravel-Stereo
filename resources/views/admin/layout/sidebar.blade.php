@@ -7,7 +7,8 @@
     </div>
     <ul class="nav-links">
 		<li>
-			<a href="{{route('dashboard')}}" class="{{ Request::is('admin_stereo')? 'active':''}}">
+			<a href="{{route('dashboard')}}" 
+				class="{{ Request::is('admin_stereo/dashboard')? 'active':''}}">
 				<span class="material-icons-round link-icon">dashboard</span>
 				<span class="links_name">Dashboard</span>
 			</a>

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('username_user', 100);
             $table->string('email_user', 100);
             $table->string('phone_user', 10);
-            $table->string('password_user', 50);
+            $table->string('password_user', 100);
             $table->string('gender_user', 10);
             $table->string('pf_user', 100)->nullable();
             $table->timestamps();
