@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Track;
 use App\Models\Album;
+use App\Models\Track;
 use App\Models\Artist;
-use App\Models\Category;
 use App\Models\Country;
+use App\Models\Category;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class TrackController extends Controller
 {
@@ -96,9 +97,43 @@ class TrackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit_track($name_track)
     {
-        //
+        $track = Track::where('name_track', $name_track)->first();
+
+        $idArtist = $track->id_artist;
+        $idAlbum = $track->id_album;
+        $idCategory = $track->id_category; // Get id_category that selected when add track
+        $idCountry = $track->id_country;   // Get id_country that selected when add track
+        $img_track = $track->pf_track;
+        $audio_track = $track->audio_track;
+
+        $selected_art = Artist::where('id', $idArtist)->first();
+        $selected_alb = Album::where('id', $idAlbum)->first();
+        $selected_cate = Category::where('id', $idCategory)->first(); // find id_category in Category
+        $selected_coun = Country::where('id', $idCountry)->first(); // find id_country in Country
+
+        $artists = Artist::orderBY('id')->get();
+        $albums = Album::orderBY('id')->get();
+        $categories = Category::orderBY('id')->get();
+        $countries = Country::orderBY('id')->get();
+
+        return view(
+            'admin.pages.subPages.track.edit_track',
+            compact(
+                'track',
+                'selected_art',
+                'selected_alb',
+                'selected_cate',
+                'selected_coun',
+                'img_track',
+                'audio_track',
+                'artists',
+                'albums',
+                'categories',
+                'countries'
+            )
+        );
     }
 
     /**
@@ -108,19 +143,82 @@ class TrackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update_track(Request $request, $name_track)
     {
-        //
-    }
+        $update_track = Track::where('name_track', $name_track)->first();
+        $update_track->name_track = $request->input('name_track');
+        $update_track->id_artist = $request->input('id_artist');
+        $update_track->id_album = $request->input('id_album');
+        $update_track->id_category = $request->input('id_category');
+        $update_track->id_country = $request->input('id_country');
 
+        $img_track = $update_track->pf_track;
+        $audio_track = $update_track->audio_track;
+        if ($request->hasFile('pf_track')) {
+            $img_path = 'public/uploads/tracks/' . $img_track;
+            if (File::exists($img_path)) {
+                File::delete($img_path);
+            }
+
+            $destination_path = 'public/uploads/tracks/';
+            $image = $request->file('pf_track');
+            $image_name = $image->getClientOriginalName();
+            $image->storeAs($destination_path, $image_name);
+
+            $update_track['pf_track'] = $image_name;
+        }
+        if ($request->hasFile('audio_track')) {
+            $audio_path = 'public/uploads/audios/' . $audio_track;
+            if (File::exists($audio_path)) {
+                File::delete($audio_path);
+            }
+
+            $destination_path = 'public/uploads/audios';
+            $audio = $request->file('audio_track');
+            $audio_name = $audio->getClientOriginalName();
+            $audio->storeAs($destination_path, $audio_name);
+
+            $update_track['audio_track'] = $audio_name;
+        }
+        $update_track->update();
+
+        return redirect('/admin_stereo/track')
+            ->with(
+                'alert',
+                'Track ' . '"' . $name_track . '"' . ' is updated successfully!'
+            );
+    }
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete_track($name_track)
     {
-        //
+        $delete_track = Track::where('name_track', $name_track)->first();
+        $delete_track->delete();
+
+        return redirect('/admin_stereo/track')
+            ->with(
+                'alert',
+                'Track ' . '"' . $name_track . '"' .
+                    ' is deleted successfully !'
+            );
+    }
+
+    public function search_track()
+    {
+        $search_text = $_GET['search'];
+        $search_track = Track::where('name_track', 'LIKE', '%' . $search_text . '%')->get();
+        $count = 1;
+        return view(
+            'admin.pages.subPages.track.search_track',
+            compact(
+                'count',
+                'search_track',
+                'search_text'
+            )
+        );
     }
 }

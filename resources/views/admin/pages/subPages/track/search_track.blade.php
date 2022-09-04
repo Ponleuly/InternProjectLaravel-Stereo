@@ -194,7 +194,7 @@
 
 		<div class="search-box">
 			<form action="{{url('/admin_stereo/search_track')}}">
-				<input type="text"  placeholder="search here..." name="search" id="">
+				<input type="text"  placeholder="search here..." name="search" value="{{$search_text}}">
 				<button type="submit">Search</button>
 			</form>
 		</div>
@@ -213,7 +213,7 @@
 					<span class="material-icons-round link-icon">delete</span>
 				</td> 
 			</tr>
-			@foreach($tracks as $row)
+			@foreach($search_track as $row)
 			<tr>
 				<td>{{$count++}}</td>
 				<td>

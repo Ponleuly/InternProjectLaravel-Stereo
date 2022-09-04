@@ -15,7 +15,9 @@
 		<li>
 			<a href="{{route('track')}}"
 				class="{{ Request::is('admin_stereo/track')||
-						Request::is('admin_stereo/add_track')? 'active':''}}">
+						Request::is('admin_stereo/add_track')||
+						Request::is('admin_stereo/edit_track/*')||
+						Request::is('admin_stereo/search_track')? 'active':''}}">
 				<span class="material-icons-round link-icon">audiotrack</span>
 				<span class="links_name">Tracks</span>
 			</a>

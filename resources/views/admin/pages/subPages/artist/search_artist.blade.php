@@ -199,7 +199,7 @@
 			</a>
 		</div>
 		<div class="search-box">
-			<form action="/admin_stereo/search_artist">
+			<form action="{{url('/admin_stereo/search_artist')}}">
 				<input type="text"  placeholder="search here..." name="search" value="{{$search_text}}">
 				<button type="submit">Search</button>
 			</form>

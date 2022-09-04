@@ -135,4 +135,8 @@ Route::controller(TrackController::class)->group(function () {
 
     Route::get('/admin_stereo/edit_track/{name_track}', 'edit_track')->name('edit_track');
     Route::put('/admin_stereo/edit_track/{name_track}', 'update_track');
+
+    Route::get('/admin_stereo/delete_track/{name_track}', 'delete_track');
+
+    Route::get('/admin_stereo/search_track', 'search_track');
 });

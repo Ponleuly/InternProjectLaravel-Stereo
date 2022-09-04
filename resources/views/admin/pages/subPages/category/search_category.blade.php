@@ -185,7 +185,8 @@
         </div>
         <div class="search-box">
             <form action="{{url('/admin_stereo/search_category')}}">
-              <input type="text"  placeholder="enter category name here..." name="search" value="{{$search_text}}">
+              <input type="text"  placeholder="enter category name here..." 
+                    name="search" value="{{$search_text}}">
               <button type="submit">Search</button>
             </form>
         </div>

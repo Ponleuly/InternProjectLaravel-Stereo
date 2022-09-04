@@ -242,14 +242,14 @@
                 <div class="box-fill">
                     <span class="detail">Track Image</span>
                     <div class="img-upload">
-                        <input type="file" name="pf_track" accept="image/png, image/jpeg, image/jpg">
+                        <input type="file" name="pf_track" accept="image/png, image/jpeg, image/jpg" required>
                     </div>
                 </div>
 
                 <div class="box-fill">
                     <span class="detail">Track Audio</span>
                     <div class="img-upload">
-                        <input type="file" name="audio_track" accept="audio/mp3">
+                        <input type="file" name="audio_track" accept="audio/mp3" required>
                     </div>
                 </div>    
             </div>

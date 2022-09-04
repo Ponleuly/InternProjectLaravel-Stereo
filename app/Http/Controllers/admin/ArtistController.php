@@ -167,6 +167,13 @@ class ArtistController extends Controller
         $search_text = $_GET['search'];
         $search_artist = Artist::where('name_artist', 'LIKE', '%' . $search_text . '%')->get();
         $count = 1;
-        return view('admin.pages.subPages.artist.search_artist',  compact('count', 'search_artist', 'search_text'));
+        return view(
+            'admin.pages.subPages.artist.search_artist',
+            compact(
+                'count',
+                'search_artist',
+                'search_text'
+            )
+        );
     }
 }

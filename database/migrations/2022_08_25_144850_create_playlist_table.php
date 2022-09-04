@@ -18,9 +18,10 @@ return new class extends Migration
             $table->string('name_playlist', 100);
             $table->string('pf_playlist', 100)->nullable();
 
-            $table->unsignedInteger('id_user');
+            $table->unsignedInteger('id_user')->nullable();
             $table->foreign('id_user')->references('id')->on('table_user');
-            //on('table_admin');
+            $table->unsignedInteger('id_admin')->nullable();
+            $table->foreign('id_admin')->references('id')->on('table_admin');
 
 
             $table->timestamps();
