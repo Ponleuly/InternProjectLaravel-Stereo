@@ -107,6 +107,8 @@ Route::controller(ArtistController::class)->group(function () {
     Route::put('/admin_stereo/edit_artist/{name_artist}', 'update_artist');
 
     Route::get('/admin_stereo/delete_artist/{name_artist}', 'delete_artist');
+
+    Route::get('/admin_stereo/search_artist', 'search_artist');
 });
 
 /*============= Album route ==================*/
@@ -118,6 +120,10 @@ Route::controller(AlbumController::class)->group(function () {
 
     Route::get('/admin_stereo/edit_album/{name_album}', 'edit_album')->name('edit_album');
     Route::put('/admin_stereo/edit_album/{name_album}', 'update_album');
+
+    Route::get('/admin_stereo/delete_album/{name_album}', 'delete_album');
+
+    Route::get('/admin_stereo/search_album', 'search_album');
 });
 
 /*============= Track route ==================*/

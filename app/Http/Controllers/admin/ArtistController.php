@@ -151,6 +151,7 @@ class ArtistController extends Controller
     public function delete_artist($name_artist)
     {
         $delete_artist = artist::where('name_artist', $name_artist)->first();
+
         $delete_artist->delete();
 
         return redirect('/admin_stereo/artist')
@@ -159,5 +160,13 @@ class ArtistController extends Controller
                 'Artist ' . '"' . $name_artist . '"' .
                     ' is deleted successfully !'
             );
+    }
+
+    public function search_artist()
+    {
+        $search_text = $_GET['search'];
+        $search_artist = Artist::where('name_artist', 'LIKE', '%' . $search_text . '%')->get();
+        $count = 1;
+        return view('admin.pages.subPages.artist.search_artist',  compact('count', 'search_artist', 'search_text'));
     }
 }

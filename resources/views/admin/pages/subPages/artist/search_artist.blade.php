@@ -200,7 +200,7 @@
 		</div>
 		<div class="search-box">
 			<form action="/admin_stereo/search_artist">
-				<input type="text"  placeholder="search here..." name="search">
+				<input type="text"  placeholder="search here..." name="search" value="{{$search_text}}">
 				<button type="submit">Search</button>
 			</form>
 		</div>
@@ -218,7 +218,7 @@
 				<span class="material-icons-round link-icon">delete</span>
 			</td> 
 			</tr>
-			@foreach($artists as $row)
+			@foreach($search_artist as $row)
 			<tr>
 				<td>{{$count++}}</td>
 				<td>

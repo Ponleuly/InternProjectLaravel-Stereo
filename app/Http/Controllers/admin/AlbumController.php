@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-
 use App\Models\Album;
 use App\Models\Artist;
-use App\Models\Category;
+
 use App\Models\Country;
+use App\Models\Category;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class AlbumController extends Controller
 {
@@ -80,11 +81,30 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit_album($name_album)
     {
-        //
-    }
+        $album = Album::where('name_album', $name_album)->first();
+        $img_album = $album->pf_album;
+        $idCategory = $album->id_category; // Get id_category that selected when add album
+        $idArtist = $album->id_artist;   // Get id_country that selected when add album
+        $selected_cate = Category::where('id', $idCategory)->first(); // find id_category in Category
+        $selected_art = Artist::where('id', $idArtist)->first(); // find id_country in Country
 
+        $categories = Category::orderBY('id')->get();
+        $artists = Artist::orderBY('id')->get();
+
+        return view(
+            'admin.pages.subPages.album.edit_album',
+            compact(
+                'album',
+                'img_album',
+                'selected_cate',
+                'selected_art',
+                'categories',
+                'artists'
+            )
+        );
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -92,9 +112,37 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update_album(Request $request, $name_album)
     {
-        //
+
+        $update_album = album::where('name_album', $name_album)->first();
+        $img_album = $update_album->pf_album;
+
+        $update_album->name_album = $request->input('name_album');
+        $update_album->id_category = $request->input('id_category');
+        $update_album->id_artist = $request->input('id_artist');
+
+        if ($request->hasFile('pf_album')) {
+            $img_path = 'public/uploads/albums/' . $img_album;
+            if (File::exists($img_path)) {
+                File::delete($img_path);
+            }
+
+            $destination_path = 'public/uploads/albums/';
+            $image = $request->file('pf_album');
+            $image_name = $image->getClientOriginalName();
+            $image->storeAs($destination_path, $image_name);
+
+            $update_album['pf_album'] = $image_name;
+        }
+
+        $update_album->update();
+
+        return redirect('/admin_stereo/album')
+            ->with(
+                'alert',
+                'Album ' . '"' . $name_album . '"' . ' is updated successfully!'
+            );
     }
 
     /**
@@ -103,8 +151,24 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete_album($name_album)
     {
-        //
+        $delete_album = Album::where('name_album', $name_album)->first();
+
+        $delete_album->delete();
+
+        return redirect('/admin_stereo/album')
+            ->with(
+                'alert',
+                'Album ' . '"' . $name_album . '"' .
+                    ' is deleted successfully !'
+            );
+    }
+    public function search_album()
+    {
+        $search_text = $_GET['search'];
+        $search_album = Album::where('name_album', 'LIKE', '%' . $search_text . '%')->get();
+        $count = 1;
+        return view('admin.pages.subPages.album.search_album',  compact('count', 'search_album', 'search_text'));
     }
 }

@@ -24,7 +24,8 @@
 			<a href="{{route('artist')}}" 
 				class="{{ Request::is('admin_stereo/artist')||
 						Request::is('admin_stereo/add_artist')||
-						Request::is('admin_stereo/edit_artist/*')? 'active':''}}">
+						Request::is('admin_stereo/edit_artist/*')||
+						Request::is('admin_stereo/search_artist')? 'active':''}}">
 				<span class="material-icons-round link-icon">people</span>
 				<span class="links_name">Artists</span>
 			</a>
@@ -32,7 +33,9 @@
 		<li>
 			<a href="{{route('album')}}" 
 				class="{{ Request::is('admin_stereo/album')||
-						Request::is('admin_stereo/add_album')? 'active':''}}">
+						Request::is('admin_stereo/add_album')||
+						Request::is('admin_stereo/edit_album/*')||
+						Request::is('admin_stereo/search_album')? 'active':''}}">
 				<span class="material-icons-round link-icon">album</span>
 				<span class="links_name">Albums</span>
 			</a>

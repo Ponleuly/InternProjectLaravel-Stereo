@@ -8,7 +8,7 @@
         font-family: 'Roboto', sans-serif;
         font-family: 'Source Sans Pro', sans-serif;
     }
-    .box-add-artist-container{
+    .box-add-album-container{
         display: flex;
         flex-direction: column;
         background: #fff;
@@ -19,7 +19,7 @@
         border-top: 5px solid #0d3073;
         */
     }
-    .box-add-artist-container .title-header{ 
+    .box-add-album-container .title-header{ 
         font-size: 25px; 
         font-weight: 500;
         font-family: 'Source Sans Pro', sans-serif;
@@ -28,10 +28,10 @@
         padding: 15px;
         height: 70px;
         width: 100%;
-        background: dodgerblue;
+        background: #0d3073;
         border-radius: 5px;
     }
-    .box-add-artist-container .form-fill{
+    .box-add-album-container .form-fill{
         display: flex;
         flex-direction: column;
         padding: 15px;
@@ -58,7 +58,8 @@
         margin-right: 30px;
         font-family: 'Source Sans Pro', sans-serif;
         font-size: 18px;
-        font-weight: 700;   
+        font-weight: 700;
+        
     }
     .box-fill p.artist-name{
         width: calc(100% - 150px);
@@ -192,18 +193,37 @@
     }
     
 </style>
-<div class="box-add-artist-container">
+<div class="box-add-album-container">
     <div class="title-header">
-      <span>Edit Artist</span>
+      <span>Edit Album</span>
     </div>
     <div class="form-fill">
-        <form action="{{url('/admin_stereo/edit_artist/'.$artist->name_artist)}}" method="POST" enctype="multipart/form-data">
+        <form action="{{url('/admin_stereo/edit_album/'.$album->name_album)}}" method="POST" enctype="multipart/form-data">
             @csrf <!-- to make form active -->
             @method('PUT')
             <div class="input-box">
                 <div class="box-fill">
-                    <span class="detail">Artist Name</span>
-                    <input type="text" placeholder="Enter here..." value="{{$artist->name_artist}}" name="name_artist" required>
+                    <span class="detail">Album Name</span>
+                    <input type="text" placeholder="Enter here..." value="{{$album->name_album}}" name="name_album" required>
+                </div>
+                
+                <div class="box-fill">
+                    <span class="detail">Artist</span>
+                    <div class="select-box">
+                        <select name="id_artist"><!--is a string colum will insert in table_album-->
+                            <option disabled selected>Choose Artists</option>
+                            @foreach($artists as $row)
+                                <option value="{{$row->id}}"
+                                    <?php 
+                                        if ($row->id == $selected_art->id){ ?>
+                                            selected
+                                    <?php }
+                                    ?>
+                                    >{{$row->name_artist}}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
                 
                 <div class="box-fill">
@@ -224,45 +244,23 @@
                         </select>
                     </div>
                 </div>
-                
                 <div class="box-fill">
-                    <span class="detail">Country</span>
-                    <div class="select-box">
-                        <select name="id_country">
-                            <option disabled selected>Choose Countries</option>
-                            @foreach($countries as $row)
-                                <option value="{{$row->id}}"
-                                    <?php 
-                                        if ($row->id == $selected_coun->id){ ?>
-                                            selected
-                                    <?php
-                                        }
-                                    ?> 
-                                    >{{$row->name_country}}
-                                </option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-
-                <div class="box-fill">
-                    <span class="detail">Artist Image</span>
-                    <p class="artist-name">{{$img_artist}}</p>
+                    <span class="detail">Album Image</span>
+                    <p class="artist-name">{{$img_album}}</p>
                 </div>
                 <div class="box-fill">
                     <span class="detail"></span>
-                    <img src="/storage/uploads/artists/{{$img_artist}}" alt="">
+                    <img src="/storage/uploads/albums/{{$img_album}}" alt="">
                 </div>
                 <div class="box-fill" style="margin-top: 180px">
                     <span class="detail">Update Image</span>
                     <div class="img-upload">
-                        <input type="file" name="pf_artist" accept="image/png, image/jpeg, image/jpg">
+                        <input type="file" name="pf_album" accept="image/png, image/jpeg, image/jpg">
                     </div>
                 </div>
             </div>
-
             <div class="back-button">
-                <a href="{{url('/admin_stereo/artist')}}"><span>Back</span></a>
+                <a href="{{url('/admin_stereo/album')}}"><span>Back</span></a>
             </div>
             <button type="submit">Update</button>
         </form>

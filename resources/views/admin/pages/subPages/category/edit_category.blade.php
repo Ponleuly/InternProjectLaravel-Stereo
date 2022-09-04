@@ -145,7 +145,7 @@
             <div class="back-button">
               <a href="{{url('/admin_stereo/category')}}"><span>Back</span></a>
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit">Update</button>
         </form>
     </div>
 </div>
