@@ -17,9 +17,24 @@ class CountrySeeder extends Seeder
     public function run()
     {
         DB::table('table_country')->insert([
-            ['id' => 1, 'name_country' => 'English', 'created_at' => Carbon::now()],
-            ['id' => 2, 'name_country' => 'Cambodian', 'created_at' => Carbon::now()],
-            ['id' => 3, 'name_country' => 'Vietnamese', 'created_at' => Carbon::now()],
+            [
+                'id' => 1,
+                'name_country' => 'English',
+                'pf_country' => 'United_Kingdom.jpeg',
+                'created_at' => Carbon::now()
+            ],
+            [
+                'id' => 2,
+                'name_country' => 'Cambodian',
+                'pf_country' => 'Flag_of_Cambodia.jpeg',
+                'created_at' => Carbon::now()
+            ],
+            [
+                'id' => 3,
+                'pf_country' => 'Flag-Vietnam.jpeg',
+                'name_country' => 'Vietnamese',
+                'created_at' => Carbon::now()
+            ],
         ]);
     }
 }

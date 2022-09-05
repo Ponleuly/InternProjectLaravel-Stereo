@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Track;
 use App\Models\Artist;
+use App\Models\Country;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -32,7 +33,11 @@ class FrontendController extends Controller
     }
     public function category()
     {
-        return view('frontend.pages.category');
+        //$track_count = Track::where('id_country', $row->id)->count();
+        //$artist_count = Artist::where('id_country', $row->id)->count();
+        $countries = Country::orderBy('id')->get();
+
+        return view('frontend.pages.category', compact('countries'));
     }
     public function liked()
     {

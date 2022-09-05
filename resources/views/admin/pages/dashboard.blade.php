@@ -8,13 +8,13 @@
 		flex-flow: wrap;
 		width: calc(100% - 30px);
 		height: auto;
-		margin: 15px auto;
+		margin: 0 auto;
 		justify-content: space-between;
 	}
 	.box-dashboard-container .content-display{
 		width: calc(100% / 3 - 30px);
 		height: 250px;
-		margin: 15px 15px;
+		margin: 10px 15px;
 		font-family: 'Roboto', sans-serif;
 		border-radius: 5px;
 	}
@@ -86,6 +86,9 @@
 	}
 	.content-display.box6{
 		background: #FF4500;
+	}
+	.content-display.box7{
+		background: #FFD700;
 	}
 
 	.bottom-link:hover{
@@ -224,6 +227,23 @@
 			</div>
 			<div class="bottom-link">
 				<a href="">
+					<span>More Details >></span>
+				</a>
+			</div>
+      	</div>
+
+		<div class="content-display box7">
+			<div class="main-content">
+				<div class="item-icon">
+					<span class="material-icons-round">flag</span>
+				</div>
+				<div class="item-text">
+					<h1>{{$countries}}</h1>
+					<span>Countries</span>
+				</div>
+			</div>
+			<div class="bottom-link">
+				<a href="/admin_stereo/country">
 					<span>More Details >></span>
 				</a>
 			</div>

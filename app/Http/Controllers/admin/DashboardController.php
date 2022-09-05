@@ -18,13 +18,16 @@ class DashboardController extends Controller
         $albums = Album::all()->count();
         $tracks = Track::all()->count();
         $categories = Category::all()->count();
+        $countries = Country::all()->count();
+
         return view(
             'admin.pages.dashboard',
             compact(
                 'artists',
                 'albums',
                 'tracks',
-                'categories'
+                'categories',
+                'countries'
             )
         );
     }

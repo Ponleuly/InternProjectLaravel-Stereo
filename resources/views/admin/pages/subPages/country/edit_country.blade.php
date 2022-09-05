@@ -28,7 +28,7 @@
         padding: 15px;
         height: 70px;
         width: 100%;
-        background: mediumseagreen;
+        background: #0d3073;
         border-radius: 5px;
     }
     .box-add-country-container .form-fill{
@@ -53,15 +53,34 @@
     .box-fill span.detail{
         display: flex;
         justify-content: flex-end;
-        align-items: center;
-        width: 130px;
+        align-items: center; 
+        width: 120px;
         margin-right: 30px;
         font-family: 'Source Sans Pro', sans-serif;
         font-size: 18px;
         font-weight: 700;
+        
+    }
+    .box-fill p.country-name{
+        width: calc(100% - 150px);
+        height: 40px;
+        padding: 7px 15px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-transform: none;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .box-fill img{
+        width: 220px;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 5px;
     }
     .box-fill input[type=text]{
-        width: calc(100% - 160px);
+        width: calc(100% - 150px);
         height: 40px;
         padding: 0 15px;
         margin-bottom: 20px;
@@ -81,6 +100,52 @@
     .box-fill input:focus{
         border: none;
     }
+    .box-fill .select-box{
+        width: calc(100% - 150px);
+    }
+    .box-fill .select-box select{
+        width: 100%;
+        height: 40px;
+        padding: 0 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        color: black;
+        background: white;
+        text-transform: capitalize;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+
+    }
+    .select-box select option{
+        color: black;
+    }
+    .box-fill .img-upload{
+        width: calc(100% - 150px);
+        height: 40px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background: white;
+        display: flex;
+    }
+    .img-upload input[type=file]::file-selector-button{
+        height: 100%;
+        width: 200px;
+        border: none;
+        background: #ddffdd;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        cursor: pointer;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        text-transform: none;
+    }
+    .img-upload:hover{
+        border: 2px solid green;
+    }
     .form-fill .back-button{ 
         width: 120px;
         height: 50px;
@@ -94,7 +159,7 @@
         border: 2px solid #f44336;
         float: left;
         margin-top: 15px;
-        margin-left: 210px;
+        margin-left: 200px;
     }
     .back-button:hover{
         background: white;
@@ -126,6 +191,7 @@
         background: white;
         color: #0d3073;
     }
+    
 </style>
 <div class="box-add-country-container">
     <div class="title-header">
@@ -140,6 +206,26 @@
                     <span class="detail">Country Name</span>
                     <input type="text" placeholder="Enter here..." value="{{$country->name_country}}" name="name_country" required>
                 </div> 
+            </div>
+            <div class="input-box">
+                <div class="box-fill">
+                    <span class="detail">Country Image</span>
+                    <p class="country-name">{{$img_country}}</p>
+                </div>
+            </div>
+            <div class="input-box">
+                <div class="box-fill">
+                    <span class="detail"></span>
+                    <img src="/storage/uploads/countries/{{$img_country}}" alt="">
+                </div>
+            </div>
+            <div class="input-box" style="margin-top: 180px">
+                <div class="box-fill">
+                    <span class="detail">Update Image</span>
+                    <div class="img-upload">
+                        <input type="file" name="pf_country" accept="image/png, image/jpeg, image/jpg" required>
+                    </div>
+                </div>
             </div>
             <div class="back-button">
               <a href="{{url('/admin_stereo/country')}}"><span>Back</span></a>

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Country;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class CountryController extends Controller
 {
@@ -36,6 +37,15 @@ class CountryController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
+        if ($request->hasFile('pf_country')) {
+            $destination_path = 'public/uploads/countries';
+            $image = $request->file('pf_country');
+
+            $image_name = $image->getClientOriginalName();
+            $image->storeAs($destination_path, $image_name);
+
+            $input['pf_country'] = $image_name;
+        }
         Country::create($input);
         return redirect('/admin_stereo/country')
             ->with(
@@ -67,8 +77,9 @@ class CountryController extends Controller
     public function edit_country($name_country)
     {
         $country = Country::where('name_country', $name_country)->first();
+        $img_country = $country->pf_country;
 
-        return view('admin.pages.subPages.country.edit_country',  compact('country'));
+        return view('admin.pages.subPages.country.edit_country',  compact('country', 'img_country'));
     }
 
     /**
@@ -81,14 +92,29 @@ class CountryController extends Controller
     public function update_country(Request $request, $name_country)
     {
         $update_country = country::where('name_country', $name_country)->first();
+        $img_country = $update_country->pf_country;
+
         $update_country->name_country = $request->input('name_country');
+        if ($request->hasFile('pf_country')) {
+            $img_path = 'public/uploads/countries/' . $img_country;
+            if (File::exists($img_path)) {
+                File::delete($img_path);
+            }
+
+            $destination_path = 'public/uploads/countries/';
+            $image = $request->file('pf_country');
+            $image_name = $image->getClientOriginalName();
+            $image->storeAs($destination_path, $image_name);
+
+            $update_country['pf_country'] = $image_name;
+        }
         $update_country->update();
 
         return redirect('/admin_stereo/country')
             ->with(
                 'alert',
                 'Country ' . '"' . $name_country . '"' .
-                    ' is updated to be ' . '"' . $update_country->name_country . '"' . ' !'
+                    ' is updated successfully !'
             );
     }
 
