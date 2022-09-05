@@ -105,6 +105,38 @@ class AlbumSeeder extends Seeder
                 'id_category' => 1,
                 'created_at' => Carbon::now()
             ],
+            [
+                'id' => 12,
+                'name_album' => 'My Words',
+                'pf_album' => 'my_wrods_justin_bieber.jpg',
+                'id_artist' => 7,
+                'id_category' => 4,
+                'created_at' => Carbon::now()
+            ],
+            [
+                'id' => 13,
+                'name_album' => 'Collections',
+                'pf_album' => 'michael.jpg',
+                'id_artist' => 9,
+                'id_category' => 2,
+                'created_at' => Carbon::now()
+            ],
+            [
+                'id' => 14,
+                'name_album' => 'Austin Mahone Collections',
+                'pf_album' => 'All_I_Ever_Need.jpg',
+                'id_artist' => 4,
+                'id_category' => 2,
+                'created_at' => Carbon::now()
+            ],
+            [
+                'id' => 15,
+                'name_album' => 'The Best Collections of Jack',
+                'pf_album' => 'collections_jack.jpg',
+                'id_artist' => 6,
+                'id_category' => 9,
+                'created_at' => Carbon::now()
+            ],
         ]);
     }
 }

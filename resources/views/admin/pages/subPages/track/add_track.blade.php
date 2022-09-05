@@ -191,7 +191,7 @@
                 <div class="box-fill">
                     <span class="detail">Artist</span>
                     <div class="select-box">
-                        <select name="id_artist"><!--is a string colum will insert in table_album-->
+                        <select name="id_artist"  required><!--is a string colum will insert in table_album-->
                                 <option disabled selected>Choose artists</option>
                             @foreach($artists as $row)
                                 <option value="{{$row->id}}">{{$row->name_artist}}</option>
@@ -204,7 +204,7 @@
                 <div class="box-fill">
                     <span class="detail">Album</span>
                     <div class="select-box">
-                        <select name="id_album"><!--is a string colum will insert in table_album-->
+                        <select name="id_album"  required><!--is a string colum will insert in table_album-->
                             <option disabled selected>Choose albums</option>
                             @foreach($albums as $row)
                                 <option value="{{$row->id}}">{{$row->name_album}}</option>
@@ -217,7 +217,7 @@
                 <div class="box-fill">
                     <span class="detail">Category</span>
                     <div class="select-box">
-                        <select name="id_category">
+                        <select name="id_category"  required>
                             <option disabled selected>Choose Categories</option>
                             @foreach($categories as $row)
                                 <option value="{{$row->id}}">{{$row->name_category}}</option>
@@ -229,7 +229,7 @@
                 <div class="box-fill">
                     <span class="detail">Country</span>
                     <div class="select-box">
-                        <select name="id_country"><!--is a string colum will insert in table_album-->
+                        <select name="id_country"  required><!--is a string colum will insert in table_album-->
                             <option disabled selected>Choose Countries</option>
                             @foreach($countries as $row)
                                 <option value="{{$row->id}}">{{$row->name_country}}</option>

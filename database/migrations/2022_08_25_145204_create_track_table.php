@@ -45,11 +45,6 @@ return new class extends Migration
                 ->references('id')
                 ->on('table_country');
 
-            $table->unsignedInteger('id_playlist')->nullable();
-            $table->foreign('id_playlist')
-                ->references('id')
-                ->on('table_playlist');
-
             $table->timestamps();
         });
     }
