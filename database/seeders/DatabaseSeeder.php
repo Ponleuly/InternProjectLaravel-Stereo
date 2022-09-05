@@ -3,7 +3,14 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Country;
 use Illuminate\Database\Seeder;
+use Database\Seeders\AlbumSeeder;
+use Database\Seeders\TrackSeeder;
+use Database\Seeders\ArtistSeeder;
+use Database\Seeders\CountrySeeder;
+use Database\Seeders\CategorySeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,5 +27,12 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        $this->call([
+            CountrySeeder::class,
+            CategorySeeder::class,
+            ArtistSeeder::class,
+            AlbumSeeder::class,
+            TrackSeeder::class,
+        ]);
     }
 }
