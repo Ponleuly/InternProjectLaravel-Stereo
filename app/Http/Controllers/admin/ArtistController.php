@@ -32,7 +32,13 @@ class ArtistController extends Controller
     {
         $categories = Category::orderBy('id')->get();
         $countries = Country::orderBy('id')->get();
-        return view('admin.pages.subPages.artist.add_artist', compact('categories', 'countries'));
+        return view(
+            'admin.pages.subPages.artist.add_artist',
+            compact(
+                'categories',
+                'countries'
+            )
+        );
     }
 
     /**
@@ -55,7 +61,8 @@ class ArtistController extends Controller
         }
 
         Artist::create($input);
-        return redirect('/admin_stereo/artist')->with('alert', 'Artist is added to list !');
+        return redirect('/admin_stereo/artist')
+            ->with('alert', 'Artist is added to list !');
     }
     /**
      * Display the specified resource.

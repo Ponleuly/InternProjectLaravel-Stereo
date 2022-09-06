@@ -37,7 +37,12 @@ class TrackController extends Controller
 
         return view(
             'admin.pages.subPages.track.add_track',
-            compact('categories', 'artists', 'albums', 'countries')
+            compact(
+                'categories',
+                'artists',
+                'albums',
+                'countries'
+            )
         );
     }
 
@@ -71,7 +76,8 @@ class TrackController extends Controller
         }
 
         Track::create($input);
-        return redirect('/admin_stereo/track')->with('alert', 'Track is added to list !');
+        return redirect('/admin_stereo/track')
+            ->with('alert', 'Track is added to list !');
     }
 
     /**

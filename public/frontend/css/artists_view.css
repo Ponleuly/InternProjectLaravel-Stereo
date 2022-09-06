@@ -10,9 +10,7 @@
     min-width: 500px;
     min-height: 400px;
     background-color: var(--box-color);
-    
-    background-image: url('/frontend/images/ed_sheeran.jpg');
-    background-position: center;
+    background-position: 100% 30%;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
@@ -90,6 +88,7 @@
 .dash-top-3 span:hover {
     color: var(--text-color);
 }
+/**=======================================*/
 .artist-title-bar {
     display: flex;
     align-items: center;
@@ -103,156 +102,158 @@
     margin-left: 10px;
     text-transform: capitalize;
 }
-.artist-dash .artist-dash-content {
+/*========================================*/
+.artist-dash .artist-dash-content-1 {
     width: 100%;
 }
-.artist-dash-content .content-container{
+.artist-dash-content-1 .content-container-1{
     max-width: 100%;
     margin: 0;
     padding: 20px 30px 0 30px;
 }
-.artist-dash .artist-dash-content-2{
-  width: 100%;
-}
-.artist-dash-content-2 .content-container-2{
-    max-width: calc(100% - 30px);
-    margin: 20px 0 20px 30px;
-}
-.content-container .container-row{
+.content-container-1 .container-row-1{
     display: flex;
     flex-direction: column;
     width: 100%;
 }
-.container-row .row-header {
+/*================= Table Haeder =========================*/
+.container-row-1 .row-header-table{
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 10px;
 }
-.row-header .title {
-    width: calc(50% - 15px);
+.row-header-table .title-artist {
+    width: calc(40% - 15px);
     margin-left: 15px;
 }
-.row-header .album {
-    width: 30%;
+.row-header-table .title-artist span {
+    margin-right: 15px;
 }
-.row-header .icon{
+.row-header-table .album-artist {
+    width: 40%;
+    text-align: center;
+}
+.row-header-table .icon{
     width: calc(20% - 45px);
     margin-right: 45px;
 }
-.row-header .title, .album, .icon{
+.row-header-table .title-artist, .album-artist, .icon{
     color: var(--text-color);
     font-size: 18px;
     font-weight: 500;
     text-transform: uppercase;
 }
-.row-header .title span{
-    margin-right: 10px;
-}
-.row-header .icon span{
+.row-header-table .icon span{
     float: right;
 }
-.container-row .row-content {
+/*=================== Table Content ==================*/
+.container-row-1 .row-content-table {
     padding: 15px 0;
 }
-.row-content table{
+.row-content-table table{
     width: 100%;
     border-collapse: collapse; 
 }
-.row-content table td{
-    height: 70px;
-    padding: 5px 0;
+.row-content-table td{ 
+    padding: 3px 0 0 0;
 }
-.row-content table td:nth-child(1){
-    width: 50%;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+  
+.row-content-table td:nth-child(1){
+    width: 40%;
 }
-.row-content table td:nth-child(2){
-    width: 30%;
+.row-content-table td:nth-child(2){
+    width: 40%;
+    padding: 20px 0;
+    text-align: center;
 }
-.row-content table td:nth-child(3){
+.row-content-table td:nth-child(3){
     width: 20%; 
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px; 
 }
-.row-content td ul{
+.row-content-table td ul{
     list-style: none;
     display: flex;
     flex-direction: row;
-    align-items: center; 
     text-transform: capitalize;
-    margin-left: 15px;  
+    padding-left: 15px;
 }
-.row-content td ul li{
+.row-content-table td ul li{
     margin-right: 15px;
     color: var(--white-dark-color);
 }
-.row-content td ul li .td-1-1 {
+.row-content-table td ul li .num-order {
     width: 20px;
+    height: 50px;
+    margin-top: 10px;
+    padding: 10px 0;
 }
-.row-content td ul li .number{
+.row-content-table td ul li span.number{
     font-size: 16px;
     font-weight: 500;
     color: var(--white-dark-color);
     display: block;
     padding: 5px;
 }
-.row-content td ul li .play-up{
+.row-content-table td ul li span.play-up{
     font-size: 18px;
     font-weight: 500;
     color: var(--white-dark-color);
     display: none;
     position: relative;
+    padding: 5px 0;
 }
-.row-content td ul li .td-1-3 span{
+.row-content-table td ul li .img img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-top: 12px;
+}
+.row-content-table td ul li .song-title span{
     display: flex;
     flex-direction: row;
     font-size: 16px;
     font-weight: 500;
     color: var(--white-dark-color);
     width: 500px;
+    height: 50px;
+    margin-top: 12px;
+    align-items: center;
 }
-.row-content td ul li.text-overflow {
+.row-content-table td ul li.text-overflow {
     white-space: nowrap;  
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.row-content td ul li .td-1-3 p{
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--white-dark-color);
-    cursor: pointer;
-}
-.row-content td a{
+.row-content-table td .song-album a{
     text-decoration: none;
+    text-transform: capitalize;
 }
-.row-content td .td-2{
+.row-content-table td .song-album a span{
     font-size: 16px;
     font-weight: 500;
     color: var(--white-dark-color);
-    text-transform: capitalize;
 }
-.row-content td .td-3{
+.row-content-table td .song-duration{
     float: right;
     display: flex;
     flex-direction: row;
     margin-right: 15px;
+    align-items: center;
 }
-.row-content td .td-3 span{
+.row-content-table td .song-duration span{
     font-size: 18px;
     font-weight: 500;
-    padding: 0 30px;
+    padding: 0 15px;
     color: #71b7e6;
     cursor: pointer;
-
 }
-.row-content td .td-3 p{
+.row-content-table td .song-duration p{
     font-size: 14px;
     font-weight: 500;
     color: var(--white-dark-color);
+    margin: 15px 0;
 }
-.row-content td .td-3 .more-option{
+.row-content-table td .song-duration .more-option{
     font-size: 20px;
     font-weight: 500;
     color: var(--white-dark-color);
@@ -261,104 +262,123 @@
     padding-left: 15px;
     opacity: 0;   
 }
-.row-content td ul li .img img{
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    margin-top: 6px;
-}
-.row-content table tr:hover{
+.row-content-table tr:hover{
     background-color: var(--box-hover-color); 
-    border-radius: 5px;
 }
-.row-content table tr:hover .td-1-3 span{
+.row-content-table tr:hover td:nth-child(1){
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.row-content-table tr:hover .song-title span{
     color: var(--text-color);
 }
-.row-content table tr:hover .td-1-3 p{
-    color: var(--text-color);
-}
-.row-content li .td-1-3 p:hover{
+.row-content-table li .td-1-3 p:hover{
     text-decoration: underline;
     color: var(--text-color);
 }
-.row-content table tr:hover .td-2{
+.row-content-table tr:hover td .song-album span{
     color: var(--text-color);
     text-decoration: underline;
 }
-.row-content table .td-2 span:hover{
-    text-decoration: underline;
-}
-.row-content tr:hover .number{
+.row-content-table tr:hover .number{
     display: none;
 }
-.row-content tr:hover .play-up{
+.row-content-table tr:hover .play-up{
     display: block;
     color: var(--text-color);
 }
-.row-content tr:hover .td-3 .more-option{
+.row-content-table tr:hover .song-duration .more-option{
     opacity: 1;
     color: var(--text-color);
 }
-@media screen and (max-width: 1200px) {
-    .row-header .title {
+.artist-dash .artist-dash-content-2 {
+    width: 100%;
+}
+
+.artist-dash-content-2 .content-container-2 {
+    max-width: calc(100% - 30px);
+    margin: 20px 0 20px 30px;
+}
+@media screen and (max-width: 1400px) {
+    .row-header-table .title-artist {
         width: 80%;
     }
-    .row-header .album {
+    
+    .row-header-table .album-artist {
         display: none;
     }
-    .row-header .icon{
+    .row-header-table .icon {
         width: 20%;
     }
-    .row-content table td:nth-child(1){
+    .row-content-table td:nth-child(1) {
         width: 80%;
     }
-    .row-content table td:nth-child(2){
+    
+    .row-content-table td:nth-child(2) {
         display: none;
     }
-    .row-content table td:nth-child(3){
-        width: 20%;  
-    }
-    .row-content td ul li .td-1-3 span {
-        width: 300px;
+    
+    .row-content-table td:nth-child(3) {
+        width: 20%;
     }
 }
-@media screen and (max-width: 900px) {
-    .row-header .title {
+@media screen and (max-width: 1200px) {
+    .row-header-table .title-artist {
         width: 80%;
     }
-    .row-header .album {
+    .row-header-table .album-artist {
         display: none;
     }
-    .row-header .icon{
+    .row-header-table .icon{
+        width: 20%;
+    }
+   .row-content-table td:nth-child(1) {
+       width: 80%;
+   }
+
+   .row-content-table td:nth-child(2) {
+       display: none;
+   }
+
+   .row-content-table td:nth-child(3) {
+       width: 20%;
+   }
+
+   .row-content-table td ul li .song-duration span {
+       width: 300px;
+   }
+}
+@media screen and (max-width: 900px) {
+    .row-header-table .song-title {
+        width: 80%;
+    }
+    .row-header-table .song-album {
+        display: none;
+    }
+    .row-header-table .icon{
         width: 20%;
     }
 
-    .row-content table td:nth-child(1){
+    .row-content-table td:nth-child(1){
         width: 80%;
     }
-    .row-content table td:nth-child(2){
+    .row-content-table td:nth-child(2){
         display: none;
     }
-    .row-content table td:nth-child(3){
+    .row-content-table td:nth-child(3){
         width: 20%;  
-    }
-    .row-content td ul li .td-1-3 span {
-        width: 300px;
     }
 }
 @media screen and (max-width: 600px) {
-    .row-content table td:nth-child(1){
+    .row-content-table table td:nth-child(1){
         width: 100%;
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px; 
     }
-    .row-content table td:nth-child(3){
+    .row-content-table table td:nth-child(3){
         display: none;
     }
-    .row-header .icon{
+    .row-header-table .icon{
         display: none;
-    }
-    .row-content td ul li .td-1-3 span {
-        width: 200px;
     }
 }

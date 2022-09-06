@@ -3,14 +3,18 @@
 
 <div class="dash-content">
     <div class="artist-wrapper">
+        @foreach ($artists_view as $row)
         <!--========= Header =================-->
-        <div class="artist-header">
+        <div class="artist-header"
+                style="background-image: url('/storage/uploads/artists/{{$row->pf_artist}}');">
             <div class="artist-header-container">    
-                <span class="artist-name">Ed Sheeran</span>
+                <span class="artist-name">{{$row->name_artist}}</span>
                 <span class="artist-follower">1,120,222 follower</span>        
             </div>
         </div>
-        <!--========= Dashb0ard ========-->       
+        @endforeach
+
+        <!--========= Dashboard ========-->       
         <div class="artist-dash">
          <!--========= top of dashboard ========-->
          <div class="artist-dash-top">
@@ -28,15 +32,15 @@
         <div class="artist-title-bar">
             <span class="text">Songs</span>
         </div>
-        <div class="artist-dash-content">
-            <div class="content-container">
-                <div class="container-row">
-                    <div class="row-header">
-                        <div class="title">
+        <div class="artist-dash-content-1">
+            <div class="content-container-1">
+                <div class="container-row-1">
+                    <div class="row-header-table">
+                        <div class="title-artist">
                             <span>#</span>
                             <span>Title</span>
                         </div>
-                        <div class="album">
+                        <div class="album-artist">
                             <span>Albums</span>
                         </div>
                         <div class="icon">
@@ -44,180 +48,47 @@
                         </div>
                     </div>
                     <!--========= Table of dashboard content 1 ========-->
-                    <div class="row-content">
+                    <div class="row-content-table">
                         <table>
+                            @foreach ($artists_track as $row)
+
                                 <tr>
                                     <td>
                                         <ul>
                                             <li>
-                                                <div class="td-1-1">
-                                                    <span class="number">1</span>
+                                                <div class="num-order">
+                                                    <span class="number">{{$count++}}</span>
                                                     <span class="material-icons-round play-up">play_arrow</span>
                                                 </div>                                         
                                             </li>
                                             <li>
                                                 <div class="img">
-                                                    <img src="/frontend/images/ed_sheeran.jpg" alt="ed_sheeran">
+                                                    <img src="/storage/uploads/tracks/{{$row->pf_track}}" alt="">
                                                 </div>
                                             </li> 
                                             <li class="text-overflow">
-                                                <div class="td-1-3">
-                                                    <span>Perfect</span>
+                                                <div class="song-title">
+                                                    <span>{{$row->name_track}}</span>
                                                 </div>   
                                             </li>
                                         </ul>
                                     </td>
                                     <td>
-                                        <a href="{{route('albums_view')}}">
-                                            <span class="td-2">Romance</span>
-                                        </a>
+                                        <div class="song-album">
+                                            <a href="{{url('/albums/albums_view/'.$row->album_track->name_album)}}">
+                                                <span>{{$row->album_track->name_album}}</span>
+                                            </a>
+                                        </div>
                                     </td>
                                     <td>
-                                        <div class="td-3">
+                                        <div class="song-duration">
                                             <span class="material-icons-round">favorite</span>
                                             <p>3:45</p>
                                             <span class="material-icons-round more-option">more_horiz</span>
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <ul>
-                                            <li>
-                                                <div class="td-1-1">
-                                                    <span class="number">2</span>
-                                                    <span class="material-icons-round play-up">play_arrow</span>
-                                                </div>  
-                                            </li>
-                                            <li>
-                                                <div class="img">
-                                                    <img src="/frontend/images/ed_sheeran_1.jpg" alt="ed_sheeran">
-                                                </div>
-                                            </li> 
-                                            <li class="text-overflow">
-                                                <div class="td-1-3">
-                                                    <span>Sharp of you</span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                    <td>
-                                        <a href="{{route('albums_view')}}">
-                                            <span class="td-2">Romance</span>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <div class="td-3">
-                                            <span class="material-icons-round">favorite</span>
-                                            <p>3:55</p>
-                                            <span class="material-icons-round more-option">more_horiz</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <ul>
-                                            <li>
-                                                <div class="td-1-1">
-                                                    <span class="number">3</span>
-                                                    <span class="material-icons-round play-up">play_arrow</span>
-                                                </div>  
-                                            </li>
-                                            <li>
-                                                <div class="img">
-                                                    <img src="/frontend/images/ed_sheeran_2.jpg" alt="ed_sheeran">
-                                                </div>
-                                            </li> 
-                                            <li class="text-overflow">
-                                                <div class="td-1-3">
-                                                    <span>Happier</span> 
-                                                </div>        
-                                            </li>
-                                        </ul>
-                                    </td>
-                                    <td>
-                                        <a href="{{route('albums_view')}}">
-                                            <span class="td-2">Romance</span>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <div class="td-3">
-                                            <span class="material-icons-round">favorite</span>
-                                            <p>3:30</p>
-                                            <span class="material-icons-round more-option">more_horiz</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <ul>
-                                            <li>
-                                                <div class="td-1-1">
-                                                    <span class="number">4</span>
-                                                    <span class="material-icons-round play-up">play_arrow</span>
-                                                </div>  
-                                            </li>
-                                            <li>
-                                                <div class="img">
-                                                    <img src="/frontend/images/ed_sheeran_3.jpg" alt="ed_sheeran">
-                                                </div>
-                                            </li> 
-                                            <li class="text-overflow">
-                                                <div class="td-1-3">
-                                                    <span>Photograph</span>
-                                                    
-                                                </div>        
-                                            </li>
-                                        </ul>
-                                    </td>
-                                    <td>
-                                        <a href="{{route('albums_view')}}">
-                                            <span class="td-2">Romance</span>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <div class="td-3">
-                                            <span class="material-icons-round">favorite</span>
-                                            <p>3:40</p>
-                                            <span class="material-icons-round more-option">more_horiz</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <ul>
-                                            <li>
-                                                <div class="td-1-1">
-                                                    <span class="number">5</span>
-                                                    <span class="material-icons-round play-up">play_arrow</span>
-                                                </div>  
-                                            </li>
-                                            <li>
-                                                <div class="img">
-                                                    <img src="/frontend/images/ed_sheeran_4.jpg" alt="ed_sheeran">
-                                                </div>
-                                            </li> 
-                                            <li class="text-overflow">
-                                                <div class="td-1-3">
-                                                    <span>Thinking out loud</span>
-                                                    
-                                                </div>        
-                                            </li>
-                                        </ul>
-                                    </td>
-                                    <td>
-                                        <a href="{{route('albums_view')}}">
-                                            <span class="td-2">Romance</span>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <div class="td-3">
-                                            <span class="material-icons-round">favorite</span>
-                                            <p>3:25</p>
-                                            <span class="material-icons-round more-option">more_horiz</span>
-                                        </div>
-                                    </td>
-                                </tr>
+                            @endforeach
                             </table>
                         </div>
                     </div>
@@ -233,26 +104,28 @@
             <div class="content-container-2">
                 <div class="box">
                     <div class="box-container">
-                        <div class="box-content">
-                            <div class="box-single">
-                                <div class="img-popup-container">
-                                    <a href="{{route('albums_view')}}">
-                                        <img src="/frontend/images/ed_sheeran.jpg" alt="">
-                                    </a>
-                                    <a href="">
-                                        <div class="play-button-pop-up">
-                                            <i class="fa fa-play" aria-hidden="true"></i>
-                                        </div>
+                        @foreach($artists_album as $row)
+                            <div class="box-content">
+                                <div class="box-single">
+                                    <div class="img-popup-container">
+                                        <a href="{{url('/albums/albums_view/'.$row->name_album)}}">
+                                            <img src="/storage/uploads/albums/{{$row->pf_album}}" alt="">
+                                        </a>
+                                        <a href="">
+                                            <div class="play-button-pop-up">
+                                                <span class="material-icons-round">play_arrow</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <a href="{{url('/albums/albums_view/'.$row->name_album)}}">
+                                        <span class="song-title">{{$row->name_album}}</span>
+                                        <span class="singer-name">Album</span>
                                     </a>
                                 </div>
-                                <a href="{{route('albums_view')}}">
-                                    <span class="song-title">Romance</span>
-                                    <span class="singer-name">album</span>
-                                </a>
-                            </div>
-                        </div>   
+                            </div>  
+                        @endforeach 
                     </div>
-                </div>
+                </div>   
             </div>
         </div> 
     </div>

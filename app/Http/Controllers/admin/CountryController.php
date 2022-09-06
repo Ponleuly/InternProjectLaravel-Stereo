@@ -79,7 +79,13 @@ class CountryController extends Controller
         $country = Country::where('name_country', $name_country)->first();
         $img_country = $country->pf_country;
 
-        return view('admin.pages.subPages.country.edit_country',  compact('country', 'img_country'));
+        return view(
+            'admin.pages.subPages.country.edit_country',
+            compact(
+                'country',
+                'img_country'
+            )
+        );
     }
 
     /**
@@ -141,6 +147,13 @@ class CountryController extends Controller
         $search_text = $_GET['search'];
         $search_country = Country::where('name_country', 'LIKE', '%' . $search_text . '%')->get();
         $count = 1;
-        return view('admin.pages.subPages.country.search_country',  compact('count', 'search_country', 'search_text'));
+        return view(
+            'admin.pages.subPages.country.search_country',
+            compact(
+                'count',
+                'search_country',
+                'search_text'
+            )
+        );
     }
 }

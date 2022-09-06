@@ -32,7 +32,13 @@ class AlbumController extends Controller
     {
         $categories = Category::orderBy('id')->get();
         $artists = Artist::orderBy('id')->get();
-        return view('admin.pages.subPages.album.add_album', compact('categories', 'artists'));
+        return view(
+            'admin.pages.subPages.album.add_album',
+            compact(
+                'categories',
+                'artists'
+            )
+        );
     }
 
     /**
@@ -56,7 +62,8 @@ class AlbumController extends Controller
         }
 
         Album::create($input);
-        return redirect('/admin_stereo/album')->with('alert', 'Album is added to list !');
+        return redirect('/admin_stereo/album')
+            ->with('alert', 'Album is added to list !');
     }
 
     /**
@@ -169,6 +176,13 @@ class AlbumController extends Controller
         $search_text = $_GET['search'];
         $search_album = Album::where('name_album', 'LIKE', '%' . $search_text . '%')->get();
         $count = 1;
-        return view('admin.pages.subPages.album.search_album',  compact('count', 'search_album', 'search_text'));
+        return view(
+            'admin.pages.subPages.album.search_album',
+            compact(
+                'count',
+                'search_album',
+                'search_text'
+            )
+        );
     }
 }

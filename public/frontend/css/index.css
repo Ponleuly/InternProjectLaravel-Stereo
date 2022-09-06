@@ -138,6 +138,9 @@ nav .menu-items{
     /*
     background-color: red;*/
 }
+.menu-items ul{
+    padding-left: 0;
+}
 .menu-items li{
     list-style: none;
 }
@@ -617,11 +620,14 @@ nav.close ~ .dashboard .top{
     text-transform: capitalize;
 }
 
-.box-content .box-single a:hover .song-title  {
+.box-content .box-single a:hover .song-title {
+    /*
     transition: all 0.2s ease;
-    color: var(--white-dark-color);
     overflow: visible;
     font-size: medium;
+    */
+    color: var(--text-color);
+     
 }
 .box-content .box-single a:hover .singer-name{
     text-decoration: underline;

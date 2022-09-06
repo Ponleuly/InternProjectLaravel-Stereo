@@ -15,10 +15,10 @@
                 </a>
             </li>
             <li>
-                <a href="{{url('mylibrary/playlists')}}" 
-                    class="{{ Request::is('mylibrary/playlists')||
-                              Request::is('mylibrary/artists')||
-                              Request::is('mylibrary/albums') ? 'active':''}}">
+                <a href="{{url('mylibrary/my_playlists')}}" 
+                    class="{{ Request::is('mylibrary/my_playlists')||
+                              Request::is('mylibrary/my_artists')||
+                              Request::is('mylibrary/my_albums') ? 'active':''}}">
                     <span class="material-icons-round nav-icon">library_music</span>
                     <span class="link-name">My Library</span>
                 </a>

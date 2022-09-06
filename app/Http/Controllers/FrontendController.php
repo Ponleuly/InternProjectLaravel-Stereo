@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Album;
 use App\Models\Track;
 use App\Models\Artist;
 use App\Models\Country;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -15,9 +17,17 @@ class FrontendController extends Controller
     }
     public function home()
     {
-        $artists = Artist::orderBy('id')->get();
-
-        return view('frontend.pages.home', compact('artists'));
+        $tracks = Track::orderBy('id')->paginate(14); //paginate(14) -> get 14 row of table
+        $artists = Artist::orderBy('id')->paginate(14);
+        $albums = Album::orderBy('id')->get();
+        return view(
+            'frontend.pages.home',
+            compact(
+                'tracks',
+                'artists',
+                'albums'
+            )
+        );
     }
     public function mylibrary_platlists()
     {
@@ -31,13 +41,20 @@ class FrontendController extends Controller
     {
         return view('frontend.pages.mylibrary_albums');
     }
+
     public function category()
     {
-        //$track_count = Track::where('id_country', $row->id)->count();
-        //$artist_count = Artist::where('id_country', $row->id)->count();
         $countries = Country::orderBy('id')->get();
-
-        return view('frontend.pages.category', compact('countries'));
+        $categories = Category::orderBy('id')->get();
+        //$idCategory = $categories->value('id');
+        //$tracks = Track::where('id_category', $idCategory)->get();
+        return view(
+            'frontend.pages.category',
+            compact(
+                'countries',
+                'categories',
+            )
+        );
     }
     public function liked()
     {
@@ -49,12 +66,37 @@ class FrontendController extends Controller
     }
 
     // *mylibrary Tab
-    public function artists_view()
+    public function artists_view($name_artist)
     {
-        return view('frontend.pages.subpages.artists_view');
+        $artists_view = Artist::where('name_artist', $name_artist)->get();
+        $idArtist = $artists_view->value('id'); // get id of name_artist to search in Track
+        $artists_track = Track::where('id_artist', $idArtist)->get();
+        $artists_album = Album::where('id_artist', $idArtist)->get();
+        $count = 1;
+        return view(
+            'frontend.pages.subpages.artists_view',
+            compact(
+                'count',
+                'artists_view',
+                'artists_track',
+                'artists_album'
+            )
+        );
     }
-    public function albums_view()
+    public function albums_view($name_album)
     {
-        return view('frontend.pages.subpages.albums_view');
+        $albums_view = Album::where('name_album', $name_album)->get();
+        $idAlbum = $albums_view->value('id'); // get id of name_album to search in Track
+        $albums_track = Track::where('id_album', $idAlbum)->get();
+        $count = 1;
+
+        return view(
+            'frontend.pages.subpages.albums_view',
+            compact(
+                'count',
+                'albums_view',
+                'albums_track'
+            )
+        );
     }
 }

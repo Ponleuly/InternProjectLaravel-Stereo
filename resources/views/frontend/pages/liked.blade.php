@@ -57,7 +57,7 @@
                                             <li class="text-overflow">
                                                 <div class="td-1-3">
                                                     <span class="song-title">Perfect</span>
-                                                    <a href="{{route('artists_view')}}">
+                                                    <a href="">
                                                         <span class="artist-name">Ed Sheeran</span>
                                                     </a>
                                                 </div>   
@@ -65,7 +65,7 @@
                                         </ul>
                                     </td>
                                     <td>
-                                        <a href="{{route('albums_view')}}">
+                                        <a href="">
                                             <span class="td-2">Romance</span>
                                         </a>
                                     </td>
@@ -95,7 +95,7 @@
                                             <li class="text-overflow">
                                                 <div class="td-1-3">
                                                     <span class="song-title">We don't talk anymore</span>
-                                                    <a href="{{route('artists_view')}}">
+                                                    <a href="">
                                                         <span class="artist-name">Charlie puth</span>
                                                     </a>
                                                 </div>                                                 
@@ -103,7 +103,7 @@
                                         </ul>
                                     </td>
                                     <td>                                 
-                                        <a href="{{route('albums_view')}}">
+                                        <a href="">
                                             <span class="td-2">Break-up</span>
                                         </a>                                  
                                     </td>
@@ -133,7 +133,7 @@
                                             <li class="text-overflow">
                                                 <div class="td-1-3">
                                                     <span class="song-title">Back to december</span>
-                                                    <a href="{{route('artists_view')}}">
+                                                    <a href="">
                                                         <span class="artist-name">Taylor Swift</span>
                                                     </a>
                                                 </div>                                                 
@@ -141,7 +141,7 @@
                                         </ul>
                                     </td>
                                     <td>
-                                        <a href="{{route('albums_view')}}">
+                                        <a href="">
                                             <span class="td-2">Winter</span>
                                         </a>   
                                     <td>
@@ -170,7 +170,7 @@
                                             <li class="text-overflow">
                                                 <div class="td-1-3">
                                                     <span class="song-title">What do you mean ?</span>
-                                                    <a href="{{route('artists_view')}}">
+                                                    <a href="">
                                                         <span class="artist-name">justin Bieber</span>
                                                     </a>
                                                 </div>                                         
@@ -178,7 +178,7 @@
                                         </ul>
                                     </td>
                                     <td>
-                                        <a href="{{route('albums_view')}}">
+                                        <a href="">
                                             <span class="td-2">2020</span>
                                         </a>   
                                     </td>
@@ -208,7 +208,7 @@
                                             <li class="text-overflow">
                                                 <div class="td-1-3">
                                                     <span class="song-title">Sing me to sleep</span>
-                                                    <a href="{{route('artists_view')}}">
+                                                    <a href="">
                                                         <span class="artist-name">Alan Walker</span>
                                                     </a>
                                                 </div>   
@@ -216,7 +216,7 @@
                                         </ul>
                                     </td>
                                     <td>
-                                        <a href="{{route('albums_view')}}">
+                                        <a href="">
                                             <span class="td-2">Remix</span>
                                         </a>   
                                     </td>

@@ -125,6 +125,13 @@ class CategoryController extends Controller
         $search_text = $_GET['search'];
         $search_category = Category::where('name_category', 'LIKE', '%' . $search_text . '%')->get();
         $count = 1;
-        return view('admin.pages.subPages.category.search_category',  compact('count', 'search_category', 'search_text'));
+        return view(
+            'admin.pages.subPages.category.search_category',
+            compact(
+                'count',
+                'search_category',
+                'search_text'
+            )
+        );
     }
 }

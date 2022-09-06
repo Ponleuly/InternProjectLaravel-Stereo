@@ -45,15 +45,15 @@ Route::controller(LogController::class)->group(function () {
 Route::controller(FrontendController::class)->group(function () {
     Route::get('/home', 'home')->name('home');
     Route::get('/category', 'category')->name('category');
-    Route::get('/mylibrary/playlists', 'mylibrary_platlists')->name('mylibrary/playlists');
-    Route::get('/mylibrary/artists', 'mylibrary_artists')->name('mylibrary/artists');
-    Route::get('/mylibrary/albums', 'mylibrary_albums')->name('mylibrary/albums');
+    Route::get('/mylibrary/my_playlists', 'mylibrary_platlists')->name('mylibrary/my_playlists');
+    Route::get('/mylibrary/my_artists', 'mylibrary_artists')->name('mylibrary/my_artists');
+    Route::get('/mylibrary/my_albums', 'mylibrary_albums')->name('mylibrary/my_albums');
     Route::get('/category', 'category')->name('category');
     Route::get('/liked', 'liked')->name('liked');
     Route::get('/createplaylist', 'createplaylist')->name('createplaylist');
 
-    Route::get('/artists/artists_view', 'artists_view')->name('artists_view');
-    Route::get('/albums/albums_view', 'albums_view')->name('albums_view');
+    Route::get('/artists/artists_view/{name_artist}', 'artists_view')->name('artists_view');
+    Route::get('/albums/albums_view/{name_album}', 'albums_view')->name('albums_view');
 });
 
 /*============= Admin route ==================*/

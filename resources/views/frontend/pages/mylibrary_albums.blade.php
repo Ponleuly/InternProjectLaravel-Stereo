@@ -4,12 +4,12 @@
     <!--========= My Library content ==========-->
     <div class="dash-content" id="mylibrary">
         <div class="mylibrary-menu">
-            <a href="{{route('mylibrary/playlists')}}" 
-                class="tabcontent {{Request::is('mylibrary/playlists') ? 'active-tab':''}}">Playlists</a>
-            <a href="{{route('mylibrary/artists')}}" 
-                class="tabcontent {{Request::is('mylibrary/artists') ? 'active-tab':''}}">Artists</a>
-            <a href="{{route('mylibrary/albums')}}" 
-                class="tabcontent {{Request::is('mylibrary/albums') ? 'active-tab':''}}">Albums</a>
+            <a href="{{route('mylibrary/my_playlists')}}" 
+                class="tabcontent {{Request::is('mylibrary/my_playlists') ? 'active-tab':''}}">Playlists</a>
+            <a href="{{route('mylibrary/my_artists')}}" 
+                class="tabcontent {{Request::is('mylibrary/my_artists') ? 'active-tab':''}}">Artists</a>
+            <a href="{{route('mylibrary/my_albums')}}" 
+                class="tabcontent {{Request::is('mylibrary/my_albums') ? 'active-tab':''}}">Albums</a>
         </div>
         <div class="title-bar">
             <span class="text">Albums</span>
