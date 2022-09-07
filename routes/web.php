@@ -1,20 +1,23 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\admin\AdminController;
-use App\Http\Controllers\admin\CategoryController;
-use App\Http\Controllers\admin\CountryController;
-use App\Http\Controllers\admin\ArtistController;
-use App\Http\Controllers\admin\AlbumController;
-use App\Http\Controllers\admin\DashboardController;
-use App\Http\Controllers\admin\TrackController;
-use App\Http\Controllers\FrontendController;
-use App\Http\Controllers\Frontend\homeController;
-use App\Http\Controllers\Frontend\MylibraryController;
-
-use App\Http\Controllers\LogController;
 use PhpParser\Builder\Function_;
 use PhpParser\Node\Expr\FuncCall;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LogController;
+use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\AlbumController;
+use App\Http\Controllers\admin\TrackController;
+use App\Http\Controllers\admin\ArtistController;
+use App\Http\Controllers\admin\CountryController;
+use App\Http\Controllers\Frontend\homeController;
+
+use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\Admin\AuthAdminController;
+use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\Frontend\MylibraryController;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Middleware\AuthAdminMiddleware;
 
 
 
@@ -60,80 +63,105 @@ Route::controller(FrontendController::class)->group(function () {
 Route::controller(AdminController::class)->group(function () {
     Route::get('/admin_stereo/playlist', 'playlist')->name('playlist');
     Route::get('/admin_stereo/user', 'user')->name('user');
-    Route::get('/admin_stereo', 'log_in')->name('log_in');
+    //Route::get('/admin_stereo', 'log_in')->name('log_in');
+    //Route::post('/admin_stereo', 'admin_auth')->name('admin_auth');
 });
+/*============= Admin Auth route ==================*/
+Route::controller(AuthAdminController::class)->group(function () {
+    Route::get('/admin_stereo', 'login')->name('login');
+    Route::post('/admin_stereo', 'auth_login')->name('auth_login');
+    Route::get('/admin_stereo/logout', 'logout');
+});
+
 /*============= Dashboard route ==================*/
-Route::get('/admin_stereo/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');;
+Route::get('/admin_stereo/dashboard', [DashboardController::class, 'dashboard'])
+    ->name('dashboard')
+    ->middleware('AuthAdmin');
+
 /*============= Category route ==================*/
-Route::controller(CategoryController::class)->group(function () {
-    Route::get('/admin_stereo/category', 'category')->name('category');
+Route::prefix('admin_stereo')->middleware('AuthAdmin')->group(function () {
+    Route::controller(CategoryController::class)->group(function () {
+        Route::get('category', 'category')->name('category');
 
-    Route::get('/admin_stereo/add_category', 'add_category')->name('add_category');
-    Route::post('/admin_stereo/add_category', 'store')->name('add_category');
+        Route::get('add_category', 'add_category')->name('add_category');
+        Route::post('add_category', 'store')->name('add_category');
 
-    Route::get('/admin_stereo/edit_category/{name_category}', 'edit_category')->name('edit_category');
-    Route::put('/admin_stereo/edit_category/{name_category}', 'update_category');
+        Route::get('edit_category/{name_category}', 'edit_category')->name('edit_category');
+        Route::put('edit_category/{name_category}', 'update_category');
 
-    Route::get('/admin_stereo/delete_category/{name_category}', 'delete_category');
+        Route::get('delete_category/{name_category}', 'delete_category');
 
-    Route::get('/admin_stereo/search_category', 'search_category');
+        Route::get('search_category', 'search_category');
+    });
 });
+
 /*============= Country route ==================*/
-Route::controller(CountryController::class)->group(function () {
-    Route::get('/admin_stereo/country', 'country')->name('country');
+Route::prefix('admin_stereo')->middleware('AuthAdmin')->group(function () {
+    Route::controller(CountryController::class)->group(function () {
+        Route::get('country', 'country')->name('country');
 
-    Route::get('/admin_stereo/add_country', 'add_country')->name('add_country');
-    Route::post('/admin_stereo/add_country', 'store')->name('add_country');
+        Route::get('add_country', 'add_country')->name('add_country');
+        Route::post('add_country', 'store')->name('add_country');
 
-    Route::get('/admin_stereo/edit_country/{name_country}', 'edit_country')->name('edit_country');
-    Route::put('/admin_stereo/edit_country/{name_country}', 'update_country');
+        Route::get('edit_country/{name_country}', 'edit_country')->name('edit_country');
+        Route::put('edit_country/{name_country}', 'update_country');
 
-    Route::get('/admin_stereo/delete_country/{name_country}', 'delete_country');
+        Route::get('delete_country/{name_country}', 'delete_country');
 
-    Route::get('/admin_stereo/search_country', 'search_country');
+        Route::get('search_country', 'search_country');
+    });
 });
+
 
 /*============= Artist route ==================*/
-Route::controller(ArtistController::class)->group(function () {
-    Route::get('/admin_stereo/artist', 'artist')->name('artist');
+Route::prefix('admin_stereo')->middleware('AuthAdmin')->group(function () {
+    Route::controller(ArtistController::class)->group(function () {
+        Route::get('artist', 'artist')->name('artist');
 
-    Route::get('/admin_stereo/add_artist', 'add_artist')->name('add_country');
-    Route::post('/admin_stereo/add_artist', 'store')->name('add_artist');
+        Route::get('add_artist', 'add_artist')->name('add_country');
+        Route::post('add_artist', 'store')->name('add_artist');
 
-    Route::get('/admin_stereo/edit_artist/{name_artist}', 'edit_artist')->name('edit_artist');
-    Route::put('/admin_stereo/edit_artist/{name_artist}', 'update_artist');
+        Route::get('edit_artist/{name_artist}', 'edit_artist')->name('edit_artist');
+        Route::put('edit_artist/{name_artist}', 'update_artist');
 
-    Route::get('/admin_stereo/delete_artist/{name_artist}', 'delete_artist');
+        Route::get('delete_artist/{name_artist}', 'delete_artist');
 
-    Route::get('/admin_stereo/search_artist', 'search_artist');
+        Route::get('search_artist', 'search_artist');
+    });
 });
+
 
 /*============= Album route ==================*/
-Route::controller(AlbumController::class)->group(function () {
-    Route::get('/admin_stereo/album', 'album')->name('album');
+Route::prefix('admin_stereo')->middleware('AuthAdmin')->group(function () {
+    Route::controller(AlbumController::class)->group(function () {
+        Route::get('album', 'album')->name('album');
 
-    Route::get('/admin_stereo/add_album', 'add_album')->name('add_album');
-    Route::post('/admin_stereo/add_album', 'store')->name('add_album');
+        Route::get('add_album', 'add_album')->name('add_album');
+        Route::post('add_album', 'store')->name('add_album');
 
-    Route::get('/admin_stereo/edit_album/{name_album}', 'edit_album')->name('edit_album');
-    Route::put('/admin_stereo/edit_album/{name_album}', 'update_album');
+        Route::get('edit_album/{name_album}', 'edit_album')->name('edit_album');
+        Route::put('edit_album/{name_album}', 'update_album');
 
-    Route::get('/admin_stereo/delete_album/{name_album}', 'delete_album');
+        Route::get('delete_album/{name_album}', 'delete_album');
 
-    Route::get('/admin_stereo/search_album', 'search_album');
+        Route::get('search_album', 'search_album');
+    });
 });
 
+
 /*============= Track route ==================*/
-Route::controller(TrackController::class)->group(function () {
-    Route::get('/admin_stereo/track', 'track')->name('track');
+Route::prefix('admin_stereo')->middleware('AuthAdmin')->group(function () {
+    Route::controller(TrackController::class)->group(function () {
+        Route::get('track', 'track')->name('track');
 
-    Route::get('/admin_stereo/add_track', 'add_track')->name('add_track');
-    Route::post('/admin_stereo/add_track', 'store')->name('add_track');
+        Route::get('add_track', 'add_track')->name('add_track');
+        Route::post('add_track', 'store')->name('add_track');
 
-    Route::get('/admin_stereo/edit_track/{name_track}', 'edit_track')->name('edit_track');
-    Route::put('/admin_stereo/edit_track/{name_track}', 'update_track');
+        Route::get('edit_track/{name_track}', 'edit_track')->name('edit_track');
+        Route::put('edit_track/{name_track}', 'update_track');
 
-    Route::get('/admin_stereo/delete_track/{name_track}', 'delete_track');
+        Route::get('delete_track/{name_track}', 'delete_track');
 
-    Route::get('/admin_stereo/search_track', 'search_track');
+        Route::get('search_track', 'search_track');
+    });
 });

@@ -77,7 +77,7 @@
 			</a>
 		</li>
 		<li class="log_out">
-			<a href="#">
+			<a href="{{url('/admin_stereo/logout')}}">
 				<span class="material-icons-round link-icon">logout</span>
 				<span class="links_name">Log out</span>
 			</a>

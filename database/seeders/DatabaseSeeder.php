@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Country;
 use Illuminate\Database\Seeder;
+use Database\Seeders\AdminSeeder;
 use Database\Seeders\AlbumSeeder;
 use Database\Seeders\TrackSeeder;
 use Database\Seeders\ArtistSeeder;
@@ -33,6 +34,8 @@ class DatabaseSeeder extends Seeder
             ArtistSeeder::class,
             AlbumSeeder::class,
             TrackSeeder::class,
+            AdminSeeder::class,
+
         ]);
     }
 }

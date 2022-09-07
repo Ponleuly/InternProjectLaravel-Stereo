@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        /*
         Schema::create('table_user', function (Blueprint $table) {
             $table->increments('id');
             $table->string('username_user', 100);
@@ -22,6 +23,7 @@ return new class extends Migration
             $table->string('pf_user', 100)->nullable();
             $table->timestamps();
         });
+        */
     }
 
     /**

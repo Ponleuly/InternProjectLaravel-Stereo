@@ -170,6 +170,10 @@
             /*border-color: #9b59b6;*/
             border-color: #71b7e6;
         }
+        .user-details .input-box .alert{
+            color: red;
+            font-size: 16px;
+        }
         form .category label{
             display: flex;
             align-items: center;
@@ -177,7 +181,7 @@
         }
         form .button{
             height: 45px;
-            margin: 35px 0;
+            margin: 30px 0;
         }
         form .button input{
             height: 100%;
@@ -226,16 +230,24 @@
                 <div class="sign-up-container">
                     <div class="title">Log in</div>
                     <div class="sign-up-content">
-                        <form action="{{route('dashboard')}}">
+                        <form action="{{url('/admin_stereo')}}" method="POST">
+                            @csrf
                             <div class="user-details">
                                 <div class="input-box">
                                     <span class="details">Email</span>
-                                    <input type="text" placeholder="Enter your email" required>
+                                    <input type="text" name="email" placeholder="Enter your email" required>
                                 </div>
                                 <div class="input-box">
                                     <span class="details">Password</span>
-                                    <input type="password" placeholder="Enter your password" required id="password">
+                                    <input type="password" name="password" placeholder="Enter your password" required id="password">
                                     <span class="material-icons-round" id="show-hide-pass" onclick="show_pass()">visibility_off</span>
+                                </div>
+                                <div class="input-box">
+                                    @if(Session::has('alert'))
+                                        <div class="alert">
+                                            {{Session::get('alert')}}
+                                        </div>                         
+                                    @endif
                                 </div>
                             </div>
                             <div class="button">

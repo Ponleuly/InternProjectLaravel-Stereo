@@ -4,7 +4,8 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use App\Http\Middleware\Checklogout;
 
 class AdminController extends Controller
 {
@@ -19,9 +20,5 @@ class AdminController extends Controller
     public function user()
     {
         return view('admin.pages.user');
-    }
-    public function log_in()
-    {
-        return view('admin.pages.log_in');
     }
 }

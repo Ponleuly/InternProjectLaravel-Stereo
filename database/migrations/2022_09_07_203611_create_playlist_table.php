@@ -26,12 +26,7 @@ return new class extends Migration
             $table->unsignedInteger('id_user')->nullable();
             $table->foreign('id_user')
                 ->references('id')
-                ->on('table_user');
-
-            $table->unsignedInteger('id_admin')->nullable();
-            $table->foreign('id_admin')
-                ->references('id')
-                ->on('table_admin');
+                ->on('users');
 
             $table->timestamps();
         });
