@@ -12,6 +12,7 @@ use Database\Seeders\TrackSeeder;
 use Database\Seeders\ArtistSeeder;
 use Database\Seeders\CountrySeeder;
 use Database\Seeders\CategorySeeder;
+use Database\Seeders\PlaylistSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -35,7 +36,7 @@ class DatabaseSeeder extends Seeder
             AlbumSeeder::class,
             TrackSeeder::class,
             AdminSeeder::class,
-
+            PlaylistSeeder::class,
         ]);
     }
 }

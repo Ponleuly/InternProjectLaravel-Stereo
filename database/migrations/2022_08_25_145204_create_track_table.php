@@ -24,7 +24,7 @@ return new class extends Migration
                 ->references('id')
                 ->on('table_category')
                 ->onDelete('cascade')
-                ->onUpdate('cascade');;
+                ->onUpdate('cascade');
 
             $table->unsignedInteger('id_artist');
             $table->foreign('id_artist')

@@ -122,7 +122,7 @@ class AlbumController extends Controller
     public function update_album(Request $request, $name_album)
     {
 
-        $update_album = album::where('name_album', $name_album)->first();
+        $update_album = Album::where('name_album', $name_album)->first();
         $img_album = $update_album->pf_album;
 
         $update_album->name_album = $request->input('name_album');

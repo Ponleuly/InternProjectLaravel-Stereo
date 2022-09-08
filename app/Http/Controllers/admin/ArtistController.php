@@ -59,7 +59,6 @@ class ArtistController extends Controller
 
             $input['pf_artist'] = $image_name;
         }
-
         Artist::create($input);
         return redirect('/admin_stereo/artist')
             ->with('alert', 'Artist is added to list !');

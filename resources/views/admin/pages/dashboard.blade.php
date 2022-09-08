@@ -204,7 +204,7 @@
 					<span class="material-icons-round">queue_music</span>
 				</div>
 				<div class="item-text">
-					<h1>0</h1>
+					<h1>{{$playlists}}</h1>
 					<span>Playlists</span>
 				</div>
 			</div>

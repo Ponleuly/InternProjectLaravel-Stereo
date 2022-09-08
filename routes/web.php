@@ -2,22 +2,23 @@
 
 use PhpParser\Builder\Function_;
 use PhpParser\Node\Expr\FuncCall;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Middleware\AuthAdminMiddleware;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\AlbumController;
 use App\Http\Controllers\admin\TrackController;
 use App\Http\Controllers\admin\ArtistController;
+
 use App\Http\Controllers\admin\CountryController;
 use App\Http\Controllers\Frontend\homeController;
-
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\Admin\PlaylistController;
 use App\Http\Controllers\Admin\AuthAdminController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\Frontend\MylibraryController;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Middleware\AuthAdminMiddleware;
 
 
 
@@ -61,7 +62,7 @@ Route::controller(FrontendController::class)->group(function () {
 
 /*============= Admin route ==================*/
 Route::controller(AdminController::class)->group(function () {
-    Route::get('/admin_stereo/playlist', 'playlist')->name('playlist');
+    //Route::get('/admin_stereo/playlist', 'playlist')->name('playlist');
     Route::get('/admin_stereo/user', 'user')->name('user');
     //Route::get('/admin_stereo', 'log_in')->name('log_in');
     //Route::post('/admin_stereo', 'admin_auth')->name('admin_auth');
@@ -148,7 +149,6 @@ Route::prefix('admin_stereo')->middleware('AuthAdmin')->group(function () {
     });
 });
 
-
 /*============= Track route ==================*/
 Route::prefix('admin_stereo')->middleware('AuthAdmin')->group(function () {
     Route::controller(TrackController::class)->group(function () {
@@ -163,5 +163,22 @@ Route::prefix('admin_stereo')->middleware('AuthAdmin')->group(function () {
         Route::get('delete_track/{name_track}', 'delete_track');
 
         Route::get('search_track', 'search_track');
+    });
+});
+
+/*============= Playlist route ==================*/
+Route::prefix('admin_stereo')->middleware('AuthAdmin')->group(function () {
+    Route::controller(PlaylistController::class)->group(function () {
+        Route::get('playlist', 'playlist')->name('playlist');
+
+        Route::get('add_playlist', 'add_playlist')->name('add_playlist');
+        Route::post('add_playlist', 'store')->name('add_playlist');
+
+        Route::get('edit_playlist/{name_playlist}', 'edit_playlist')->name('edit_playlist');
+        Route::put('edit_playlist/{name_playlist}', 'update_playlist');
+
+        Route::get('delete_playlist/{name_playlist}', 'delete_playlist');
+
+        Route::get('search_playlist', 'search_playlist');
     });
 });

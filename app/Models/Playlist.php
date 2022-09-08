@@ -5,18 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Track extends Model
+class Playlist extends Model
 {
     use HasFactory;
-    protected $table = 'table_track';
+    protected $table = 'table_playlist';
     protected $fillable = [
-        'name_track',
-        'pf_track',
-        'audio_track',
-        'id_artist',
-        'id_category',
-        'id_country',
-        'id_album',
+        'name_playlist',
+        'pf_playlist',
+        'id_user',
     ];
     public function artist_track()
     {
@@ -25,9 +21,5 @@ class Track extends Model
     public function album_track()
     {
         return $this->belongsTo(Album::class, 'id_album');
-    }
-    public function playlist_track()
-    {
-        return $this->hasMany(Playlist_Track::class, 'id');
     }
 }

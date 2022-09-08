@@ -13,10 +13,7 @@ class AdminController extends Controller
     {
         return view('admin.index');
     }
-    public function playlist()
-    {
-        return view('admin.pages.playlist');
-    }
+
     public function user()
     {
         return view('admin.pages.user');

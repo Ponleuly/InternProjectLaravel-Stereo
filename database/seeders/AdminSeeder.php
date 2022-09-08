@@ -23,6 +23,7 @@ class AdminSeeder extends Seeder
                 'email' => 'admin@gmail.com',
                 'password' => bcrypt('123456'),
                 'role' => '1',
+                'avatar' => 'admin.jpg',
                 'created_at' => Carbon::now(),
             ],
             [
@@ -31,6 +32,7 @@ class AdminSeeder extends Seeder
                 'email' => 'ponleu@gmail.com',
                 'password' => bcrypt('123456'),
                 'role' => '0',
+                'avatar' => 'admin.jpg',
                 'created_at' => Carbon::now(),
             ],
 

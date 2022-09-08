@@ -10,6 +10,7 @@ use App\Models\Country;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Playlist;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -22,6 +23,8 @@ class DashboardController extends Controller
             $tracks = Track::all()->count();
             $categories = Category::all()->count();
             $countries = Country::all()->count();
+            $playlists = Playlist::all()->count();
+
 
             return view(
                 'admin.pages.dashboard',
@@ -30,7 +33,8 @@ class DashboardController extends Controller
                     'albums',
                     'tracks',
                     'categories',
-                    'countries'
+                    'countries',
+                    'playlists'
                 )
             );
         }

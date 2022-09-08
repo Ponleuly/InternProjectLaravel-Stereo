@@ -219,25 +219,26 @@
 			</td> 
 			</tr>
 			@foreach($artists as $row)
-			<tr>
-				<td>{{$count++}}</td>
-				<td>
-					<img src="/storage/uploads/artists/{{$row->pf_artist}}" class="artist-img">
-				</td>
-				<td>{{$row->name_artist}}</td>
-					@php
-						$track_count = Track::where('id_artist', $row->id)->count(); 
-					@endphp
-				<td>{{$track_count}}</td>
-				<td>{{$row->created_at->diffForHumans()}}</td>
-				<td>
-					<a href="{{url('/admin_stereo/edit_artist/'.$row->name_artist)}}">
-						<span class="edit">Edit</span>
-					</a>
-					<a href="{{url('/admin_stereo/delete_artist/'.$row->name_artist)}}">
-						<span class="delete">Delete</span>
-					</a>
-				</td>
+				<tr>
+					<td>{{$count++}}</td>
+					<td>
+						<img src="/storage/uploads/artists/{{$row->pf_artist}}" class="artist-img">
+					</td>
+					<td>{{$row->name_artist}}</td>
+						@php
+							$track_count = Track::where('id_artist', $row->id)->count(); 
+						@endphp
+					<td>{{$track_count}}</td>
+					<td>{{$row->created_at->diffForHumans()}}</td>
+					<td>
+						<a href="{{url('/admin_stereo/edit_artist/'.$row->name_artist)}}">
+							<span class="edit">Edit</span>
+						</a>
+						<a href="{{url('/admin_stereo/delete_artist/'.$row->name_artist)}}">
+							<span class="delete">Delete</span>
+						</a>
+					</td>
+				</tr>
 			@endforeach()
 		</table>
   	</div>
