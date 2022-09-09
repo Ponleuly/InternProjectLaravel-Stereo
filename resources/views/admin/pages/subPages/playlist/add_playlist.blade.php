@@ -140,7 +140,7 @@
         border-radius: 5px;
         border: 2px solid #f44336;
         float: left;
-        margin-top: 15px;
+        margin-top: 200px;
         margin-left: 200px;
     }
     .back-button:hover{
@@ -167,7 +167,7 @@
         border-radius: 5px;
         border: 2px solid #0d3073;
         cursor: pointer;
-        margin-top: 15px;
+        margin-top: 200px;
     }
     .form-fill button:hover{
         background: white;
@@ -187,8 +187,16 @@
                     <span class="detail">Playlist Name</span>
                     <input type="text" placeholder="Enter here..." value="" name="name_playlist" required>
                 </div>
+
                 <div class="box-fill">
-                    <span class="detail">Tracks</span>
+                    <span class="detail">Playlist Image</span>
+                    <div class="img-upload">
+                        <input type="file" name="pf_playlist" accept="image/png, image/jpeg, image/jpg">
+                    </div>
+                </div>
+
+                <div class="box-fill">
+                    <span class="detail">Add Tracks</span>
                     <div class="select-box" >
                         <select name="id_track[]" multiple>
                             <option disabled selected>--Choose Tracks--</option>
@@ -196,13 +204,6 @@
                                 <option value="{{$row->id}}" style="margin-left: 10px;">{{$row->name_track}}</option>
                             @endforeach
                         </select>
-                    </div>
-                </div>
-                
-                <div class="box-fill" style="margin-top: 180px">
-                    <span class="detail">Playlist Image</span>
-                    <div class="img-upload">
-                        <input type="file" name="pf_playlist" accept="image/png, image/jpeg, image/jpg">
                     </div>
                 </div>
             </div>

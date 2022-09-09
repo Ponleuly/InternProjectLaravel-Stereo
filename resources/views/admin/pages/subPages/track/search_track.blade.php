@@ -224,10 +224,10 @@
 				<td>{{$row->album_track->name_album}}</td>
 				<td>{{$row->created_at->diffForHumans()}}</td>
 				<td>
-					<a href="{{url('/admin_stereo/edit_track/'.$row->name_track)}}">
+					<a href="{{url('/admin_stereo/edit_track/'.$row->id)}}">
 						<span class="edit">Edit</span>
 					</a>
-					<a href="{{url('/admin_stereo/delete_track/'.$row->name_track)}}">
+					<a href="{{url('/admin_stereo/delete_track/'.$row->id)}}">
 						<span class="delete">Delete</span>
 					</a>
 				</td>

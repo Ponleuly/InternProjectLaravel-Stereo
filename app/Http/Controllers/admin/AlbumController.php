@@ -88,9 +88,9 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit_album($name_album)
+    public function edit_album($id_album)
     {
-        $album = Album::where('name_album', $name_album)->first();
+        $album = Album::where('id', $id_album)->first();
         $img_album = $album->pf_album;
         $idCategory = $album->id_category; // Get id_category that selected when add album
         $idArtist = $album->id_artist;   // Get id_country that selected when add album
@@ -119,10 +119,10 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update_album(Request $request, $name_album)
+    public function update_album(Request $request, $id_album)
     {
 
-        $update_album = Album::where('name_album', $name_album)->first();
+        $update_album = Album::where('id', $id_album)->first();
         $img_album = $update_album->pf_album;
 
         $update_album->name_album = $request->input('name_album');
@@ -148,7 +148,7 @@ class AlbumController extends Controller
         return redirect('/admin_stereo/album')
             ->with(
                 'alert',
-                'Album ' . '"' . $name_album . '"' . ' is updated successfully!'
+                'Album ' . '"' . $update_album->name_album . '"' . ' is updated successfully!'
             );
     }
 
@@ -158,16 +158,16 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete_album($name_album)
+    public function delete_album($id_album)
     {
-        $delete_album = Album::where('name_album', $name_album)->first();
+        $delete_album = Album::where('id', $id_album)->first();
 
         $delete_album->delete();
 
         return redirect('/admin_stereo/album')
             ->with(
                 'alert',
-                'Album ' . '"' . $name_album . '"' .
+                'Album ' . '"' . $delete_album->name_album . '"' .
                     ' is deleted successfully !'
             );
     }

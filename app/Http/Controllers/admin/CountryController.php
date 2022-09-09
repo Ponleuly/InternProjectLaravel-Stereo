@@ -74,9 +74,9 @@ class CountryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit_country($name_country)
+    public function edit_country($id_country)
     {
-        $country = Country::where('name_country', $name_country)->first();
+        $country = Country::where('id', $id_country)->first();
         $img_country = $country->pf_country;
 
         return view(
@@ -95,9 +95,9 @@ class CountryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update_country(Request $request, $name_country)
+    public function update_country(Request $request, $id_country)
     {
-        $update_country = country::where('name_country', $name_country)->first();
+        $update_country = Country::where('id', $id_country)->first();
         $img_country = $update_country->pf_country;
 
         $update_country->name_country = $request->input('name_country');
@@ -119,7 +119,7 @@ class CountryController extends Controller
         return redirect('/admin_stereo/country')
             ->with(
                 'alert',
-                'Country ' . '"' . $name_country . '"' .
+                'Country ' . '"' . $update_country->name_country . '"' .
                     ' is updated successfully !'
             );
     }
@@ -130,15 +130,15 @@ class CountryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete_country($name_country)
+    public function delete_country($id_country)
     {
-        $delete_country = Country::where('name_country', $name_country)->first();
+        $delete_country = Country::where('id', $id_country)->first();
         $delete_country->delete();
 
         return redirect('/admin_stereo/country')
             ->with(
                 'alert',
-                'Country ' . '"' . $name_country . '"' .
+                'Country ' . '"' . $delete_country->name_country . '"' .
                     ' is deleted successfully !'
             );
     }

@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('table_playlist_track', function (Blueprint $table) {
+            $table->increments('id');
             $table->unsignedInteger('id_playlist');
             $table->foreign('id_playlist')
                 ->references('id')
@@ -21,7 +22,7 @@ return new class extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->unsignedInteger('id_track');
+            $table->unsignedInteger('id_track')->nullable();
             $table->foreign('id_track')
                 ->references('id')
                 ->on('table_track')

@@ -198,7 +198,7 @@
       <span>Edit Album</span>
     </div>
     <div class="form-fill">
-        <form action="{{url('/admin_stereo/edit_album/'.$album->name_album)}}" method="POST" enctype="multipart/form-data">
+        <form action="{{url('/admin_stereo/edit_album/'.$album->id)}}" method="POST" enctype="multipart/form-data">
             @csrf <!-- to make form active -->
             @method('PUT')
             <div class="input-box">
@@ -213,13 +213,10 @@
                         <select name="id_artist"><!--is a string colum will insert in table_album-->
                             <option disabled selected>Choose Artists</option>
                             @foreach($artists as $row)
-                                <option value="{{$row->id}}"
-                                    <?php 
-                                        if ($row->id == $selected_art->id){ ?>
-                                            selected
-                                    <?php }
-                                    ?>
-                                    >{{$row->name_artist}}
+                                <option 
+                                    value="{{$row->id}}"
+                                    {{($row->id == $selected_art->id) ? 'selected' : ''}}>                            
+                                    {{$row->name_artist}}
                                 </option>
                             @endforeach
                         </select>
@@ -232,13 +229,10 @@
                         <select name="id_category">
                             <option disabled selected>Choose Categories</option>
                             @foreach($categories as $row)
-                                <option value="{{$row->id}}"
-                                    <?php 
-                                        if ($row->id == $selected_cate->id){ ?>
-                                            selected
-                                    <?php }
-                                    ?>
-                                    >{{$row->name_category}}
+                                <option 
+                                    value="{{$row->id}}"
+                                    {{($row->id == $selected_cate->id) ? 'selected' : ''}}>
+                                    {{$row->name_category}}
                                 </option>
                             @endforeach
                         </select>

@@ -197,7 +197,7 @@
       <span>Edit Artist</span>
     </div>
     <div class="form-fill">
-        <form action="{{url('/admin_stereo/edit_artist/'.$artist->name_artist)}}" method="POST" enctype="multipart/form-data">
+        <form action="{{url('/admin_stereo/edit_artist/'.$artist->id)}}" method="POST" enctype="multipart/form-data">
             @csrf <!-- to make form active -->
             @method('PUT')
             <div class="input-box">
@@ -212,14 +212,10 @@
                         <select name="id_category">
                             <option disabled selected>Choose Categories</option>
                             @foreach($categories as $row)
-                                <option value="{{$row->id}}"
-                                    <?php 
-                                        if ($row->id == $selected_cate->id){ ?>
-                                            selected
-                                    <?php 
-                                    }
-                                    ?>
-                                >{{$row->name_category}}
+                                <option 
+                                    value="{{$row->id}}"
+                                    {{($row->id == $selected_cate->id) ? 'selected' : ''}}>           
+                                    {{$row->name_category}}
                                 </option>
                             @endforeach
                         </select>
@@ -232,14 +228,10 @@
                         <select name="id_country">
                             <option disabled selected>Choose Countries</option>
                             @foreach($countries as $row)
-                                <option value="{{$row->id}}"
-                                    <?php 
-                                        if ($row->id == $selected_coun->id){ ?>
-                                            selected
-                                    <?php
-                                        }
-                                    ?> 
-                                    >{{$row->name_country}}
+                                <option 
+                                    value="{{$row->id}}"
+                                    {{($row->id == $selected_coun->id) ? 'selected' : ''}}>
+                                    {{$row->name_country}}
                                 </option>
                             @endforeach
                         </select>

@@ -48,11 +48,17 @@ class PlaylistController extends Controller
         $idTrack = $input['id_track']; // Get from request
         $namePlaylist = Playlist::where('name_playlist', $request->name_playlist)->first();
         $idPlaylist = $namePlaylist->id;
-        for ($i = 0; $i < count($idTrack); $i++) {
+        if ($idTrack == null) {
             $save['id_playlist'] = $idPlaylist;
-            $save['id_track'] = $idTrack[$i];
             Playlist_Track::create($save);
+        } else {
+            for ($i = 0; $i < count($idTrack); $i++) {
+                $save['id_playlist'] = $idPlaylist;
+                $save['id_track'] = $idTrack[$i];
+                Playlist_Track::create($save);
+            }
         }
+
         return redirect('/admin_stereo/playlist')
             ->with('alert', 'Playlist is added to list !');
 
@@ -120,5 +126,16 @@ class PlaylistController extends Controller
                 'alert',
                 'Playlist ' . '"' . $name_playlist . '"' . ' is updated successfully!'
             );
+    }
+    public function remove_track($id_playlist, $id_track)
+    {
+        // Get row that contain id_playlist and id_track to delete 
+        $remove_track = Playlist_Track::where('id_playlist', $id_playlist)->where('id_track', $id_track)->first();
+        $remove_track->delete();
+
+        //  Get name_play that is editing to return back to route
+        $playlist = Playlist::where('id', $id_playlist)->first();
+        $namePlaylist = $playlist->name_playlist;
+        return redirect('/admin_stereo/edit_playlist/' . $namePlaylist);
     }
 }

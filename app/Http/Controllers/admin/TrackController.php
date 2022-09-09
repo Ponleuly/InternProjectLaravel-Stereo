@@ -103,9 +103,9 @@ class TrackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit_track($name_track)
+    public function edit_track($id_track)
     {
-        $track = Track::where('name_track', $name_track)->first();
+        $track = Track::where('id', $id_track)->first();
 
         $idArtist = $track->id_artist;
         $idAlbum = $track->id_album;
@@ -149,9 +149,9 @@ class TrackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update_track(Request $request, $name_track)
+    public function update_track(Request $request, $id_track)
     {
-        $update_track = Track::where('name_track', $name_track)->first();
+        $update_track = Track::where('id', $id_track)->first();
         $update_track->name_track = $request->input('name_track');
         $update_track->id_artist = $request->input('id_artist');
         $update_track->id_album = $request->input('id_album');
@@ -191,7 +191,7 @@ class TrackController extends Controller
         return redirect('/admin_stereo/track')
             ->with(
                 'alert',
-                'Track ' . '"' . $name_track . '"' . ' is updated successfully!'
+                'Track ' . '"' . $update_track->name_track . '"' . ' is updated successfully!'
             );
     }
     /**
@@ -200,15 +200,15 @@ class TrackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete_track($name_track)
+    public function delete_track($id_track)
     {
-        $delete_track = Track::where('name_track', $name_track)->first();
+        $delete_track = Track::where('id', $id_track)->first();
         $delete_track->delete();
 
         return redirect('/admin_stereo/track')
             ->with(
                 'alert',
-                'Track ' . '"' . $name_track . '"' .
+                'Track ' . '"' . $delete_track->name_track . '"' .
                     ' is deleted successfully !'
             );
     }

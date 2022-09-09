@@ -61,7 +61,7 @@
         font-weight: 700;
         
     }
-    .box-fill p.track-name{
+    .box-fill p.img-name{
         width: calc(100% - 150px);
         height: 40px;
         padding: 7px 15px;
@@ -72,6 +72,30 @@
         font-family: 'Source Sans Pro', sans-serif;
         font-size: 16px;
         font-weight: 500;
+    }
+    .box-fill .track-details{
+        display: flex;
+        flex-direction: row;
+        width: calc(100% - 150px);
+        height: 40px;
+        padding: 7px 15px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        justify-content: space-between;
+    }
+    .box-fill .track-details p.track-name{
+        text-transform: none;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .box-fill .track-details a span{
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        color: dodgerblue;
+        text-decoration: underline;
     }
     .box-fill img{
         width: 220px;
@@ -209,7 +233,14 @@
                 @foreach ($selected_track as $row)
                     <div class="box-fill">
                         <span class="detail">Track {{$count++}}.</span>
-                        <p class="track-name">{{$row->playlist_track->name_track}}</p>                    
+                        <div class="track-details">
+                            <p class="track-name">{{$row->playlist_track->name_track}}</p>
+                            <a href="
+                                {{url('/admin_stereo/remove_track/'.
+                                        $playlist->id.'/'.$row->id_track)}}">
+                                <span>Remove from playlist</span>    
+                            </a>  
+                        </div>                                      
                     </div>
                 @endforeach
                 <div class="box-fill">
@@ -228,7 +259,7 @@
 
                 <div class="box-fill" style="margin-top: 180px">
                     <span class="detail">Playlist Image</span>
-                    <p class="track-name">{{$img_playlist}}</p>
+                    <p class="img-name">{{$img_playlist}}</p>
                 </div>
                 <div class="box-fill">
                     <span class="detail"></span>

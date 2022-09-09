@@ -238,8 +238,8 @@
 				<td>{{$track_count}}</td>
 				<td>{{$row->created_at->diffForHumans()}}</td>
 				<td>
-					<a href="{{url('/admin_stereo/edit_album/'.$row->name_album)}}"><span class="edit">Edit</span></a>
-					<a href="{{url('/admin_stereo/delete_album/'.$row->name_album)}}"><span class="delete">Delete</span></a>
+					<a href="{{url('/admin_stereo/edit_album/'.$row->id)}}"><span class="edit">Edit</span></a>
+					<a href="{{url('/admin_stereo/delete_album/'.$row->id)}}"><span class="delete">Delete</span></a>
 				</td>
 			</tr>
         	@endforeach()

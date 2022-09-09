@@ -221,8 +221,8 @@
 								<td>{{$artist_count}}</td>
 								<td>{{$row->created_at->diffForHumans()}}</td>
 								<td>
-									<a href="{{url('/admin_stereo/edit_country/'.$row->name_country)}}"><span class="edit">Edit</span></a>
-									<a href="{{url('/admin_stereo/delete_country/'.$row->name_country)}}"><span class="delete">Delete</span></a>
+									<a href="{{url('/admin_stereo/edit_country/'.$row->id)}}"><span class="edit">Edit</span></a>
+									<a href="{{url('/admin_stereo/delete_country/'.$row->id)}}"><span class="delete">Delete</span></a>
 								</td>  
 						</tr>
 				@endforeach

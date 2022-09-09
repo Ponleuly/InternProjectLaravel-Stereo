@@ -23,7 +23,7 @@ return new class extends Migration
                 ->references('id')
                 ->on('table_track');
             */
-            $table->unsignedInteger('id_user')->nullable();
+            $table->unsignedInteger('id_user');
             $table->foreign('id_user')
                 ->references('id')
                 ->on('users');

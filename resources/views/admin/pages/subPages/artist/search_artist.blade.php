@@ -231,10 +231,10 @@
 				<td>{{$track_count}}</td>
 				<td>{{$row->created_at->diffForHumans()}}</td>
 				<td>
-					<a href="{{url('/admin_stereo/edit_artist/'.$row->name_artist)}}">
+					<a href="{{url('/admin_stereo/edit_artist/'.$row->id)}}">
 						<span class="edit">Edit</span>
 					</a>
-					<a href="{{url('/admin_stereo/delete_artist/'.$row->name_artist)}}">
+					<a href="{{url('/admin_stereo/delete_artist/'.$row->id)}}">
 						<span class="delete">Delete</span>
 					</a>
 				</td>

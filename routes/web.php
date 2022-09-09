@@ -87,10 +87,10 @@ Route::prefix('admin_stereo')->middleware('AuthAdmin')->group(function () {
         Route::get('add_category', 'add_category')->name('add_category');
         Route::post('add_category', 'store')->name('add_category');
 
-        Route::get('edit_category/{name_category}', 'edit_category')->name('edit_category');
-        Route::put('edit_category/{name_category}', 'update_category');
+        Route::get('edit_category/{id}', 'edit_category')->name('edit_category');
+        Route::put('edit_category/{id}', 'update_category');
 
-        Route::get('delete_category/{name_category}', 'delete_category');
+        Route::get('delete_category/{id}', 'delete_category');
 
         Route::get('search_category', 'search_category');
     });
@@ -104,10 +104,10 @@ Route::prefix('admin_stereo')->middleware('AuthAdmin')->group(function () {
         Route::get('add_country', 'add_country')->name('add_country');
         Route::post('add_country', 'store')->name('add_country');
 
-        Route::get('edit_country/{name_country}', 'edit_country')->name('edit_country');
-        Route::put('edit_country/{name_country}', 'update_country');
+        Route::get('edit_country/{id}', 'edit_country')->name('edit_country');
+        Route::put('edit_country/{id}', 'update_country');
 
-        Route::get('delete_country/{name_country}', 'delete_country');
+        Route::get('delete_country/{id}', 'delete_country');
 
         Route::get('search_country', 'search_country');
     });
@@ -122,10 +122,10 @@ Route::prefix('admin_stereo')->middleware('AuthAdmin')->group(function () {
         Route::get('add_artist', 'add_artist')->name('add_country');
         Route::post('add_artist', 'store')->name('add_artist');
 
-        Route::get('edit_artist/{name_artist}', 'edit_artist')->name('edit_artist');
-        Route::put('edit_artist/{name_artist}', 'update_artist');
+        Route::get('edit_artist/{id}', 'edit_artist')->name('edit_artist');
+        Route::put('edit_artist/{id}', 'update_artist');
 
-        Route::get('delete_artist/{name_artist}', 'delete_artist');
+        Route::get('delete_artist/{id}', 'delete_artist');
 
         Route::get('search_artist', 'search_artist');
     });
@@ -140,10 +140,10 @@ Route::prefix('admin_stereo')->middleware('AuthAdmin')->group(function () {
         Route::get('add_album', 'add_album')->name('add_album');
         Route::post('add_album', 'store')->name('add_album');
 
-        Route::get('edit_album/{name_album}', 'edit_album')->name('edit_album');
-        Route::put('edit_album/{name_album}', 'update_album');
+        Route::get('edit_album/{id}', 'edit_album')->name('edit_album');
+        Route::put('edit_album/{id}', 'update_album');
 
-        Route::get('delete_album/{name_album}', 'delete_album');
+        Route::get('delete_album/{id}', 'delete_album');
 
         Route::get('search_album', 'search_album');
     });
@@ -157,10 +157,10 @@ Route::prefix('admin_stereo')->middleware('AuthAdmin')->group(function () {
         Route::get('add_track', 'add_track')->name('add_track');
         Route::post('add_track', 'store')->name('add_track');
 
-        Route::get('edit_track/{name_track}', 'edit_track')->name('edit_track');
-        Route::put('edit_track/{name_track}', 'update_track');
+        Route::get('edit_track/{id}', 'edit_track')->name('edit_track');
+        Route::put('edit_track/{id}', 'update_track');
 
-        Route::get('delete_track/{name_track}', 'delete_track');
+        Route::get('delete_track/{id}', 'delete_track');
 
         Route::get('search_track', 'search_track');
     });
@@ -176,6 +176,7 @@ Route::prefix('admin_stereo')->middleware('AuthAdmin')->group(function () {
 
         Route::get('edit_playlist/{name_playlist}', 'edit_playlist')->name('edit_playlist');
         Route::put('edit_playlist/{name_playlist}', 'update_playlist');
+        Route::get('remove_track/{id_playlist}/{id_track}', 'remove_track')->name('remove_track');
 
         Route::get('delete_playlist/{name_playlist}', 'delete_playlist');
 

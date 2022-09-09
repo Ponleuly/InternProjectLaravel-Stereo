@@ -83,9 +83,9 @@ class ArtistController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit_artist($name_artist)
+    public function edit_artist($id_artist)
     {
-        $artist = Artist::where('name_artist', $name_artist)->first();
+        $artist = Artist::where('id', $id_artist)->first();
         $img_artist = $artist->pf_artist;
         $idCategory = $artist->id_category; // Get id_category that selected when add artist
         $idCountry = $artist->id_country;   // Get id_country that selected when add artist
@@ -115,10 +115,10 @@ class ArtistController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update_artist(Request $request, $name_artist)
+    public function update_artist(Request $request, $id_artist)
     {
 
-        $update_artist = Artist::where('name_artist', $name_artist)->first();
+        $update_artist = Artist::where('id', $id_artist)->first();
         $img_artist = $update_artist->pf_artist;
 
         $update_artist->name_artist = $request->input('name_artist');
@@ -144,7 +144,7 @@ class ArtistController extends Controller
         return redirect('/admin_stereo/artist')
             ->with(
                 'alert',
-                'Artist ' . '"' . $name_artist . '"' . ' is updated successfully!'
+                'Artist ' . '"' . $update_artist->name_artist . '"' . ' is updated successfully!'
             );
     }
 
@@ -154,16 +154,16 @@ class ArtistController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete_artist($name_artist)
+    public function delete_artist($id_artist)
     {
-        $delete_artist = artist::where('name_artist', $name_artist)->first();
+        $delete_artist = Artist::where('id', $id_artist)->first();
 
         $delete_artist->delete();
 
         return redirect('/admin_stereo/artist')
             ->with(
                 'alert',
-                'Artist ' . '"' . $name_artist . '"' .
+                'Artist ' . '"' . $delete_artist->name_artist . '"' .
                     ' is deleted successfully !'
             );
     }

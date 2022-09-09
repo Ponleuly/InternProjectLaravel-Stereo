@@ -198,7 +198,7 @@
       <span>Edit Country</span>
     </div>
     <div class="form-fill">
-        <form action="{{url('/admin_stereo/edit_country/'.$country->name_country)}}" method="POST" enctype="multipart/form-data">
+        <form action="{{url('/admin_stereo/edit_country/'.$country->id)}}" method="POST" enctype="multipart/form-data">
             @csrf <!-- to make form active -->
             @method('PUT')
             <div class="input-box">
@@ -223,7 +223,7 @@
                 <div class="box-fill">
                     <span class="detail">Update Image</span>
                     <div class="img-upload">
-                        <input type="file" name="pf_country" accept="image/png, image/jpeg, image/jpg" required>
+                        <input type="file" name="pf_country" accept="image/png, image/jpeg, image/jpg">
                     </div>
                 </div>
             </div>
