@@ -60,7 +60,7 @@ class ArtistSeeder extends Seeder
             [
                 'id' => 6,
                 'name_artist' => 'Jack',
-                'pf_artist' => 'jack.jpeg',
+                'pf_artist' => 'jack97.jpg',
                 'id_category' => 9,
                 'id_country' => 3,
                 'created_at' => Carbon::now()
@@ -143,6 +143,30 @@ class ArtistSeeder extends Seeder
                 'pf_artist' => 'taylor_swift.jpg',
                 'id_category' => 1,
                 'id_country' => 1,
+                'created_at' => Carbon::now()
+            ],
+            [
+                'id' => 17,
+                'name_artist' => 'Kmeng Khmer',
+                'pf_artist' => 'Kmeng_khmer1.jpg',
+                'id_category' => 4,
+                'id_country' => 2,
+                'created_at' => Carbon::now()
+            ],
+            [
+                'id' => 18,
+                'name_artist' => 'Vannda',
+                'pf_artist' => 'vanda_pf.jpg',
+                'id_category' => 10,
+                'id_country' => 2,
+                'created_at' => Carbon::now()
+            ],
+            [
+                'id' => 19,
+                'name_artist' => 'Trinh Dinh Qunag',
+                'pf_artist' => 'trinh_dinh_qunag.jpg',
+                'id_category' => 3,
+                'id_country' => 3,
                 'created_at' => Carbon::now()
             ],
         ]);

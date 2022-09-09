@@ -148,4 +148,31 @@ class PlaylistController extends Controller
         $idPlaylist = $playlist->id;
         return redirect('/admin_stereo/edit_playlist/' . $idPlaylist);
     }
+
+    public function delete_playlist($id_playlist)
+    {
+        $delete_playlist = Playlist::where('id', $id_playlist)->first();
+
+        $delete_playlist->delete();
+        return redirect('/admin_stereo/playlist')
+            ->with(
+                'alert',
+                'Playlist ' . '"' . $delete_playlist->name_playlist . '"' .
+                    ' is deleted successfully !'
+            );
+    }
+    public function search_playlist()
+    {
+        $search_text = $_GET['search'];
+        $search_playlist = Playlist::where('name_playlist', 'LIKE', '%' . $search_text . '%')->get();
+        $count = 1;
+        return view(
+            'admin.pages.subPages.playlist.search_playlist',
+            compact(
+                'count',
+                'search_playlist',
+                'search_text'
+            )
+        );
+    }
 }

@@ -51,8 +51,8 @@ class AlbumSeeder extends Seeder
             ],
             [
                 'id' => 5,
-                'name_album' => 'Music Video',
-                'pf_album' => 'sai_cach_yeu_le_bao_binh.jpg',
+                'name_album' => 'Top Hits of Le Bao Binh',
+                'pf_album' => 'top_hits.jpg',
                 'id_artist' => 8,
                 'id_category' => 3,
                 'created_at' => Carbon::now()
@@ -75,8 +75,8 @@ class AlbumSeeder extends Seeder
             ],
             [
                 'id' => 8,
-                'name_album' => 'Den Collection',
-                'pf_album' => 'den_album.jpg',
+                'name_album' => 'Den Chill',
+                'pf_album' => 'den_chill.jpg',
                 'id_artist' => 15,
                 'id_category' => 10,
                 'created_at' => Carbon::now()
@@ -135,6 +135,30 @@ class AlbumSeeder extends Seeder
                 'pf_album' => 'collections_jack.jpg',
                 'id_artist' => 6,
                 'id_category' => 9,
+                'created_at' => Carbon::now()
+            ],
+            [
+                'id' => 16,
+                'name_album' => 'Collections Of Trinh Dinh Quang',
+                'pf_album' => 'collections_trinh_dinh_quang.jpg',
+                'id_artist' => 19,
+                'id_category' => 3,
+                'created_at' => Carbon::now()
+            ],
+            [
+                'id' => 17,
+                'name_album' => 'My Way',
+                'pf_album' => 'my_way_kmeng_khmer.jpg',
+                'id_artist' => 17,
+                'id_category' => 4,
+                'created_at' => Carbon::now()
+            ],
+            [
+                'id' => 18,
+                'name_album' => 'Skull',
+                'pf_album' => 'skull_album_vanda.jpg',
+                'id_artist' => 18,
+                'id_category' => 10,
                 'created_at' => Carbon::now()
             ],
         ]);
