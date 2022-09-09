@@ -26,8 +26,23 @@ class PlaylistController extends Controller
             )
         );
     }
+
+    public function show()
+    {
+        $playlists = Playlist::orderByDesc('id')->get();
+        $count = 1;
+
+        return compact('count', 'playlists');
+    }
+
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name_playlist' => 'required',
+            'pf_playlist' => 'nullable',
+            'id_track[]' => 'nullable',
+
+        ]);
         $input = $request->all();
         $user_role = Auth::user()->id;
         $input['id_user'] = $user_role;
@@ -45,37 +60,26 @@ class PlaylistController extends Controller
         Playlist::create($input);
 
         //Storing data from playlist and track to other table
-        $idTrack = $input['id_track']; // Get from request
-        $namePlaylist = Playlist::where('name_playlist', $request->name_playlist)->first();
+        $idTrack = $request->id_track; // Get from request
+        $namePlaylist = Playlist::where('name_playlist', $request->name_playlist)->latest()->first();
         $idPlaylist = $namePlaylist->id;
-        if ($idTrack == null) {
-            $save['id_playlist'] = $idPlaylist;
-            Playlist_Track::create($save);
-        } else {
+        if ($idTrack != null) {
             for ($i = 0; $i < count($idTrack); $i++) {
                 $save['id_playlist'] = $idPlaylist;
                 $save['id_track'] = $idTrack[$i];
                 Playlist_Track::create($save);
             }
         }
-
         return redirect('/admin_stereo/playlist')
             ->with('alert', 'Playlist is added to list !');
-
-        /* 
-        Playlist::create($input);
-        return dd($idTrack);*/
+        /*
+        return dd($idTrack);
+        */
     }
-    public function show()
-    {
-        $playlists = Playlist::orderByDesc('id')->get();
-        $count = 1;
 
-        return compact('count', 'playlists');
-    }
-    public function edit_playlist($name_playlist)
+    public function edit_playlist($id_playlist)
     {
-        $playlist = Playlist::where('name_playlist', $name_playlist)->first();
+        $playlist = Playlist::where('id', $id_playlist)->first();
         $img_playlist = $playlist->pf_playlist;
         $idPlaylist = $playlist->id; // Get id_category that selected when add playlist
         $selected_track = Playlist_Track::where('id_playlist', $idPlaylist)->get(); // find id_category in Category
@@ -93,9 +97,10 @@ class PlaylistController extends Controller
             )
         );
     }
-    public function update_playlist(Request $request, $name_playlist)
+
+    public function update_playlist(Request $request, $id_playlist)
     {
-        $update_playlist = Playlist::where('name_playlist', $name_playlist)->first();
+        $update_playlist = Playlist::where('id', $id_playlist)->first();
         $img_playlist = $update_playlist->pf_playlist;
         $update_playlist->name_playlist = $request->input('name_playlist');
 
@@ -114,19 +119,24 @@ class PlaylistController extends Controller
 
         //Storing data from playlist and track to other table
         $idTrack = $request->id_track; // Get from request
-        $namePlaylist = Playlist::where('name_playlist', $request->name_playlist)->first();
-        $idPlaylist = $namePlaylist->id;
-        for ($i = 0; $i < count($idTrack); $i++) {
-            $save['id_playlist'] = $idPlaylist;
-            $save['id_track'] = $idTrack[$i];
-            Playlist_Track::create($save);
+        $id_playlist = Playlist::where('id', $id_playlist)->first();
+        $idPlaylist = $id_playlist->id;
+        if ($idTrack != null) {
+            for ($i = 0; $i < count($idTrack); $i++) {
+                $save['id_playlist'] = $idPlaylist;
+                $save['id_track'] = $idTrack[$i];
+                Playlist_Track::create($save);
+            }
         }
+
         return redirect('/admin_stereo/playlist')
             ->with(
                 'alert',
-                'Playlist ' . '"' . $name_playlist . '"' . ' is updated successfully!'
+                'Playlist ' . '"' .
+                    $update_playlist->name_playlist . '"' . ' is updated successfully!'
             );
     }
+
     public function remove_track($id_playlist, $id_track)
     {
         // Get row that contain id_playlist and id_track to delete 
@@ -135,7 +145,7 @@ class PlaylistController extends Controller
 
         //  Get name_play that is editing to return back to route
         $playlist = Playlist::where('id', $id_playlist)->first();
-        $namePlaylist = $playlist->name_playlist;
-        return redirect('/admin_stereo/edit_playlist/' . $namePlaylist);
+        $idPlaylist = $playlist->id;
+        return redirect('/admin_stereo/edit_playlist/' . $idPlaylist);
     }
 }

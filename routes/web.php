@@ -174,11 +174,11 @@ Route::prefix('admin_stereo')->middleware('AuthAdmin')->group(function () {
         Route::get('add_playlist', 'add_playlist')->name('add_playlist');
         Route::post('add_playlist', 'store')->name('add_playlist');
 
-        Route::get('edit_playlist/{name_playlist}', 'edit_playlist')->name('edit_playlist');
-        Route::put('edit_playlist/{name_playlist}', 'update_playlist');
+        Route::get('edit_playlist/{id}', 'edit_playlist')->name('edit_playlist');
+        Route::put('edit_playlist/{id}', 'update_playlist');
         Route::get('remove_track/{id_playlist}/{id_track}', 'remove_track')->name('remove_track');
 
-        Route::get('delete_playlist/{name_playlist}', 'delete_playlist');
+        Route::get('delete_playlist/{id}', 'delete_playlist');
 
         Route::get('search_playlist', 'search_playlist');
     });

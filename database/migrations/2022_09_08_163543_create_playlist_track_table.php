@@ -22,7 +22,7 @@ return new class extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->unsignedInteger('id_track')->nullable();
+            $table->unsignedInteger('id_track');
             $table->foreign('id_track')
                 ->references('id')
                 ->on('table_track')

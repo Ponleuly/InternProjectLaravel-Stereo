@@ -55,7 +55,11 @@
 			</a>
 		</li>
      	<li>
-			<a href="{{route('playlist')}}" class="{{ Request::is('admin_stereo/playlist')? 'active':''}}">
+			<a href="{{route('playlist')}}" 
+				class="{{ Request::is('admin_stereo/playlist')||
+						Request::is('admin_stereo/add_playlist')||
+						Request::is('admin_stereo/edit_playlist/*')||
+						Request::is('admin_stereo/search_playlist')? 'active':''}}">
 				<span class="material-icons-round link-icon">queue_music</span>
 				<span class="links_name">Playlists</span>
 			</a>
