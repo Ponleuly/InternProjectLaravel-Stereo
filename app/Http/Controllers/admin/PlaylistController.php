@@ -19,9 +19,11 @@ class PlaylistController extends Controller
     public function add_playlist()
     {
         $tracks = Track::orderBy('id')->get();
+        $count = 1;
         return view(
             'admin.pages.subPages.playlist.add_playlist',
             compact(
+                'count',
                 'tracks',
             )
         );
@@ -86,9 +88,11 @@ class PlaylistController extends Controller
 
         $tracks = Track::orderBY('id')->get();
         $count = 1;
+        $cnt = 1;
         return view(
             'admin.pages.subPages.playlist.edit_playlist',
             compact(
+                'cnt',
                 'count',
                 'playlist',
                 'img_playlist',

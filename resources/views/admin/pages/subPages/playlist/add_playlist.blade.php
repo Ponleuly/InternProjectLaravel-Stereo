@@ -205,7 +205,7 @@
                             <option disabled selected>-- Choose Tracks --</option>
                             @foreach($tracks as $row)
                                 <option value="{{$row->id}}" style="margin-left: 10px;">
-                                    {{$row->name_track}}  --by--  {{$row->artist_track->name_artist}}
+                                    {{$count++.'. '}}{{$row->name_track}}  --by--  {{$row->artist_track->name_artist}}
                                 </option>
                             @endforeach
                         </select>

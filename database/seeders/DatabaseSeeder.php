@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\Country;
 use Illuminate\Database\Seeder;
 use Database\Seeders\AdminSeeder;
 use Database\Seeders\AlbumSeeder;
@@ -13,6 +12,7 @@ use Database\Seeders\ArtistSeeder;
 use Database\Seeders\CountrySeeder;
 use Database\Seeders\CategorySeeder;
 use Database\Seeders\PlaylistSeeder;
+use Database\Seeders\Track_PlaylistSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -37,8 +37,7 @@ class DatabaseSeeder extends Seeder
             TrackSeeder::class,
             AdminSeeder::class,
             PlaylistSeeder::class,
-            Playlist_TrackSeeder::class,
-
+            Track_PlaylistSeeder::class,
         ]);
     }
 }
