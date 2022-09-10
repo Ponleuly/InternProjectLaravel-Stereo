@@ -133,14 +133,13 @@
     }
     .box-fill .select-box select{
         width: 100%;
-        height: 220px;
+        height: 320px;
         padding: 5px 15px;
         margin-bottom: 20px;
         border-radius: 5px;
         border: 1px solid #ccc;
         color: black;
         background: white;
-        text-transform: capitalize;
         font-family: 'Source Sans Pro', sans-serif;
         font-size: 16px;
         font-weight: 500;
@@ -148,6 +147,10 @@
     }
     .select-box select option{
         color: black;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        padding: 3px 0;
     }
     .box-fill .img-upload{
         width: calc(100% - 150px);
@@ -223,7 +226,7 @@
 </style>
 <div class="box-add-playlist-container">
     <div class="title-header">
-      <span>Add playlist</span>
+      <span>Edit playlist</span>
     </div>
     <div class="form-fill">
         <form action="{{url('/admin_stereo/edit_playlist/'.$playlist->id)}}" method="POST" enctype="multipart/form-data">
@@ -253,14 +256,14 @@
                             <option disabled selected>--Choose Tracks--</option>
                             @foreach($tracks as $row)
                                     <option style="margin-left: 10px;"  value="{{$row->id}}">
-                                        {{$row->name_track}}
+                                        {{$row->name_track}}  --by--  {{$row->artist_track->name_artist}}
                                     </option>
                             @endforeach
                         </select>
                     </div>
                 </div>
 
-                <div class="box-fill" style="margin-top: 180px">
+                <div class="box-fill" style="margin-top: 280px">
                     <span class="detail">Playlist Image</span>
                     <p class="img-name">{{$img_playlist}}</p>
                 </div>

@@ -87,14 +87,13 @@
     }
     .box-fill .select-box select{
         width: 100%;
-        height: 220px;
+        height: 320px;
         padding: 5px 15px;
         margin-bottom: 20px;
         border-radius: 5px;
         border: 1px solid #ccc;
         color: black;
         background: white;
-        text-transform: capitalize;
         font-family: 'Source Sans Pro', sans-serif;
         font-size: 16px;
         font-weight: 500;
@@ -102,6 +101,10 @@
     }
     .select-box select option{
         color: black;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        padding: 5px 0;
     }
     .box-fill .img-upload{
         width: calc(100% - 150px);
@@ -140,7 +143,7 @@
         border-radius: 5px;
         border: 2px solid #f44336;
         float: left;
-        margin-top: 200px;
+        margin-top: 300px;
         margin-left: 200px;
     }
     .back-button:hover{
@@ -167,7 +170,7 @@
         border-radius: 5px;
         border: 2px solid #0d3073;
         cursor: pointer;
-        margin-top: 200px;
+        margin-top: 300px;
     }
     .form-fill button:hover{
         background: white;
@@ -199,9 +202,11 @@
                     <span class="detail">Add Tracks</span>
                     <div class="select-box" >
                         <select name="id_track[]" multiple>
-                            <option disabled selected>--Choose Tracks--</option>
+                            <option disabled selected>-- Choose Tracks --</option>
                             @foreach($tracks as $row)
-                                <option value="{{$row->id}}" style="margin-left: 10px;">{{$row->name_track}}</option>
+                                <option value="{{$row->id}}" style="margin-left: 10px;">
+                                    {{$row->name_track}}  --by--  {{$row->artist_track->name_artist}}
+                                </option>
                             @endforeach
                         </select>
                     </div>

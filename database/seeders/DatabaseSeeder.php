@@ -37,6 +37,8 @@ class DatabaseSeeder extends Seeder
             TrackSeeder::class,
             AdminSeeder::class,
             PlaylistSeeder::class,
+            Playlist_TrackSeeder::class,
+
         ]);
     }
 }

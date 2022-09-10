@@ -102,6 +102,10 @@
     }
     .select-box select option{
         color: black;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 5px 0;
     }
     .box-fill .img-upload{
         width: calc(100% - 150px);
@@ -207,7 +211,9 @@
                         <select name="id_album"  required><!--is a string colum will insert in table_album-->
                             <option disabled selected>Choose albums</option>
                             @foreach($albums as $row)
-                                <option value="{{$row->id}}">{{$row->name_album}}</option>
+                                <option value="{{$row->id}}">
+                                    {{$row->name_album}} --by-- {{$row->artist_album->name_artist}}
+                                </option>
                                 <!--is a string value will insert in colum name_track-->
                             @endforeach
                         </select>

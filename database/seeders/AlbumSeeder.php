@@ -161,6 +161,22 @@ class AlbumSeeder extends Seeder
                 'id_category' => 10,
                 'created_at' => Carbon::now()
             ],
+            [
+                'id' => 19,
+                'name_album' => 'Bun Phumi',
+                'pf_album' => 'kmeng_khmer.jpg',
+                'id_artist' => 17,
+                'id_category' => 7,
+                'created_at' => Carbon::now()
+            ],
+            [
+                'id' => 20,
+                'name_album' => 'Love collections vannda',
+                'pf_album' => 'chhir_te_vanda.jpg',
+                'id_artist' => 18,
+                'id_category' => 3,
+                'created_at' => Carbon::now()
+            ],
         ]);
     }
 }
