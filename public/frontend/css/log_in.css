@@ -234,6 +234,10 @@ form .input-box span.details{
     /* Microsoft Edge */
     color: #d9d5d5 !important;
 }
+.user-details .input-box .alert {
+    color: red;
+    font-size: 16px;
+}
 .input-box #show-hide-pass{
     position: relative;
     font-size: 18px;

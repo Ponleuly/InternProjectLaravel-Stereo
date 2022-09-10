@@ -22,4 +22,8 @@ class Playlist extends Model
     {
         return $this->belongsTo(Album::class, 'id_album');
     }
+    public function playlist_user()
+    {
+        return $this->belongsTo(User::class, 'id_user');
+    }
 }

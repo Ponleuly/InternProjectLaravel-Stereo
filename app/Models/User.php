@@ -21,11 +21,15 @@ class User extends Authenticatable
     protected $fillable = [
         'username',
         'email',
-        'role',
-        'avatar',
         'password',
+        //'role',
+        'gender',
+        'avatar',
     ];
-
+    public function playlist_user()
+    {
+        return $this->hasMany(Playlist::class, 'id');
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

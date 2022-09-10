@@ -141,7 +141,7 @@
 				</div>
 			</div>
 			<div class="bottom-link">
-				<a href="/admin_stereo/artist">
+				<a href="{{url('/admin_stereo/artist')}}">
 					<span>More Details >></span>
 				</a>
 			</div>
@@ -158,7 +158,7 @@
 				</div>
 			</div>
 			<div class="bottom-link">
-				<a href="/admin_stereo/album">
+				<a href="{{url('/admin_stereo/album')}}">
 					<span>More Details >></span>
 				</a>
 			</div>
@@ -175,7 +175,7 @@
 				</div>
 			</div>
 			<div class="bottom-link">
-				<a href="/admin_stereo/category">
+				<a href="{{url('/admin_stereo/category')}}">
 					<span>More Details >></span>
 				</a>
 			</div>
@@ -192,7 +192,7 @@
 				</div>
 			</div>
 			<div class="bottom-link">
-				<a href="/admin_stereo/track">
+				<a href="{{url('/admin_stereo/track')}}">
 					<span>More Details >></span>
 				</a>
 			</div>
@@ -209,7 +209,7 @@
 				</div>
 			</div>
 			<div class="bottom-link">
-				<a href="/admin_stereo/playlist">
+				<a href="{{url('/admin_stereo/playlist')}}">
 					<span>More Details >></span>
 				</a>
 			</div>
@@ -221,12 +221,12 @@
 					<span class="material-icons-round">account_circle</span>
 				</div>
 				<div class="item-text">
-					<h1>0</h1>
+					<h1>{{$users}}</h1>
 					<span>Users</span>
 				</div>
 			</div>
 			<div class="bottom-link">
-				<a href="">
+				<a href="{{url('/admin_stereo/user')}}">
 					<span>More Details >></span>
 				</a>
 			</div>

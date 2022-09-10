@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
             ArtistSeeder::class,
             AlbumSeeder::class,
             TrackSeeder::class,
-            AdminSeeder::class,
+            UserSeeder::class,
             PlaylistSeeder::class,
             Track_PlaylistSeeder::class,
         ]);

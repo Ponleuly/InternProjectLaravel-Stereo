@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Models\User;
 use App\Models\Admin;
 use App\Models\Album;
 use App\Models\Track;
 use App\Models\Artist;
 use App\Models\Country;
 use App\Models\Category;
+use App\Models\Playlist;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Playlist;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -24,7 +25,7 @@ class DashboardController extends Controller
             $categories = Category::all()->count();
             $countries = Country::all()->count();
             $playlists = Playlist::all()->count();
-
+            $users = User::where('role', '0')->count();
 
             return view(
                 'admin.pages.dashboard',
@@ -34,7 +35,8 @@ class DashboardController extends Controller
                     'tracks',
                     'categories',
                     'countries',
-                    'playlists'
+                    'playlists',
+                    'users',
                 )
             );
         }

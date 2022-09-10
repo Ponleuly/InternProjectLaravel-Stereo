@@ -118,10 +118,14 @@
 		text-align: center;
 	}
 	.playlist-table td:nth-child(5) {
-		width: 30%;
+		width: 25%;
 		text-align: center;
 	}
 	.playlist-table td:nth-child(6) {
+		width: 10%;
+		text-align: center;
+	}
+	.playlist-table td:nth-child(7) {
 		text-align: center;
 	}
 	.playlist-table th:nth-child(2){
@@ -129,6 +133,9 @@
 	}
 	.playlist-table th:nth-child(3){
 		text-align: start;
+	}
+	.playlist-table th:nth-child(5){
+		text-align: center;
 	}
 	.playlist-table th{
 		border-bottom: 1px solid #ddd;
@@ -214,6 +221,7 @@
 				<th>Image</th>
 				<th>playlists</th>
 				<th>Tracks</th>
+				<th>Created By</th>
 				<th>Date Created</th>
 				<th>
 					<span class="material-icons-round link-icon">edit</span>
@@ -231,6 +239,7 @@
 							$track_count = Playlist_Track::where('id_playlist', $row->id)->count(); 
 						@endphp
 					<td>{{$track_count}}</td>
+					<td>{{$row->playlist_user->username}}</td>
 					<td>{{$row->created_at->diffForHumans()}}</td>
 					<td>
 						<a href="{{url('/admin_stereo/edit_playlist/'.$row->id)}}">

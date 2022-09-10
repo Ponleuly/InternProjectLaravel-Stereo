@@ -18,7 +18,7 @@ class FrontendController extends Controller
     public function home()
     {
         $tracks = Track::orderBy('id')->paginate(14); //paginate(14) -> get 14 row of table
-        $artists = Artist::orderBy('id')->paginate(14);
+        $artists = Artist::orderBy('id')->get();
         $albums = Album::orderBy('id')->get();
         return view(
             'frontend.pages.home',

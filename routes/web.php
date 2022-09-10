@@ -7,21 +7,20 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Middleware\AuthAdminMiddleware;
-use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\AlbumController;
 use App\Http\Controllers\admin\TrackController;
-use App\Http\Controllers\admin\ArtistController;
 
+use App\Http\Controllers\admin\ArtistController;
 use App\Http\Controllers\admin\CountryController;
 use App\Http\Controllers\Frontend\homeController;
+use App\Http\Controllers\User\AuthUserController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\Admin\PlaylistController;
 use App\Http\Controllers\Admin\AuthAdminController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\Frontend\MylibraryController;
-
-
-
+use App\Http\Controllers\User\SignupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,14 +38,25 @@ Route::get('/', function () {
 });
 */
 /*============== Log_in  sign_up ===============*/
-
+/*
 Route::controller(LogController::class)->group(function () {
     Route::get('/', 'log_in')->name('log_in');
     Route::get('/sign_up', 'sign_up')->name('sign_up');
 });
+*/
+
+Route::controller(AuthUserController::class)->group(function () {
+    Route::get('/', 'log_in')->name('log_in');
+    Route::post('/', 'user_login')->name('user_login');
+    Route::get('/log_out', 'user_logout');
+});
+Route::controller(SignupController::class)->group(function () {
+    Route::get('/sign_up', 'sign_up')->name('sign_up');
+    Route::post('/sign_up', 'user_signup')->name('user_signup');
+});
 /*============= Frontend route ==================*/
 // *Using Route group to control route pages
-Route::controller(FrontendController::class)->group(function () {
+Route::controller(FrontendController::class)->middleware('AuthUser')->group(function () {
     Route::get('/home', 'home')->name('home');
     Route::get('/category', 'category')->name('category');
     Route::get('/mylibrary/my_playlists', 'mylibrary_platlists')->name('mylibrary/my_playlists');
@@ -60,18 +70,16 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('/albums/albums_view/{name_album}', 'albums_view')->name('albums_view');
 });
 
-/*============= Admin route ==================*/
-Route::controller(AdminController::class)->group(function () {
-    //Route::get('/admin_stereo/playlist', 'playlist')->name('playlist');
-    Route::get('/admin_stereo/user', 'user')->name('user');
-    //Route::get('/admin_stereo', 'log_in')->name('log_in');
-    //Route::post('/admin_stereo', 'admin_auth')->name('admin_auth');
-});
 /*============= Admin Auth route ==================*/
 Route::controller(AuthAdminController::class)->group(function () {
     Route::get('/admin_stereo', 'login')->name('login');
     Route::post('/admin_stereo', 'auth_login')->name('auth_login');
     Route::get('/admin_stereo/logout', 'logout');
+});
+/*============= User route ==================*/
+Route::controller(UserController::class)->middleware('AuthAdmin')->group(function () {
+    Route::get('/admin_stereo/user', 'user')->name('user');
+    Route::get('/admin_stereo/remove_user/{id}', 'remove_user')->name('remove_user');
 });
 
 /*============= Dashboard route ==================*/
