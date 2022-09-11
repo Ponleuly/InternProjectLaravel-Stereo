@@ -10,7 +10,7 @@ class SignupController extends Controller
 {
     public function sign_up()
     {
-        return view('authUser.sign_up');
+        return view('frontend.authUser.sign_up');
     }
     public function user_signup(Request $request)
     {
@@ -18,6 +18,7 @@ class SignupController extends Controller
         //$input['role'] = 0;
         $input['password'] = bcrypt($request->password);
         User::create($input);
-        return redirect('/');
+        return redirect('/')
+            ->with('alert', 'You are signed up successfully !');
     }
 }

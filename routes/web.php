@@ -4,23 +4,19 @@ use PhpParser\Builder\Function_;
 use PhpParser\Node\Expr\FuncCall;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LogController;
-use App\Http\Controllers\FrontendController;
-use App\Http\Middleware\AuthAdminMiddleware;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\AlbumController;
 use App\Http\Controllers\admin\TrackController;
+use App\Http\Controllers\User\SignupController;
 
 use App\Http\Controllers\admin\ArtistController;
 use App\Http\Controllers\admin\CountryController;
-use App\Http\Controllers\Frontend\homeController;
 use App\Http\Controllers\User\AuthUserController;
+use App\Http\Controllers\User\FrontendController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\Admin\PlaylistController;
 use App\Http\Controllers\Admin\AuthAdminController;
 use App\Http\Controllers\admin\DashboardController;
-use App\Http\Controllers\Frontend\MylibraryController;
-use App\Http\Controllers\User\SignupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +64,10 @@ Route::controller(FrontendController::class)->middleware('AuthUser')->group(func
 
     Route::get('/artists/artists_view/{name_artist}', 'artists_view')->name('artists_view');
     Route::get('/albums/albums_view/{name_album}', 'albums_view')->name('albums_view');
+
+    Route::get('/profile', 'user_profile')->name('user_profile');
+    Route::get('/update_profile/{id}', 'edit_profile')->name('update_profile');
+    Route::put('/update_profile/{id}', 'update_profile')->name('update_profile');
 });
 
 /*============= Admin Auth route ==================*/

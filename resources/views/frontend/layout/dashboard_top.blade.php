@@ -13,7 +13,7 @@
                 <span class="profile-name">{{Auth::user()->username}}</span>
             </div>
             <div class="dropdown-content">
-                <a href="">View profile</a>
+                <a href="{{url('/profile')}}">View profile</a>
                 <a href="{{url('/log_out')}}">Log out</a>
             </div>
         </div>

@@ -225,7 +225,7 @@
                 <span class="material-icons-round logo-icon">headphones</span>
                 <span class="logo-text">Stereo Admin</span>
             </div>
-
+            
             <div class="container-col">
                 <div class="sign-up-container">
                     <div class="title">Log in</div>

@@ -66,13 +66,7 @@
                                 <div class="input-box">
                                     <a href=""> Forget your password ?</a>
                                 </div>
-                                <div class="input-box">
-                                    @if(Session::has('alert'))
-                                        <div class="alert">
-                                            {{Session::get('alert')}}
-                                        </div>                         
-                                    @endif
-                                </div>
+                                
                             </div>
                             <div class="button">
                                 <input type="submit" value="Log in">

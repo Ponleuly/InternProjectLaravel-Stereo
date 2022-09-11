@@ -391,7 +391,9 @@ nav.close ~ .dashboard .top{
 .profile-dropdown .profile-details{
     display: flex;
     flex-direction: row;
+    /*
     justify-content: center;
+    */
     align-items: center;
     width: 155px;
 }

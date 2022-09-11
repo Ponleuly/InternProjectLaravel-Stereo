@@ -11,7 +11,7 @@ class AuthUserController extends Controller
 
     public function log_in()
     {
-        return view('authUser.log_in');
+        return view('frontend.authUser.log_in');
     }
     public function user_login(Request $request)
     {
@@ -21,13 +21,12 @@ class AuthUserController extends Controller
         ]);
         $arr = [
             'email' => $request->email,
-            'password' => $request->password
+            'password' => $request->password,
         ];
         if (Auth::attempt($arr)) {
             return redirect('/home');
         } else {
-            return redirect('/')
-                ->with('alert', 'Wrong Email or Password !');
+            return redirect('/')->with('alert', 'Wrong Email or Password !');
         }
     }
     public function user_logout()
