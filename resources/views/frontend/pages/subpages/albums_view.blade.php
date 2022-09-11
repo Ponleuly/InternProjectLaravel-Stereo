@@ -59,7 +59,7 @@
                                                 <li class="text-overflow">
                                                     <div class="song-details">
                                                         <span class="song-title">{{$row->name_track}}</span>
-                                                        <a href="{{url('/artists/artists_view/'.$row->artist_track->name_artist)}}">
+                                                        <a href="{{url('/artists/artists_view/'.$row->id_artist)}}">
                                                             <span class="artist-name">{{$row->artist_track->name_artist}}</span>
                                                         </a>
                                                     </div>   

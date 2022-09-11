@@ -26,6 +26,10 @@
         height: 220px;
         border-radius: 50%;
         object-fit: cover;
+        background-image: url("/frontend/images/avatar.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 5px;
     }
     .profile-header-container .profile-text{
         min-width: 500px;
@@ -197,6 +201,7 @@
         height: 220px;
         object-fit: cover;
         border-radius: 5px;
+        
     }
     .box-fill input[type=text]{
         width: calc(100% - 150px);
@@ -279,10 +284,10 @@
         font-size: 18px;
         font-weight: 500;
         color: white;
-        background: #f44336;
+        background: red;
         text-align: center;
         border-radius: 5px;
-        border: 2px solid #f44336;
+        border: 2px solid red;
         float: left;
         margin-top: 15px;
         margin-left: 200px;
@@ -306,16 +311,16 @@
         font-size: 18px;
         font-weight: 500;
         color: white;
-        background: #0d3073;
+        background: dodgerblue;
         text-align: center;
         border-radius: 5px;
-        border: 2px solid #0d3073;
+        border: 2px solid dodgerblue;
         cursor: pointer;
         margin-top: 15px;
     }
     .form-fill button:hover{
         background: white;
-        color: #0d3073;
+        color: dodgerblue;
     }
 </style>
 <!--========== profiles content ===============-->
@@ -344,7 +349,7 @@
                 <div class="profile-border-header"></div>
                 <div class="profile-content-container">
                         <div class="title-header">
-                            <span>Update Profile</span>
+                            <span>Edit Profile</span>
                         </div>
                 
                         <div class="form-fill">
@@ -365,13 +370,16 @@
                                         <span class="detail">Gender</span>
                                         <div class="gender-details">
                                             <div class="category">
-                                                <input type="radio" name="gender" value="male"  required>
+                                                <input type="radio" name="gender" 
+                                                    value="male" {{('male' == $user->gender)? 'checked' : ''}} required>
                                                 <span class="gender">Male</span>
                         
-                                                <input type="radio" name="gender" value="female" required>
+                                                <input type="radio" name="gender" 
+                                                    value="female" {{('female' == $user->gender)? 'checked' : ''}} required>
                                                 <span class="gender">Female</span>
                                            
-                                                <input type="radio" name="gender" value="others" required>
+                                                <input type="radio" name="gender"
+                                                    value="others" {{('others' == $user->gender)? 'checked' : ''}} required>
                                                 <span class="gender">Others</span>
                                             </div>
                                         </div>
@@ -385,9 +393,11 @@
                                 </div>
 
                                 <div class="back-button">
-                                    <a href="{{url('/profile')}}"><span>Back</span></a>
+                                    <a href="{{url('/profile')}}">
+                                        <span class="material-icons-round">arrow_back</span>
+                                    </a>
                                 </div>
-                                <button type="submit">Update</button>
+                                <button type="submit">Save</button>
                             </form>
                         </div>
                     </div>                      

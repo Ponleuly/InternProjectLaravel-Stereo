@@ -9,7 +9,9 @@
     <div class="profile">
         <div class="profile-dropdown">
             <div class="profile-details">
-                <img src="/storage/uploads/avatars/{{Auth::user()->avatar}}" alt="">
+                <div class="image">
+                    <img src="/storage/uploads/avatars/{{Auth::user()->avatar}}" alt="">
+                </div>
                 <span class="profile-name">{{Auth::user()->username}}</span>
             </div>
             <div class="dropdown-content">

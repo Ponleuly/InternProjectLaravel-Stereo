@@ -378,7 +378,6 @@ nav.close ~ .dashboard .top{
     display: flex;
     align-items: center;
     background: #F5F6FA;
-    border: 2px solid #EFEEF1;
     border-radius: 6px;
     height: 50px;
     min-width: 170px;
@@ -397,15 +396,24 @@ nav.close ~ .dashboard .top{
     align-items: center;
     width: 155px;
 }
-.profile-dropdown .profile-details img{
+.profile-dropdown .profile-details .image{
     width: 40px;
     height: 40px;
     border-radius: 50%;
     margin-right: 5px;
+    background-image: url("/frontend/images/avatar.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.profile-dropdown .profile-details img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     object-fit: cover;
 }
 .profile-dropdown .profile-details .profile-name{
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     color: var(--black-color);
     margin-left: 5px;
@@ -417,7 +425,7 @@ nav.close ~ .dashboard .top{
     display: none;
     position: absolute;
     background-color: #f1f1f1;
-    min-width: 158px;
+    min-width: 160px;
     box-shadow: 0 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     font-size: 14px;

@@ -55,7 +55,7 @@
                             @csrf
                             <div class="user-details">
                                 <div class="input-box">
-                                    <span class="details">Email or username</span>
+                                    <span class="details">Email</span>
                                     <input type="text" name="email" placeholder="Enter your email" required>
                                 </div>
                                 <div class="input-box">

@@ -8,6 +8,7 @@ use App\Models\Track;
 use App\Models\Artist;
 use App\Models\Country;
 use App\Models\Category;
+use App\Models\Playlist;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
@@ -23,12 +24,14 @@ class FrontendController extends Controller
         $tracks = Track::orderBy('id')->paginate(14); //paginate(14) -> get 14 row of table
         $artists = Artist::orderBy('id')->get();
         $albums = Album::orderBy('id')->get();
+        $playlists = Playlist::orderBy('id')->get();
         return view(
             'frontend.pages.home',
             compact(
                 'tracks',
                 'artists',
-                'albums'
+                'albums',
+                'playlists'
             )
         );
     }
@@ -69,9 +72,9 @@ class FrontendController extends Controller
     }
 
     // *mylibrary Tab
-    public function artists_view($name_artist)
+    public function artists_view($id_artist)
     {
-        $artists_view = Artist::where('name_artist', $name_artist)->get();
+        $artists_view = Artist::where('id', $id_artist)->get();
         $idArtist = $artists_view->value('id'); // get id of name_artist to search in Track
         $artists_track = Track::where('id_artist', $idArtist)->get();
         $artists_album = Album::where('id_artist', $idArtist)->get();
@@ -86,9 +89,9 @@ class FrontendController extends Controller
             )
         );
     }
-    public function albums_view($name_album)
+    public function albums_view($id_album)
     {
-        $albums_view = Album::where('name_album', $name_album)->get();
+        $albums_view = Album::where('id', $id_album)->get();
         $idAlbum = $albums_view->value('id'); // get id of name_album to search in Track
         $albums_track = Track::where('id_album', $idAlbum)->get();
         $count = 1;
@@ -102,42 +105,7 @@ class FrontendController extends Controller
             )
         );
     }
-    public function user_profile()
+    public function playlist_view($id_playlist)
     {
-        return view('frontend.pages.user.profile');
-    }
-    public function edit_profile($id_user)
-    {
-        $user = User::where('id', $id_user)->first();
-
-        return view(
-            'frontend.pages.user.update_profile',
-            compact('user')
-        );
-    }
-    public function update_profile(Request $request, $id_user)
-    {
-        $update_user = User::where('id', $id_user)->first();
-        $img_user = $update_user->avatar;
-
-        $update_user->username = $request->input('username');
-        $update_user->email = $request->input('email');
-        $update_user->gender = $request->input('gender');
-
-        if ($request->hasFile('avatar')) {
-            $img_path = 'public/uploads/avatars/' . $img_user;
-            if (File::exists($img_path)) {
-                File::delete($img_path);
-            }
-
-            $destination_path = 'public/uploads/avatars/';
-            $image = $request->file('avatar');
-            $image_name = $image->getClientOriginalName();
-            $image->storeAs($destination_path, $image_name);
-
-            $update_user['avatar'] = $image_name;
-        }
-        $update_user->update();
-        return redirect('/profile');
     }
 }

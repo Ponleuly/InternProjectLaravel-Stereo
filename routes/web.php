@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\TrackController;
 use App\Http\Controllers\User\SignupController;
 
 use App\Http\Controllers\admin\ArtistController;
+use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\admin\CountryController;
 use App\Http\Controllers\User\AuthUserController;
 use App\Http\Controllers\User\FrontendController;
@@ -62,13 +63,18 @@ Route::controller(FrontendController::class)->middleware('AuthUser')->group(func
     Route::get('/liked', 'liked')->name('liked');
     Route::get('/createplaylist', 'createplaylist')->name('createplaylist');
 
-    Route::get('/artists/artists_view/{name_artist}', 'artists_view')->name('artists_view');
-    Route::get('/albums/albums_view/{name_album}', 'albums_view')->name('albums_view');
+    Route::get('/artists/artists_view/{id}', 'artists_view')->name('artists_view');
+    Route::get('/albums/albums_view/{id}', 'albums_view')->name('albums_view');
 
+    Route::get('/playlist_view/{id}', 'playlist_view')->name('playlist_view');
+});
+/*============= Profile route ==================*/
+Route::controller(ProfileController::class)->middleware('AuthUser')->group(function () {
     Route::get('/profile', 'user_profile')->name('user_profile');
     Route::get('/update_profile/{id}', 'edit_profile')->name('update_profile');
     Route::put('/update_profile/{id}', 'update_profile')->name('update_profile');
 });
+/* ===================================================================================================================*/
 
 /*============= Admin Auth route ==================*/
 Route::controller(AuthAdminController::class)->group(function () {

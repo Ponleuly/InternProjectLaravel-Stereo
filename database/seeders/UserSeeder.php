@@ -67,6 +67,16 @@ class UserSeeder extends Seeder
                 'avatar' => 'jack.jpg',
                 'created_at' => Carbon::now(),
             ],
+            [
+                'id' => 6,
+                'username' => 'Jonh Henderson',
+                'email' => 'Jonh@gmail.com',
+                'password' => bcrypt('123456'),
+                'gender' => 'male',
+                'role' => 0,
+                'avatar' => null,
+                'created_at' => Carbon::now(),
+            ],
         ]);
     }
 }

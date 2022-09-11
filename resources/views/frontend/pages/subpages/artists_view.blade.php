@@ -75,7 +75,7 @@
                                     </td>
                                     <td>
                                         <div class="song-album">
-                                            <a href="{{url('/albums/albums_view/'.$row->album_track->name_album)}}">
+                                            <a href="{{url('/albums/albums_view/'.$row->id_album)}}">
                                                 <span>{{$row->album_track->name_album}}</span>
                                             </a>
                                         </div>
@@ -108,7 +108,7 @@
                             <div class="box-content">
                                 <div class="box-single">
                                     <div class="img-popup-container">
-                                        <a href="{{url('/albums/albums_view/'.$row->name_album)}}">
+                                        <a href="{{url('/albums/albums_view/'.$row->id)}}">
                                             <img src="/storage/uploads/albums/{{$row->pf_album}}" alt="">
                                         </a>
                                         <a href="">
@@ -117,7 +117,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <a href="{{url('/albums/albums_view/'.$row->name_album)}}">
+                                    <a href="{{url('/albums/albums_view/'.$row->id)}}">
                                         <span class="song-title">{{$row->name_album}}</span>
                                         <span class="singer-name">Album</span>
                                     </a>

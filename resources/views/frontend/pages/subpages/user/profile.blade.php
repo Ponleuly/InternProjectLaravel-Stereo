@@ -26,6 +26,10 @@
         height: 220px;
         border-radius: 50%;
         object-fit: cover;
+        background-image: url("/frontend/images/avatar.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 5px;
     }
     .profile-header-container .profile-text{
         min-width: 500px;
@@ -100,6 +104,7 @@
         flex-direction: row;
         height: 70px;
         padding: 15px 0;
+
     }
     .details-info span.detail{
         display: flex;
@@ -110,19 +115,34 @@
         font-family: 'Source Sans Pro', sans-serif;
         font-size: 18px;
         font-weight: 700;   
+
     }
-    .details-info span.info{
+    .details-info .info{
         display: flex;
-        justify-content: flex-start;
-        align-items: center; 
+        flex-direction: row;
+        justify-content: space-between;
         width: calc(100% - 150px);
+        height: 40px;
+        padding: 0 15px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        align-items: center; 
         margin-right: 30px;
-        font-family: 'Source Sans Pro', sans-serif;
-        font-size: 18px;
-        font-weight: 500;  
-        
     }
-   
+    .info p.username{
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 20px;
+        font-weight: 500;
+        margin: 5px 0;
+    }
+    .info a{
+        font-size: 18px;
+        color: #ccc;
+        margin-top: 7px;
+    }
+    .info a:hover{
+        color: #fff;
+    }
     .profile-content-container .update-profile-link{
 		width: 150px;
 		height: 50px;
@@ -165,7 +185,7 @@
                 <div class="profile-text">
                     <span class="profile-name">{{Auth::user()->username}}</span>   
                     <div class="profile-edit-form">
-                        <a href="">
+                        <a href="{{url('/update_profile'.'/'.Auth::user()->id)}}">
                             <span class="material-icons-round">edit</span>
                         </a>    
                     </div>                 
@@ -184,24 +204,34 @@
                         <div class="details-container">
                             <div class="details-info">
                                 <span class="detail">Username :</span>
-                                <span class="info">{{Auth::user()->username}}</span>
+                                <div class="info">
+                                    <p class="username">{{Auth::user()->username}}</p>
+                                    <a href="{{url('/update_profile'.'/'.Auth::user()->id)}}">
+                                        <span class="material-icons-round">edit</span>
+                                    </a>
+                                </div>                           
                             </div>
                                 
                             <div class="details-info">
                                 <span class="detail">Email :</span>
-                                <span class="info">{{Auth::user()->email}}</span>
+                                <div class="info">
+                                    <p class="username">{{Auth::user()->email}}</p>
+                                    <a href="{{url('/update_profile'.'/'.Auth::user()->id)}}">
+                                        <span class="material-icons-round">edit</span>
+                                    </a>
+                                </div>  
                             </div>
                                     
                             <div class="details-info">
                                 <span class="detail">Gender :</span>
-                                <span class="info">{{Auth::user()->gender}}</span>    
+                                 <div class="info">
+                                    <p class="username">{{Auth::user()->gender}}</p>
+                                    <a href="{{url('/update_profile'.'/'.Auth::user()->id)}}">
+                                        <span class="material-icons-round">edit</span>
+                                    </a>
+                                </div>  
                             </div>
                         </div>   
-                        <div class="update-profile-link">
-                            <a href="{{url('/update_profile'.'/'.Auth::user()->id)}}">
-                                <span>Update profile</span>
-                            </a>
-                        </div>
                     </div>                      
                 </div>
             </div>
