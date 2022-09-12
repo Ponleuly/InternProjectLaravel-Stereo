@@ -284,10 +284,10 @@
         font-size: 18px;
         font-weight: 500;
         color: white;
-        background: red;
         text-align: center;
         border-radius: 5px;
         border: 2px solid red;
+        background: red;
         float: left;
         margin-top: 15px;
         margin-left: 200px;

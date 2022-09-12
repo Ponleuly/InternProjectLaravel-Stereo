@@ -1,14 +1,16 @@
+<?php
+  	use App\Models\Playlist;
+?>
 <div class="playlist">             
     <div class="list">
-        <a href="{{route('mylibrary/my_playlists')}}"><span class="textover">XXXXXXXXXX</span></a>
-        <a href="{{route('mylibrary/my_playlists')}}"><span class="textover">YYYYYYYYYY</span></a>
-        <a href="{{route('mylibrary/my_playlists')}}"><span class="textover">ZZZZZZZZZZ</span></a>
-        <a href="{{route('mylibrary/my_playlists')}}"><span class="textover">XXXXXXXXX</span></a>
-        <a href="{{route('mylibrary/my_playlists')}}"><span class="textover">XXXXXXXXX</span></a>
-        <a href=""><span class="textover">XXXXXXXXX</span></a>
-        <a href=""><span class="textover">XXXXXXXXXYYYYYYYYZZZZZZZZZZZ</span></a>
-        <a href=""><span class="textover">XXXXXXXXX</span></a>
-        <a href=""><span class="textover">XXXXXXXXX</span></a>
-        <a href=""><span class="textover">XXXXXXXXX</span></a>
+        @php
+            $id_user = Auth::user()->id;
+            $yourplaylists = Playlist::where('id_user', $id_user)->get();
+        @endphp
+        @foreach ($yourplaylists as $row)
+            <a href="">
+                <span class="textover">{{$row->name_playlist}}</span>
+            </a>   
+        @endforeach
     </div>  
 </div>

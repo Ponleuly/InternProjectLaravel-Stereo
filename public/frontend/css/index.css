@@ -232,12 +232,13 @@ body.dark .nav-links li a:hover .link-name{
 .menu-items .playlist .list a{
     display: flex;
     flex-direction: column;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     color: var(--white-dark-color);
     text-decoration: none;
     margin-left: 14px;
     margin-right: 14px;
+    padding: 3px 0;
 }
 .playlist .list .textover{ 
     white-space: nowrap;  

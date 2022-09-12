@@ -49,7 +49,7 @@
                     <div class="box-content">
                         <div class="box-single">
                             <div class="img-popup-container">
-                                <a href="#">
+                                <a href="{{url('/playlists/playlist_view/'.$row->id)}}">
                                     <img src="/storage/uploads/playlists/{{$row->pf_playlist}}" alt="">
                                 </a>
                                 <a href="">
@@ -58,10 +58,10 @@
                                     </div>
                                 </a>
                             </div>
-                            <a href="">
+                            <a href="{{url('/playlists/playlist_view/'.$row->id)}}">
                                 <span class="song-title">{{$row->name_playlist}}</span>
                             </a>
-                            <a href="{{url('/artists/artists_view/')}}">
+                            <a href="{{url('/playlists/playlist_view/'.$row->id)}}">
                                 <span class="singer-name">Playlist</span>
                             </a>
                         </div>

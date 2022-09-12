@@ -12,10 +12,10 @@
 
                         <div class="liked-text">
                             <span>PLAYLIST</span>
-                            <h1>Create Playlist #1</h1>
+                            <h1>{{$createplaylist->name_playlist}}</h1>
                             <div>
-                                <span>Account</span>
-                                <span>5 songs</span>
+                                <span>{{Auth::user()->username}}</span>
+                                <span>- 5 songs</span>
                             </div>
                         </div>
                     </div>

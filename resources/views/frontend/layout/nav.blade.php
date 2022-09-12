@@ -36,7 +36,8 @@
                 </a>
             </li>
             <li>
-                <a href="{{url('createplaylist')}}" class="{{ Request::is('createplaylist') ? 'active':''}}">
+                <a href="{{url('createplaylist')}}" 
+                    class="{{ Request::is('createplaylist') ? 'active':''}}">
                     <span class="material-icons-round nav-icon">playlist_add</span>
                     <span class="link-name">Create Playlist</span>
                 </a>

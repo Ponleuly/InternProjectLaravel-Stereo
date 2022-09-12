@@ -11,6 +11,7 @@ use App\Models\Category;
 use App\Models\Playlist;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Playlist_Track;
 use Illuminate\Support\Facades\File;
 
 class FrontendController extends Controller
@@ -66,10 +67,6 @@ class FrontendController extends Controller
     {
         return view('frontend.pages.liked');
     }
-    public function createplaylist()
-    {
-        return view('frontend.pages.createplaylist');
-    }
 
     // *mylibrary Tab
     public function artists_view($id_artist)
@@ -107,5 +104,20 @@ class FrontendController extends Controller
     }
     public function playlist_view($id_playlist)
     {
+        $playlists_view = Playlist::where('id', $id_playlist)->get();
+        $idPlaylist = $playlists_view->value('id');
+        $playlists_track = Playlist_Track::where('id_playlist', $idPlaylist)->get();
+        $track_count = Playlist_Track::where('id_playlist', $idPlaylist)->count();
+
+        $count = 1;
+        return view(
+            'frontend.pages.subpages.playlist_view',
+            compact(
+                'count',
+                'playlists_view',
+                'playlists_track',
+                'track_count'
+            )
+        );
     }
 }

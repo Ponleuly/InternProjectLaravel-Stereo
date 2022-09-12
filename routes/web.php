@@ -4,20 +4,23 @@ use PhpParser\Builder\Function_;
 use PhpParser\Node\Expr\FuncCall;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\admin\AuthAdminController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\AlbumController;
 use App\Http\Controllers\admin\TrackController;
-use App\Http\Controllers\User\SignupController;
-
 use App\Http\Controllers\admin\ArtistController;
-use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\admin\CountryController;
-use App\Http\Controllers\User\AuthUserController;
-use App\Http\Controllers\User\FrontendController;
 use App\Http\Controllers\admin\CategoryController;
-use App\Http\Controllers\Admin\PlaylistController;
-use App\Http\Controllers\Admin\AuthAdminController;
+use App\Http\Controllers\admin\PlaylistController;
 use App\Http\Controllers\admin\DashboardController;
+
+use App\Http\Controllers\User\AuthUserController;
+use App\Http\Controllers\User\CreateplaylistController;
+use App\Http\Controllers\User\SignupController;
+use App\Http\Controllers\User\ProfileController;
+use App\Http\Controllers\User\FrontendController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -61,18 +64,22 @@ Route::controller(FrontendController::class)->middleware('AuthUser')->group(func
     Route::get('/mylibrary/my_albums', 'mylibrary_albums')->name('mylibrary/my_albums');
     Route::get('/category', 'category')->name('category');
     Route::get('/liked', 'liked')->name('liked');
-    Route::get('/createplaylist', 'createplaylist')->name('createplaylist');
 
     Route::get('/artists/artists_view/{id}', 'artists_view')->name('artists_view');
     Route::get('/albums/albums_view/{id}', 'albums_view')->name('albums_view');
 
-    Route::get('/playlist_view/{id}', 'playlist_view')->name('playlist_view');
+    Route::get('/playlists/playlist_view/{id}', 'playlist_view')->name('playlist_view');
 });
 /*============= Profile route ==================*/
 Route::controller(ProfileController::class)->middleware('AuthUser')->group(function () {
     Route::get('/profile', 'user_profile')->name('user_profile');
     Route::get('/update_profile/{id}', 'edit_profile')->name('update_profile');
     Route::put('/update_profile/{id}', 'update_profile')->name('update_profile');
+});
+/*============= Createplaylist route ==================*/
+Route::controller(CreateplaylistController::class)->middleware('AuthUser')->group(function () {
+    Route::get('/createplaylist', 'createplaylist');
+    Route::get('/createplaylist/{id}', 'createplaylist_view')->name('createplaylist_view');
 });
 /* ===================================================================================================================*/
 
