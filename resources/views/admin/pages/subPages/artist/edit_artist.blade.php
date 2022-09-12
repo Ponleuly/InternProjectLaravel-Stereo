@@ -198,6 +198,7 @@
     </div>
     <div class="form-fill">
         <form action="{{url('/admin_stereo/edit_artist/'.$artist->id)}}" method="POST" enctype="multipart/form-data">
+            <!-- Must have 'enctype="multipart/form-data if form have many datas -->
             @csrf <!-- to make form active -->
             @method('PUT')
             <div class="input-box">

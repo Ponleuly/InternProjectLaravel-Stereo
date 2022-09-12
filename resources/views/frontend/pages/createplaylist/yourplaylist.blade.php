@@ -8,7 +8,7 @@
             $yourplaylists = Playlist::where('id_user', $id_user)->get();
         @endphp
         @foreach ($yourplaylists as $row)
-            <a href="">
+            <a href="{{url('createplaylist/'.$row->id)}}">
                 <span class="textover">{{$row->name_playlist}}</span>
             </a>   
         @endforeach

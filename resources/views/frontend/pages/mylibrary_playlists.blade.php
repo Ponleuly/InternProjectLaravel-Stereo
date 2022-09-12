@@ -60,10 +60,10 @@
                             </div>
                         </a>
                     </div>
-                    <a href="{{route('createplaylist')}}">
+                    <a href="">
                         <span class="song-title">Playlist #1</span>
                     </a>
-                    <a href="{{route('createplaylist')}}">
+                    <a href="">
                         <span class="singer-name">By ponleu</span>
                     </a>
                 </div>

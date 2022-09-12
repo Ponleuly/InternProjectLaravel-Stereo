@@ -11,14 +11,14 @@ class ProfileController extends Controller
 {
     public function user_profile()
     {
-        return view('frontend.pages.subPages.user.profile');
+        return view('frontend.pages.user.profile');
     }
     public function edit_profile($id_user)
     {
         $user = User::where('id', $id_user)->first();
 
         return view(
-            'frontend.pages.subPages.user.update_profile',
+            'frontend.pages.user.update_profile',
             compact('user')
         );
     }

@@ -37,7 +37,7 @@
             </li>
             <li>
                 <a href="{{url('createplaylist')}}" 
-                    class="{{ Request::is('createplaylist') ? 'active':''}}">
+                    class="{{ Request::is('createplaylist/*') ? 'active':''}}">
                     <span class="material-icons-round nav-icon">playlist_add</span>
                     <span class="link-name">Create Playlist</span>
                 </a>
@@ -46,7 +46,7 @@
                 <span>Your Playlists</span>
             </div>
             <!--===== Your Playlist ======--> 
-            @include('frontend.pages.subpages.yourplaylist')
+            @include('frontend.pages.createplaylist.yourplaylist')
         </ul>
         <ul class="logout-mode">
             <li class="mode">

@@ -80,6 +80,7 @@ Route::controller(ProfileController::class)->middleware('AuthUser')->group(funct
 Route::controller(CreateplaylistController::class)->middleware('AuthUser')->group(function () {
     Route::get('/createplaylist', 'createplaylist');
     Route::get('/createplaylist/{id}', 'createplaylist_view')->name('createplaylist_view');
+    Route::put('/edit_createplaylist/{id}', 'edit_createplaylist')->name('edit_createplaylis');
 });
 /* ===================================================================================================================*/
 

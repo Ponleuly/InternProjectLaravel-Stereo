@@ -25,7 +25,7 @@ class FrontendController extends Controller
         $tracks = Track::orderBy('id')->paginate(14); //paginate(14) -> get 14 row of table
         $artists = Artist::orderBy('id')->get();
         $albums = Album::orderBy('id')->get();
-        $playlists = Playlist::orderBy('id')->get();
+        $playlists = Playlist::orderBy('id')->where('id_user', '1')->get(); // get only playlist created by admin
         return view(
             'frontend.pages.home',
             compact(

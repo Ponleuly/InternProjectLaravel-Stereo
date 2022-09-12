@@ -88,6 +88,48 @@ class PlaylistSeeder extends Seeder
                 'id_user' => 1,
                 'created_at' => Carbon::now()
             ],
+            [
+                'id' => 11,
+                'name_playlist' => 'My Playlist #1',
+                'pf_playlist' => null,
+                'id_user' => 4,
+                'created_at' => Carbon::now()
+            ],
+            [
+                'id' => 12,
+                'name_playlist' =>  'My Playlist #2',
+                'pf_playlist' => null,
+                'id_user' => 4,
+                'created_at' => Carbon::now()
+            ],
+            [
+                'id' => 13,
+                'name_playlist' => 'My Playlist #3',
+                'pf_playlist' => null,
+                'id_user' => 4,
+                'created_at' => Carbon::now()
+            ],
+            [
+                'id' => 14,
+                'name_playlist' => 'My Playlist #4',
+                'pf_playlist' => null,
+                'id_user' => 4,
+                'created_at' => Carbon::now()
+            ],
+            [
+                'id' => 15,
+                'name_playlist' => 'My Playlist #1',
+                'pf_playlist' => null,
+                'id_user' => 2,
+                'created_at' => Carbon::now()
+            ],
+            [
+                'id' => 16,
+                'name_playlist' => 'My Playlist #2',
+                'pf_playlist' => 'collection.jpg',
+                'id_user' => 2,
+                'created_at' => Carbon::now()
+            ],
             /*
             [
                 'id' => 3,
