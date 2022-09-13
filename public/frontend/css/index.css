@@ -700,7 +700,6 @@ nav.close ~ .dashboard .top{
 .box-content .box-single a:hover .singer-name{
     text-decoration: underline;
 } 
-
 .dash-content .activity .activity-data{
     display: flex;
     justify-content: space-between;

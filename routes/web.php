@@ -4,21 +4,22 @@ use PhpParser\Builder\Function_;
 use PhpParser\Node\Expr\FuncCall;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\admin\AuthAdminController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\AlbumController;
 use App\Http\Controllers\admin\TrackController;
+use App\Http\Controllers\User\SignupController;
 use App\Http\Controllers\admin\ArtistController;
+use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\admin\CountryController;
+use App\Http\Controllers\User\AuthUserController;
+use App\Http\Controllers\User\FrontendController;
+
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\PlaylistController;
+use App\Http\Controllers\User\MylibraryController;
+use App\Http\Controllers\admin\AuthAdminController;
 use App\Http\Controllers\admin\DashboardController;
-
-use App\Http\Controllers\User\AuthUserController;
 use App\Http\Controllers\User\CreateplaylistController;
-use App\Http\Controllers\User\SignupController;
-use App\Http\Controllers\User\ProfileController;
-use App\Http\Controllers\User\FrontendController;
 
 
 
@@ -59,9 +60,7 @@ Route::controller(SignupController::class)->group(function () {
 Route::controller(FrontendController::class)->middleware('AuthUser')->group(function () {
     Route::get('/home', 'home')->name('home');
     Route::get('/category', 'category')->name('category');
-    Route::get('/mylibrary/my_playlists', 'mylibrary_platlists')->name('mylibrary/my_playlists');
-    Route::get('/mylibrary/my_artists', 'mylibrary_artists')->name('mylibrary/my_artists');
-    Route::get('/mylibrary/my_albums', 'mylibrary_albums')->name('mylibrary/my_albums');
+
     Route::get('/category', 'category')->name('category');
     Route::get('/liked', 'liked')->name('liked');
 
@@ -77,10 +76,20 @@ Route::controller(ProfileController::class)->middleware('AuthUser')->group(funct
     Route::put('/update_profile/{id}', 'update_profile')->name('update_profile');
 });
 /*============= Createplaylist route ==================*/
+Route::controller(MylibraryController::class)->middleware('AuthUser')->group(function () {
+    Route::get('/mylibrary/my_playlists', 'mylibrary_playlists')->name('mylibrary/my_playlists');
+    Route::get('/mylibrary/my_artists', 'mylibrary_artists')->name('mylibrary/my_artists');
+    Route::get('/mylibrary/my_albums', 'mylibrary_albums')->name('mylibrary/my_albums');
+});
+/*============= Createplaylist route ==================*/
 Route::controller(CreateplaylistController::class)->middleware('AuthUser')->group(function () {
-    Route::get('/createplaylist', 'createplaylist');
-    Route::get('/createplaylist/{id}', 'createplaylist_view')->name('createplaylist_view');
-    Route::put('/edit_createplaylist/{id}', 'edit_createplaylist')->name('edit_createplaylis');
+    Route::get('createplaylist', 'store_createplaylist');
+    Route::get('createplaylist/{id}', 'createplaylist_view')->name('createplaylist_view');
+    Route::put('edit_createplaylist/{id}', 'edit_createplaylist')->name('edit_createplaylis');
+    Route::get('delete_createplaylist/{id}', 'delete_createplaylist')->name('delete_createplaylist');
+    Route::get('add_track/{id_playlist}/{id_track}', 'add_track')->name('add_track');
+    Route::get('remove_track/{id_playlist}/{id_track}', 'remove_track')->name('remove_track');
+    Route::get('search_track', 'search_track')->name('search_track');
 });
 /* ===================================================================================================================*/
 

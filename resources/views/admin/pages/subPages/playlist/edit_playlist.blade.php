@@ -106,6 +106,9 @@
         height: 220px;
         object-fit: cover;
         border-radius: 5px;
+        background-image: url("/frontend/images/music_avatar1.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     .box-fill input[type=text]{
         width: calc(100% - 150px);
@@ -269,7 +272,7 @@
                 </div>
                 <div class="box-fill">
                     <span class="detail"></span>
-                    <img src="/storage/uploads/playlists/{{$img_playlist}}" alt="">
+                    <img src="/storage/uploads/playlists/{{$img_playlist}}" alt="{{$img_playlist}}">
                 </div>
 
                 <div class="box-fill" style="margin-top: 180px">

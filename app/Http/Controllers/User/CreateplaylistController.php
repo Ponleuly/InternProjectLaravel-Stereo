@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\Track;
+use App\Models\Artist;
 use App\Models\Playlist;
 use Illuminate\Http\Request;
 use App\Models\Playlist_Track;
@@ -11,7 +13,7 @@ use Illuminate\Support\Facades\File;
 
 class CreateplaylistController extends Controller
 {
-    public function createplaylist()
+    public function store_createplaylist()
     {
         // get id of user if loged in
         $id_user = Auth::user()->id;
@@ -34,12 +36,20 @@ class CreateplaylistController extends Controller
     {
         $createplaylist = Playlist::where('id', $id_playlist)->first();
         $track_count = Playlist_Track::where('id_playlist', $id_playlist)->count();
+        $track_playlist = Playlist_Track::where('id_playlist', $id_playlist)->get();
+        $all_tracks = Track::orderBy('name_track')->paginate(20);
+        $count = 1;
+        $cnt = 1;
 
         return view(
             'frontend.pages.createplaylist.createplaylist',
             compact(
+                'count',
+                'cnt',
                 'createplaylist',
-                'track_count'
+                'track_count',
+                'track_playlist',
+                'all_tracks',
             )
         );
     }
@@ -64,5 +74,27 @@ class CreateplaylistController extends Controller
         }
         $update_playlist->update();
         return redirect('createplaylist/' . $id_playlist);
+    }
+    public function delete_createplaylist($id_playlist)
+    {
+        $delete_createplaylist = Playlist::where('id', $id_playlist)->first();
+        $delete_createplaylist->delete();
+        return redirect('/mylibrary/my_playlists');
+    }
+    public function add_track($id_playlist, $id_track)
+    {
+        $add_track['id_playlist'] = $id_playlist;
+        $add_track['id_track'] = $id_track;
+        Playlist_Track::create($add_track);
+        return redirect('createplaylist/' . $id_playlist);
+    }
+    public function remove_track($id_playlist, $id_track)
+    {
+        $remove_track = Playlist_Track::where('id_playlist', $id_playlist)->where('id_track', $id_track)->first();
+        $remove_track->delete();
+        return redirect('createplaylist/' . $id_playlist);
+    }
+    public function search_track(Request $request)
+    {
     }
 }

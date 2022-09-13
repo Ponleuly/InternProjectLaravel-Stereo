@@ -88,6 +88,7 @@
 
         .dash-content .createplaylist-dash {
             width: 100%;
+            background-color: var(--box-color);
         }
     
         .createplaylist-dash .createplaylist-dash-content {
@@ -125,7 +126,7 @@
         }
     
         .createplaylist-row-header .icon {
-            width: calc(20% - 45px);
+            width: calc(20% - 115px);
             margin-right: 45px;
         }
     
@@ -146,9 +147,14 @@
         }
     
         /*==================================================*/
-        /*=================== Table Content ==================*/
+    /*=================== Table Content ==================*/
         .container-row .row-content-table-createplaylist {
             padding: 15px 0;
+        }
+        .row-content-table-createplaylist .table-border{
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
         }
         .row-content-table-createplaylist table {
             width: 100%;
@@ -259,14 +265,29 @@
             font-weight: 500;
             color: var(--white-dark-color);
             margin: 15px 0;
+            margin-right: 15px;
         }
-        .row-content-table-createplaylist td .song-duration .more-option {
-            font-size: 20px;
+        .row-content-table-createplaylist td .song-duration a{
+            text-decoration: none;
+            margin: 15px 0;
+        }
+        .row-content-table-createplaylist td .song-duration a span{
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-color);
+            border: 1px solid #a9a9a9;
+            padding: 5px 15px;
+            border-radius: 25px;
+        }
+        td .song-duration a span:hover{
+            border: 2px solid #fff;
+        }
+        td .song-duration .more-option a{
+            font-size: 14px;
             font-weight: 500;
             color: var(--white-dark-color);
             cursor: pointer;
             padding-right: 0;
-            padding-left: 15px;
             opacity: 0;
         }
         .row-content-table-createplaylist tr:hover {
@@ -293,35 +314,91 @@
             display: block;
             color: var(--text-color);
         }
-        .row-content-table-createplaylist tr:hover .song-duration .more-option {
+        .row-content-table-createplaylist tr:hover .song-duration .more-option a{
             opacity: 1;
             color: var(--text-color);
         }
-    
+    /*=========== Add song container ===============*/
+    .row-content-table-createplaylist .add-song-container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .add-song-container .add-song-text{
+        font-size: 25px;
+        font-weight: 600;
+        color: #fff;
+        padding-top: 10px;
+        width: 420px;
+    }
+    .add-song-container .add-song-search{
+        display: flex;
+        flex-direction: row;
+        width: 410px;
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }
+    .add-song-container .add-song-search input[type="text"]{
+        width: 100%;
+        height: 40px;
+        padding: 0 15px;
+        font-size: 18px;
+        font-weight: 500;
+        font-family: 'Source Sans Pro', sans-serif;
+        border-radius: 5px;
+        background-color: var(--box-color);
+        border: 1px solid #fff;
+        color: #fff;
+    }
+    .add-song-container .add-song-search input[type="text"]::placeholder{
+        color: #fff;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .add-song-container .add-song-search  button{
+        border: none;
+        padding: 5px 10px;
+        margin: 0 15px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        background-color: var(--box-color);
+        border: 1px solid #a9a9a9;
+        border-radius: 5px;
+    }
+     .add-song-container .add-song-search  button:hover{
+        border: 1px solid #fff;
+    }
+    .add-song-container .recommend-songs-table table{
+        width: 100%;
+    }
+    .add-song-container .search-songs-table table{
+        width: 100%;
+    }
+    /*=================================================*/
     /*=============Pop up form ==========*/
-    .createplaylist-text .edit-createplaylist .show-btn span{
+    .createplaylist-text .edit-createplaylist .show-edit-btn span{
         font-size: 40px;
         font-weight: 500;
         color: #ccc;
         margin: 30px;
         cursor: pointer;
     }
-    .edit-createplaylist .show-btn span:hover{
+    .edit-createplaylist .show-edit-btn span:hover{
         color: #fff;
     }
-    .dash-content .container {
+    .dash-content .edit-details-container {
         position: absolute;
         top: 60%;
         left: 30%;
         transform: translate(-50%, -50%);
         margin-left: 70px;
     }
-
     input[type="checkbox"] {
         display: none;
     }
-
-    .dash-content .container {
+    .dash-content .edit-details-container {
         display: none;
         background-color: grey;
         width: 550px;
@@ -329,10 +406,10 @@
         border-radius: 5px;
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     }
-    #show:checked~.container {
+    #show-edit-details:checked~.edit-details-container {
         display: block;
     }
-    .container .close-btn {
+    .edit-details-container .close-btn {
         position: absolute;
         right: 20px;
         top: 15px;
@@ -340,19 +417,19 @@
         cursor: pointer;
         color: #ccc;
     }
-    .container .close-btn:hover {
+    .edit-details-container .close-btn:hover {
         color: #fff;
     }
-    .container .text {
+    .edit-details-container .text {
         font-size: 25px;
         font-weight: 600;
         text-align: left;
         color: #fff;
     }
-    .container form {
+    .edit-details-container form {
         margin-top: -20px;
     }
-    .container form .data {
+    .edit-details-container form .data {
         height: 45px;
         width: 100%;
         margin: 40px 0;
@@ -426,6 +503,62 @@
         color: #000;
         border: none;
     }
+    /*================= Show option =============================*/
+    .dash-top-2 .show-option-btn span {
+        font-size: 40px;
+        font-weight: 500;
+        color: #ccc;
+        margin: 30px;
+        cursor: pointer;
+    }
+    .show-option-btn span:hover {
+        color: #fff;
+    }
+    .dash-content .show-option-container{
+        position: absolute;
+        top: 55%;
+        left: 10%;
+        transform: translate(-50%, -50%);
+        margin-left: 70px;
+        margin-top: 20px;
+    }
+    
+    input[type="checkbox"] {
+        display: none;
+    }
+    .dash-content .show-option-container{
+        display: none;
+        background-color: grey;
+        width: 200px;
+        padding: 5px;
+        border-radius: 3px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    }
+    #show-option:checked~.show-option-container {
+        display: block;
+    }
+    .show-option-container .more-option-items a{
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid #a9a9a9;
+    }
+    .show-option-container .more-option-items a:last-child {
+        border-bottom: none;
+    }
+    .show-option-container .more-option-items span{
+        font-size: 14px;
+        font-weight: 600;
+        font-family: 'Source Sans Pro', sans-serif;
+        text-align: left;
+        color: #fff;
+        padding: 10px 10px;
+        border-radius: 3px;
+    }
+    .show-option-container .more-option-items span:hover{
+        background-color: #a9a9a9;
+    }
+    
     @media screen and (max-width: 1200px) {
         .createplaylist-text h1 {
             font-size: 40px;

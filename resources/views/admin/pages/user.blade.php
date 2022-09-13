@@ -175,11 +175,14 @@
 		color: red;
 		background: white;
 	}
-	.user-table .user-img{
+	.user-table .user-img img{
 		width: 60px;
 		height: 60px;
 		object-fit: cover;
 		margin-top: 4px;
+		background-image: url("/frontend/images/avatar.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
 	}
 </style>
 
@@ -214,7 +217,9 @@
 				<tr>
 					<td>{{$count++}}</td>
 					<td>
-						<img src="/storage/uploads/avatars/{{$row->avatar}}" class="user-img">
+						<div class="user-img">
+							<img src="/storage/uploads/avatars/{{$row->avatar}}" alt="">
+						</div>
 					</td>
 					<td>{{$row->username}}</td>
 					<td>{{$row->email}}</td>

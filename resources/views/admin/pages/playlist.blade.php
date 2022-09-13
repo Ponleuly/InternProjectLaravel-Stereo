@@ -187,11 +187,14 @@
 		color: red;
 		background: white;
 	}
-	.playlist-table .playlist-img{
+	.playlist-table .playlist-img img{
 		width: 60px;
 		height: 60px;
 		object-fit: cover;
 		margin-top: 4px;
+		background-image: url("/frontend/images/music_avatar1.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
 	}
 </style>
 
@@ -232,7 +235,9 @@
 				<tr>
 					<td>{{$count++}}</td>
 					<td>
-						<img src="/storage/uploads/playlists/{{$row->pf_playlist}}" class="playlist-img">
+						<div class="playlist-img">
+							<img src="/storage/uploads/playlists/{{$row->pf_playlist}}" alt="{{$row->pf_playlist}}">
+						</div>
 					</td>
 					<td>{{$row->name_playlist}}</td>
 						@php

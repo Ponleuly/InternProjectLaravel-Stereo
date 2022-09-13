@@ -36,18 +36,6 @@ class FrontendController extends Controller
             )
         );
     }
-    public function mylibrary_platlists()
-    {
-        return view('frontend.pages.mylibrary_playlists');
-    }
-    public function mylibrary_artists()
-    {
-        return view('frontend.pages.mylibrary_artists');
-    }
-    public function mylibrary_albums()
-    {
-        return view('frontend.pages.mylibrary_albums');
-    }
 
     public function category()
     {
