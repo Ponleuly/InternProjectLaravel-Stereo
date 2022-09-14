@@ -376,6 +376,15 @@
                                     </label>
                                 </div>  
                             </div>
+                            <div class="details-info">
+                                <span class="detail">Password :</span>
+                                <div class="info">
+                                    <p class="username">********</p>
+                                    <label for="edit-profile" class="label-btn">
+                                        <span class="material-icons-round">edit</span>
+                                    </label>
+                                </div>  
+                            </div>
                         </div>   
                     </div>                      
                 </div>
@@ -392,7 +401,7 @@
             <div class="text-title">
                 <span>Edit profile details</span>
             </div>
-            <form action="{{url('update_profile'.'/'.Auth::user()->id)}}" method="POST" enctype="multipart/form-info">
+            <form action="{{url('update_profile'.'/'.Auth::user()->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="info-edit">

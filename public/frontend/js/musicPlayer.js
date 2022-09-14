@@ -1,3 +1,4 @@
+
     const $ = document.querySelector.bind(document);
     const $$ = document.querySelectorAll.bind(document);
     // Saving status of plyer song
@@ -288,3 +289,4 @@
     // doi tuong app truy cap vao phuong thuc start() khi chuay script nay
     // cac chuc nang kha se nam trong start()
     app.start();
+    

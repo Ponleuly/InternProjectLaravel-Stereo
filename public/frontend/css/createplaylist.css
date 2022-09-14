@@ -324,7 +324,10 @@
         display: flex;
         flex-direction: column;
     }
-    .add-song-container .add-song-text{
+    .add-song-container 
+        .find-song-text, 
+        .recommend-song-text, 
+        .search-song-text{
         font-size: 25px;
         font-weight: 600;
         color: #fff;

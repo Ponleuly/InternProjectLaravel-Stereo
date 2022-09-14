@@ -6,6 +6,7 @@ use App\Models\Track;
 use App\Models\Artist;
 use App\Models\Playlist;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 use App\Models\Playlist_Track;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -40,7 +41,6 @@ class CreateplaylistController extends Controller
         $all_tracks = Track::orderBy('name_track')->paginate(20);
         $count = 1;
         $cnt = 1;
-
         return view(
             'frontend.pages.createplaylist.createplaylist',
             compact(
@@ -96,5 +96,56 @@ class CreateplaylistController extends Controller
     }
     public function search_track(Request $request)
     {
+        $output = '';
+        $search_tracks = Track::where('name_track', 'LIKE', '%' . $request->search . '%')->get();
+        $i = 1;
+        //$id = $this->createplaylist->id;
+        foreach ($search_tracks as $row) {
+            $output .=
+                '<tr>
+                    <td>
+                        <ul>
+                            <li>
+                                <div class="num-order">
+                                    <span class="number">' . $i++ . '</span>
+                                    <span class="material-icons-round play-up">play_arrow</span>
+                                </div>                                         
+                            </li>
+                            <li>
+                                <div class="img">
+                                    <img src="/storage/uploads/tracks/' . $row->pf_track . '" alt="">
+                                </div>                                          
+                            </li>
+                            <li class="text-overflow">
+                                <div class="song-details">
+                                    <span class="song-title">' . $row->name_track . '</span>                                       
+                                    <a href="/artists/artists_view/' . $row->id_artist . '">
+                                        <span class="artist-name">
+                                            ' . $row->artist_track->name_artist . '
+                                        </span>
+                                    </a>
+                                </div>   
+                            </li>
+                        </ul>
+                    </td>
+
+                    <td> 
+                        <div class="song-album">
+                            <a href="/albums/albums_view/' . $row->id_album . '">
+                                <span>' . $row->album_track->name_album . '</span>
+                            </a>
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="song-duration">
+                            <a href="/add_track/' . $row->id . '/' . $row->id . '">
+                                <span title="Add to playlist">Add</span>
+                            </a>
+                        </div>
+                        </td>
+                </tr>';
+        }
+        return response($output);
     }
 }

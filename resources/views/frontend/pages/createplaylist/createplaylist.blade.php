@@ -5,6 +5,7 @@
 ?>
 @extends('index')
 @section('dash_content') 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
 <!--======= Create playlist content ========-->
 <div class="dash-content" id="playlist">
@@ -118,65 +119,69 @@
                         </table>
                         <div class="table-border"></div>
                         <div class="add-song-container">
-                            <div class="add-song-text">
+                            <div class="find-song-text">
                                 <span>Find more songs to your playlist</span>
                             </div>
                             <div class="add-song-search">
                                 <input type="text" name="search" id="search" placeholder="Enter name song here...">
                             </div>
-                            <div class="search-songs-table" id="search-songs-table"></div>
                             <!--===================== Recommend Songs ==============================-->
-                            <div class="table-border"></div>
-                            <div class="add-song-text">
-                                <span>Recommended songs</span>
+                            <!--<div class="table-border"></div>-->
+                            <div class="recommend-song-text">
+                                <span class="text-change">Recommended songs</span>
                             </div>
                             <div class="recommend-songs-table">
                                 <table>
-                                    @foreach($all_tracks as $row)
-                                        <tr>
-                                            <td>
-                                                <ul>
-                                                    <li>
-                                                        <div class="num-order">
-                                                            <span class="number">{{$cnt++}}</span>
-                                                            <span class="material-icons-round play-up">play_arrow</span>
-                                                        </div>                                         
-                                                    </li>
-                                                    <li>
-                                                        <div class="img">
-                                                            <img src="/storage/uploads/tracks/{{$row->pf_track}}" alt="">
-                                                        </div>                                          
-                                                    </li>
-                                                    <li class="text-overflow">
-                                                        <div class="song-details">
-                                                            <span class="song-title">{{$row->name_track}}</span>                                       
-                                                            <a href="{{url('/artists/artists_view/'.$row->artist_track->id_artist)}}">
-                                                                <span class="artist-name">
-                                                                    {{$row->artist_track->name_artist}}
-                                                                </span>
-                                                            </a>
-                                                        </div>   
-                                                    </li>
-                                                </ul>
-                                            </td>
+                                    <tbody id="recommend-table">
+                                        @foreach($all_tracks as $row)
+                                            <tr>
+                                                <td>
+                                                    <ul>
+                                                        <li>
+                                                            <div class="num-order">
+                                                                <span class="number">{{$cnt++}}</span>
+                                                                <span class="material-icons-round play-up">play_arrow</span>
+                                                            </div>                                         
+                                                        </li>
+                                                        <li>
+                                                            <div class="img">
+                                                                <img src="/storage/uploads/tracks/{{$row->pf_track}}" alt="">
+                                                            </div>                                          
+                                                        </li>
+                                                        <li class="text-overflow">
+                                                            <div class="song-details">
+                                                                <span class="song-title">{{$row->name_track}}</span>                                       
+                                                                <a href="{{url('/artists/artists_view/'.$row->id_artist)}}">
+                                                                    <span class="artist-name">
+                                                                        {{$row->artist_track->name_artist}}
+                                                                    </span>
+                                                                </a>
+                                                            </div>   
+                                                        </li>
+                                                    </ul>
+                                                </td>
 
-                                            <td> 
-                                                <div class="song-album">
-                                                    <a href="{{url('/albums/albums_view/'.$row->id_album)}}">
-                                                        <span>{{$row->album_track->name_album}}</span>
-                                                    </a>
-                                                </div>
-                                            </td>
+                                                <td> 
+                                                    <div class="song-album">
+                                                        <a href="{{url('/albums/albums_view/'.$row->id_album)}}">
+                                                            <span>{{$row->album_track->name_album}}</span>
+                                                        </a>
+                                                    </div>
+                                                </td>
 
-                                            <td>
-                                                <div class="song-duration">
-                                                    <a href="{{url('add_track/'.$createplaylist->id.'/'.$row->id)}}">
-                                                        <span title="Add to playlist">Add</span>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                                <td>
+                                                    <div class="song-duration">
+                                                        <a href="{{url('add_track/'.$createplaylist->id.'/'.$row->id)}}">
+                                                            <span title="Add to playlist">Add</span>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                    <tbody id="search-table">
+                                        
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -223,6 +228,32 @@
             </a>
         </div>
     </div> 
-    
+    <!--============= Using Ajax to make live search ==============-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script type="text/javascript">
+	    $('#search').keyup(function(){
+	        $text = $(this).val();
+            if($text){
+                $('#recommend-table').hide();
+                $('#search-table').show();
+                $('.text-change').replaceWith('Search result :');
+            }else{
+                $('#recommend-table').show();
+                $('#search-table').hide();
+                $('.text-change').replaceWith('Recommended songs');
+            }
+            //$pageURL = $(location).attr("href");
+            $.ajax({
+                type:'get',
+                url:'{{route('createplaylist')}}',
+                data:{'search':$text},
+
+                success:function(data){
+                    console.log(data);
+                    $('#search-table').html(data);
+                }
+            });     
+        });
+	</script>
 </div>
 @endsection()
