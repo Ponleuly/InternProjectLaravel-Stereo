@@ -89,7 +89,7 @@ Route::controller(CreateplaylistController::class)->middleware('AuthUser')->grou
     Route::get('delete_createplaylist/{id}', 'delete_createplaylist')->name('delete_createplaylist');
     Route::get('add_track/{id_playlist}/{id_track}', 'add_track')->name('add_track');
     Route::get('remove_track/{id_playlist}/{id_track}', 'remove_track')->name('remove_track');
-    Route::get('createplaylist', 'search_track')->name('createplaylist');
+    Route::get('search', 'createplaylist_view')->name('search'); // Ajax search route when searching will send request to class "createplaylist_view"
 });
 /* ===================================================================================================================*/
 
