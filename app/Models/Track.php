@@ -30,4 +30,8 @@ class Track extends Model
     {
         return $this->hasMany(Playlist_Track::class, 'id');
     }
+    public function liked_track()
+    {
+        return $this->hasMany(Liked::class, 'id');
+    }
 }

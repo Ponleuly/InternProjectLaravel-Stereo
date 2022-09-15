@@ -83,8 +83,8 @@
         width: 30%;
     }
     .liked-row-header .icon{
-        width: calc(20% - 45px);
-        margin-right: 45px;
+        width: calc(20% - 110px);
+        margin-right: 110px;
     }
     .liked-row-header .title, .album, .icon{
         color: var(--text-color);
@@ -202,15 +202,28 @@
         font-size: 14px;
         font-weight: 500;
         color: var(--white-dark-color);
+        margin: 10px 5px;
+    }
+    .liked-row-content td .td-3 .remove-liked-link{
+        float: right;
+        align-items: center;
+        opacity: 0; 
+        margin-left: 5px;
+    }
+    .liked-row-content td .td-3 .remove-liked-link a{
+        text-decoration: none;
         margin: 10px 0;
     }
-    .liked-row-content td .td-3 .more-option{
-        font-size: 20px;
+    .liked-row-content td .td-3 .remove-liked-link a span{
+        font-size: 14px;
         font-weight: 500;
-        color: var(--white-dark-color);
-        cursor: pointer;
-        padding-right: 0;
-        opacity: 0;   
+        color: var(--text-color);
+        border: 1px solid #a9a9a9;
+        padding: 5px 15px;
+        border-radius: 25px;
+    }
+    td .td-3 .remove-liked-link a span:hover{
+        border: 2px solid #fff;
     }
     .liked-row-content td ul li .img img{
         width: 50px;
@@ -245,7 +258,7 @@
         display: block;
         color: var(--text-color);
     }
-    .liked-row-content tr:hover .td-3 .more-option{
+    .liked-row-content tr:hover .td-3 .remove-liked-link{
         opacity: 1;
         color: var(--text-color);
     }

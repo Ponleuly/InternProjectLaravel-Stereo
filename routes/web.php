@@ -5,6 +5,7 @@ use PhpParser\Node\Expr\FuncCall;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\User\LikedController;
 use App\Http\Controllers\admin\AlbumController;
 use App\Http\Controllers\admin\TrackController;
 use App\Http\Controllers\User\SignupController;
@@ -12,8 +13,8 @@ use App\Http\Controllers\admin\ArtistController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\admin\CountryController;
 use App\Http\Controllers\User\AuthUserController;
-use App\Http\Controllers\User\FrontendController;
 
+use App\Http\Controllers\User\FrontendController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\PlaylistController;
 use App\Http\Controllers\User\MylibraryController;
@@ -62,7 +63,6 @@ Route::controller(FrontendController::class)->middleware('AuthUser')->group(func
     Route::get('/category', 'category')->name('category');
 
     Route::get('/category', 'category')->name('category');
-    Route::get('/liked', 'liked')->name('liked');
 
     Route::get('/artists/artists_view/{id}', 'artists_view')->name('artists_view');
     Route::get('/albums/albums_view/{id}', 'albums_view')->name('albums_view');
@@ -75,7 +75,13 @@ Route::controller(ProfileController::class)->middleware('AuthUser')->group(funct
     Route::get('/update_profile/{id}', 'edit_profile')->name('update_profile');
     Route::put('/update_profile/{id}', 'update_profile')->name('update_profile');
 });
-/*============= Createplaylist route ==================*/
+/*============= Liked route ==================*/
+Route::controller(LikedController::class)->middleware('AuthUser')->group(function () {
+    Route::get('/liked', 'liked')->name('liked');
+    Route::get('/add_liked/{id_user}/{id_track}', 'add_liked')->name('add_liked');
+    Route::get('/remove_liked/{id_user}/{id_track}', 'remove_liked')->name('remove_liked');
+});
+/*============= mylibrary route ==================*/
 Route::controller(MylibraryController::class)->middleware('AuthUser')->group(function () {
     Route::get('/mylibrary/my_playlists', 'mylibrary_playlists')->name('mylibrary/my_playlists');
     Route::get('/mylibrary/my_artists', 'mylibrary_artists')->name('mylibrary/my_artists');

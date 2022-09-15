@@ -51,10 +51,6 @@ class FrontendController extends Controller
             )
         );
     }
-    public function liked()
-    {
-        return view('frontend.pages.liked');
-    }
 
     // *mylibrary Tab
     public function artists_view($id_artist)

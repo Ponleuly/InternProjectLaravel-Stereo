@@ -455,7 +455,7 @@
 
                                         <td>
                                             <div class="song-duration">
-                                                <a href="">
+                                                <a href="{{url('add_liked/'.Auth::user()->id.'/'.$row->id_track)}}">
                                                     <span class="material-icons-round">favorite_border</span>
                                                 </a>
                                                 <p>3:45</p>
