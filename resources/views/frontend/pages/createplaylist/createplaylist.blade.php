@@ -13,7 +13,15 @@
     <div class="createplaylist-wrapper">
         <div class="createplaylist-header">
             <div class="createplaylist-header-container">
-                <img src="/storage/uploads/playlists/{{$createplaylist->pf_playlist}}" alt="{{$createplaylist->pf_playlist}}">
+                @if ($track_count > 0)
+                    @if($createplaylist->pf_playlist == null)
+                        <img src="/storage/uploads/tracks/{{$first_track->playlist_track->pf_track;}}" alt="{{$first_track->playlist_track->pf_track;}}">
+                    @else 
+                        <img src="/storage/uploads/playlists/{{$createplaylist->pf_playlist}}" alt="{{$createplaylist->pf_playlist}}">
+                    @endif 
+                @else               
+                    <img src="/storage/uploads/playlists/{{$createplaylist->pf_playlist}}" alt="{{$createplaylist->pf_playlist}}">
+                @endif    
                 <div class="createplaylist-text">
                     <span>PLAYLIST</span>
                     <div class="edit-createplaylist">
@@ -247,7 +255,7 @@
                 type:'get',
                 //url:'{{route('search')}}',
                 url:_pageURL, //url by the route where ajax is searching and send request to controller by that route
-                data:{'search':_text},//search is a Route using Ajax and _text is input text
+                data:{'search':_text},//search is a variable to pass in request and _text is input text
                 success:function(data){
                     //console.log(data); // uncommend to see responed data in console       
                     $('#search-table').html(data); // display data respone for view in tbody name seach-table

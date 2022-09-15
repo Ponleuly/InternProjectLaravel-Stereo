@@ -156,7 +156,7 @@
     border-collapse: collapse; 
 }
 .row-content-table td{ 
-    padding: 3px 0 0 0;
+    padding: 10px 0;
 }
   
 .row-content-table td:nth-child(1){
@@ -176,6 +176,7 @@
     flex-direction: row;
     text-transform: capitalize;
     padding-left: 15px;
+    margin-bottom: 0;
 }
 .row-content-table td ul li{
     margin-right: 15px;
@@ -183,8 +184,6 @@
 }
 .row-content-table td ul li .num-order {
     width: 20px;
-    height: 50px;
-    margin-top: 10px;
     padding: 10px 0;
 }
 .row-content-table td ul li span.number{
@@ -192,21 +191,20 @@
     font-weight: 500;
     color: var(--white-dark-color);
     display: block;
-    padding: 5px;
+    padding: 3px 5px; 
 }
 .row-content-table td ul li span.play-up{
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 500;
     color: var(--white-dark-color);
     display: none;
     position: relative;
-    padding: 5px 0;
+    padding: 3px 0;
 }
 .row-content-table td ul li .img img {
     width: 50px;
     height: 50px;
     object-fit: cover;
-    margin-top: 12px;
 }
 .row-content-table td ul li .song-title span{
     display: flex;
@@ -216,7 +214,6 @@
     color: var(--white-dark-color);
     width: 500px;
     height: 50px;
-    margin-top: 12px;
     align-items: center;
 }
 .row-content-table td ul li.text-overflow {
@@ -240,12 +237,15 @@
     margin-right: 15px;
     align-items: center;
 }
-.row-content-table td .song-duration span{
+.row-content-table td .song-duration a{
+    text-decoration: none;
+}
+.row-content-table td .song-duration a span{
     font-size: 18px;
     font-weight: 500;
-    padding: 0 15px;
+    padding: 15px 15px;
     color: #71b7e6;
-    cursor: pointer;
+    border: none;
 }
 .row-content-table td .song-duration p{
     font-size: 14px;

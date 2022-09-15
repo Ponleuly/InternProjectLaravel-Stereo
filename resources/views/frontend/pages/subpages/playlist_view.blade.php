@@ -150,17 +150,14 @@
     .container-row .row-content-table-playlist {
         padding: 15px 0;
     }
-
     .row-content-table-playlist table {
         width: 100%;
         border-collapse: collapse;
         margin-top: 20px;
     }
-
     .row-content-table-playlist td {
-        padding: 0;
+        padding: 10px 0;
     }
-
     .row-content-table-playlist td:nth-child(1) {
         width: 40%;
     }
@@ -177,26 +174,22 @@
         flex-direction: row;
         text-transform: capitalize;
         padding-left: 15px;
+        margin-bottom: 0;
     }
-
     .row-content-table-playlist td ul li {
         margin-right: 15px;
         color: var(--white-dark-color);
     }
-
     .row-content-table-playlist td ul li .num-order {
         width: 20px;
-        height: 50px;
-        margin-top: 15px;
-        padding: 10px 0;
+        padding: 12px 0;
     }
-
     .row-content-table-playlist td ul li span.number {
         font-size: 16px;
         font-weight: 500;
         color: var(--white-dark-color);
         display: block;
-        padding: 5px;
+        padding: 0 5px;
     }
 
     .row-content-table-playlist td ul li span.play-up {
@@ -205,13 +198,12 @@
         color: var(--white-dark-color);
         display: none;
         position: relative;
-        padding: 5px 0;
+        padding: 0;
     }
     .row-content-table-playlist td ul li .img img {
         width: 50px;
         height: 50px;
         object-fit: cover;
-        margin-top: 16px;
     }
     .row-content-table-playlist td ul li.text-overflow {
         white-space: nowrap;
@@ -221,7 +213,6 @@
     .row-content-table-playlist td ul li .song-details{
         display: flex;
         flex-direction: column;
-        margin-top: 15px;
     }
     .song-details span.song-title{
         font-size: 18px;
@@ -233,7 +224,6 @@
         text-decoration: none;
         text-transform: capitalize;
     }
-
     .song-details a span.artist-name{
         font-size: 14px;
         font-weight: 500;
@@ -255,22 +245,22 @@
         margin-right: 15px;
         align-items: center;
     }
-
-    .row-content-table-playlist td .song-duration span {
+    .row-content-table-playlist td .song-duration a{
+        text-decoration: none;
+    }
+    .row-content-table-playlist td .song-duration a span{
         font-size: 18px;
         font-weight: 500;
-        padding: 0 15px;
+        padding: 15px 15px;
         color: #71b7e6;
-        cursor: pointer;
+        border: none;
     }
-
     .row-content-table-playlist td .song-duration p{
         font-size: 14px;
         font-weight: 500;
         color: var(--white-dark-color);
         margin: 15px 0;
     }
-
     .row-content-table-playlist td .song-duration .more-option {
         font-size: 20px;
         font-weight: 500;
@@ -280,7 +270,6 @@
         padding-left: 15px;
         opacity: 0;
     }
-
     .row-content-table-playlist tr:hover {
         background-color: var(--box-hover-color);
     }
@@ -306,7 +295,7 @@
         color: var(--text-color);
     }
 
-    .row-content-table-playlist tr:hover .song-duration .more-option {
+    .row-content-table-playlist tr:hover .song-duration .more-option{
         opacity: 1;
         color: var(--text-color);
     }
@@ -466,7 +455,9 @@
 
                                         <td>
                                             <div class="song-duration">
-                                                <span class="material-icons-round">favorite</span>
+                                                <a href="">
+                                                    <span class="material-icons-round">favorite_border</span>
+                                                </a>
                                                 <p>3:45</p>
                                                 <span class="material-icons-round more-option">more_horiz</span>
                                             </div>

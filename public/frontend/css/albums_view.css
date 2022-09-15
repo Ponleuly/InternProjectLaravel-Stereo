@@ -147,7 +147,7 @@
 }
 
 .row-content-table-album td {
-    padding: 5px 0;
+    padding: 10px 0;
 }
 
 .row-content-table-album td:nth-child(1) {
@@ -163,8 +163,8 @@
     flex-direction: row;
     text-transform: capitalize;
     padding-left: 15px;
+    margin-bottom: 0;
 }
-
 .row-content-table-album td ul li {
     margin-right: 15px;
     color: var(--white-dark-color);
@@ -172,9 +172,7 @@
 
 .row-content-table-album td ul li .num-order {
     width: 20px;
-    height: 50px;
-    margin-top: 10px;
-    padding: 10px 0;
+    padding: 12px 0;
 }
 
 .row-content-table-album td ul li span.number {
@@ -182,7 +180,7 @@
     font-weight: 500;
     color: var(--white-dark-color);
     display: block;
-    padding: 5px;
+    padding: 0 5px;
 }
 
 .row-content-table-album td ul li span.play-up {
@@ -191,7 +189,7 @@
     color: var(--white-dark-color);
     display: none;
     position: relative;
-    padding: 5px 0;
+    padding: 0;
 }
 
 .row-content-table-album td ul li.text-overflow {
@@ -202,7 +200,6 @@
 .row-content-table-album td ul li .song-details{
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
 }
 .song-details span.song-title{
     font-size: 18px;
@@ -221,22 +218,23 @@
     color: var(--white-dark-color);
 }
 
-.row-content-table-album td .song-duration{
+.row-content-table-album td .song-duration{ 
     float: right;
     display: flex;
     flex-direction: row;
     margin-right: 15px;
     align-items: center;
 }
-
-.row-content-table-album td .song-duration span {
+.row-content-table-album td .song-duration a{
+    text-decoration: none;
+}
+.row-content-table-album td .song-duration a span{
     font-size: 18px;
     font-weight: 500;
-    padding: 0 15px;
+    padding: 15px 15px;
     color: #71b7e6;
-    cursor: pointer;
+    border: none;
 }
-
 .row-content-table-album td .song-duration p{
     font-size: 14px;
     font-weight: 500;

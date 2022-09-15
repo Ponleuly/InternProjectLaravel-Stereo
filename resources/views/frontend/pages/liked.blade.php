@@ -13,7 +13,8 @@
                 <div class="liked-text">
                     <span>PLAYLIST</span>
                     <h1>Liked Songs</h1>
-                    <span>15 Songs</span>
+                    <span>{{Auth::user()->username}}</span>
+                    <span> - 0 Songs</span>
                 </div>
             </div>
         </div>

@@ -39,6 +39,8 @@ class CreateplaylistController extends Controller
         $createplaylist = Playlist::where('id', $id_playlist)->first();
         $track_count = Playlist_Track::where('id_playlist', $id_playlist)->count();
         $track_playlist = Playlist_Track::where('id_playlist', $id_playlist)->get();
+        $first_track = $track_playlist->first(); // get first track of craeteplaylist
+        //$track = $first_track->playlist_track->pf_track;
         $count = 1;
         $cnt = 1;
         // If in craeteplaylist page have request for finding song will process ajax's work below
@@ -107,8 +109,10 @@ class CreateplaylistController extends Controller
                 'track_count',
                 'track_playlist',
                 'all_tracks',
+                'first_track'
             )
         );
+        //return dd($track);
     }
     public function edit_createplaylist(Request $request, $id_playlist)
     {

@@ -1,5 +1,5 @@
 
-    .liked-wrapper {
+    .liked-wrapper { 
         margin-top: 20px;
         width: 100%;
         height: auto;
@@ -8,7 +8,7 @@
     }
     .liked-wrapper .liked-header{
         width: 100%;
-        min-height: 300px;
+        min-height: 280px;
         background-color: var(--box-color);
     }
     .liked-header .liked-header-container{
@@ -19,12 +19,12 @@
         font-size: 100px;
         font-weight: 500;
         color: var(--text-color);
-        padding: 50px;
+        padding: 60px;
         background-color: #71b7e6;
-        margin: 50px 30px 50px 30px;
+        margin: 30px;
     }
     .liked-header-container .liked-text{
-        padding-top: 80px;
+        padding-top: 60px;
         color: var(--text-color);
         min-width: 500px;
     }
@@ -103,11 +103,10 @@
     }
     .liked-row-content table{
         width: 100%;
-        border-collapse: collapse; 
+        border-collapse: collapse;
     }
-    .liked-row-content table td{
-        height: 70px;
-        padding: 5px 0;
+    .liked-row-content td{
+        padding: 10px 0;
     }
     .liked-row-content table td:nth-child(1){
         width: 50%;
@@ -121,14 +120,15 @@
         width: 20%; 
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;  
-    }
+    } 
     .liked-row-content td ul{
         list-style: none;
         display: flex;
         flex-direction: row;
         align-items: center; 
         text-transform: capitalize;
-        margin-left: 15px;
+        padding-left: 15px;
+        margin-bottom: 0;
     }
     .liked-row-content td ul li{
         margin-right: 15px;
@@ -136,20 +136,22 @@
     }
     .liked-row-content td ul li .td-1-1 {
         width: 20px;
+        padding: 12px 0;
     }
     .liked-row-content td ul li .number{
         font-size: 16px;
         font-weight: 500;
         color: var(--white-dark-color);
         display: block;
-        padding: 5px;
+        padding: 0 5px;
     }
     .liked-row-content td ul li .play-up{
-        font-size: 18px;
+        font-size: 22px;
         font-weight: 500;
         color: var(--white-dark-color);
         display: none;
         position: relative;
+        padding: 2px 0;
     }
     .liked-row-content td ul li.text-overflow {
         white-space: nowrap;  
@@ -163,14 +165,13 @@
     .td-1-3 a{
         text-decoration: none;
     }
-    .td-1-3 .song-title{ 
-        font-size: 16px;
+    .td-1-3 span.song-title{ 
+        font-size: 18px;
         font-weight: 500;
-        color: var(--white-dark-color);
-        width: 500px;
+        color: var(--text-color);
     }
-    .td-1-3 .artist-name{
-        font-size: 32px;
+    .td-1-3 a span.artist-name{
+        font-size: 14px;
         font-weight: 500;
         color: var(--white-dark-color);
     }
@@ -188,11 +189,12 @@
         display: flex;
         flex-direction: row;
         margin-right: 15px;
+        align-items: center;
     }
     .liked-row-content td .td-3 span{
         font-size: 18px;
         font-weight: 500;
-        padding: 0 30px;
+        padding: 0 15px;
         color: #71b7e6;
         cursor: pointer;
     }
@@ -200,6 +202,7 @@
         font-size: 14px;
         font-weight: 500;
         color: var(--white-dark-color);
+        margin: 10px 0;
     }
     .liked-row-content td .td-3 .more-option{
         font-size: 20px;
@@ -207,14 +210,12 @@
         color: var(--white-dark-color);
         cursor: pointer;
         padding-right: 0;
-        padding-left: 15px;
         opacity: 0;   
     }
     .liked-row-content td ul li .img img{
         width: 50px;
         height: 50px;
         object-fit: cover;
-        margin-top: 6px;
     }
     .liked-row-content table tr:hover{
         background-color: var(--box-hover-color); 
@@ -223,6 +224,9 @@
     .liked-row-content table tr:hover .td-1-3 span{
         color: var(--text-color);
     }
+    .liked-row-content .td-1-3 span.artist-name:hover{
+        text-decoration: underline;
+    }   
     .liked-row-content table tr:hover .td-1-3 p{
         color: var(--text-color);
     }
@@ -232,8 +236,6 @@
     }
     .liked-row-content table tr:hover .td-2{
         color: var(--text-color);
-    }
-    .liked-row-content table .td-2:hover{
         text-decoration: underline;
     }
     .liked-row-content tr:hover .number{

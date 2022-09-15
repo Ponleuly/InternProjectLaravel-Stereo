@@ -82,7 +82,9 @@
                                     </td>
                                     <td>
                                         <div class="song-duration">
-                                            <span class="material-icons-round">favorite</span>
+                                            <a href="">
+                                                <span class="material-icons-round">favorite_border</span>
+                                            </a>
                                             <p>3:45</p>
                                             <span class="material-icons-round more-option">more_horiz</span>
                                         </div>
