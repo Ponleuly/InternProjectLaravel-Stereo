@@ -8,10 +8,12 @@ use App\Models\Track;
 use App\Models\Artist;
 use App\Models\Country;
 use App\Models\Category;
+use App\Models\Follower;
 use App\Models\Playlist;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\Playlist_Track;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class FrontendController extends Controller
@@ -59,14 +61,25 @@ class FrontendController extends Controller
         $idArtist = $artists_view->value('id'); // get id of name_artist to search in Track
         $artists_track = Track::where('id_artist', $idArtist)->get();
         $artists_album = Album::where('id_artist', $idArtist)->get();
+        $follower_artist = Follower::where('id_artist', $id_artist)->count();
         $count = 1;
+
+        $id_user = Auth::user()->id;
+        $follower_status = Follower::where('id_user', $id_user)->where('id_artist', $id_artist)->first();
+        if ($follower_status) {
+            $status = 1;
+        } else {
+            $status = 0;
+        }
         return view(
             'frontend.pages.subpages.artists_view',
             compact(
                 'count',
                 'artists_view',
                 'artists_track',
-                'artists_album'
+                'artists_album',
+                'follower_artist',
+                'status'
             )
         );
     }

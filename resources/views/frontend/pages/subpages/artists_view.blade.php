@@ -4,30 +4,35 @@
 <div class="dash-content">
     <div class="artist-wrapper">
         @foreach ($artists_view as $row)
-        <!--========= Header =================-->
-        <div class="artist-header"
-                style="background-image: url('/storage/uploads/artists/{{$row->pf_artist}}');">
-            <div class="artist-header-container">    
-                <span class="artist-name">{{$row->name_artist}}</span>
-                <span class="artist-follower">1,120,222 follower</span>        
+            <!--========= Header =================-->
+            <div class="artist-header"
+                    style="background-image: url('/storage/uploads/artists/{{$row->pf_artist}}');">
+                <div class="artist-header-container">    
+                    <span class="artist-name">{{$row->name_artist}}</span>
+                    <span class="artist-follower">{{$follower_artist}} follower</span>        
+                </div>
             </div>
-        </div>
+            <!--========= Dashboard ========-->       
+            <div class="artist-dash">
+            <!--========= top of dashboard ========-->
+            <div class="artist-dash-top">
+                <div class="dash-top-1">
+                    <span class="material-icons-round">play_arrow</span>
+                </div>
+                <div class="dash-top-2">
+                    <a href="{{url('follower_artist/'.Auth::user()->id.'/'.$row->id)}}">
+                        @if ($status == 0)
+                                <span>FOLLOW</span> 
+                            @elseif($status == 1)
+                                <span>FOLLOWING</span> 
+                        @endif       
+                    </a>
+                </div>
+                <div class="dash-top-3">
+                    <span class="material-icons-round">more_horiz</span>
+                </div>    
+            </div>
         @endforeach
-
-        <!--========= Dashboard ========-->       
-        <div class="artist-dash">
-         <!--========= top of dashboard ========-->
-         <div class="artist-dash-top">
-            <div class="dash-top-1">
-                <span class="material-icons-round">play_arrow</span>
-            </div>
-            <div class="dash-top-2">
-                <span>FOLLOW</span>
-            </div>
-            <div class="dash-top-3">
-                <span class="material-icons-round">more_horiz</span>
-            </div>    
-        </div>
         <!--========= dashboard content 1 ========-->
         <div class="artist-title-bar">
             <span class="text">Songs</span>

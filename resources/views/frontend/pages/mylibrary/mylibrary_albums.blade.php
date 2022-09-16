@@ -19,7 +19,7 @@
                 <div class="box-content">
                     <div class="box-single">
                         <div class="img-popup-container">
-                            <a href="{{route('albums_view')}}">
+                            <a href="">
                                 <img src="/frontend/images/ed_sheeran.jpg" alt="">
                             </a>
                             <a href="">
@@ -28,7 +28,7 @@
                                 </div>
                             </a>
                         </div>
-                        <a href="{{route('albums_view')}}">
+                        <a href="">
                             <span class="song-title">Romance</span>
                             <span class="singer-name">album</span>
                         </a>

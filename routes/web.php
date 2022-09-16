@@ -86,6 +86,8 @@ Route::controller(MylibraryController::class)->middleware('AuthUser')->group(fun
     Route::get('/mylibrary/my_playlists', 'mylibrary_playlists')->name('mylibrary/my_playlists');
     Route::get('/mylibrary/my_artists', 'mylibrary_artists')->name('mylibrary/my_artists');
     Route::get('/mylibrary/my_albums', 'mylibrary_albums')->name('mylibrary/my_albums');
+
+    Route::get('/follower_artist/{id_user}/{id_artist}', 'follower_artist')->name('follower_artist');
 });
 /*============= Createplaylist route ==================*/
 Route::controller(CreateplaylistController::class)->middleware('AuthUser')->group(function () {

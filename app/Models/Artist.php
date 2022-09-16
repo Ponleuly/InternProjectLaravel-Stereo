@@ -33,4 +33,8 @@ class Artist extends Model
     {
         return $this->hasMany(Track::class, 'id_artist');
     }
+    public function follower_artist()
+    {
+        return $this->hasMany(Follower::class, 'id');
+    }
 }
