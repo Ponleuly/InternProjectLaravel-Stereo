@@ -250,12 +250,16 @@
             margin-right: 15px;
             align-items: center;
         }
-        .row-content-table-createplaylist td .song-duration span {
+        td .song-duration .liked-icon-link a{
+           text-decoration: none;
+            margin: 10px 0;
+            border: none;
+        }
+        td .song-duration .liked-icon-link a span{
             font-size: 18px;
             font-weight: 500;
-            padding: 0 15px;
+            padding: 15px 15px;
             color: #71b7e6;
-            cursor: pointer;
         }
         .row-content-table-createplaylist td .song-duration p {
             font-size: 14px;
@@ -265,11 +269,13 @@
             align-self: center;
             margin-right: 15px;
         }
-        .row-content-table-createplaylist td .song-duration a{
+        td .song-duration .more-option a{
             text-decoration: none;
             margin: 10px 0;
+            padding-right: 0;
+            opacity: 0;
         }
-        .row-content-table-createplaylist td .song-duration a span{
+        td .song-duration .more-option a span{
             font-size: 14px;
             font-weight: 500;
             color: var(--text-color);
@@ -277,16 +283,24 @@
             padding: 5px 15px;
             border-radius: 25px;
         }
-        td .song-duration a span:hover{
-            border: 2px solid #fff;
+         td .song-duration .add-myplaylist a{
+            text-decoration: none;
+            margin: 10px 0;
+            padding-right: 0;
         }
-        td .song-duration .more-option a{
+        td .song-duration .add-myplaylist a span{
             font-size: 14px;
             font-weight: 500;
-            color: var(--white-dark-color);
-            cursor: pointer;
-            padding-right: 0;
-            opacity: 0;
+            color: var(--text-color);
+            border: 1px solid #a9a9a9;
+            padding: 5px 15px;
+            border-radius: 25px;
+        }
+        td .song-duration .more-option a span:hover{
+            border: 2px solid #fff;
+        }
+        td .song-duration .add-myplaylist a span:hover{
+            border: 2px solid #fff;
         }
         .row-content-table-createplaylist tr:hover {
             background-color: var(--box-hover-color);

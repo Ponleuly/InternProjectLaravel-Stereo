@@ -113,7 +113,11 @@
 
                                     <td>
                                         <div class="song-duration">
-                                            <span class="material-icons-round">favorite</span>
+                                            <div class="liked-icon-link">
+                                                <a href="{{url('add_liked/'.Auth::user()->id.'/'.$row->id_track)}}">
+                                                    <span class="material-icons-round">favorite_border</span>
+                                                </a>
+                                            </div>
                                             <p>3:45</p>
                                             <div class="more-option">
                                                 <a href="{{url('remove_track/'.$createplaylist->id.'/'.$row->id_track)}}">
@@ -179,9 +183,11 @@
 
                                                 <td>
                                                     <div class="song-duration">
-                                                        <a href="{{url('add_track/'.$createplaylist->id.'/'.$row->id)}}">
-                                                            <span title="Add to playlist">Add</span>
-                                                        </a>
+                                                        <div class="add-myplaylist">
+                                                            <a href="{{url('add_track/'.$createplaylist->id.'/'.$row->id)}}">
+                                                                <span title="Add to playlist">Add</span>
+                                                            </a>
+                                                        </div>                                                  
                                                     </div>
                                                 </td>
                                             </tr>

@@ -242,15 +242,9 @@
                     <a href="{{route('liked')}}">
                         <div class="liked-box-playlist-songs">
                             <ul>
-                                <li>We don't talk anymore</li>
-                                <li>Perfect</li>
-                                <li>Sharp of you</li>
-                                <li>Take me to your heart</li>
-                                <li>We don't talk anymore</li>
-                                <li>Perfect</li>
-                                <li>Sharp of you</li>
-                                <li>Take me to your heart</li>
-                                <li>We don't talk anymore</li>
+                                @foreach($liked_tracks as $row)
+                                    <li>{{$row->liked_track->name_track}}</li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="liked-box-playlist-text">
@@ -260,7 +254,7 @@
                                 </a>
                             </div>
                             <h2>Liked Songs</h2>
-                            <span>4 Liked songs</span>
+                            <span>{{$track_count}} Liked songs</span>
                         </div>
                     </a>
                 </div>
