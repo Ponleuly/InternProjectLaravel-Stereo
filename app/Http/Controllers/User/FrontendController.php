@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Models\User;
 use App\Models\Album;
+use App\Models\Liked;
 use App\Models\Track;
 use App\Models\Artist;
 use App\Models\Country;
@@ -63,14 +64,15 @@ class FrontendController extends Controller
         $artists_album = Album::where('id_artist', $idArtist)->get();
         $follower_artist = Follower::where('id_artist', $id_artist)->count();
         $count = 1;
-
+        //Following status for each user
         $id_user = Auth::user()->id;
         $follower_status = Follower::where('id_user', $id_user)->where('id_artist', $id_artist)->first();
         if ($follower_status) {
-            $status = 1;
+            $follow = 1;
         } else {
-            $status = 0;
+            $follow = 0;
         }
+
         return view(
             'frontend.pages.subpages.artists_view',
             compact(
@@ -79,7 +81,7 @@ class FrontendController extends Controller
                 'artists_track',
                 'artists_album',
                 'follower_artist',
-                'status'
+                'follow'
             )
         );
     }

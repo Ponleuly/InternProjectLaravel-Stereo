@@ -63,7 +63,5 @@
         </div>
     </div>
 </div>
-<!--
 <script src="{{url('frontend/js/musicList.js')}}"></script>
 <script src="{{url('frontend/js/musicPlayer.js')}}"></script>
--->

@@ -25,9 +25,14 @@ class LikedController extends Controller
      */
     public function add_liked($id_user, $id_track)
     {
-        $add_liked['id_user'] = $id_user;
-        $add_liked['id_track'] = $id_track;
-        Liked::create($add_liked);
+        $add_liked = Liked::where('id_user', $id_user)->where('id_track', $id_track)->first();
+        if ($add_liked) {
+            $add_liked->delete();
+        } else {
+            $add_liked['id_user'] = $id_user;
+            $add_liked['id_track'] = $id_track;
+            Liked::create($add_liked);
+        }
         return back();
     }
 

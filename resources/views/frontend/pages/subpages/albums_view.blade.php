@@ -1,5 +1,6 @@
 <?php
   	use App\Models\Track;
+  	use App\Models\Liked;
 ?>
 @extends('index')
 @section('dash_content')
@@ -68,8 +69,23 @@
                                         </td>
                                         <td>
                                             <div class="song-duration">
+                                                <!--Liked status for each track-->
+                                                @php
+                                                    $id_user = Auth::user()->id;
+                                                    $liked_status = Liked::where('id_user', $id_user)->where('id_track', $row->id)->first();
+                                                    if ($liked_status) {
+                                                        $liked = 1;
+                                                    } else {
+                                                        $liked = 0;
+                                                    }
+                                                @endphp
                                                 <a href="{{url('add_liked/'.Auth::user()->id).'/'.$row->id}}">
-                                                    <span class="material-icons-round">favorite_border</span>
+                                                    <!--Liked status for each track-->
+                                                    @if ($liked == 1)
+                                                        <span class="material-icons-round" title="Remove from liked">favorite</span>
+                                                        @elseif($liked == 0)
+                                                            <span class="material-icons-round" title="Add to liked">favorite_border</span>
+                                                    @endif
                                                 </a>
                                                 <p>3:45</p>
                                                 <span class="material-icons-round more-option">more_horiz</span>

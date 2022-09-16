@@ -1,3 +1,9 @@
+<?php
+  	use App\Models\Playlist_Track;
+  	use App\Models\Artist;
+  	use App\Models\Track;
+  	use App\Models\Liked;
+?>
 @extends('index')
 @section('dash_content')
 
@@ -21,10 +27,10 @@
                 </div>
                 <div class="dash-top-2">
                     <a href="{{url('follower_artist/'.Auth::user()->id.'/'.$row->id)}}">
-                        @if ($status == 0)
-                                <span>FOLLOW</span> 
-                            @elseif($status == 1)
-                                <span>FOLLOWING</span> 
+                        @if ($follow == 0)
+                                <span title="Click to follow">FOLLOW</span> 
+                            @elseif($follow == 1)
+                                <span title="Click to unfollow">FOLLOWING</span> 
                         @endif       
                     </a>
                 </div>
@@ -56,7 +62,6 @@
                     <div class="row-content-table">
                         <table>
                             @foreach ($artists_track as $row)
-
                                 <tr>
                                     <td>
                                         <ul>
@@ -87,11 +92,25 @@
                                     </td>
                                     <td>
                                         <div class="song-duration">
+                                            @php
+                                                //Liked status for each track
+                                                $id_user = Auth::user()->id;
+                                                $liked_status = Liked::where('id_user', $id_user)->where('id_track', $row->id)->first();
+                                                if ($liked_status) {
+                                                    $liked = 1;
+                                                } else {
+                                                    $liked = 0;
+                                                }
+                                            @endphp
                                             <a href="{{url('add_liked/'.Auth::user()->id.'/'.$row->id)}}">
-                                                <span class="material-icons-round">favorite_border</span>
+                                                @if ($liked == 1)
+                                                    <span class="material-icons-round" title="Remove from liked">favorite</span>
+                                                    @elseif($liked == 0)
+                                                        <span class="material-icons-round" title="Add to liked">favorite_border</span>
+                                                @endif
                                             </a>
                                             <p>3:45</p>
-                                            <span class="material-icons-round more-option">more_horiz</span>
+                                            <span class="material-icons-round more-option">more_horiz</span>                                       
                                         </div>
                                     </td>
                                 </tr>

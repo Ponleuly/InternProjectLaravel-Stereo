@@ -20,7 +20,7 @@
                     <div class="box-content">
                         <div class="box-single">
                             <div class="img-popup-container">
-                                <a href="">
+                                <a href="{{url('/artists/artists_view/'.$row->id_artist)}}">
                                     <img src="/storage/uploads/artists/{{$row->follower_artist->pf_artist}}"
                                         alt="{{$row->follower_artist->name_artist}}" class="img-circle" > 
                                     <span class="song-title">{{$row->follower_artist->name_artist}}</span>
