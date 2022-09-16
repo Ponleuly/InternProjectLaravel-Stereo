@@ -7,6 +7,7 @@ use App\Models\Playlist;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Follower;
+use App\Models\Mylibrary_Album;
 use Illuminate\Support\Facades\Auth;
 
 class MylibraryController extends Controller
@@ -39,7 +40,12 @@ class MylibraryController extends Controller
 
     public function mylibrary_albums()
     {
-        return view('frontend.pages.mylibrary.mylibrary_albums');
+        $id_user = Auth::user()->id;
+        $mylibrary_album = Mylibrary_Album::where('id_user', $id_user)->get();
+        return view(
+            'frontend.pages.mylibrary.mylibrary_albums',
+            compact('mylibrary_album')
+        );
     }
 
     public function follower_artist($id_user, $id_artist)
@@ -51,6 +57,18 @@ class MylibraryController extends Controller
             $follower_artist['id_user'] = $id_user;
             $follower_artist['id_artist'] = $id_artist;
             Follower::create($follower_artist);
+        }
+        return back();
+    }
+    public function liked_album($id_user, $id_album)
+    {
+        $mylibrary_album = Mylibrary_Album::where('id_user', $id_user)->where('id_album', $id_album)->first();
+        if ($mylibrary_album) {
+            $mylibrary_album->delete();
+        } else {
+            $mylibrary_album['id_user'] = $id_user;
+            $mylibrary_album['id_album'] = $id_album;
+            Mylibrary_Album::create($mylibrary_album);
         }
         return back();
     }

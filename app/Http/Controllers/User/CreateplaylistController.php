@@ -38,7 +38,7 @@ class CreateplaylistController extends Controller
     {
         $createplaylist = Playlist::where('id', $id_playlist)->first();
         $track_count = Playlist_Track::where('id_playlist', $id_playlist)->count();
-        $track_playlist = Playlist_Track::where('id_playlist', $id_playlist)->get();
+        $track_playlist = Playlist_Track::orderByDesc('id')->where('id_playlist', $id_playlist)->get();
         $first_track = $track_playlist->first(); // get first track of craeteplaylist
         //$track = $first_track->playlist_track->pf_track;
         $count = 1;
@@ -88,9 +88,11 @@ class CreateplaylistController extends Controller
 
                     <td>
                         <div class="song-duration">
-                            <a href="/add_track/' . $id_playlist . '/' . $row->id . '">
-                                <span title="Add to playlist">Add</span>
-                            </a>
+                            <div class="add-myplaylist">
+                                <a href="/add_track/' . $id_playlist . '/' . $row->id . '">
+                                    <span title="Add to playlist">Add</span>
+                                </a>
+                            </div>                                                   
                         </div>
                         </td>
                 </tr>';

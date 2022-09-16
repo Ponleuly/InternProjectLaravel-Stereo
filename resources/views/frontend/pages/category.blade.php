@@ -74,7 +74,7 @@
                                 <a href="">
                                     <span class="song-title">{{$row->name_track}}</span>
                                 </a>
-                                <a href="{{url('/artists/artists_view/'.$row->artist_track->name_artist)}}">
+                                <a href="{{url('/artists/artists_view/'.$row->id_artist)}}">
                                     <span class="singer-name">{{$row->artist_track->name_artist}}</span>
                                 </a>
                             </div>
@@ -85,7 +85,7 @@
                         <div class="box-content">
                             <div class="box-single">
                                 <div class="img-popup-container">
-                                    <a href="{{url('/albums/albums_view/'.$row->name_album)}}">
+                                    <a href="{{url('/albums/albums_view/'.$row->id)}}">
                                         <img src="/storage/uploads/albums/{{$row->pf_album}}" alt="">
                                     </a>
                                     <a href="">
@@ -94,10 +94,10 @@
                                         </div>
                                     </a>
                                 </div>
-                                <a href="{{url('/albums/albums_view/'.$row->name_album)}}">
+                                <a href="{{url('/albums/albums_view/'.$row->id)}}">
                                     <span class="song-title">{{$row->name_album}}</span>
                                 </a>
-                                <a href="{{url('/albums/albums_view/'.$row->name_album)}}">
+                                <a href="{{url('/albums/albums_view/'.$row->id)}}">
                                     <span class="singer-name">Album</span>
                                 </a>
                             </div>
@@ -108,7 +108,7 @@
                         <div class="box-content">
                             <div class="box-single">
                                 <div class="img-popup-container">
-                                    <a href="{{url('/artists/artists_view/'.$row->name_artist)}}">
+                                    <a href="{{url('/artists/artists_view/'.$row->id)}}">
                                         <img src="/storage/uploads/artists/{{$row->pf_artist}}" alt="">
                                     </a>
                                     <a href="">
@@ -117,10 +117,10 @@
                                         </div>
                                     </a>
                                 </div>
-                                <a href="{{url('/artists/artists_view/'.$row->name_artist)}}">
+                                <a href="{{url('/artists/artists_view/'.$row->id)}}">
                                     <span class="song-title">{{$row->name_artist}}</span>
                                 </a>
-                                <a href="{{url('/artists/artists_view/'.$row->name_artist)}}">
+                                <a href="{{url('/artists/artists_view/'.$row->id)}}">
                                     <span class="singer-name">Artist</span>
                                 </a>
                             </div>

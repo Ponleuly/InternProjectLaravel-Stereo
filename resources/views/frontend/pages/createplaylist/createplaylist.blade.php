@@ -65,12 +65,16 @@
                         <div class="album">
                             <span>Album</span>
                         </div>
+                        <div class="date">
+                            <span>DATE ADDED</span>
+                        </div>
                         <div class="icon">
                             <span class="material-icons-round">access_time</span>
                         </div>
                     </div>
 
                     <div class="row-content-table-createplaylist">
+                        <!--=============== Table 1 ================-->
                         <table>
                             @foreach ($track_playlist as $row)                           
                                 <tr>
@@ -109,6 +113,12 @@
                                             <a href="{{url('/albums/albums_view/'.$artist_track->id_album)}}">
                                                 <span>{{$artist_track->album_track->name_album}}</span>
                                             </a>
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="date-added">
+                                            <span>{{$row->created_at->diffForHumans()}}</span>
                                         </div>
                                     </td>
 
@@ -159,6 +169,7 @@
                                 <span class="text-change">Recommended songs</span>
                             </div>
                             <div class="recommend-songs-table">
+                                <!--=============== Table 2 ================-->
                                 <table>
                                     <tbody id="recommend-table">
                                         @foreach($all_tracks as $row)
@@ -203,14 +214,14 @@
                                                             <a href="{{url('add_track/'.$createplaylist->id.'/'.$row->id)}}">
                                                                 <span title="Add to playlist">Add</span>
                                                             </a>
-                                                        </div>                                                  
+                                                        </div>                                                   
                                                     </div>
                                                 </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
-                                    <tbody id="search-table">
-                                        
+                                <!--=============== Table 3 ================-->
+                                    <tbody id="search-table">   
                                     </tbody>
                                 </table>
                             </div>

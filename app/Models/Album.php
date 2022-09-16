@@ -29,10 +29,8 @@ class Album extends Model
     {
         return $this->haveMany(Track::class, 'id_album');
     }
-    /*
-    public function category()
+    public function myalbum()
     {
-        return $this->belongsTo(Category::class);
+        return $this->hasMany(Mylibrary_Album::class, 'id');
     }
-    */
 }

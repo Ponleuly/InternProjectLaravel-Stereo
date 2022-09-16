@@ -1,6 +1,7 @@
 <?php
   	use App\Models\Track;
   	use App\Models\Liked;
+  	use App\Models\Mylibrary_Album;
 ?>
 @extends('index')
 @section('dash_content')
@@ -18,11 +19,26 @@
                         <span class="album-name">{{$row->name_album}}</span>
                         @php
 						    $track_count = Track::where('id_album', $row->id)->count(); 
+                            
+                            $id_user = Auth::user()->id;
+                            $album_status = Mylibrary_Album::where('id_user', $id_user)->where('id_album', $row->id)->first();
+                            if ($album_status) {
+                                $liked = 1;
+                                } else {
+                                $liked = 0;
+                            }
 					    @endphp
                         <span class="album-song">Album - {{$track_count}} Songs</span>
                         <div class="album-text-icon">
                             <span class="material-icons-round icon-1">play_arrow</span>
-                            <span class="material-icons-round icon-2">favorite_border</span>
+                            <a href="{{url('liked_album/'.Auth::user()->id.'/'.$row->id)}}">
+                                <!--Liked status for each album-->
+                                @if ($liked == 1)
+                                    <span class="material-icons-round icon-2" title="Remove from liked">favorite</span>
+                                    @elseif($liked == 0)
+                                        <span class="material-icons-round icon-2" title="Add to liked">favorite_border</span>
+                                @endif
+                            </a>
                             <span class="material-icons-round icon-3">more_horiz</span>
                         </div>
                     </div>

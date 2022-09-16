@@ -16,24 +16,26 @@
         </div>
         <div class="box">
             <div class="box-container">
-                <div class="box-content">
-                    <div class="box-single">
-                        <div class="img-popup-container">
-                            <a href="">
-                                <img src="/frontend/images/ed_sheeran.jpg" alt="">
-                            </a>
-                            <a href="">
-                                <div class="play-button-pop-up">
-                                    <i class="fa fa-play" aria-hidden="true"></i>
-                                </div>
+                @foreach($mylibrary_album as $row)
+                    <div class="box-content">
+                        <div class="box-single">
+                            <div class="img-popup-container">
+                                <a href="{{url('/albums/albums_view/'.$row->id_album)}}">
+                                    <img src="/storage/uploads/albums/{{$row->myalbum->pf_album}}" alt="{{$row->myalbum->name_album}}">
+                                </a>
+                                <a href="{{url('/albums/albums_view/'.$row->id_album)}}">
+                                    <div class="play-button-pop-up">
+                                        <span class="material-icons-round">play_arrow</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <a href="{{url('/albums/albums_view/'.$row->id_album)}}">
+                                <span class="song-title">{{$row->myalbum->name_album}}</span>
+                                <span class="singer-name">album</span>
                             </a>
                         </div>
-                        <a href="">
-                            <span class="song-title">Romance</span>
-                            <span class="singer-name">album</span>
-                        </a>
-                    </div>
-                </div>          
+                    </div>  
+                @endforeach     
             </div>
         </div>
     </div>

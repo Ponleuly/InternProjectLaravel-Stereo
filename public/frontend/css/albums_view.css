@@ -67,7 +67,7 @@
 }
 .album-text-icon .icon-2{
     margin-right: 20px;
-    color: var(--white-dark-color);
+    color: #71b7e6;
     cursor: pointer;
     font-size: 30px;
     font-weight: 500;
@@ -234,6 +234,9 @@
     padding: 15px 15px;
     color: #71b7e6;
     border: none;
+}
+td .song-duration a span:hover {
+    color: var(--text-color);
 }
 .row-content-table-album td .song-duration p{
     font-size: 14px;

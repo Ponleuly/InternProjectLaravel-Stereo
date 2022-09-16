@@ -116,22 +116,26 @@
         }
     
         .createplaylist-row-header .title {
-            width: calc(40% - 15px);
+            width: calc(35% - 15px);
             margin-left: 15px;
+            min-width: 400px;
         }
     
         .createplaylist-row-header .album {
-            width: 40%;
+            width: 35%;
             text-align: center;
+            min-width: 400px;
         }
-    
+        .createplaylist-row-header .date{
+            width: 15%;
+            text-align: center;
+            min-width: 200px;
+        }
         .createplaylist-row-header .icon {
-            width: calc(20% - 115px);
+            width: calc(15% - 115px);
             margin-right: 45px;
         }
-    
-        .createplaylist-row-header .title,
-        .icon {
+        .createplaylist-row-header .title, .alubm, .date, .icon {
             color: var(--text-color);
             font-size: 18px;
             font-weight: 500;
@@ -160,19 +164,24 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            min-width: 1200px;
         }
         .row-content-table-createplaylist td {
             padding: 10px 0;
         }
         .row-content-table-createplaylist td:nth-child(1) {
-            width: 40%;
+            width: 35%;
         }
         .row-content-table-createplaylist td:nth-child(2) {
-            width: 40%;
+            width: 35%;
             text-align: center;
         }
         .row-content-table-createplaylist td:nth-child(3) {
-            width: 20%;
+            width: 15%;
+            text-align: center;
+        }
+        .row-content-table-createplaylist td:nth-child(4) {
+            width: 15%;
         }
         .row-content-table-createplaylist td ul {
             list-style: none;
@@ -242,6 +251,12 @@
             font-size: 16px;
             font-weight: 500;
             color: var(--white-dark-color);
+        }
+        .row-content-table-createplaylist td .date-added span{
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--white-dark-color);
+            text-align: center;
         }
         .row-content-table-createplaylist td .song-duration {
             float: right;
