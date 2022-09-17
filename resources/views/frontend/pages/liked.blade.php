@@ -37,6 +37,9 @@
                             <div class="album">
                                 <span>Albums</span>
                             </div>
+                            <div class="date">
+                                <span>Date added</span>
+                            </div>
                             <div class="icon">
                                 <span class="material-icons-round">access_time</span>
                             </div>
@@ -72,6 +75,7 @@
                                                 </li>
                                             </ul>
                                         </td>
+                        
                                         <td>
                                             @php
                                                 $album = Album::where('id', $row->liked_track->id_album)->first();
@@ -80,6 +84,13 @@
                                                 <span class="td-2">{{$album->name_album}}</span>
                                             </a>
                                         </td>
+
+                                        <td>
+                                            <div class="date-added">
+                                                <span>{{$row->created_at->diffForHumans()}}</span>
+                                            </div>
+                                        </td>
+
                                         <td>
                                             <div class="td-3">
                                                 <span class="material-icons-round">favorite</span>

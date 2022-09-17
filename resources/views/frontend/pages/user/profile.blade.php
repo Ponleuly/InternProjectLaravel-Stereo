@@ -170,7 +170,7 @@
 		color: #71b7e6;
 	}
     /*==================================================*/
-   /*=============Pop up form ==========*/
+    /*=============Pop up form for edit profile details==========*/
     .profile-wrapper .edit-profile-btn span{
         font-size: 40px;
         font-weight: 500;
@@ -319,6 +319,156 @@
         color: #000;
         border: none;
     }
+    /*==================================================*/
+    /*=============Pop up form for chnage password==========*/
+    .profile-wrapper .edit-profile-btn span{
+        font-size: 40px;
+        font-weight: 500;
+        color: #ccc;
+        margin: 30px;
+        cursor: pointer;
+    }
+    .edit-profile-btn span:hover{
+        color: #fff;
+    }
+    .dash-content .change-password-container {
+        position: absolute;
+        top: 65%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    input[type="checkbox"] {
+        display: none;
+    }
+    .dash-content .change-password-container {
+        display: none;
+        background-color: grey;
+        width: 550px;
+        padding: 30px;
+        border-radius: 5px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    }
+    #change-password:checked~.change-password-container {
+        display: block;
+    }
+    .change-password-container .close-btn {
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        font-size: 20px;
+        cursor: pointer;
+        color: #ccc;
+    }
+    .change-password-container .close-btn:hover {
+        color: #fff;
+    }
+    .change-password-container .text-title {
+        text-align: center;
+        font-size: 25px; 
+        font-weight: 500;
+        font-family: 'Source Sans Pro', sans-serif;
+        color: #fff;
+    }
+    .change-password-container form {
+        margin-top: -30px;
+    }
+    .change-password-container form .info-edit {
+        height: 40px;
+        width: 100%;
+        margin: 40px 0;
+    }
+    form .info-edit label {
+        color: #fff;
+        padding: 5px 0;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    form .info-edit input[type="password"] {
+        height: 100%;
+        width: 100%;
+        padding-left: 10px;
+        font-size: 17px;
+        border: 1px solid silver;
+        border-radius: 5px;
+        background-color: grey;
+        color: #fff;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    form .info-edit input[type=file]{
+        height: 100%;
+        width: 100%;
+        border: 1px solid silver;
+        border-radius: 5px;
+        background-color: grey;
+        color: #fff;
+    }
+    form .info-edit input[type=file]::file-selector-button {
+        height: 100%;
+        width: 200px;
+        border: none;
+        background: #ccc;
+        color: #fff;
+        cursor: pointer;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        text-transform: none;
+    }
+    form .info-edit input:focus {
+        border-color: #fff;
+        border-bottom-width: 2px;
+    }
+    form .save-btn {
+        margin-top: 30px;
+        height: 45px;
+        width: 100px;
+        float: right;
+        position: relative;
+        overflow: hidden;
+    }
+    form .info-edit .gender-details-container{
+        width: 100%;
+        height: 40px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .gender-details-container input[type=radio]{
+        font-size: 18px;
+        font-weight: 500;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        margin-right: 5px;
+    }
+    .gender-details-container .gender{
+        margin-right: 15px;
+        text-transform: capitalize;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        color: #fff;
+    }
+    form .save-btn button {
+        height: 100%;
+        width: 100%;
+        background: grey;
+        border: 2px solid #ccc;
+        color: #fff;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .save-btn button:hover{
+        background-color: #fff;
+        color: #000;
+        border: none;
+    }
 </style>
 <!--========== profiles content ===============-->
 <div class="dash-content">
@@ -380,7 +530,7 @@
                                 <span class="detail">Password :</span>
                                 <div class="info">
                                     <p class="username">********</p>
-                                    <label for="edit-profile" class="label-btn">
+                                    <label for="change-password" class="label-btn">
                                         <span class="material-icons-round">edit</span>
                                     </label>
                                 </div>  
@@ -391,8 +541,8 @@
             </div>
         </div>
 
-        <!--============================== Hidden Form ==================================-->
-        <!--Pop up form for editing createplaylist-->
+        <!--============================== Profile Edit Form ==================================-->
+        <!--Pop up form for editing profile-->
         <input type="checkbox" id="edit-profile">   
         <div class="edit-profile-container">
             <label for="edit-profile" class="close-btn" title="close">
@@ -429,6 +579,37 @@
                 <div class="info-edit">
                     <label>Update Avatar</label>
                     <input type="file" name="avatar" accept="image/png, image/jpeg, image/jpg">
+                </div>
+                <div class="save-btn">
+                    <button type="submit">Save</button>
+                </div>
+            </form>
+        </div>
+
+        <!--============================== Change Password Form ==================================-->
+        <!--Pop up form for change password-->
+        <input type="checkbox" id="change-password">    
+        <div class="change-password-container">
+            <label for="change-password" class="close-btn" title="close">
+                <span class="material-icons-round">clear</span>
+            </label>
+            <div class="text-title">
+                <span>Change password</span>
+            </div>
+            <form action="{{url('change_password/'.Auth::user()->id)}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                <div class="info-edit">
+                    <label>Current Password</label>
+                    <input type="password" name="current_password" placeholder="Current password">
+                </div>
+                <div class="info-edit">
+                    <label>New Password</label>
+                    <input type="password" name="new_password" placeholder="New password">
+                </div>
+                <div class="info-edit">
+                    <label>Comfirm Password</label>
+                    <input type="password" name="comfirm_password" placeholder="Re-type new password">
                 </div>
                 <div class="save-btn">
                     <button type="submit">Save</button>

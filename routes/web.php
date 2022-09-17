@@ -74,6 +74,7 @@ Route::controller(ProfileController::class)->middleware('AuthUser')->group(funct
     Route::get('/profile', 'user_profile')->name('user_profile');
     Route::get('/update_profile/{id}', 'edit_profile')->name('update_profile');
     Route::put('/update_profile/{id}', 'update_profile')->name('update_profile');
+    Route::put('/change_password/{id}', 'change_password')->name('change_password');
 });
 /*============= Liked route ==================*/
 Route::controller(LikedController::class)->middleware('AuthUser')->group(function () {
