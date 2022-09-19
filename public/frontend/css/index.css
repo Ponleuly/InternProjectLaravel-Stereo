@@ -130,13 +130,12 @@ nav.close .logo_name{
     pointer-events: none;
 }
 nav .menu-items{
-    margin-top: 40px;
+    margin-top: 20px;
     height: calc(100% - 90px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /*
-    background-color: red;*/
+   
 }
 .menu-items ul{
     padding-left: 0;
@@ -345,6 +344,7 @@ nav.close ~ .dashboard .top{
     color: var(--text-color);
     cursor: pointer;
 }
+/*
 .dashboard .top .search-box{
     position: relative;
     height: 45px;
@@ -375,6 +375,7 @@ nav.close ~ .dashboard .top{
     transform: translateY(-50%);
     color: var(--black-light-color);
 }
+*/
 .top .profile{
     display: flex;
     align-items: center;
@@ -469,6 +470,35 @@ nav.close ~ .dashboard .top{
     color: var(--text-color);
     margin-left: 10px;
     text-transform: capitalize;
+}
+/*===========================*/
+.dash-content .search-box-top {
+    position: relative;
+    height: 45px;
+    width: 50%;
+    margin: 30px auto;
+}
+.search-box-top input {
+    position: absolute;
+    border: 1px solid var(--border-color);
+    background-color: var(--search-box-color);
+    padding: 0 25px 0 50px;
+    border-radius: 25px;
+    height: 100%;
+    width: 100%;
+    color: var(--search-text-color);
+    font-size: 18px;
+    font-weight: 400;
+    outline: none;
+}
+.search-box-top span {
+    position: absolute;
+    left: 15px;
+    font-size: 25px;
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--black-light-color);
 }
 /*=========== My library Tab ===============*/
 .dash-content .mylibrary-menu{

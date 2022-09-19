@@ -2,7 +2,6 @@
 	use App\Models\Track;
 	use App\Models\Artist;
 	use App\Models\Album;
-
 ?>
 @extends('index')
 
@@ -53,9 +52,9 @@
             <div class="box">
                 <div class="box-container">
                     @php
-						$tracks = Track::where('id_category', $row->id)->paginate(7);
-						$albums = Album::where('id_category', $row->id)->paginate(7);
-						$artists = Artist::where('id_category', $row->id)->paginate(7);
+						$tracks = Track::where('id_category', $row->id)->get();
+						$albums = Album::where('id_category', $row->id)->get();
+						$artists = Artist::where('id_category', $row->id)->get();
 					@endphp
 
                     @foreach ($tracks as $row)

@@ -15,6 +15,12 @@
                 </a>
             </li>
             <li>
+                <a href="{{url('search')}}" class="{{ Request::is('search')? 'active':''}}">
+                    <span class="material-icons-round nav-icon">search</span>
+                    <span class="link-name">Search</span>
+                </a>
+            </li>
+            <li>
                 <a href="{{url('mylibrary/my_playlists')}}" 
                     class="{{ Request::is('mylibrary/my_playlists')||
                               Request::is('mylibrary/my_artists')||

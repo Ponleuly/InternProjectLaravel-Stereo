@@ -8,12 +8,13 @@ use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\User\LikedController;
 use App\Http\Controllers\admin\AlbumController;
 use App\Http\Controllers\admin\TrackController;
+use App\Http\Controllers\User\SearchController;
 use App\Http\Controllers\User\SignupController;
 use App\Http\Controllers\admin\ArtistController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\admin\CountryController;
-use App\Http\Controllers\User\AuthUserController;
 
+use App\Http\Controllers\User\AuthUserController;
 use App\Http\Controllers\User\FrontendController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\PlaylistController;
@@ -60,7 +61,7 @@ Route::controller(SignupController::class)->group(function () {
 // *Using Route group to control route pages
 Route::controller(FrontendController::class)->middleware('AuthUser')->group(function () {
     Route::get('/home', 'home')->name('home');
-    Route::get('/category', 'category')->name('category');
+    Route::get('/search', 'search')->name('search');
 
     Route::get('/category', 'category')->name('category');
 
@@ -68,6 +69,10 @@ Route::controller(FrontendController::class)->middleware('AuthUser')->group(func
     Route::get('/albums/albums_view/{id}', 'albums_view')->name('albums_view');
 
     Route::get('/playlists/playlist_view/{id}', 'playlist_view')->name('playlist_view');
+});
+/*============= Search route ==================*/
+Route::controller(SearchController::class)->middleware('AuthUser')->group(function () {
+    Route::get('/search', 'search')->name('search');
 });
 /*============= Profile route ==================*/
 Route::controller(ProfileController::class)->middleware('AuthUser')->group(function () {
@@ -99,7 +104,7 @@ Route::controller(CreateplaylistController::class)->middleware('AuthUser')->grou
     Route::get('delete_createplaylist/{id}', 'delete_createplaylist')->name('delete_createplaylist');
     Route::get('add_track/{id_playlist}/{id_track}', 'add_track')->name('add_track');
     Route::get('remove_track/{id_playlist}/{id_track}', 'remove_track')->name('remove_track');
-    Route::get('search', 'createplaylist_view')->name('search'); // Ajax search route when searching will send request to class "createplaylist_view"
+    Route::get('search_track', 'createplaylist_view')->name('search_track'); // Ajax search route when searching will send request to class "createplaylist_view"
 });
 /* ===================================================================================================================*/
 

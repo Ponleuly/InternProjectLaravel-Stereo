@@ -161,7 +161,7 @@
                                 <span>Find more songs to your playlist</span>
                             </div>
                             <div class="add-song-search">
-                                <input type="text" name="search" id="search" placeholder="Enter name song here...">
+                                <input type="text" name="search_track" id="search_track" placeholder="Enter name song here...">
                             </div>
                             <!--===================== Recommend Songs ==============================-->
                             <!--<div class="table-border"></div>-->
@@ -272,7 +272,7 @@
     <!--============= Using Ajax to make live search ==============-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script type="text/javascript">      
-	    $('#search').keyup(function(){
+	    $('#search_track').keyup(function(){
 	        var _text = $(this).val();
             if(_text){
                 $('#recommend-table').hide();
@@ -288,7 +288,7 @@
                 type:'get',
                 //url:'{{route('search')}}',
                 url:_pageURL, //url by the route where ajax is searching and send request to controller by that route
-                data:{'search':_text},//search is a variable to pass in request and _text is input text
+                data:{'search_track':_text},//search is a variable to pass in request and _text is input text
                 success:function(data){
                     //console.log(data); // uncommend to see responed data in console       
                     $('#search-table').html(data); // display data respone for view in tbody name seach-table

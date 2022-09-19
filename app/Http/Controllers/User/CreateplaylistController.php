@@ -46,7 +46,7 @@ class CreateplaylistController extends Controller
         // If in craeteplaylist page have request for finding song will process ajax's work below
         if ($request->ajax()) {
             $output = '';
-            $search_tracks = Track::where('name_track', 'LIKE', '%' . $request->search . '%')->get();
+            $search_tracks = Track::where('name_track', 'LIKE', '%' . $request->search_track . '%')->get();
             $i = 1;
             //$URL = URL::current();
             foreach ($search_tracks as $row) {
