@@ -58,13 +58,15 @@ class LikedController extends Controller
         $id_user = Auth::user()->id;
         $liked_tracks = Liked::orderByDesc('id')->where('id_user', $id_user)->get();
         $track_count = Liked::where('id_user', $id_user)->count();
-
         $count = 1;
+
         return compact(
             'count',
             'liked_tracks',
             'track_count'
         );
+
+        //return dd($path);
     }
 
     /**

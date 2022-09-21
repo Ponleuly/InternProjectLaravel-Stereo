@@ -144,7 +144,11 @@
                                                     @endif
                                                 </a>
                                             </div>
-                                            <p>3:45</p>
+                                            <!---===== Audio file ======--->
+                                            <audio id="audio" preload="metadata" type="audio/mp3"
+                                                src="/storage/uploads/audios/{{$row->playlist_track->audio_track}}">
+                                            </audio>
+                                            <p id="duration">3:45</p>
                                             <div class="more-option">
                                                 <a href="{{url('remove_track/'.$createplaylist->id.'/'.$row->id_track)}}">
                                                     <span title="Remove from playlist">Remove</span>
@@ -270,6 +274,7 @@
         </div>
     </div> 
     <!--============= Using Ajax to make live search ==============-->
+    
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script type="text/javascript">      
 	    $('#search_track').keyup(function(){
@@ -296,5 +301,7 @@
             });     
         });     
 	</script>
+    <script src="{{url('frontend/js/audioDuration.js')}}"></script>
 </div>
+
 @endsection()

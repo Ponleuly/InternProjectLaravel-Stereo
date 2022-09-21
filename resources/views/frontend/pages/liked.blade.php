@@ -94,7 +94,10 @@
                                         <td>
                                             <div class="td-3">
                                                 <span class="material-icons-round">favorite</span>
-                                                <p>3:45</p>
+                                                    <audio id="audio" src="/storage/uploads/audios/{{$row->liked_track->audio_track}}"
+                                                        preload="metadata" type="audio/mp3">
+                                                    </audio>
+                                                <p id="duration" onclick="playVid()">3:45</p>
                                                 <div class="remove-liked-link">
                                                     <a href="{{url('remove_liked/'.Auth::user()->id.'/'.$row->id_track)}}">
                                                         <span title="Remove from liked">Remove</span>
@@ -112,4 +115,5 @@
         </div>
     </div>
 </div>
+<script src="{{url('frontend/js/audioDuration.js')}}"></script>
 @endsection()

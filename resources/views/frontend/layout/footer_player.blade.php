@@ -41,7 +41,7 @@
                             <!--Add preload="metadata" to have it request the metadata for audio object,
                                 if not the duration of audio will return in Nan
                             -->
-                            <audio id="audio" src="" preload="metadata"></audio>
+                            <audio id="audio" src="" preload="metadata" type="audio/mp3"></audio>
                         </div>
                         <div class="duration-time">
                             <span id="duration-time">0:00</span>
@@ -63,7 +63,6 @@
         </div>
     </div>
 </div>
-<!--
+
 <script src="{{url('frontend/js/musicList.js')}}"></script>
 <script src="{{url('frontend/js/musicPlayer.js')}}"></script>
--->
