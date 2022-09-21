@@ -11,6 +11,7 @@ use Database\Seeders\TrackSeeder;
 use Database\Seeders\ArtistSeeder;
 use Database\Seeders\CountrySeeder;
 use Database\Seeders\CategorySeeder;
+use Database\Seeders\FakeUserSeeder;
 use Database\Seeders\PlaylistSeeder;
 use Database\Seeders\Track_PlaylistSeeder;
 
@@ -38,6 +39,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             PlaylistSeeder::class,
             Track_PlaylistSeeder::class,
+            FakeUserSeeder::class,
         ]);
     }
 }

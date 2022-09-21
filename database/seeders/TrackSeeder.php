@@ -646,7 +646,7 @@ class TrackSeeder extends Seeder
             ],
             [
                 'id' => 58,
-                'name_track' => 'sai_cach_yeu.jpg',
+                'name_track' => 'Sai cách yêu',
                 'pf_track' => 'sai_cach_yeu.jpg',
                 'audio_track' => 'Sai-cach-yeu - Le-bao-binh.mp3',
                 'id_category' => 3,

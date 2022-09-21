@@ -28,7 +28,9 @@ return new class extends Migration
             $table->unsignedInteger('id_category');
             $table->foreign('id_category')
                 ->references('id')
-                ->on('table_category');
+                ->on('table_category')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');;
 
             $table->timestamps();
         });

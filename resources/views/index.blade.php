@@ -22,8 +22,7 @@
     <link rel="stylesheet" href="{{url('frontend/css/search.css')}}">
     <link rel="stylesheet" href="{{url('frontend/css/user_profile.css')}}">
     <link rel="stylesheet" href="{{url('frontend/css/footer_player.css')}}">
-    <!----======== js ======== -->
-    
+    <!----======== js ======== --> 
 
 </head>
 <body>

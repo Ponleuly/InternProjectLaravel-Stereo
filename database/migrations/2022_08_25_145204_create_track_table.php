@@ -43,7 +43,9 @@ return new class extends Migration
             $table->unsignedInteger('id_country');
             $table->foreign('id_country')
                 ->references('id')
-                ->on('table_country');
+                ->on('table_country')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');;
 
             $table->timestamps();
         });

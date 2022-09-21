@@ -61,7 +61,7 @@ class UserSeeder extends Seeder
                 'id' => 5,
                 'username' => 'Jack',
                 'email' => 'Jack@gmail.com',
-                'password' => bcrypt('44332211'),
+                'password' => bcrypt('123456'),
                 'gender' => 'others',
                 'role' => 0,
                 'avatar' => 'jack.jpg',

@@ -17,16 +17,12 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name_playlist', 100);
             $table->string('pf_playlist', 100)->nullable();
-            /*
-            $table->unsignedInteger('id_track')->nullable();
-            $table->foreign('id_track')
-                ->references('id')
-                ->on('table_track');
-            */
             $table->unsignedInteger('id_user');
             $table->foreign('id_user')
                 ->references('id')
-                ->on('users');
+                ->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
 
             $table->timestamps();
         });
