@@ -1,0 +1,162 @@
+.track-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    min-width: 1200px;
+}
+.track-table td {
+    padding: 0;
+}
+.track-table td:nth-child(1) {
+    width: 40%;
+}
+.track-table td:nth-child(2) {
+    width: 40%;
+    text-align: center;
+}
+.track-table td:nth-child(3) {
+    width: 20%;
+    text-align: center;
+}
+.track-table td ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    text-transform: capitalize;
+    padding-left: 15px;
+    margin-bottom: 0;
+}
+.track-table td ul li {
+    margin-right: 15px;
+    color: var(--white-dark-color);
+}
+.track-table td ul li .num-order {
+    width: 20px;
+    padding: 12px 0;
+}
+.track-table td ul li span.number {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--white-dark-color);
+    display: block;
+    padding: 0 5px;
+}
+.track-table td ul li span.play-up {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--white-dark-color);
+    display: none;
+    position: relative;
+    padding: 0;
+}
+.track-table td ul li .img img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+.track-table td ul li.text-overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.track-table td ul li .song-details {
+    display: flex;
+    flex-direction: column;
+}
+.song-details span.song-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-color);
+    align-items: center;
+}
+.song-details a {
+    text-decoration: none;
+    text-transform: capitalize;
+}
+.song-details a span.artist-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--white-dark-color);
+}
+.track-table td .song-album a {
+    text-decoration: none;
+    text-transform: capitalize;
+}
+.track-table td .song-album a span {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--white-dark-color);
+}
+.track-table td .date-added span {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--white-dark-color);
+    text-align: center;
+}
+.track-table td .song-duration {
+    float: right;
+    display: flex;
+    flex-direction: row;
+    margin-right: 15px;
+    align-items: center;
+}
+td .song-duration .liked-icon-link a {
+    text-decoration: none;
+    margin: 10px 0;
+    border: none;
+}
+td .song-duration .liked-icon-link a span {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 15px 15px;
+    color: #71b7e6;
+}
+.track-table td .song-duration p {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--white-dark-color);
+    margin: 10px 0;
+    align-self: center;
+    margin-right: 15px;
+}
+td .song-duration .more-option {
+    text-decoration: none;
+    margin: 10px 0;
+    padding-right: 0;
+    opacity: 0;
+}
+td .song-duration .more-option span {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 15px 5px;
+    border-radius: 25px;
+}
+.track-table tr:hover {
+    background-color: var(--box-hover-color);
+}
+.track-table tr:hover td:nth-child(1) {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.track-table tr:hover td .song-details a span.artist-name {
+    color: var(--text-color);
+}
+.song-details a:hover span.artist-name {
+    text-decoration: underline;
+}
+.track-table tr:hover td .song-album span {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+.track-table tr:hover .number {
+    display: none;
+}
+.track-table tr:hover .play-up {
+    display: block;
+    color: var(--text-color);
+}
+.track-table tr:hover .song-duration .more-option {
+    opacity: 1;
+    color: var(--text-color);
+}

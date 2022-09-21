@@ -1,5 +1,4 @@
 @extends('index')
-
 @section('dash_content')
     <div class="dash-content" id="mylibrary">
         <div class="mylibrary-menu">

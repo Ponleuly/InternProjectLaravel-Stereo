@@ -5,7 +5,6 @@
 ?>
 @extends('index')
 @section('dash_content')
-
 <!--========== Albums content ===============-->
 <div class="dash-content">
     <div class="album-wrapper">

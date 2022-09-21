@@ -6,7 +6,6 @@
 ?>
 @extends('index')
 @section('dash_content')
-
 <div class="dash-content">
     <div class="artist-wrapper">
         @foreach ($artists_view as $row)

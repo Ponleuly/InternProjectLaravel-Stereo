@@ -6,8 +6,6 @@
 ?>
 @extends('index')
 @section('dash_content') 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
 <!--======= Create playlist content ========-->
 <div class="dash-content" id="playlist">
     <!--============================== Header playlist ==============================-->

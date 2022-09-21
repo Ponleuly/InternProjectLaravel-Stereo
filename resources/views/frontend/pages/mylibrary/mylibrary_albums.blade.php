@@ -1,5 +1,4 @@
 @extends('index')
-
 @section('dash_content')
     <!--========= My Library content ==========-->
     <div class="dash-content" id="mylibrary">

@@ -4,7 +4,6 @@
 	use App\Models\Album;
 ?>
 @extends('index')
-
 @section('dash_content')
 <!--================================= Category content ======================================-->
 <div class="dash-content" id="category">
