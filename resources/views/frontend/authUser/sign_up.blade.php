@@ -102,6 +102,13 @@
 									<a href="{{route('log_in')}}">Log in.</a>
 								</label>
 							</div>
+                            <div class="alert-box">
+                                @if(Session::has('alert'))
+                                    <div class="alert">
+                                        {{Session::get('alert')}}
+                                    </div>                         
+                                @endif
+                            </div>
 						</form>
                     </div>
                 </div>

@@ -77,6 +77,36 @@ class UserSeeder extends Seeder
                 'avatar' => null,
                 'created_at' => Carbon::now(),
             ],
+            [
+                'id' => 7,
+                'username' => 'Html',
+                'email' => 'html@gmail.com',
+                'password' => bcrypt('123456'),
+                'gender' => 'female',
+                'role' => 0,
+                'avatar' => 'html.jpg',
+                'created_at' => Carbon::now(),
+            ],
+            [
+                'id' => 8,
+                'username' => 'CSS',
+                'email' => 'css@gmail.com',
+                'password' => bcrypt('123456'),
+                'gender' => 'others',
+                'role' => 0,
+                'avatar' => 'css.jpg',
+                'created_at' => Carbon::now(),
+            ],
+            [
+                'id' => 9,
+                'username' => 'PHP',
+                'email' => 'php@gmail.com',
+                'password' => bcrypt('123456'),
+                'gender' => 'male',
+                'role' => 0,
+                'avatar' => 'php.jpg',
+                'created_at' => Carbon::now(),
+            ],
         ]);
     }
 }

@@ -80,7 +80,10 @@
                                             @endif
                                         </a>
                                     </div>
-                                    <p>3:45</p>
+                                        <audio id="audio" src="/storage/uploads/audios/{{$row->audio_track}}"
+                                            preload="metadata" type="audio/mp3">
+                                        </audio>
+                                    <p id="duration">3:45</p>
                                     <div class="more-option">
                                         <span class="material-icons-round">more_horiz</span>
                                     </div>                                         
@@ -194,5 +197,6 @@
     <!--============= Using Ajax to make live search ==============-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="{{url('frontend/js/search.js')}}"></script>
+    <script src="{{url('frontend/js/audioDuration.js')}}"></script>
 </div>
 @endsection

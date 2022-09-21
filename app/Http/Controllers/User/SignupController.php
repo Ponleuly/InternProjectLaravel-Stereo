@@ -18,7 +18,7 @@ class SignupController extends Controller
         //$input['role'] = 0;
         $input['password'] = bcrypt($request->password);
         User::create($input);
-        return redirect('/')
+        return redirect()->back()
             ->with('alert', 'You are signed up successfully !');
     }
 }

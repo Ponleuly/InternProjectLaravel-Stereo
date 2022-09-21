@@ -211,6 +211,19 @@
         form .input-box a{
             color: #71b7e6;
         }
+        form .alert-box{
+            width: 100%;
+            height: 45px;
+            margin-top: 20px;
+        }
+        form .alert-box .alert{
+            font-size: 18px;
+            font-weight: 500;
+            color: #fff;
+            background: #DC143C;
+            text-align: center;
+            padding: 10px 0;
+        }
         @media(max-width: 600px){
             .container-row .header-logo{
                 display: none;
@@ -242,16 +255,16 @@
                                     <input type="password" name="password" placeholder="Enter your password" required id="password">
                                     <span class="material-icons-round" id="show-hide-pass" onclick="show_pass()">visibility_off</span>
                                 </div>
-                                <div class="input-box">
-                                    @if(Session::has('alert'))
-                                        <div class="alert">
-                                            {{Session::get('alert')}}
-                                        </div>                         
-                                    @endif
-                                </div>
                             </div>
                             <div class="button">
                                 <input type="submit" value="Log in">
+                            </div>
+                            <div class="alert-box">
+                                @if(Session::has('alert'))
+                                    <div class="alert">
+                                        {{Session::get('alert')}}
+                                    </div>                         
+                                @endif
                             </div>
                         </form>
                     </div>

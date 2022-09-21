@@ -336,7 +336,19 @@ form .log-in a{
 form .input-box a{
     color: #71b7e6;
 }
-
+form .alert-box{
+    width: 100%;
+    height: 45px;
+    margin-top: 20px;
+}
+form .alert-box .alert{
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    background: #DC143C;
+    text-align: center;
+    padding: 10px 0;
+}
 @media(max-width: 900px){
     .form-container{
         max-width: 100%;

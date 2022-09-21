@@ -66,7 +66,6 @@
                                 <div class="input-box">
                                     <a href=""> Forget your password ?</a>
                                 </div>
-                                
                             </div>
                             <div class="button">
                                 <input type="submit" value="Log in">
@@ -76,6 +75,13 @@
                                     <span>Don't have an account?</span>
                                     <a href="{{url('sign_up')}}" class="link-login">Sign up.</a>
                                 </label>
+                            </div>
+                            <div class="alert-box">
+                                @if(Session::has('alert'))
+                                    <div class="alert"> 
+                                        {{Session::get('alert')}}
+                                    </div>                         
+                                @endif
                             </div>
                         </form>
                     </div>
