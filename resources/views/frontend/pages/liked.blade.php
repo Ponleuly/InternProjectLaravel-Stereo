@@ -96,7 +96,7 @@
                                                 <span class="material-icons-round">favorite</span>
                                                     <audio id="audio" src="/storage/uploads/audios/{{$row->liked_track->audio_track}}"
                                                         preload="metadata" type="audio/mp3">
-                                                    </audio>
+                                                    </audio> 
                                                 <p id="duration" onclick="playVid()">3:45</p>
                                                 <div class="remove-liked-link">
                                                     <a href="{{url('remove_liked/'.Auth::user()->id.'/'.$row->id_track)}}">

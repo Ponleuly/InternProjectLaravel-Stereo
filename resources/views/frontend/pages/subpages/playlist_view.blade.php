@@ -474,7 +474,10 @@
                                                             <span class="material-icons-round" title="Add to liked">favorite_border</span>
                                                     @endif
                                                 </a>
-                                                <p>3:45</p>
+                                                    <audio id="audio" src="/storage/uploads/audios/{{$row->playlist_track->audio_track}}"
+                                                        preload="metadata" type="audio/mp3">
+                                                    </audio>
+                                                <p id="duration">3:45</p>
                                                 <span class="material-icons-round more-option">more_horiz</span>
                                             </div>
                                         </td>
@@ -488,4 +491,5 @@
         </div>
     </div>
 </div>
+<script src="{{url('frontend/js/audioDuration.js')}}"></script>
 @endsection()

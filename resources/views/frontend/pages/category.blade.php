@@ -25,10 +25,10 @@
                                     <img src="/storage/uploads/countries/{{$row->pf_country}}" alt="">
                                 </div>
                                 <h1>{{$row->name_country}}</h1>
-                                @php
-									$track_count = Track::where('id_country', $row->id)->count();
-									$artist_count = Artist::where('id_country', $row->id)->count(); 
-								@endphp
+                                    @php
+                                        $track_count = Track::where('id_country', $row->id)->count();
+                                        $artist_count = Artist::where('id_country', $row->id)->count(); 
+                                    @endphp
                                 <ul>
                                     <li>{{$track_count}} Songs</li>
                                     <li>{{$artist_count}} Artists</li>

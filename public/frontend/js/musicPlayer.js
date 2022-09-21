@@ -19,7 +19,7 @@
     const repeatIcon = $('#repeat');
     const boxContent = $('.box-content');
     const boxSingle = $('.box-single');
-    const boxContainer = $('.box-container');
+    const boxContainer = $('#home-play');
     const activeBtn = $('.play-button-pop-up');
     // bien app ->object
     const app = {

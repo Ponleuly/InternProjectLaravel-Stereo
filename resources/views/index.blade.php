@@ -24,7 +24,6 @@
 <body>
     <!--========= Nav ==========-->
     @include('frontend.layout.nav')
-    
     <!--======== Section =======-->
     <section class="dashboard">
         <!--==== Top Bar =====-->
@@ -34,12 +33,9 @@
     </section> 
     <!--===== Footer player ====-->
     @include('frontend.layout.footer_player')
-
-
     <!--======== Nav active script =======
     <script src="{{url('frontend/js/nav_active.js')}}"></script> -->
     <!--======= Nav script =======-->
     <script src="{{url('frontend/js/nav.js')}}"></script>
-    
 </body>
 </html>
