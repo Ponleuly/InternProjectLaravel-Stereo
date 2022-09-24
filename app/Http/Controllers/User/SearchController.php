@@ -102,7 +102,10 @@ class SearchController extends Controller
                                     <span class="material-icons-round" title="Add to liked">favorite_border</span>
                                 </a>
                             </div>
-                            <p>3:45</p>
+                            <audio id="audio" src="/storage/uploads/audios/' . $row->audio_track . '"
+                                preload="metadata" type="audio/mp3">
+                            </audio>
+                            <p id="duration">3:45</p>
                             <div class="more-option">
                                 <span class="material-icons-round">more_horiz</span>
                             </div>                                                     

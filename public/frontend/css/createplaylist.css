@@ -284,13 +284,13 @@
             align-self: center;
             margin-right: 15px;
         }
-        td .song-duration .more-option a{
+        td .song-duration .remove-from-playlist a{
             text-decoration: none;
             margin: 10px 0;
             padding-right: 0;
             opacity: 0;
         }
-        td .song-duration .more-option a span{
+        td .song-duration .remove-from-playlist a span{
             font-size: 14px;
             font-weight: 500;
             color: var(--text-color);
@@ -311,7 +311,7 @@
             padding: 5px 15px;
             border-radius: 25px;
         }
-        td .song-duration .more-option a span:hover{
+        td .song-duration .remove-from-playlist a span:hover{
             border: 2px solid #fff;
         }
         td .song-duration .add-myplaylist a span:hover{
@@ -341,7 +341,7 @@
             display: block;
             color: var(--text-color);
         }
-        .row-content-table-createplaylist tr:hover .song-duration .more-option a{
+        .row-content-table-createplaylist tr:hover .song-duration .remove-from-playlist a{
             opacity: 1;
             color: var(--text-color);
         }

@@ -99,11 +99,6 @@ Route::controller(AuthAdminController::class)->group(function () {
     Route::post('/admin_stereo', 'auth_login')->name('auth_login');
     Route::get('/admin_stereo/logout', 'logout');
 });
-/*============= User route ==================*/
-Route::controller(UserController::class)->middleware('AuthAdmin')->group(function () {
-    Route::get('/admin_stereo/user', 'user')->name('user');
-    Route::get('/admin_stereo/remove_user/{id}', 'remove_user')->name('remove_user');
-});
 /*============= Dashboard route ==================*/
 Route::get('/admin_stereo/dashboard', [DashboardController::class, 'dashboard'])
     ->name('dashboard')
@@ -181,4 +176,10 @@ Route::prefix('admin_stereo')->middleware('AuthAdmin')->group(function () {
         Route::get('delete_playlist/{id}', 'delete_playlist');
         Route::get('search_playlist', 'search_playlist');
     });
+});
+/*============= User route ==================*/
+Route::controller(UserController::class)->middleware('AuthAdmin')->group(function () {
+    Route::get('/admin_stereo/user', 'user')->name('user');
+    Route::get('/admin_stereo/remove_user/{id}', 'remove_user')->name('remove_user');
+    Route::get('/admin_stereo/search_user', 'search_user');
 });

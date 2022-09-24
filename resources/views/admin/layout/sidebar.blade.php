@@ -75,7 +75,9 @@
 			</a>
 		</li>
 		<li>
-			<a href="{{route('user')}}" class="{{ Request::is('admin_stereo/user')? 'active':''}}">
+			<a href="{{route('user')}}" 
+				class="{{ Request::is('admin_stereo/user')||
+						Request::is('admin_stereo/search_user')? 'active':''}}">
 				<span class="material-icons-round link-icon">person</span>
 				<span class="links_name">Users</span>
 			</a>

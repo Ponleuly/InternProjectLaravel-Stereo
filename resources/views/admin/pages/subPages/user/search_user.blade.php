@@ -1,6 +1,5 @@
 @extends('admin.index')
 @section('content')
-
 <div class="box-user-container">
 	@if(Session::has('alert'))
 		<div class="message">
@@ -10,7 +9,7 @@
   	<div class="box-top">
 		<div class="search-box">
 			<form action="{{url('/admin_stereo/search_user')}}">
-				<input type="text"  placeholder="search here..." name="search">
+				<input type="text"  placeholder="search here..." name="search" value="{{$search_text}}" >
 				<button type="submit">Search</button>
 			</form>
 		</div>
@@ -28,12 +27,12 @@
 				<span class="material-icons-round link-icon">delete</span>
 			</td> 
 			</tr>
-			@foreach($users as $row)
+			@foreach($search_user as $row)
 				<tr>
 					<td>{{$count++}}</td>
 					<td>
 						<div class="user-img">
-							<img src="/storage/uploads/avatars/{{$row->avatar}}" alt="">
+							<img src="/storage/uploads/avatars/{{$row->avatar}}" alt="{{$row->avatar}}">
 						</div>
 					</td>
 					<td>{{$row->username}}</td>

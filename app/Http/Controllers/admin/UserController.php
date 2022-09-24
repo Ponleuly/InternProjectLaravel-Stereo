@@ -34,4 +34,18 @@ class UserController extends Controller
                     ' is deleted successfully !'
             );
     }
+    public function search_user()
+    {
+        $search_text = $_GET['search'];
+        $search_user = User::where('username', 'LIKE', '%' . $search_text . '%')->get();
+        $count = 1;
+        return view(
+            'admin.pages.subPages.user.search_user',
+            compact(
+                'count',
+                'search_user',
+                'search_text'
+            )
+        );
+    }
 }

@@ -1,6 +1,47 @@
 @extends('admin.index')
 @section('content')
 <div class="box-dashboard-container">
+		<div class="content-display box8"><!-- style="width: calc((100% / 3 - 15px) * 2);"-->
+			<div class="main-content">
+				<div class="item-icon">
+					<span class="material-icons-round">verified</span>
+				</div>
+				<div class="item-text">
+					<div class="follower">
+						<h1>{{$following_count}}</h1>
+						<p>followers</p>
+					</div>
+					<span>{{$name_artist}}</span>
+					<p>(The most followers artist)</p>
+				</div>
+			</div>
+			<div class="bottom-link">
+				<a href="/admin_stereo/country">
+					<span>More Details >></span>
+				</a>
+			</div>
+      	</div>
+		<div class="content-display box9">
+			<div class="main-content">
+				<div class="item-icon">
+					<span class="material-icons-round">favorite</span>
+				</div>
+				<div class="item-text">
+					<div class="follower">
+						<h1>{{$liked_count}}</h1>
+						<p>liked</p>
+					</div>
+					<span>{{$name_track}}</span>
+					<p>(The most liked song)</p>
+				</div>
+			</div>
+			<div class="bottom-link">
+				<a href="/admin_stereo/country">
+					<span>More Details >></span>
+				</a>
+			</div>
+      	</div>
+		
 		<div class="content-display box1">
 			<div class="main-content">
 				<div class="item-icon">

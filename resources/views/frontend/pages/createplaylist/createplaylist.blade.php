@@ -147,7 +147,7 @@
                                                 src="/storage/uploads/audios/{{$row->playlist_track->audio_track}}">
                                             </audio>
                                             <p id="duration">3:45</p>
-                                            <div class="more-option">
+                                            <div class="remove-from-playlist">
                                                 <a href="{{url('remove_track/'.$createplaylist->id.'/'.$row->id_track)}}">
                                                     <span title="Remove from playlist">Remove</span>
                                                 </a>
