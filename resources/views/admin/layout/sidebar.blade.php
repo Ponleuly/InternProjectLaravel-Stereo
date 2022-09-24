@@ -75,6 +75,21 @@
 			</a>
 		</li>
 		<li>
+			<a href="{{route('follower')}}" 
+				class="{{ Request::is('admin_stereo/follower')||
+						Request::is('admin_stereo/follower_search')? 'active':''}}">
+				<span class="material-icons-round link-icon">verified</span>
+				<span class="links_name">Follower</span>
+			</a>
+		</li>
+		<li>
+			<a href="{{route('liked_track')}}" 
+				class="{{Request::is('admin_stereo/liked_track')? 'active':''}}">
+				<span class="material-icons-round link-icon">favorite</span>
+				<span class="links_name">Liked</span>
+			</a>
+		</li>
+		<li>
 			<a href="{{route('user')}}" 
 				class="{{ Request::is('admin_stereo/user')||
 						Request::is('admin_stereo/search_user')? 'active':''}}">

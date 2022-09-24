@@ -17,10 +17,12 @@ use App\Http\Controllers\admin\CountryController;
 use App\Http\Controllers\User\AuthUserController;
 use App\Http\Controllers\User\FrontendController;
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\FollowerController;
 use App\Http\Controllers\admin\PlaylistController;
 use App\Http\Controllers\User\MylibraryController;
 use App\Http\Controllers\admin\AuthAdminController;
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\LikedtrackController;
 use App\Http\Controllers\User\CreateplaylistController;
 
 /*
@@ -176,6 +178,15 @@ Route::prefix('admin_stereo')->middleware('AuthAdmin')->group(function () {
         Route::get('delete_playlist/{id}', 'delete_playlist');
         Route::get('search_playlist', 'search_playlist');
     });
+});
+/*============= Follower route ==================*/
+Route::controller(FollowerController::class)->middleware('AuthAdmin')->group(function () {
+    Route::get('/admin_stereo/follower', 'follower')->name('follower');
+    Route::get('/admin_stereo/follower_search', 'follower_search');
+});
+/*============= Liked route ==================*/
+Route::controller(LikedtrackController::class)->middleware('AuthAdmin')->group(function () {
+    Route::get('/admin_stereo/liked_track', 'liked_track')->name('liked_track');
 });
 /*============= User route ==================*/
 Route::controller(UserController::class)->middleware('AuthAdmin')->group(function () {

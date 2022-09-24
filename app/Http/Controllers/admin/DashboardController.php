@@ -29,29 +29,14 @@ class DashboardController extends Controller
             $playlists = Playlist::all()->count();
             $users = User::where('role', '0')->count();
             //The most follower asrtist
-            //$following_count = Follower::groupBy('id_artist')->distinct()->count();
-            //$most_following = Follower::distinct()->first();
-            //$following_artist = Artist::where('id', $most_following['id_artist'])->first();
-            //$name_artist = $following_artist['name_artist'];
-            $most_following = Follower::orderBy('id')->get();
-            //for ($i = 0; $i < count($most_following); $i++) {
-            foreach ($most_following as $row) {
-                $idArtist = $row->id_artist;
-                $following_count = Follower::where('id_artist', $idArtist)->count();
-            }
-            //}
-            $artist = Artist::where('id', $idArtist)->first();
-            $name_artist = $artist['name_artist'];
-            //The most liked song
-            //$liked_count = Liked::groupBy('id_track')->distinct()->count();
-            $most_liked = Liked::orderBy('id')->get();
-            for ($j = 0; $j < count($most_liked); $j++) {
-                foreach ($most_liked as $row) {
-                    $idTrack = $row->id_track;
-                    $liked_count = Liked::where('id_track', $idTrack)->count();
-                }
-            }
-            $liked_track = Track::where('id', $idTrack)->first();
+            $following_count = Follower::groupBy('id_artist')->distinct()->count();
+            $most_following = Follower::distinct()->first();
+            $following_artist = Artist::where('id', $most_following['id_artist'])->first();
+            $name_artist = $following_artist['name_artist'];
+
+            $liked_count = Liked::groupBy('id_track')->distinct()->count();
+            $most_liked = Liked::distinct()->first();
+            $liked_track = Track::where('id', $most_liked['id_track'])->first();
             $name_track = $liked_track['name_track'];
             return view(
                 'admin.pages.dashboard',
@@ -69,7 +54,8 @@ class DashboardController extends Controller
                     'name_track'
                 )
             );
-            //return dd($name_track);
+
+            //return dd($arr);
         }
         return redirect('/admin_stereo');
     }
