@@ -11,7 +11,7 @@
 	@endif
   	<div class="box-top">
 		<div class="search-box">
-			<form action="/admin_stereo/search_artist">
+			<form action="{{url('/admin_stereo/follower_search')}}">
 				<input type="text"  placeholder="search here..." name="search" value="{{$search_text}}">
 				<button type="submit">Search</button>
 			</form>

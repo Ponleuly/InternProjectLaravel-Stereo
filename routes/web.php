@@ -187,6 +187,7 @@ Route::controller(FollowerController::class)->middleware('AuthAdmin')->group(fun
 /*============= Liked route ==================*/
 Route::controller(LikedtrackController::class)->middleware('AuthAdmin')->group(function () {
     Route::get('/admin_stereo/liked_track', 'liked_track')->name('liked_track');
+    Route::get('/admin_stereo/liked_search', 'liked_search');
 });
 /*============= User route ==================*/
 Route::controller(UserController::class)->middleware('AuthAdmin')->group(function () {

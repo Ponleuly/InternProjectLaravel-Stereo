@@ -12,7 +12,7 @@
   	<div class="box-top">
 		<div class="search-box">
 			<form action="{{url('/admin_stereo/liked_search')}}">
-				<input type="text"  placeholder="search here..." name="search">
+				<input type="text"  placeholder="search here..." name="search" value="{{$search_text}}">
 				<button type="submit">Search</button>
 			</form>
 		</div>
@@ -26,7 +26,7 @@
 			<th style="width: 25%">Date Created</th>
 			<th style="width: 25%">Liked by (user)</th>
 			</tr>
-			@foreach($tracks as $row)
+			@foreach($search_track as $row)
 				<tr>
 					<td>{{$count++}}</td>
 					<td>

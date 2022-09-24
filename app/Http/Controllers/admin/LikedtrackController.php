@@ -22,4 +22,18 @@ class LikedtrackController extends Controller
             'tracks'
         );
     }
+    public function liked_search()
+    {
+        $search_text = $_GET['search'];
+        $search_track = Track::where('name_track', 'LIKE', '%' . $search_text . '%')->get();
+        $count = 1;
+        return view(
+            'admin.pages.subPages.liked.liked_search',
+            compact(
+                'count',
+                'search_track',
+                'search_text'
+            )
+        );
+    }
 }

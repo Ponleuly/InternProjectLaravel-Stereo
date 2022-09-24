@@ -84,7 +84,8 @@
 		</li>
 		<li>
 			<a href="{{route('liked_track')}}" 
-				class="{{Request::is('admin_stereo/liked_track')? 'active':''}}">
+				class="{{Request::is('admin_stereo/liked_track')||
+						Request::is('admin_stereo/liked_search')? 'active':''}}">
 				<span class="material-icons-round link-icon">favorite</span>
 				<span class="links_name">Liked</span>
 			</a>

@@ -29,7 +29,7 @@ class FollowerController extends Controller
         $search_artist = Artist::where('name_artist', 'LIKE', '%' . $search_text . '%')->get();
         $count = 1;
         return view(
-            'admin.pages.subPages.follower.search_artist',
+            'admin.pages.subPages.follower.follower_search',
             compact(
                 'count',
                 'search_artist',
