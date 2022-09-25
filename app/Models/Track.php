@@ -28,10 +28,12 @@ class Track extends Model
     }
     public function playlist_track()
     {
-        return $this->hasMany(Playlist_Track::class, 'id');
+        //return $this->hasMany(Playlist_Track::class, 'id');
+        return $this->hasOne(Playlist_Track::class, 'id_track', 'id');
     }
     public function liked_track()
     {
-        return $this->hasMany(Liked::class, 'id');
+        //return $this->hasMany(Liked::class, 'id');
+        return $this->hasOne(Liked::class, 'id_track', 'id');
     }
 }

@@ -28,7 +28,7 @@ class User extends Authenticatable
     ];
     public function playlist_user()
     {
-        return $this->hasMany(Playlist::class, 'id');
+        return $this->hasOne(Playlist::class, 'id_user', 'id');
     }
     /**
      * The attributes that should be hidden for serialization.

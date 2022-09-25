@@ -51,7 +51,7 @@
 						Request::is('admin_stereo/search_category')? 'active':''}}">
 						<!--add /* becaue this route contain the dynamic variable after /edit_category/[variable]-->
 				<span class="material-icons-round link-icon">category</span>
-				<span class="links_name">Category</span>
+				<span class="links_name">Categories</span>
 			</a>
 		</li>
      	<li>
@@ -71,7 +71,7 @@
 						Request::is('admin_stereo/edit_country/*')||
 						Request::is('admin_stereo/search_country')? 'active':''}}">
 				<span class="material-icons-round link-icon">flag</span>
-				<span class="links_name">Country</span>
+				<span class="links_name">Countries</span>
 			</a>
 		</li>
 		<li>
@@ -79,7 +79,7 @@
 				class="{{ Request::is('admin_stereo/follower')||
 						Request::is('admin_stereo/follower_search')? 'active':''}}">
 				<span class="material-icons-round link-icon">verified</span>
-				<span class="links_name">Follower</span>
+				<span class="links_name">Followers</span>
 			</a>
 		</li>
 		<li>

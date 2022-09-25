@@ -19,22 +19,24 @@ class Artist extends Model
         'id_country'
     ];
 
-    public function category()
+    public function artist_category()
     {
         return $this->belongsTo(Category::class);
     }
-
     public function artist_album()
     {
-        return $this->hasMany(Album::class, 'id_artist');
+        //return $this->hasMany(Album::class, 'id_artist');
+        return $this->hasOne(Album::class, 'id_artist', 'id');
     }
 
     public function artist_track()
     {
-        return $this->hasMany(Track::class, 'id_artist');
+        //return $this->hasMany(Track::class, 'id_artist');
+        return $this->hasOne(Track::class, 'id_artist', 'id');
     }
     public function follower_artist()
     {
-        return $this->hasMany(Follower::class, 'id');
+        //return $this->hasMany(Follower::class, 'id');
+        return $this->hasOne(Follower::class, 'id_artist', 'id');
     }
 }

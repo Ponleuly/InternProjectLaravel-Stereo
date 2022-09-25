@@ -27,10 +27,12 @@ class Album extends Model
 
     public function album_track()
     {
-        return $this->haveMany(Track::class, 'id_album');
+        //return $this->haveMany(Track::class, 'id_album');
+        return $this->haveOne(Track::class, 'id_album', 'id');
     }
     public function myalbum()
     {
-        return $this->hasMany(Mylibrary_Album::class, 'id');
+        //return $this->hasMany(Mylibrary_Album::class, 'id');
+        return $this->hasOne(Mylibrary_Album::class, 'id_album', 'id');
     }
 }

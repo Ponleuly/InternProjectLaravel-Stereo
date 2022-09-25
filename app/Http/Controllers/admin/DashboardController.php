@@ -29,15 +29,18 @@ class DashboardController extends Controller
             $playlists = Playlist::all()->count();
             $users = User::where('role', '0')->count();
             //The most follower asrtist
-            $following_count = Follower::groupBy('id_artist')->distinct()->count();
-            $most_following = Follower::distinct()->first();
-            $following_artist = Artist::where('id', $most_following['id_artist'])->first();
-            $name_artist = $following_artist['name_artist'];
+            //$max_following = Follower::groupBy('id_artist')->distinct()->count();
+            /*
+            $following_count = 1;
+            //$most_following = Follower::groupBy('id_artist')->distinct()->count();
+            //$following_artist = Artist::where('id', $most_following['id_artist'])->first();
+            $name_artist = 'xx';
 
             $liked_count = Liked::groupBy('id_track')->distinct()->count();
             $most_liked = Liked::distinct()->first();
             $liked_track = Track::where('id', $most_liked['id_track'])->first();
             $name_track = $liked_track['name_track'];
+            */
             return view(
                 'admin.pages.dashboard',
                 compact(
@@ -48,14 +51,13 @@ class DashboardController extends Controller
                     'countries',
                     'playlists',
                     'users',
-                    'following_count',
-                    'name_artist',
-                    'liked_count',
-                    'name_track'
+                    //'following_count',
+                    //'name_artist',
+                    //'liked_count',
+                    //'name_track'
                 )
             );
-
-            //return dd($arr);
+            //return dd($follower_count);
         }
         return redirect('/admin_stereo');
     }
