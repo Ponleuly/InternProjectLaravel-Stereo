@@ -8,10 +8,10 @@
 				</div>
 				<div class="item-text">
 					<div class="follower">
-						<h1>7</h1>
+						<h1>{{$following_count}}</h1>
 						<p>followers</p>
 					</div>
-					<span>Ed Sheeran</span>
+					<span>{{$name_artist}}</span>
 					<p>(The most followers artist)</p>
 				</div>
 			</div>
@@ -28,10 +28,10 @@
 				</div>
 				<div class="item-text">
 					<div class="follower">
-						<h1>5</h1>
+						<h1>{{$liked_count}}</h1>
 						<p>liked</p>
 					</div>
-					<span>Attention</span>
+					<span>{{$name_track}}</span>
 					<p>(The most liked song)</p>
 				</div>
 			</div>

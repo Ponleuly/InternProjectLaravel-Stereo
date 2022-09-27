@@ -35,7 +35,7 @@
 					<td>{{$row->name_artist}}</td>
 					<td>{{$row->created_at->diffForHumans()}}</td>
                     @php
-                        $follower_count = Follower::orderBy('id_track')->where('id_artist', $row->id)->count();
+                        $follower_count = Follower::orderBy('id_artist')->where('id_artist', $row->id)->count();
                     @endphp
 					<td>{{$follower_count}}</td>					
 				</tr>
