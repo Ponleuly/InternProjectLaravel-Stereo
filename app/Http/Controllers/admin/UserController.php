@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function user()
     {
-        $users = User::where('role', '0')->get();
+        $users = User::orderByDesc('id')->where('role', '0')->get();
         $count = 1;
         return view(
             'admin.pages.user',

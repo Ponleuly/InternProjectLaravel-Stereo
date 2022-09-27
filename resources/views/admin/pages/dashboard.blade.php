@@ -8,15 +8,15 @@
 				</div>
 				<div class="item-text">
 					<div class="follower">
-						<h1></h1>
+						<h1>7</h1>
 						<p>followers</p>
 					</div>
-					<span></span>
+					<span>Ed Sheeran</span>
 					<p>(The most followers artist)</p>
 				</div>
 			</div>
 			<div class="bottom-link">
-				<a href="/admin_stereo/country">
+				<a href="/admin_stereo/follower">
 					<span>More Details >></span>
 				</a>
 			</div>
@@ -28,15 +28,15 @@
 				</div>
 				<div class="item-text">
 					<div class="follower">
-						<h1></h1>
+						<h1>5</h1>
 						<p>liked</p>
 					</div>
-					<span></span>
+					<span>Attention</span>
 					<p>(The most liked song)</p>
 				</div>
 			</div>
 			<div class="bottom-link">
-				<a href="/admin_stereo/country">
+				<a href="/admin_stereo/liked_track">
 					<span>More Details >></span>
 				</a>
 			</div>

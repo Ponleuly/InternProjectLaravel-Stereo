@@ -266,9 +266,6 @@
             <a href="{{url('delete_createplaylist/'.$createplaylist->id)}}">
                 <span>Delete playlist</span>
             </a>
-            <a href="">
-                <span>Add more songs</span>
-            </a>
         </div>
     </div> 
     

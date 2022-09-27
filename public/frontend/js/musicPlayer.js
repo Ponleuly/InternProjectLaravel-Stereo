@@ -19,7 +19,7 @@
     const repeatIcon = $('#repeat');
     const boxContent = $('.box-content');
     const boxSingle = $('.box-single');
-    const boxContainer = $('#home-play');
+    const boxContainer = $('.box-container');
     const activeBtn = $('.play-button-pop-up');
     // bien app ->object
     const app = {
@@ -40,7 +40,7 @@
         songs : musicList,
 
         //display image title and singer of music
-        /*
+        
         render: function () {
             const htmls = this.songs.map((song, index)=> {
             return `
@@ -67,7 +67,7 @@
             })
             boxContainer.innerHTML = htmls.join("");
         },
-        */
+        
         handleEvents: function(){
             // để lưu cái this ở bên ngoài cho cái _this để sử dụng trong function ở bên dưới
             const _this = this; 
