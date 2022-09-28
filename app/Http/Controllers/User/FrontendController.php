@@ -25,7 +25,8 @@ class FrontendController extends Controller
     }
     public function home()
     {
-        $tracks = Track::orderBy('id')->paginate(14); //paginate(14) -> get 14 row of table
+        $tracks = Track::orderBy('id')->paginate(5); //paginate(14) -> get 14 row of table
+        //$tracks = Track::whereBetween('id', [10, 20])->paginate(5); // get track by id between id = 10 to 20 and get 5 track
         $artists = Artist::orderBy('id')->get();
         $albums = Album::orderBy('id')->get();
         $playlists = Playlist::orderBy('id')->where('id_user', '1')->get(); // get only playlist created by admin

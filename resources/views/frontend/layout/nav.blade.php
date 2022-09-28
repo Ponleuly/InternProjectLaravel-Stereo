@@ -8,6 +8,7 @@
     <!--============================== Nav Bar ======================================-->
     <div class="menu-items" id="nav-links">
         <ul class="nav-links">
+            
             <li>
                 <a href="{{url('home')}}" class="{{ Request::is('home')? 'active':''}}">
                     <span class="material-icons-round nav-icon">home</span>
