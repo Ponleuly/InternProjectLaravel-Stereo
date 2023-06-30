@@ -84,8 +84,7 @@ class PlaylistController extends Controller
         $playlist = Playlist::where('id', $id_playlist)->first();
         $img_playlist = $playlist->pf_playlist;
         $idPlaylist = $playlist->id; // Get id_category that selected when add playlist
-        $selected_track = Playlist_Track::where('id_playlist', $idPlaylist)->get(); // find id_category in Category
-
+        $selected_track = Playlist_Track::where('id_playlist', $idPlaylist)->get(); // find id_playlist in Playlist_Track
         $tracks = Track::orderBY('id')->get();
         $count = 1;
         $cnt = 1;
@@ -143,7 +142,7 @@ class PlaylistController extends Controller
 
     public function remove_track($id_playlist, $id_track)
     {
-        // Get row that contain id_playlist and id_track to delete 
+        // Get row that contain id_playlist and id_track to delete
         $remove_track = Playlist_Track::where('id_playlist', $id_playlist)->where('id_track', $id_track)->first();
         $remove_track->delete();
 

@@ -31,7 +31,7 @@ class DashboardController extends Controller
             //The most follower asrtist
             //$max_following = Follower::pluck('id_artist')->where('id_artist', '>', 1)->get();
             //$max_following = Follower::pluck('id_artist')->max();
-
+            /* Error not yet fixed
             $following_count = Follower::groupBy('id_artist')->distinct()->count();
             $most_following = Follower::distinct()->first();
             $following_artist = Artist::where('id', $most_following['id_artist'])->first();
@@ -41,6 +41,13 @@ class DashboardController extends Controller
             $most_liked = Liked::distinct()->first();
             $liked_track = Track::where('id', $most_liked['id_track'])->first();
             $name_track = $liked_track['name_track'];
+            */
+            $following_count = 100;
+            $liked_count = 100;
+
+            $name_artist = "Charlie Puth";
+            $name_track = "Charlie Puth";
+
 
             return view(
                 'admin.pages.dashboard',

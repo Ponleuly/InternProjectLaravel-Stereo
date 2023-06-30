@@ -94,7 +94,11 @@ Route::controller(CreateplaylistController::class)->middleware('AuthUser')->grou
     Route::get('remove_track/{id_playlist}/{id_track}', 'remove_track')->name('remove_track');
     Route::get('search_track', 'createplaylist_view')->name('search_track'); // Ajax search route when searching will send request to class "createplaylist_view"
 });
-/* ===================================================================================================================*/
+
+/* ==============================================================================================================================*/
+/* ==============================================================================================================================*/
+/* ==============================================================================================================================*/
+
 /*======================= Admin Auth route ==================*/
 Route::controller(AuthAdminController::class)->group(function () {
     Route::get('/admin_stereo', 'login')->name('login');

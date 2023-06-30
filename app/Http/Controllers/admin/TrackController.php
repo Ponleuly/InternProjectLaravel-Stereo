@@ -175,8 +175,8 @@ class TrackController extends Controller
         }
         if ($request->hasFile('audio_track')) {
             $audio_path = 'public/uploads/audios/' . $audio_track;
-            if (File::exists($audio_path)) {
-                File::delete($audio_path);
+            if (File::exists(public_path($audio_path))) {
+                File::delete(public_path($audio_path));
             }
 
             $destination_path = 'public/uploads/audios';

@@ -40,7 +40,7 @@ class CategoryController extends Controller
     {
         $input = $request->all();
         //$input = new Category($input);
-        //$input->save(); 
+        //$input->save();
         Category::create($input);
 
         // After inputed -> go back to category page

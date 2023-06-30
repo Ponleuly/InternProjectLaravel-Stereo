@@ -19,8 +19,8 @@
         border-top: 5px solid #0d3073;
         */
     }
-    .box-add-playlist-container .title-header{ 
-        font-size: 25px; 
+    .box-add-playlist-container .title-header{
+        font-size: 25px;
         font-weight: 500;
         font-family: 'Source Sans Pro', sans-serif;
         color: #fff;
@@ -53,13 +53,13 @@
     .box-fill span.detail{
         display: flex;
         justify-content: flex-end;
-        align-items: center; 
+        align-items: center;
         width: 120px;
         margin-right: 30px;
         font-family: 'Source Sans Pro', sans-serif;
         font-size: 18px;
         font-weight: 700;
-        
+
     }
     .box-fill input[type=text]{
         width: calc(100% - 150px);
@@ -131,7 +131,7 @@
     .img-upload:hover{
         border: 2px solid green;
     }
-    .form-fill .back-button{ 
+    .form-fill .back-button{
         width: 120px;
         height: 50px;
         padding: 10px 15px;
@@ -176,7 +176,7 @@
         background: white;
         color: #0d3073;
     }
-    
+
 </style>
 <div class="box-add-playlist-container">
     <div class="title-header">
@@ -201,7 +201,7 @@
                 <div class="box-fill">
                     <span class="detail">Add Tracks</span>
                     <div class="select-box" >
-                        <select name="id_track[]" multiple>
+                        <select name="id_track[]" multiple> <!-- using [] to input array that have many option -->
                             <option disabled selected>-- Choose Tracks --</option>
                             @foreach($tracks as $row)
                                 <option value="{{$row->id}}" style="margin-left: 10px;">
